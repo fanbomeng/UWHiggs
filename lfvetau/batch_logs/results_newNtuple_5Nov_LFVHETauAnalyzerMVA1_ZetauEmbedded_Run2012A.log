@@ -1,0 +1,135 @@
+INFO:__main__:Processing inputs/newNtuple_5Nov/ZetauEmbedded_Run2012A.txt using LFVHETauAnalyzerMVA1.py, the output file will be results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/ZetauEmbedded_Run2012A.root
+INFO:__main__:Generating submit scripts in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A
+INFO:FinalStateAnalysis.PlotTools.MegaPath:Checking inputs file inputs/newNtuple_5Nov/ZetauEmbedded_Run2012A.txt exists...
+INFO:__main__:Running over 113 files in 12 jobs
+Generating submit files in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/analyze...
+............
+Submit DAG file /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag has been created but not submitted.
+Jobs for Analyze are created in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/analyze
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650425
+Source URL: file:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/MergeLayer0/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/MergeLayer0/user_code.tgz
+Destination URL: gsiftp://g18n05.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/MergeLayer0/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    462.00 KB/sec avg    462.00 KB/sec inst      5242880 bytes   1498.62 KB/sec avg   3413.33 KB/sec inst     13631488 bytes   2947.43 KB/sec avg   7447.27 KB/sec inst     24117248 bytes   4193.38 KB/sec avg   9309.09 KB/sec inst     33554432 bytes   4952.49 KB/sec avg   9216.00 KB/sec inst     48234496 bytes   6184.49 KB/sec avg  14336.00 KB/sec inst     73400320 bytes   8223.51 KB/sec avg  22341.82 KB/sec inst    106954752 bytes  10749.58 KB/sec avg  32768.00 KB/sec inst    106954752 bytes  10749.58 KB/sec avg  32768.00 KB/sec inst
+Transfer took 24630 ms
+Generating submit files in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/MergeLayer0...
+..
+Submit DAG file /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag has been created but not submitted.
+Jobs for MergeLayer0 are created in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/MergeLayer0
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650435
+Source URL: file:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/FinalMerged/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/FinalMerged/user_code.tgz
+Destination URL: gsiftp://g18n30.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/FinalMerged/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    398.50 KB/sec avg    398.50 KB/sec inst     28311552 bytes   7745.29 KB/sec avg  26624.00 KB/sec inst     53477376 bytes  11183.70 KB/sec avg  22341.81 KB/sec inst     82837504 bytes  14268.24 KB/sec avg  28672.00 KB/sec inst    106954752 bytes  15660.18 KB/sec avg  23552.00 KB/sec inst    106954752 bytes  15660.18 KB/sec avg  23552.00 KB/sec inst    106954752 bytes  15660.18 KB/sec avg  23552.00 KB/sec inst    117640606 bytes  11640.06 KB/sec avg   3261.06 KB/sec inst    117640606 bytes  11640.06 KB/sec avg   3261.06 KB/sec inst
+Transfer took 12700 ms
+Generating submit files in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/FinalMerged...
+.
+Submitting job(s).
+1 job(s) submitted to cluster 2620654.
+
+-----------------------------------------------------------------------
+File for submitting this DAG to Condor           : /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.wrapper.condor.sub
+Log of DAGMan debugging messages                 : /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.wrapper.dagman.out
+Log of Condor library output                     : /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.wrapper.lib.out
+Log of Condor library error messages             : /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.wrapper.lib.err
+Log of the life of condor_dagman itself          : /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.wrapper.dagman.log
+
+-----------------------------------------------------------------------
+You can monitor your workflow's progess by watching /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.dagman.out
+A summary of the status of all of the jobs in your workflow will be
+written to the following file every 60 seconds:
+  /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag.status
+
+Your jobs should show up in ~6 minutes
+at the NEW job monitoring web page :
+    http://www.hep.wisc.edu/cms/comp/jobs/
+Jobs for FinalMerged are created in /nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/FinalMerged
+INFO:__main__:Waiting for job to complete
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(15)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(12) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(6) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(15)
+INFO:__main__:Copying final output /hdfs/store/user/fmeng/MegaJob_tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A//mergeFilesJob-mergeFilesJob-mega-batch-make_ntuples_cfg-patTuple_cfg-14991A50-A1E4-E211-B655-0023AEFDE6B8.root => results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/ZetauEmbedded_Run2012A.root
+INFO:__main__:[32m/nfs_scratch/fmeng/tmpf_szamLFVHETauAnalyzerMVA1-ZetauEmbedded_Run2012A/job.dag: job complete.[0m

@@ -1,0 +1,252 @@
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ggHiggsToETau.root`
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/vbfHiggsToETau.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ggHiggsToETau.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ggHiggsToETau.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ggHiggsToETau.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ggHiggsToETau.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/GluGluToHToTauTau_M-125_8TeV-powheg-pythia6.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/vbfHiggsToETau.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/vbfHiggsToETau.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/vbfHiggsToETau.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_vbfHiggsToETau.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/GluGluToHToTauTau_M-125_8TeV-powheg-pythia6.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/GluGluToHToTauTau_M-125_8TeV-powheg-pythia6.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/GluGluToHToTauTau_M-125_8TeV-powheg-pythia6.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_GluGluToHToTauTau_M-125_8TeV-powheg-pythia6.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsFullLepMGDecays.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_VBF_HToTauTau_M-125_8TeV-powheg-pythia6.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsSemiLepMGDecays.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsFullLepMGDecays.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/TTJetsFullLepMGDecays.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsFullLepMGDecays.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_TTJetsFullLepMGDecays.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_t-channel_TuneZ2star_8TeV-powheg-tauola.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsSemiLepMGDecays.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/TTJetsSemiLepMGDecays.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/TTJetsSemiLepMGDecays.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_TTJetsSemiLepMGDecays.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_t-channel_TuneZ2star_8TeV-powheg-tauola.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/T_t-channel_TuneZ2star_8TeV-powheg-tauola.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_t-channel_TuneZ2star_8TeV-powheg-tauola.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_T_t-channel_TuneZ2star_8TeV-powheg-tauola.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_t-channel_TuneZ2star_8TeV-powheg-tauola.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus2Jets_madgraph.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_t-channel_TuneZ2star_8TeV-powheg-tauola.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Tbar_t-channel_TuneZ2star_8TeV-powheg-tauola.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Tbar_t-channel_TuneZ2star_8TeV-powheg-tauola.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Tbar_t-channel_TuneZ2star_8TeV-powheg-tauola.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus4Jets_madgraph.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus2Jets_madgraph.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Wplus2Jets_madgraph.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus2Jets_madgraph.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Wplus2Jets_madgraph.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus1Jets_madgraph.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus4Jets_madgraph.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Wplus4Jets_madgraph.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus4Jets_madgraph.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Wplus4Jets_madgraph.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WplusJets_madgraph_skimmed.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus1Jets_madgraph.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Wplus1Jets_madgraph.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus1Jets_madgraph.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Wplus1Jets_madgraph.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus3Jets_madgraph.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WplusJets_madgraph_skimmed.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/WplusJets_madgraph_skimmed.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WplusJets_madgraph_skimmed.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_WplusJets_madgraph_skimmed.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WWJets.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus3Jets_madgraph.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Wplus3Jets_madgraph.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Wplus3Jets_madgraph.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Wplus3Jets_madgraph.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WZJets.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WWJets.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/WWJets.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WWJets.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_WWJets.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZZJets.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WZJets.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/WZJets.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/WZJets.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_WZJets.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedTT.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZZJets.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ZZJets.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZZJets.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ZZJets.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedTT.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedTT.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z4jets_M50_skimmedTT.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedTT.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z4jets_M50_skimmedTT.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedTT.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedTT.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z2jets_M50_skimmedTT.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedTT.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z2jets_M50_skimmedTT.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedLL.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedTT.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z0jets_M50_skimmedTT.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedTT.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z0jets_M50_skimmedTT.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedLL.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedLL.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z0jets_M50_skimmedLL.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z0jets_M50_skimmedLL.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z0jets_M50_skimmedLL.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedTT.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedLL.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z2jets_M50_skimmedLL.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z2jets_M50_skimmedLL.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z2jets_M50_skimmedLL.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedTT.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedTT.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z3jets_M50_skimmedTT.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedTT.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z3jets_M50_skimmedTT.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedLL.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedTT.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z1jets_M50_skimmedTT.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedTT.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z1jets_M50_skimmedTT.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedLL.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedLL.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z3jets_M50_skimmedLL.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z3jets_M50_skimmedLL.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z3jets_M50_skimmedLL.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedLL.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedLL.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z1jets_M50_skimmedLL.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z1jets_M50_skimmedLL.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z1jets_M50_skimmedLL.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedLL.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/Z4jets_M50_skimmedLL.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/Z4jets_M50_skimmedLL.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_Z4jets_M50_skimmedLL.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012A.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012C.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ZetauEmbedded_Run2012C.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012C.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ZetauEmbedded_Run2012C.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012A.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ZetauEmbedded_Run2012A.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012A.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ZetauEmbedded_Run2012A.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012B.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ZetauEmbedded_Run2012B.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012B.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ZetauEmbedded_Run2012B.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012C_22Jan2013_v1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012D.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/ZetauEmbedded_Run2012D.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/ZetauEmbedded_Run2012D.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_ZetauEmbedded_Run2012D.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012D_22Jan2013_v1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012C_22Jan2013_v1.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/data_SingleElectron_Run2012C_22Jan2013_v1.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012C_22Jan2013_v1.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_data_SingleElectron_Run2012C_22Jan2013_v1.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012B_22Jan2013_v1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012D_22Jan2013_v1.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/data_SingleElectron_Run2012D_22Jan2013_v1.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012D_22Jan2013_v1.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_data_SingleElectron_Run2012D_22Jan2013_v1.log &
+sleep 10s
+mkdir -p `dirname results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012A_22Jan2013_v1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012B_22Jan2013_v1.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/data_SingleElectron_Run2012B_22Jan2013_v1.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012B_22Jan2013_v1.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_data_SingleElectron_Run2012B_22Jan2013_v1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012A_22Jan2013_v1.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_5Nov/data_SingleElectron_Run2012A_22Jan2013_v1.txt results/newNtuple_5Nov/LFVHETauAnalyzerMVA/data_SingleElectron_Run2012A_22Jan2013_v1.root --verbose >& batch_logs/results_newNtuple_5Nov_LFVHETauAnalyzerMVA_data_SingleElectron_Run2012A_22Jan2013_v1.log &
+sleep 10s

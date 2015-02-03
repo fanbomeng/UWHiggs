@@ -1,0 +1,116 @@
+INFO:__main__:Processing inputs/newNtuple_5Nov/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.txt using LFVHETauAnalyzerMVA.py, the output file will be results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root
+INFO:__main__:Generating submit scripts in /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola
+INFO:FinalStateAnalysis.PlotTools.MegaPath:Checking inputs file inputs/newNtuple_5Nov/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.txt exists...
+INFO:__main__:Running over 51 files in 6 jobs
+Generating submit files in /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/analyze...
+......
+Submit DAG file /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag has been created but not submitted.
+Jobs for Analyze are created in /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/analyze
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2334616
+Source URL: file:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/FinalMerged/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/FinalMerged/user_code.tgz
+Destination URL: gsiftp://g12n23.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/FinalMerged/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    700.45 KB/sec avg    700.45 KB/sec inst     59768832 bytes  23708.32 KB/sec avg  57344.00 KB/sec inst     59768832 bytes  23708.32 KB/sec avg  57344.00 KB/sec inst     59768832 bytes  23708.32 KB/sec avg  57344.00 KB/sec inst    117640606 bytes  20655.35 KB/sec avg  18230.78 KB/sec inst
+Transfer took 8790 ms
+Generating submit files in /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/FinalMerged...
+.
+Submitting job(s).
+1 job(s) submitted to cluster 2427152.
+
+-----------------------------------------------------------------------
+File for submitting this DAG to Condor           : /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.wrapper.condor.sub
+Log of DAGMan debugging messages                 : /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.wrapper.dagman.out
+Log of Condor library output                     : /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.wrapper.lib.out
+Log of Condor library error messages             : /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.wrapper.lib.err
+Log of the life of condor_dagman itself          : /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.wrapper.dagman.log
+
+-----------------------------------------------------------------------
+You can monitor your workflow's progess by watching /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.dagman.out
+A summary of the status of all of the jobs in your workflow will be
+written to the following file every 60 seconds:
+  /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag.status
+
+Your jobs should show up in ~6 minutes
+at the NEW job monitoring web page :
+    http://www.hep.wisc.edu/cms/comp/jobs/
+Jobs for FinalMerged are created in /nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/FinalMerged
+INFO:__main__:Waiting for job to complete
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(5) [32mSTATUS_DONE[0m(1) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(5) [32mSTATUS_DONE[0m(1) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(5) [32mSTATUS_DONE[0m(1) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(5) [32mSTATUS_DONE[0m(1) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(4) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(4) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(5) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(5) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(7)
+INFO:__main__:Copying final output /hdfs/store/user/fmeng/MegaJob_tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola//mergeFilesJob-mega-batch-make_ntuples_cfg-patTuple_cfg-44835C44-0EDD-E111-85C3-0030486791F2.root => results/newNtuple_5Nov/LFVHETauAnalyzerMVA/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola.root
+INFO:__main__:[32m/nfs_scratch/fmeng/tmp8JrpLaLFVHETauAnalyzerMVA-T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/job.dag: job complete.[0m

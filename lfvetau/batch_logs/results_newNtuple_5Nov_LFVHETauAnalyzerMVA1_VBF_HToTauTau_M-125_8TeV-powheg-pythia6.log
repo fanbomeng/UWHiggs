@@ -1,0 +1,132 @@
+INFO:__main__:Processing inputs/newNtuple_5Nov/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.txt using LFVHETauAnalyzerMVA1.py, the output file will be results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.root
+INFO:__main__:Generating submit scripts in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6
+INFO:FinalStateAnalysis.PlotTools.MegaPath:Checking inputs file inputs/newNtuple_5Nov/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.txt exists...
+INFO:__main__:Running over 102 files in 11 jobs
+Generating submit files in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/analyze...
+...........
+Submit DAG file /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag has been created but not submitted.
+Jobs for Analyze are created in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/analyze
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650399
+Source URL: file:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/MergeLayer0/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/MergeLayer0/user_code.tgz
+Destination URL: gsiftp://g14n01.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/MergeLayer0/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    606.81 KB/sec avg    606.81 KB/sec inst     45088768 bytes  16383.99 KB/sec avg  43008.00 KB/sec inst     75497472 bytes  19994.03 KB/sec avg  29696.00 KB/sec inst     94371840 bytes  19250.13 KB/sec avg  16756.37 KB/sec inst    106954752 bytes  18047.17 KB/sec avg  12288.00 KB/sec inst    114294784 bytes  16444.34 KB/sec avg   7168.00 KB/sec inst    114294784 bytes  16444.34 KB/sec avg   7168.00 KB/sec inst
+Transfer took 8040 ms
+Generating submit files in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/MergeLayer0...
+..
+Submit DAG file /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag has been created but not submitted.
+Jobs for MergeLayer0 are created in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/MergeLayer0
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650431
+Source URL: file:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/FinalMerged/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/FinalMerged/user_code.tgz
+Destination URL: gsiftp://g18n15.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/FinalMerged/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    346.56 KB/sec avg    346.56 KB/sec inst     16777216 bytes   4142.84 KB/sec avg  15360.00 KB/sec inst     93323264 bytes  18393.57 KB/sec avg  74752.00 KB/sec inst     93323264 bytes  18393.57 KB/sec avg  74752.00 KB/sec inst
+Transfer took 6030 ms
+Generating submit files in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/FinalMerged...
+.
+Submitting job(s).
+1 job(s) submitted to cluster 2620628.
+
+-----------------------------------------------------------------------
+File for submitting this DAG to Condor           : /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.wrapper.condor.sub
+Log of DAGMan debugging messages                 : /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.wrapper.dagman.out
+Log of Condor library output                     : /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.wrapper.lib.out
+Log of Condor library error messages             : /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.wrapper.lib.err
+Log of the life of condor_dagman itself          : /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.wrapper.dagman.log
+
+-----------------------------------------------------------------------
+You can monitor your workflow's progess by watching /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.dagman.out
+A summary of the status of all of the jobs in your workflow will be
+written to the following file every 60 seconds:
+  /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag.status
+
+Your jobs should show up in ~6 minutes
+at the NEW job monitoring web page :
+    http://www.hep.wisc.edu/cms/comp/jobs/
+Jobs for FinalMerged are created in /nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/FinalMerged
+INFO:__main__:Waiting for job to complete
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(14)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(11) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(11) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(11) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(11) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(11) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(8) [32mSTATUS_DONE[0m(3) [34mSTATUS_UNREADY[0m(3)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(12) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(13)
+INFO:__main__:/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(14)
+INFO:__main__:Copying final output /hdfs/store/user/fmeng/MegaJob_tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6//mergeFilesJob-mergeFilesJob-mega-batch-make_ntuples_cfg-patTuple_cfg-CA263FA7-98ED-E111-9495-1CC1DE1CDDBC.root => results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/VBF_HToTauTau_M-125_8TeV-powheg-pythia6.root
+INFO:__main__:[32m/nfs_scratch/fmeng/tmpfT3ptyLFVHETauAnalyzerMVA1-VBF_HToTauTau_M-125_8TeV-powheg-pythia6/job.dag: job complete.[0m

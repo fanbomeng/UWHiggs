@@ -1,0 +1,89 @@
+imax    1     number of categories 
+jmax    9     number of samples minus one 
+kmax    *     number of nuisance parameters 
+------------------------------------------------------------------------------- 
+shapes * * shapesETau2Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+shapes LFVGG * shapesETau2Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+shapes LFVVBF * shapesETau2Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+------------------------------------------------------------------------------- 
+bin                              vbfetau        
+observation                      12             
+------------------------------------------------------------------------------- 
+bin                              vbfetau       vbfetau       vbfetau       vbfetau       vbfetau       vbfetau       vbfetau       vbfetau       vbfetau       vbfetau        
+process                          -1            0             1             2             3             4             5             6             7             8              
+process                          LFVGG         LFVVBF        diboson       ttbar         singlet       ztautau       zjetsother    fakes         SMVBF126      SMGG126        
+rate                             1.3777        1.53077       0.801066      1.20552       6.14247       10.8581       4.02368       15.8255       0.825014      0.282288       
+------------------------------------------------------------------------------- 
+lumi lnN                         1.026         1.026         1.026         1.026         1.026         1.026         1.026         -             1.026         1.026          
+Effi_et_Tau lnN                  1.06          1.06          1.060         1.060         1.060         1.060         1.060         -             1.060         1.060          
+Effi_et_Tau_highPt lnN           1.03          1.03          1.030         1.030         1.030         1.030         1.030         -             1.030         1.030          
+Theo_UE lnN                       0.9          0.99          -             -             -             -             -             -             0.990         0.900          
+Theo_Scale_gg lnN                 0.7          -             -             -             -             -             -             -             -             0.700          
+Theo_PDF_gg lnN                  1.097         -             -             -             -             -             -             -             -             1.097          
+Theo_Scale_vbf lnN               -             1.02          -             -             -             -             -             -             1.020         -              
+Theo_PDF_vbf lnN                 -             1.036         -             -             -             -             -             -             1.036         -              
+Norm_ZTauTau lnN                 -             -             -             -             -             1.030         -             -             -             -              
+Norm_ZTauTau_et_vbf_extra lnN    -             -             -             -             -             1.100         -             -             -             -              
+Norm_TT_et_vbf_extra lnN         -             -             -             1.330         -             -             -             -             -             -              
+Norm_ZJetsOther lnN              -             -             -             -             -             -             1.300         -             -             -              
+Norm_DIBOSON lnN                 -             -             1.150         -             -             -             -             -             -             -              
+Norm_TT lnN                      -             -             -             1.100         -             -             -             -             -             -              
+Norm_FAKES lnN                   -             -             -             -             -             -             -             1.300         -             -              
+Norm_TOP lnN                     -             -             -             -             1.100         -             -             -             -             -              
+fakes_vbfetau_stat lnN           -             -             -             -             -             -             -             1.330         -             -              
+SMGG126_vbfetau_stat lnN         -             -             -             -             -             -             -             -             -             1.420          
+SMVBF126_vbfetau_stat lnN        -             -             -             -             -             -             -             -             1.050         -              
+ttbar_vbfetau_stat lnN           -             -             -             1.220         -             -             -             -             -             -              
+singlet_vbfetau_stat lnN         -             -             -             -             2.000         -             -             -             -             -              
+ztautau_vbfetau_stat lnN         -             -             -             -             -             1.170         -             -             -             -              
+diboson_vbfetau_stat lnN         -             -             1.410         -             -             -             -             -             -             -              
+zjetsother_vbfetau_stat lnN      -             -             -             -             -             -             1.260         -             -             -              
+JES shape                        -             -             1.000         1.000         1.000         -             1.000         -             1.000         1.000          
+E_Iso lnN                        -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+TES shape                        -             -             -             -             -             1.000         -             -             1.000         1.000          
+EES shape                        -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+shape_FAKES shape                -             -             -             -             -             -             -             1.000         -             -              
+E_Trig lnN                       -             -             1.010         1.010         1.010         1.010         1.010         -             1.010         1.010          
+E_ID lnN                         -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+UES shape                        -             -             1.000         1.000         1.000         -             1.000         -             1.000         1.000          
+PU_Uncertainty lnN               -             -             1.030         1.030         1.030         -             1.030         -             1.030         1.030          
+vbfetau_fakes_bin_1 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_2 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_3 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_4 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_5 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_6 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_7 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_fakes_bin_8 shape        -             -             -             -             -             -             -             1.000         -             -              
+vbfetau_ttbar_bin_1 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_2 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_3 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_4 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_5 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_6 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_7 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_ttbar_bin_8 shape        -             -             -             1.000         -             -             -             -             -             -              
+vbfetau_singlet_bin_1 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_2 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_3 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_4 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_5 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_6 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_7 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_singlet_bin_8 shape      -             -             -             -             1.000         -             -             -             -             -              
+vbfetau_ztautau_bin_1 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_2 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_3 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_4 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_5 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_6 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_7 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_ztautau_bin_8 shape      -             -             -             -             -             1.000         -             -             -             -              
+vbfetau_SMVBF126_bin_1 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_2 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_3 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_4 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_5 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_6 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_7 shape     -             -             -             -             -             -             -             -             1.000         -              
+vbfetau_SMVBF126_bin_8 shape     -             -             -             -             -             -             -             -             1.000         -              

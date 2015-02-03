@@ -1,0 +1,208 @@
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/0//shapes.root output: limits/newNtuple_5Nov/0//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for fakes
+WARNING:stat_shapes:gg0etau_fakes_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 1
+WARNING:stat_shapes:gg0etau_fakes_bin_2Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 2
+WARNING:stat_shapes:gg0etau_fakes_bin_3Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 3
+WARNING:stat_shapes:gg0etau_fakes_bin_4Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 4
+WARNING:stat_shapes:gg0etau_fakes_bin_5Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 5
+WARNING:stat_shapes:gg0etau_fakes_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 6
+WARNING:stat_shapes:gg0etau_fakes_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 7
+INFO:stat_shapes:==> built shape for fakes bin 8
+INFO:stat_shapes:==> built shape for fakes bin 9
+INFO:stat_shapes:==> built shape for fakes bin 10
+INFO:stat_shapes:==> built shape for fakes bin 11
+INFO:stat_shapes:==> built shape for fakes bin 12
+INFO:stat_shapes:==> built shape for fakes bin 13
+INFO:stat_shapes:==> built shape for fakes bin 14
+INFO:stat_shapes:==> built shape for fakes bin 15
+INFO:stat_shapes:==> built shape for fakes bin 16
+INFO:stat_shapes:==> built shape for fakes bin 17
+INFO:stat_shapes:==> built shape for fakes bin 18
+INFO:stat_shapes:==> built shape for fakes bin 19
+INFO:stat_shapes:==> built shape for fakes bin 20
+INFO:stat_shapes:==> built shape for fakes bin 21
+INFO:stat_shapes:==> built shape for fakes bin 22
+INFO:stat_shapes:==> built shape for fakes bin 23
+INFO:stat_shapes:==> built shape for fakes bin 24
+INFO:stat_shapes:==> built shape for fakes bin 25
+INFO:stat_shapes:==> built shape for fakes bin 26
+INFO:stat_shapes:==> built shape for fakes bin 27
+INFO:stat_shapes:==> built shape for fakes bin 28
+INFO:stat_shapes:==> built shape for fakes bin 29
+INFO:stat_shapes:==> built shape for fakes bin 30
+INFO:stat_shapes:==> built shape for fakes bin 31
+WARNING:stat_shapes:gg0etau_fakes_bin_32Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 32
+INFO:stat_shapes:==> built shape for fakes bin 33
+INFO:stat_shapes:==> built shape for fakes bin 34
+INFO:stat_shapes:==> built shape for fakes bin 35
+INFO:stat_shapes:==> built shape for fakes bin 36
+INFO:stat_shapes:==> built shape for fakes bin 37
+INFO:stat_shapes:==> built shape for fakes bin 38
+INFO:stat_shapes:==> built shape for fakes bin 39
+INFO:stat_shapes:==> built shape for fakes bin 40
+INFO:stat_shapes:Moving temprorary output to final destination
+cd limits/newNtuple_5Nov//0
+compute_significance.sh 126 YES datacard_et_0.txt
+cd -
+touch limits/newNtuple_5Nov//0/.significance_timestamp
+./prepare_limit.sh 1
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/1//shapes.root output: limits/newNtuple_5Nov/1//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for fakes
+WARNING:stat_shapes:boostetau_fakes_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 1
+WARNING:stat_shapes:boostetau_fakes_bin_2Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 2
+INFO:stat_shapes:==> built shape for fakes bin 3
+WARNING:stat_shapes:boostetau_fakes_bin_4Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 4
+INFO:stat_shapes:==> built shape for fakes bin 5
+INFO:stat_shapes:==> built shape for fakes bin 6
+INFO:stat_shapes:==> built shape for fakes bin 7
+INFO:stat_shapes:==> built shape for fakes bin 8
+WARNING:stat_shapes:boostetau_fakes_bin_9Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 9
+WARNING:stat_shapes:boostetau_fakes_bin_10Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 10
+INFO:stat_shapes:==> built shape for fakes bin 11
+INFO:stat_shapes:==> built shape for fakes bin 12
+INFO:stat_shapes:==> built shape for fakes bin 13
+INFO:stat_shapes:==> built shape for fakes bin 14
+INFO:stat_shapes:==> built shape for fakes bin 15
+INFO:stat_shapes:==> built shape for fakes bin 16
+INFO:stat_shapes:==> built shape for fakes bin 17
+INFO:stat_shapes:==> built shape for fakes bin 18
+INFO:stat_shapes:==> built shape for fakes bin 19
+INFO:stat_shapes:==> built shape for fakes bin 20
+INFO:stat_shapes:==> built shape for fakes bin 21
+INFO:stat_shapes:==> built shape for fakes bin 22
+INFO:stat_shapes:==> built shape for fakes bin 23
+INFO:stat_shapes:==> built shape for fakes bin 24
+INFO:stat_shapes:==> built shape for fakes bin 25
+INFO:stat_shapes:==> built shape for fakes bin 26
+INFO:stat_shapes:==> built shape for fakes bin 27
+INFO:stat_shapes:==> built shape for fakes bin 28
+INFO:stat_shapes:==> built shape for fakes bin 29
+INFO:stat_shapes:==> built shape for fakes bin 30
+WARNING:stat_shapes:boostetau_fakes_bin_31Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 31
+INFO:stat_shapes:==> built shape for fakes bin 32
+WARNING:stat_shapes:boostetau_fakes_bin_33Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 33
+INFO:stat_shapes:==> built shape for fakes bin 34
+INFO:stat_shapes:==> built shape for fakes bin 35
+WARNING:stat_shapes:boostetau_fakes_bin_36Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 36
+INFO:stat_shapes:==> built shape for fakes bin 37
+WARNING:stat_shapes:boostetau_fakes_bin_38Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 38
+WARNING:stat_shapes:boostetau_fakes_bin_39Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 39
+INFO:stat_shapes:==> built shape for fakes bin 40
+INFO:stat_shapes:Moving temprorary output to final destination
+cd limits/newNtuple_5Nov//1
+compute_significance.sh 126 YES datacard_et_1.txt
+cd -
+touch limits/newNtuple_5Nov//1/.significance_timestamp
+./prepare_limit.sh 2
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/2//shapes.root output: limits/newNtuple_5Nov/2//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for fakes
+WARNING:stat_shapes:vbfetau_fakes_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 1
+INFO:stat_shapes:==> built shape for fakes bin 2
+INFO:stat_shapes:==> built shape for fakes bin 3
+WARNING:stat_shapes:vbfetau_fakes_bin_4Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 4
+WARNING:stat_shapes:vbfetau_fakes_bin_5Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 5
+WARNING:stat_shapes:vbfetau_fakes_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 6
+WARNING:stat_shapes:vbfetau_fakes_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 7
+WARNING:stat_shapes:vbfetau_fakes_bin_8Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for fakes bin 8
+INFO:stat_shapes:Moving temprorary output to final destination
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/2//shapes.root output: limits/newNtuple_5Nov/2//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for ttbar
+WARNING:stat_shapes:vbfetau_ttbar_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ttbar bin 1
+INFO:stat_shapes:==> built shape for ttbar bin 2
+INFO:stat_shapes:==> built shape for ttbar bin 3
+INFO:stat_shapes:==> built shape for ttbar bin 4
+INFO:stat_shapes:==> built shape for ttbar bin 5
+WARNING:stat_shapes:vbfetau_ttbar_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ttbar bin 6
+WARNING:stat_shapes:vbfetau_ttbar_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ttbar bin 7
+WARNING:stat_shapes:vbfetau_ttbar_bin_8Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ttbar bin 8
+INFO:stat_shapes:Moving temprorary output to final destination
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/2//shapes.root output: limits/newNtuple_5Nov/2//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for singlet
+WARNING:stat_shapes:vbfetau_singlet_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 1
+WARNING:stat_shapes:vbfetau_singlet_bin_2Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 2
+WARNING:stat_shapes:vbfetau_singlet_bin_3Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 3
+WARNING:stat_shapes:vbfetau_singlet_bin_4Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 4
+WARNING:stat_shapes:vbfetau_singlet_bin_5Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 5
+WARNING:stat_shapes:vbfetau_singlet_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 6
+WARNING:stat_shapes:vbfetau_singlet_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 7
+WARNING:stat_shapes:vbfetau_singlet_bin_8Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for singlet bin 8
+INFO:stat_shapes:Moving temprorary output to final destination
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/2//shapes.root output: limits/newNtuple_5Nov/2//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for ztautau
+WARNING:stat_shapes:vbfetau_ztautau_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ztautau bin 1
+INFO:stat_shapes:==> built shape for ztautau bin 2
+INFO:stat_shapes:==> built shape for ztautau bin 3
+WARNING:stat_shapes:vbfetau_ztautau_bin_4Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ztautau bin 4
+INFO:stat_shapes:==> built shape for ztautau bin 5
+WARNING:stat_shapes:vbfetau_ztautau_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ztautau bin 6
+WARNING:stat_shapes:vbfetau_ztautau_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ztautau bin 7
+WARNING:stat_shapes:vbfetau_ztautau_bin_8Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for ztautau bin 8
+INFO:stat_shapes:Moving temprorary output to final destination
+INFO:stat_shapes:Modifying in place!  Backing up input file...
+INFO:stat_shapes:Building shape systematics. input: limits/newNtuple_5Nov/2//shapes.root output: limits/newNtuple_5Nov/2//shapes.tmp.root
+INFO:stat_shapes:Building stat shapes for SMVBF126
+WARNING:stat_shapes:vbfetau_SMVBF126_bin_1Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for SMVBF126 bin 1
+INFO:stat_shapes:==> built shape for SMVBF126 bin 2
+INFO:stat_shapes:==> built shape for SMVBF126 bin 3
+INFO:stat_shapes:==> built shape for SMVBF126 bin 4
+WARNING:stat_shapes:vbfetau_SMVBF126_bin_5Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for SMVBF126 bin 5
+WARNING:stat_shapes:vbfetau_SMVBF126_bin_6Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for SMVBF126 bin 6
+WARNING:stat_shapes:vbfetau_SMVBF126_bin_7Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for SMVBF126 bin 7
+WARNING:stat_shapes:vbfetau_SMVBF126_bin_8Down, is negative, pegged to zero
+INFO:stat_shapes:==> built shape for SMVBF126 bin 8
+INFO:stat_shapes:Moving temprorary output to final destination
+cd limits/newNtuple_5Nov//2
+compute_significance.sh 126 YES datacard_et_2.txt
+cd -
+touch limits/newNtuple_5Nov//2/.significance_timestamp

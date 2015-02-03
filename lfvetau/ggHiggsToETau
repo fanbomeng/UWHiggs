@@ -1,0 +1,8 @@
+mkdir -p `dirname results/newNtuple_10Oct/LFVHETauAnalyzerMVA/ggHiggsToETau.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/newNtuple_10Oct/LFVHETauAnalyzerMVA/ggHiggsToETau.root
+mkdir -p batch_logs
+mega-farmout LFVHETauAnalyzerMVA.py inputs/newNtuple_10Oct/ggHiggsToETau.txt results/newNtuple_10Oct/LFVHETauAnalyzerMVA/ggHiggsToETau.root --verbose >& batch_logs/results_newNtuple_10Oct_LFVHETauAnalyzerMVA_ggHiggsToETau.log &
+sleep 10s
+

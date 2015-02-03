@@ -1,0 +1,333 @@
+INFO:__main__:Processing inputs/newNtuple_5Nov/Z0jets_M50_skimmedLL.txt using LFVHETauAnalyzerMVA1.py, the output file will be results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/Z0jets_M50_skimmedLL.root
+INFO:__main__:Generating submit scripts in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL
+INFO:FinalStateAnalysis.PlotTools.MegaPath:Checking inputs file inputs/newNtuple_5Nov/Z0jets_M50_skimmedLL.txt exists...
+INFO:__main__:Running over 2559 files in 256 jobs
+Generating submit files in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/analyze...
+................................................................................................................................................................................................................................................................
+Submit DAG file /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag has been created but not submitted.
+Jobs for Analyze are created in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/analyze
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650420
+Source URL: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer0/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer0/user_code.tgz
+Destination URL: gsiftp://g14n24.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer0/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    638.09 KB/sec avg    638.09 KB/sec inst      9437184 bytes   3407.30 KB/sec avg   7447.27 KB/sec inst     13631488 bytes   3498.76 KB/sec avg   3723.64 KB/sec inst     19922944 bytes   3966.74 KB/sec avg   5585.45 KB/sec inst     25165824 bytes   4162.05 KB/sec avg   5120.00 KB/sec inst     25165824 bytes   4162.05 KB/sec avg   5120.00 KB/sec inst     30408704 bytes   4239.39 KB/sec avg   4654.55 KB/sec inst     35651584 bytes   4295.74 KB/sec avg   4654.54 KB/sec inst     41943040 bytes   4498.73 KB/sec avg   6144.00 KB/sec inst     49283072 bytes   4762.89 KB/sec avg   7168.00 KB/sec inst     56623104 bytes   4979.48 KB/sec avg   7168.00 KB/sec inst     65011712 bytes   5201.90 KB/sec avg   7447.27 KB/sec inst     75497472 bytes   5583.43 KB/sec avg  10240.00 KB/sec inst     85983232 bytes   5869.93 KB/sec avg   9309.09 KB/sec inst     96468992 bytes   6115.50 KB/sec avg   9309.09 KB/sec inst    104857600 bytes   6242.08 KB/sec avg   8192.00 KB/sec inst    110100480 bytes   6142.32 KB/sec avg   4654.55 KB/sec inst    117440512 bytes   6197.75 KB/sec avg   7168.00 KB/sec inst
+Transfer took 29860 ms
+Generating submit files in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer0...
+..........................
+Submit DAG file /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag has been created but not submitted.
+Jobs for MergeLayer0 are created in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer0
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650451
+Source URL: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer1/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer1/user_code.tgz
+Destination URL: gsiftp://g19n16.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer1/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    357.83 KB/sec avg    357.83 KB/sec inst     23068672 bytes   5686.43 KB/sec avg  19549.09 KB/sec inst     46137344 bytes   9080.74 KB/sec avg  22528.00 KB/sec inst     70254592 bytes  11508.11 KB/sec avg  23552.00 KB/sec inst     70254592 bytes  11508.11 KB/sec avg  23552.00 KB/sec inst     83886080 bytes  11600.59 KB/sec avg  12101.82 KB/sec inst    101711872 bytes  12320.96 KB/sec avg  17408.00 KB/sec inst    117440512 bytes  12656.33 KB/sec avg  15360.00 KB/sec inst
+Transfer took 10040 ms
+Generating submit files in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer1...
+...
+Submit DAG file /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag has been created but not submitted.
+Jobs for MergeLayer1 are created in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/MergeLayer1
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650505
+Source URL: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/FinalMerged/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/FinalMerged/user_code.tgz
+Destination URL: gsiftp://g23n13.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/FinalMerged/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    441.41 KB/sec avg    441.41 KB/sec inst     14680064 bytes   4318.31 KB/sec avg  13312.00 KB/sec inst     28311552 bytes   6400.28 KB/sec avg  13312.00 KB/sec inst     39845888 bytes   7314.54 KB/sec avg  11264.00 KB/sec inst     50331648 bytes   7777.44 KB/sec avg  10240.00 KB/sec inst     60817408 bytes   8004.51 KB/sec avg   9309.09 KB/sec inst     73400320 bytes   8413.33 KB/sec avg  11170.91 KB/sec inst     97517568 bytes  10003.56 KB/sec avg  23552.00 KB/sec inst     97517568 bytes  10003.56 KB/sec avg  23552.00 KB/sec inst
+Transfer took 11020 ms
+Generating submit files in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/FinalMerged...
+.
+Submitting job(s).
+1 job(s) submitted to cluster 2620783.
+
+-----------------------------------------------------------------------
+File for submitting this DAG to Condor           : /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.wrapper.condor.sub
+Log of DAGMan debugging messages                 : /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.wrapper.dagman.out
+Log of Condor library output                     : /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.wrapper.lib.out
+Log of Condor library error messages             : /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.wrapper.lib.err
+Log of the life of condor_dagman itself          : /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.wrapper.dagman.log
+
+-----------------------------------------------------------------------
+You can monitor your workflow's progess by watching /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.dagman.out
+A summary of the status of all of the jobs in your workflow will be
+written to the following file every 60 seconds:
+  /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag.status
+
+Your jobs should show up in ~6 minutes
+at the NEW job monitoring web page :
+    http://www.hep.wisc.edu/cms/comp/jobs/
+Jobs for FinalMerged are created in /nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/FinalMerged
+INFO:__main__:Waiting for job to complete
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(286)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(241)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(11) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(226)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(20) [32mSTATUS_DONE[0m(25) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(211)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(36) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(196)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(30) [32mSTATUS_DONE[0m(45) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(181)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(33) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(166)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(40) [32mSTATUS_DONE[0m(65) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(151)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(45) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(136)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(51) [32mSTATUS_DONE[0m(84) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(121)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(90) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(106)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(61) [32mSTATUS_DONE[0m(104) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(91)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(67) [32mSTATUS_DONE[0m(113) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(76)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(73) [32mSTATUS_DONE[0m(122) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(61)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(131) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(46)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(96) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(30) [36mSTATUS_READY[0m(16)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(101) [32mSTATUS_DONE[0m(155) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(88) [32mSTATUS_DONE[0m(168) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(83) [32mSTATUS_DONE[0m(173) [34mSTATUS_UNREADY[0m(30)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(72) [32mSTATUS_DONE[0m(185) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(49) [32mSTATUS_DONE[0m(208) [34mSTATUS_UNREADY[0m(29)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(38) [32mSTATUS_DONE[0m(224) [34mSTATUS_UNREADY[0m(24)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(27) [32mSTATUS_DONE[0m(245) [34mSTATUS_UNREADY[0m(13) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(26) [32mSTATUS_DONE[0m(249) [34mSTATUS_UNREADY[0m(11)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(25) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(9)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(24) [32mSTATUS_DONE[0m(256) [34mSTATUS_UNREADY[0m(6)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(19) [32mSTATUS_DONE[0m(262) [34mSTATUS_UNREADY[0m(5)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(6) [32mSTATUS_DONE[0m(276) [34mSTATUS_UNREADY[0m(4)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(2) [32mSTATUS_DONE[0m(283) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(285)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(285)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(1) [32mSTATUS_DONE[0m(285)
+INFO:__main__:/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(286)
+INFO:__main__:Copying final output /hdfs/store/user/fmeng/MegaJob_tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL//mergeFilesJob-mergeFilesJob-mergeFilesJob-mega-batch-make_ntuples_cfg-patTuple_cfg-9AD3B554-26D3-E111-AF6B-001E67396973.root => results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/Z0jets_M50_skimmedLL.root
+INFO:__main__:[32m/nfs_scratch/fmeng/tmpUJPIKiLFVHETauAnalyzerMVA1-Z0jets_M50_skimmedLL/job.dag: job complete.[0m

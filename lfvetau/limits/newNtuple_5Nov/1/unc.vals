@@ -1,0 +1,84 @@
+boostetau gghiggs  Theo_PDF_gg  1.097
+boostetau vbfhiggs Theo_PDF_vbf 1.036
+
+boostetau gghiggs  Theo_UE 0.95
+boostetau vbfhiggs Theo_UE 1.0
+
+boostetau gghiggs  Theo_Scale_gg  1.1
+boostetau vbfhiggs Theo_Scale_vbf 1.015
+
+boostetau ztautau    Norm_ZTauTau 1.03
+boostetau ztautau    Norm_ZTauTau_et_1Jet_extra 1.05
+boostetau zjetsother Norm_ZJetsOther 1.3
+
+boostetau simulated  lumi     	     1.026
+#boostetau simulated  Effi_E  	     1.02
+boostetau simulated  Effi_et_Tau     1.06
+boostetau simulated  Effi_et_Tau_highPt 1.03
+
+boostetau diboson   Norm_DIBOSON    1.15
+boostetau singlet   Norm_TOP   1.10
+boostetau ttbar     Norm_TT    1.10
+boostetau fakes     Norm_FAKES 1.30
+
+#boostetau signal,ztautau,SMVBF126,SMGG126 shape_ETau_TES 1
+boostetau fakes fakes_boostetau_stat 1.05
+boostetau SMGG126 SMGG126_boostetau_stat 1.06
+boostetau SMVBF126 SMVBF126_boostetau_stat 1.05
+boostetau ttbar ttbar_boostetau_stat 1.04
+boostetau singlet singlet_boostetau_stat 1.19
+boostetau ztautau ztautau_boostetau_stat 1.02
+boostetau diboson diboson_boostetau_stat 1.05
+boostetau zjetsother zjetsother_boostetau_stat 1.06
+boostetau SMGG126,SMVBF126,ttbar,singlet,diboson,zjetsother JES 1.00
+boostetau SMGG126,SMVBF126,ttbar,singlet,ztautau,diboson,zjetsother E_Iso 1.00
+boostetau ztautau,SMGG126,SMVBF126 TES 1.00
+boostetau SMGG126,SMVBF126,ttbar,singlet,ztautau,diboson,zjetsother EES 1.00
+boostetau fakes shape_FAKES 1.00
+boostetau SMGG126,SMVBF126,ttbar,singlet,ztautau,diboson,zjetsother E_Trig 1.01
+boostetau SMGG126,SMVBF126,ttbar,singlet,ztautau,diboson,zjetsother E_ID 1.00
+boostetau SMGG126,SMVBF126,ttbar,singlet,diboson,zjetsother UES 1.00
+boostetau SMGG126,SMVBF126,ttbar,singlet,diboson,zjetsother PU_Uncertainty 1.03
+
+#bbb uncertainties
+
+boostetau fakes boostetau_fakes_bin_1 1.0
+boostetau fakes boostetau_fakes_bin_2 1.0
+boostetau fakes boostetau_fakes_bin_3 1.0
+boostetau fakes boostetau_fakes_bin_4 1.0
+boostetau fakes boostetau_fakes_bin_5 1.0
+boostetau fakes boostetau_fakes_bin_6 1.0
+boostetau fakes boostetau_fakes_bin_7 1.0
+boostetau fakes boostetau_fakes_bin_8 1.0
+boostetau fakes boostetau_fakes_bin_9 1.0
+boostetau fakes boostetau_fakes_bin_10 1.0
+boostetau fakes boostetau_fakes_bin_11 1.0
+boostetau fakes boostetau_fakes_bin_12 1.0
+boostetau fakes boostetau_fakes_bin_13 1.0
+boostetau fakes boostetau_fakes_bin_14 1.0
+boostetau fakes boostetau_fakes_bin_15 1.0
+boostetau fakes boostetau_fakes_bin_16 1.0
+boostetau fakes boostetau_fakes_bin_17 1.0
+boostetau fakes boostetau_fakes_bin_18 1.0
+boostetau fakes boostetau_fakes_bin_19 1.0
+boostetau fakes boostetau_fakes_bin_20 1.0
+boostetau fakes boostetau_fakes_bin_21 1.0
+boostetau fakes boostetau_fakes_bin_22 1.0
+boostetau fakes boostetau_fakes_bin_23 1.0
+boostetau fakes boostetau_fakes_bin_24 1.0
+boostetau fakes boostetau_fakes_bin_25 1.0
+boostetau fakes boostetau_fakes_bin_26 1.0
+boostetau fakes boostetau_fakes_bin_27 1.0
+boostetau fakes boostetau_fakes_bin_28 1.0
+boostetau fakes boostetau_fakes_bin_29 1.0
+boostetau fakes boostetau_fakes_bin_30 1.0
+boostetau fakes boostetau_fakes_bin_31 1.0
+boostetau fakes boostetau_fakes_bin_32 1.0
+boostetau fakes boostetau_fakes_bin_33 1.0
+boostetau fakes boostetau_fakes_bin_34 1.0
+boostetau fakes boostetau_fakes_bin_35 1.0
+boostetau fakes boostetau_fakes_bin_36 1.0
+boostetau fakes boostetau_fakes_bin_37 1.0
+boostetau fakes boostetau_fakes_bin_38 1.0
+boostetau fakes boostetau_fakes_bin_39 1.0
+boostetau fakes boostetau_fakes_bin_40 1.0

@@ -1,0 +1,324 @@
+INFO:__main__:Processing inputs/newNtuple_5Nov/data_SingleElectron_Run2012B_22Jan2013_v1.txt using LFVHETauAnalyzerMVA1.py, the output file will be results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/data_SingleElectron_Run2012B_22Jan2013_v1.root
+INFO:__main__:Generating submit scripts in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1
+INFO:FinalStateAnalysis.PlotTools.MegaPath:Checking inputs file inputs/newNtuple_5Nov/data_SingleElectron_Run2012B_22Jan2013_v1.txt exists...
+INFO:__main__:Running over 5295 files in 530 jobs
+Generating submit files in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/analyze...
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Submit DAG file /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag has been created but not submitted.
+Jobs for Analyze are created in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/analyze
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650593
+Source URL: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer0/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer0/user_code.tgz
+Destination URL: gsiftp://g12n23.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer0/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    503.56 KB/sec avg    503.56 KB/sec inst     73400320 bytes  23629.19 KB/sec avg  70656.00 KB/sec inst
+Transfer took 4020 ms
+Generating submit files in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer0...
+.....................................................
+Submit DAG file /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag has been created but not submitted.
+Jobs for MergeLayer0 are created in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer0
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650672
+Source URL: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer1/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer1/user_code.tgz
+Destination URL: gsiftp://g20n01.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer1/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    363.14 KB/sec avg    363.14 KB/sec inst     61865984 bytes  15816.33 KB/sec avg  59392.00 KB/sec inst     61865984 bytes  15816.33 KB/sec avg  59392.00 KB/sec inst
+Transfer took 5010 ms
+Generating submit files in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer1...
+......
+Submit DAG file /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag has been created but not submitted.
+Jobs for MergeLayer1 are created in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/MergeLayer1
+Using HADD method to merge files
+Increasing vsize limit from 3000 MB to 6000 MB
+LCG_GFAL_INFOSYS is not set
+Using grid catalog type: UNKNOWN
+Using grid catalog : (null)
+VO name: cms
+Checksum type: None
+Destination SE type: SRMv2
+Destination SRM Request Token: put:2650731
+Source URL: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/FinalMerged/user_code.tgz
+File size: 117640606
+Source URL for copy: file:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/FinalMerged/user_code.tgz
+Destination URL: gsiftp://g27n04.hep.wisc.edu//hdfs/HighReplicaCondorUserFiles/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/FinalMerged/user_code.tgz
+# streams: 1
+            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst            0 bytes      0.00 KB/sec avg      0.00 KB/sec inst      1048576 bytes    460.32 KB/sec avg    460.32 KB/sec inst     95420416 bytes  28898.35 KB/sec avg  92160.00 KB/sec inst
+Transfer took 4030 ms
+Generating submit files in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/FinalMerged...
+.
+Submitting job(s).
+1 job(s) submitted to cluster 2621347.
+
+-----------------------------------------------------------------------
+File for submitting this DAG to Condor           : /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.wrapper.condor.sub
+Log of DAGMan debugging messages                 : /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.wrapper.dagman.out
+Log of Condor library output                     : /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.wrapper.lib.out
+Log of Condor library error messages             : /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.wrapper.lib.err
+Log of the life of condor_dagman itself          : /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.wrapper.dagman.log
+
+-----------------------------------------------------------------------
+You can monitor your workflow's progess by watching /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.dagman.out
+A summary of the status of all of the jobs in your workflow will be
+written to the following file every 60 seconds:
+  /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag.status
+
+Your jobs should show up in ~6 minutes
+at the NEW job monitoring web page :
+    http://www.hep.wisc.edu/cms/comp/jobs/
+Jobs for FinalMerged are created in /nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/FinalMerged
+INFO:__main__:Waiting for job to complete
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: UNKNOWN stats: [30mUNKNOWN[0m(590)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(15) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(515)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(8) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(500)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(28) [32mSTATUS_DONE[0m(17) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(485)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(31) [32mSTATUS_DONE[0m(29) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(470)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(37) [32mSTATUS_DONE[0m(38) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(455)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(42) [32mSTATUS_DONE[0m(48) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(440)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(48) [32mSTATUS_DONE[0m(57) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(425)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(53) [32mSTATUS_DONE[0m(67) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(410)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(60) [32mSTATUS_DONE[0m(75) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(395)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(64) [32mSTATUS_DONE[0m(86) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(380)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(68) [32mSTATUS_DONE[0m(97) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(365)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(75) [32mSTATUS_DONE[0m(105) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(350)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(79) [32mSTATUS_DONE[0m(116) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(335)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(92) [32mSTATUS_DONE[0m(133) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(305)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(111) [32mSTATUS_DONE[0m(144) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(275)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(126) [32mSTATUS_DONE[0m(159) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(245)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(145) [32mSTATUS_DONE[0m(170) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(215)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(156) [32mSTATUS_DONE[0m(189) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(185)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(170) [32mSTATUS_DONE[0m(205) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(155)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(188) [32mSTATUS_DONE[0m(217) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(125)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(183) [32mSTATUS_DONE[0m(252) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(95)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(180) [32mSTATUS_DONE[0m(285) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(65)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(158) [32mSTATUS_DONE[0m(337) [34mSTATUS_UNREADY[0m(60) [36mSTATUS_READY[0m(35)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(112) [32mSTATUS_DONE[0m(419) [34mSTATUS_UNREADY[0m(58) [36mSTATUS_READY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(34) [32mSTATUS_DONE[0m(516) [34mSTATUS_UNREADY[0m(20) [36mSTATUS_READY[0m(20)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(22) [32mSTATUS_DONE[0m(561) [34mSTATUS_UNREADY[0m(7)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(586) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(586) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(586) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(586) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_SUBMITTED stats: [33mSTATUS_SUBMITTED[0m(3) [32mSTATUS_DONE[0m(586) [34mSTATUS_UNREADY[0m(1)
+INFO:__main__:/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: STATUS_DONE stats: [32mSTATUS_DONE[0m(590)
+INFO:__main__:Copying final output /hdfs/store/user/fmeng/MegaJob_tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1//mergeFilesJob-mergeFilesJob-mergeFilesJob-mega-batch-make_ntuples_cfg-patTuple_cfg-C6C22BC8-5981-E211-8BA3-003048F1BFC2.root => results/newNtuple_5Nov/LFVHETauAnalyzerMVA1/data_SingleElectron_Run2012B_22Jan2013_v1.root
+INFO:__main__:[32m/nfs_scratch/fmeng/tmpAOWB8ELFVHETauAnalyzerMVA1-data_SingleElectron_Run2012B_22Jan2013_v1/job.dag: job complete.[0m

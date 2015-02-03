@@ -1,0 +1,83 @@
+imax    1     number of categories 
+jmax    9     number of samples minus one 
+kmax    *     number of nuisance parameters 
+------------------------------------------------------------------------------- 
+shapes * * shapesETau0Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+shapes LFVGG * shapesETau0Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+shapes LFVVBF * shapesETau0Jet.root $CHANNEL/$PROCESS $CHANNEL/$PROCESS_$SYSTEMATIC 
+------------------------------------------------------------------------------- 
+bin                               gg0etau        
+observation                       2834           
+------------------------------------------------------------------------------- 
+bin                               gg0etau       gg0etau       gg0etau       gg0etau       gg0etau       gg0etau       gg0etau       gg0etau       gg0etau       gg0etau        
+process                           -1            0             1             2             3             4             5             6             7             8              
+process                           LFVGG         LFVVBF        diboson       ttbar         singlet       ztautau       zjetsother    fakes         SMVBF126      SMGG126        
+rate                              89.3236       0.522495      153.752       21.9241       58.7979       517.067       727.283       6070.9        0.170883      15.0175        
+------------------------------------------------------------------------------- 
+lumi lnN                          1.026         1.026         1.026         1.026         1.026         1.026         1.026         -             1.026         1.026          
+Effi_et_Tau lnN                   1.06          1.06          1.060         1.060         1.060         1.060         1.060         -             1.060         1.060          
+Effi_et_Tau_highPt lnN            1.03          1.03          1.030         1.030         1.030         1.030         1.030         -             1.030         1.030          
+Theo_Scale_gg lnN                 1.08          -             -             -             -             -             -             -             -             1.080          
+Theo_PDF_gg lnN                   1.097         -             -             -             -             -             -             -             -             1.097          
+Theo_UE lnN                       1.04           1.1          -             -             -             -             -             -             1.100         1.040          
+Theo_Scale_vbf lnN                -             1.04          -             -             -             -             -             -             1.040         -              
+Theo_PDF_vbf lnN                  -             1.036         -             -             -             -             -             -             1.036         -              
+Norm_ZTauTau lnN                  -             -             -             -             -             1.030         -             -             -             -              
+Norm_ZTauTau_et_0Jet_extra lnN    -             -             -             -             -             1.050         -             -             -             -              
+Norm_ZJetsOther lnN               -             -             -             -             -             -             1.300         -             -             -              
+Norm_DIBOSON lnN                  -             -             1.150         -             -             -             -             -             -             -              
+Norm_TT lnN                       -             -             -             1.100         -             -             -             -             -             -              
+Norm_FAKES lnN                    -             -             -             -             -             -             -             1.300         -             -              
+Norm_TOP lnN                      -             -             -             -             1.100         -             -             -             -             -              
+fakes_gg0etau_stat lnN            -             -             -             -             -             -             -             1.020         -             -              
+SMGG126_gg0etau_stat lnN          -             -             -             -             -             -             -             -             -             1.040          
+SMVBF126_gg0etau_stat lnN         -             -             -             -             -             -             -             -             1.140         -              
+ttbar_gg0etau_stat lnN            -             -             -             1.050         -             -             -             -             -             -              
+singlet_gg0etau_stat lnN          -             -             -             -             1.220         -             -             -             -             -              
+ztautau_gg0etau_stat lnN          -             -             -             -             -             1.020         -             -             -             -              
+diboson_gg0etau_stat lnN          -             -             1.030         -             -             -             -             -             -             -              
+zjetsother_gg0etau_stat lnN       -             -             -             -             -             -             1.050         -             -             -              
+JES shape                         -             -             1.000         1.000         1.000         -             1.000         -             1.000         1.000          
+E_Iso lnN                         -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+TES shape                         -             -             -             -             -             1.000         -             -             1.000         1.000          
+EES shape                         -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+shape_FAKES shape                 -             -             -             -             -             -             -             1.000         -             -              
+E_Trig lnN                        -             -             1.010         1.010         1.010         1.010         1.010         -             1.010         1.010          
+E_ID lnN                          -             -             1.000         1.000         1.000         1.000         1.000         -             1.000         1.000          
+UES shape                         -             -             1.000         1.000         1.000         -             1.000         -             1.000         1.000          
+PU_Uncertainty lnN                -             -             1.020         1.020         1.020         -             1.020         -             1.020         1.020          
+gg0etau_fakes_bin_1 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_2 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_3 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_4 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_5 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_6 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_7 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_8 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_9 shape         -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_10 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_16 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_17 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_18 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_19 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_20 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_21 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_22 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_23 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_24 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_25 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_26 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_27 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_28 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_29 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_30 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_31 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_32 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_33 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_34 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_35 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_36 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_37 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_38 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_39 shape        -             -             -             -             -             -             -             1.000         -             -              
+gg0etau_fakes_bin_40 shape        -             -             -             -             -             -             -             1.000         -             -              
