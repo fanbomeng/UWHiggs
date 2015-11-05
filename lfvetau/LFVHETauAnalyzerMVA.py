@@ -14,7 +14,7 @@ import FinalStateAnalysis.PlotTools.pytree as pytree
 from FinalStateAnalysis.PlotTools.decorators import  memo_last
 from FinalStateAnalysis.PlotTools.MegaBase import MegaBase
 from math import sqrt, pi, cos
-from fakerate_functions import tau_fake_rate, tau_fake_rate_up, tau_fake_rate_dw, e_fake_rate, e_fake_rate_up, e_fake_rate_dw
+#from fakerate_functions import tau_fake_rate, tau_fake_rate_up, tau_fake_rate_dw, e_fake_rate, e_fake_rate_up, e_fake_rate_dw
 import itertools
 import traceback
 from FinalStateAnalysis.PlotTools.decorators import memo
@@ -152,7 +152,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             'trig' : (['', 'trp1s', 'trm1s'] if not self.is_data else []),
             'pu'   : (['', 'p1s', 'm1s'] if self.is_mc else []),
             'eid'  : (['', 'eidp1s','eidm1s'] if not self.is_data else []),
-            'etaufake'  : (['', 'etaufakep1s','etaufakem1s'] if self.is_Zee else []),
+            #'etaufake'  : (['', 'etaufakep1s','etaufakem1s'] if self.is_Zee else []),
             'eiso' : (['', 'eisop1s','eisom1s'] if not self.is_data else []),
             'jes'  : (['', '_jes_plus','_jes_minus'] if self.is_mc else ['']),
             'mvetos': (['', 'mVetoUp', 'mVetoDown'] if self.is_mc else ['']),
@@ -219,11 +219,11 @@ class LFVHETauAnalyzerMVA(MegaBase):
         
 
         #PU correctors
-        self.pucorrector = mcCorrections.make_shifted_weights(
-            mcCorrections.make_puCorrector('singlee'),
-            ['p1s', 'm1s'],
-            [mcCorrections.make_puCorrectorUp('singlee'), mcCorrections.make_puCorrectorDown('singlee')]
-        )     
+#        self.pucorrector = mcCorrections.make_shifted_weights(
+#            mcCorrections.make_puCorrector('singlee'),
+#            ['p1s', 'm1s'],
+#            [mcCorrections.make_puCorrectorUp('singlee'), mcCorrections.make_puCorrectorDown('singlee')]
+#        )     
         self.trig_weight = mcCorrections.trig_efficiency if self.is_embedded else mcCorrections.trig_correction
 
     @staticmethod 
@@ -249,9 +249,10 @@ class LFVHETauAnalyzerMVA(MegaBase):
             weights[shift] = embedded_weight *\
                              mcCorrections.eid_correction( row, 'e', shift=shift) * \
                              mcCorrections.eiso_correction(row, 'e', shift=shift) * \
-                             self.trig_weight(row, 'e', shift=shift) * \
-                             self.pucorrector(row.nTruePU, shift=shift)
-            if self.is_Zee: weights[shift] =weights[shift]*mcCorrections.etaufake_correction( row, 't', shift=shift)
+                             self.trig_weight(row, 'e', shift=shift) #* \
+ #                            self.pucorrector(row.nTruePU, shift=shift)
+            if self.is_Zee: weights[shift] =weights[shift]
+            #if self.is_Zee: weights[shift] =weights[shift]*mcCorrections.etaufake_correction( row, 't', shift=shift)
                        
         return weights
 ## 
@@ -260,7 +261,6 @@ class LFVHETauAnalyzerMVA(MegaBase):
         sys_shifts = self.systematics['trig'] + \
                      self.systematics['pu'] + \
                      self.systematics['eid'] + \
-                     self.systematics['etaufake'] + \
                      self.systematics['eiso'] + \
                      self.systematics['mvetos'] + \
                      self.systematics['tvetos'] + \
@@ -271,6 +271,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
                      ['tLoose', 'tLoose/Up', 'tLoose/Down', 'tLooseUnweight'] + \
                      ['eLoose', 'eLoose/Up', 'eLoose/Down'] +\
                      ['etLoose', 'etLoose/Up', 'etLoose/Down'] 
+                 #    self.systematics['etaufake'] + \ 
         sys_shifts = list( set( sys_shifts ) ) #remove double dirs
         processtype=['gg']
         threshold=['ept30']
@@ -417,6 +418,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
 
     def fill_histos(self, folder_str, row, weight, filter_label = ''):
         '''fills histograms'''
+        print "here**************3"
         #find all keys matching
         for attr, value in self.histo_locations[folder_str].iteritems():
             name = attr
@@ -469,8 +471,8 @@ class LFVHETauAnalyzerMVA(MegaBase):
         sys_shifts = systematics['trig'] + \
             systematics['pu'] + \
             systematics['eid'] + \
-            systematics['etaufake'] + \
             systematics['eiso'] #+ \ 
+           # systematics['etaufake'] + \
 
         jes_dirs = [i.strip('_') for i in systematics['jes']]
         #anyway the first is always ""
@@ -494,16 +496,25 @@ class LFVHETauAnalyzerMVA(MegaBase):
             if self.is_embedded :
                 if not bool(row.doubleMuPass) : continue
             else: 
-                if not bool(row.singleE27WP80Pass) : continue
-                if not bool(row.eMatchesSingleE27WP80): continue
+            #    print "here**************4"
+              #  if not bool(row.singleE27WP80Pass) : continue
+               # if not bool(row.singleE22WP75Pass) : continue
+                if not bool(row.singleE22eta2p1WP75Pass) : continue
+              #  if not bool(row.eMatchesSingleE27WP80): continue
+                if not bool(row.eMatchesSingleE): continue
 
+#            print "here**************4"
             #objects
             if not selections.eSelection(row, 'e'): continue
+ #           print "here**************5"
             #if row.ePt < 30 : continue
             if not selections.tauSelection(row, 't'): continue
-            if not row.tAntiElectronMVA5Tight : continue
-            if not row.tAntiMuon2Loose : continue
-            if not row.tLooseIso3Hits : continue
+            #if not row.tAntiElectronMVA5Tight : continue
+            if not row.tAgaintElectronTightMVA5 : continue
+           # if not row.tAntiMuon2Loose : continue
+            if not row.tAgainstMuonLoose3 : continue
+           # if not row.tLooseIso3Hits : continue
+            if not row.tByLooseCombinedIsolationDeltaBetaCorr3Hits : continue
             logging.debug('object selection passed')
             #e ID/ISO
             if not selections.lepton_id_iso(row, 'e', 'eid13Loose_idiso05'): continue
@@ -514,7 +525,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             #
             #event weight
             #sys_shifts is precomputed
-
+            print "here**************1"
             #set_trace()
             weight_map = self.event_weight(row, sys_shifts)
 
@@ -617,6 +628,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             processtype ='gg'
             ptthreshold = ['ept30']
 
+            print "here**************2"
             #
             # Lepton vetoes
             #
@@ -646,6 +658,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             
             #at least one loose object
             if (not isETight) or (not isTauTight):
+                continue
                 #if is a loose tau just compute the fakes!                            
                 sys_directories = etau_category
                 
