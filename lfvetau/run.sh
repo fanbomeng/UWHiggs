@@ -10,11 +10,11 @@ export jobid=$jobid13
 
 #rake genkin
 #rake recoplots
-#rake recoplotsMVA
+rake recoplotsMVA
 #rake controlplots
 #rake controlplotsMVA
 #rake fakeeet
-rake fakemmtMVA
+#rake fakeeetMVA
 #rake fits
 #rake drawTauFakeRate
 #export jobid=$jobidmt

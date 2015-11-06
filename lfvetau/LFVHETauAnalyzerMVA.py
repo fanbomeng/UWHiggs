@@ -28,8 +28,8 @@ def getVar(name, var):
 
 met_et  = 'pfMet_Et%s'
 met_phi = 'pfMet_Phi%s'
-ty1met_et  = 'type1_pfMet_Et%s'
-ty1met_phi = 'type1_pfMet_Phi%s'
+ty1met_et  = 'type1_pfMetEt%s'
+ty1met_phi = 'type1_pfMetPhi%s'
 t_pt  = 'tPt%s'
 etMass = 'e_t_Mass%s'
 @memo
@@ -111,7 +111,7 @@ def make_collmass_systematics(shift):
         return (vis_mass / sqrt(visfrac))
    
     elif shift.startswith('_Zee'):
-        ptnu =abs(row.type1_pfMet_Et*cos(deltaPhi(row.type1_pfMet_Phi, row.tPhi)))
+        ptnu =abs(row.type1_pfMetEt*cos(deltaPhi(row.type1_pfMetPhi, row.tPhi)))
         visfrac = row.tPt/(row.tPt+ptnu)
         if shift== '_Zee_p1s':
             return  1.025*(row.e_t_Mass / sqrt(visfrac))
@@ -147,6 +147,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
         #self.efakedw = e_fake_rate_dw(0.2)
 
         #systematics used
+        self.is_mc=False
         self.systematics = {
             
             'trig' : (['', 'trp1s', 'trm1s'] if not self.is_data else []),
@@ -159,8 +160,10 @@ class LFVHETauAnalyzerMVA(MegaBase):
             'tvetos': (['', 'tVetoUp', 'tVetoDown'] if self.is_mc else ['']),
             'evetos': (['', 'eVetoUp', 'eVetoDown'] if self.is_mc else ['']),
             'met'  : (["_mes_plus", "_ues_plus", "_mes_minus", "_ues_minus"] if self.is_mc else []),
-            'tes'  : (["", "_tes_plus", "_tes_minus"] if not self.is_data else ['']),
-            'ees'  : (["", "_ees_plus", '_ees_minus'] if not self.is_data else ['']),
+          #  'tes'  : (["", "_tes_plus", "_tes_minus"] if not self.is_data else ['']),
+            'tes'  : ([""] if not self.is_data else ['']),
+          #  'ees'  : (["", "_ees_plus", '_ees_minus'] if not self.is_data else ['']),
+            'ees'  : ([""] if not self.is_data else ['']),
             'Zee'  : (['', '_Zee_p1s','Zee_m1s'] if self.is_Zee else ['']),
            
     ####            'trig' : (['', 'trp1s', 'trm1s'] if not self.is_data else []),
@@ -190,7 +193,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             ),
             'MetEt_vs_dPhi' : merge_functions(
                 lambda row, weight: (deltaPhi(row.tPhi, getattr(row, metphi())), weight),
-                attr_getter('type1_pfMet_Et')
+                attr_getter('type1_pfMetEt')
             ),
             'ePFMET_DeltaPhi' : lambda row, weight: (deltaPhi(row.ePhi, getattr(row, metphi())), weight),
             'tPFMET_DeltaPhi' : lambda row, weight: (deltaPhi(row.tPhi, getattr(row, metphi())), weight),
@@ -319,15 +322,15 @@ class LFVHETauAnalyzerMVA(MegaBase):
             #)
             self.book(f,"weight", "weight", 100, 0, 10)
             self.book(f,"tPt", "tau p_{T}", 40, 0, 200)
-            self.book(f,"tPt_tes_plus", "tau p_{T} (tes+)", 40, 0, 200)
-            self.book(f,"tPt_tes_minus", "tau p_{T} (tes-)",40, 0, 200)
+        #    self.book(f,"tPt_tes_plus", "tau p_{T} (tes+)", 40, 0, 200)
+        #    self.book(f,"tPt_tes_minus", "tau p_{T} (tes-)",40, 0, 200)
             
             self.book(f,"tPhi", "tau phi", 26, -3.25, 3.25)
             self.book(f,"tEta", "tau eta",  10, -2.5, 2.5)
             
             self.book(f,"ePt", "e p_{T}", 40, 0, 200)
-            self.book(f,"ePt_ees_plus", "e p_{T} (ees+)", 40, 0, 200)
-            self.book(f,"ePt_ees_minus", "e p_{T} (ees-)",40, 0, 200)
+        #    self.book(f,"ePt_ees_plus", "e p_{T} (ees+)", 40, 0, 200)
+        #    self.book(f,"ePt_ees_minus", "e p_{T} (ees-)",40, 0, 200)
             
             self.book(f,"ePhi", "e phi",  26, -3.2, 3.2)
             self.book(f,"eEta", "e eta", 10, -2.5, 2.5)
@@ -342,10 +345,10 @@ class LFVHETauAnalyzerMVA(MegaBase):
             self.book(f, "h_collmass_vs_dPhi_pfmet",  "h_collmass_vs_dPhi_pfmet", 20, 0, 3.2, 40, 0, 400, type=ROOT.TH2F)
            
             self.book(f, "e_t_Mass",  "h_vismass",  40, 0, 400)
-            self.book(f, "e_t_Mass_tes_plus" ,  "h_vismass_tes_plus", 40 , 0, 400)
-            self.book(f, "e_t_Mass_tes_minus",  "h_vismass_tes_minus",40 , 0, 400)
-            self.book(f, "e_t_Mass_ees_plus" ,  "h_vismass_ees_plus", 40 , 0, 400)
-            self.book(f, "e_t_Mass_ees_minus",  "h_vismass_ees_minus",40 , 0, 400)
+       #     self.book(f, "e_t_Mass_tes_plus" ,  "h_vismass_tes_plus", 40 , 0, 400)
+       #     self.book(f, "e_t_Mass_tes_minus",  "h_vismass_tes_minus",40 , 0, 400)
+       #     self.book(f, "e_t_Mass_ees_plus" ,  "h_vismass_ees_plus", 40 , 0, 400)
+       #     self.book(f, "e_t_Mass_ees_minus",  "h_vismass_ees_minus",40 , 0, 400)
            
             self.book(f, "MetEt_vs_dPhi", "PFMet vs #Delta#phi(#tau,PFMet)", 20, 0, 3.2, 40, 0, 400, type=ROOT.TH2F)
         
@@ -354,17 +357,17 @@ class LFVHETauAnalyzerMVA(MegaBase):
             self.book(f, "ePFMET_DeltaPhi", "e-PFMET DeltaPhi" , 20, 0, 3.2)
             
             #self.book(f,"tMtToPFMET", "tau-PFMET M_{T}" , 200, 0, 200)
-            book_with_sys(f, "tMtToPfMet", "tau-PFMET M_{T}" , 40, 0, 200,
+            book_with_sys(f, "tMtToPfMet_type1", "tau-PFMET M_{T}" , 40, 0, 200,
                           postfixes=full_met_systematics)
             #self.book(f,"eMtToPFMET", "e-PFMET M_{T}" , 200, 0, 200)
-            book_with_sys(f, "eMtToPfMet", "e-PFMET M_{T}" , 40, 0, 200,
+            book_with_sys(f, "eMtToPfMet_type1", "e-PFMET M_{T}" , 40, 0, 200,
                           postfixes=full_met_systematics)
             
             #self.book(f, "pfMetEt",  "pfMetEt",  200, 0, 200)
-            book_with_sys(f, "type1_pfMet_Et",  "type1_pfMet_Et",  40, 0, 200, postfixes=full_met_systematics)
+            book_with_sys(f, "type1_pfMetEt",  "type1_pfMetEt",  40, 0, 200, postfixes=full_met_systematics)
             
             #self.book(f, "pfMetPhi",  "pfMetPhi", 100, -3.2, 3.2)
-            book_with_sys(f, "type1_pfMet_Phi",  "type1_pfMet_Phi", 26, -3.2, 3.2, postfixes=full_met_systematics)
+            book_with_sys(f, "type1_pfMetPhi",  "type1pfMetPhi", 26, -3.2, 3.2, postfixes=full_met_systematics)
             
             self.book(f, "jetVeto20", "Number of jets, p_{T}>20", 5, -0.5, 4.5) 
             self.book(f, "jetVeto30", "Number of jets, p_{T}>30", 5, -0.5, 4.5) 
@@ -418,7 +421,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
 
     def fill_histos(self, folder_str, row, weight, filter_label = ''):
         '''fills histograms'''
-        print "here**************3"
+      #  print "here**************3"
         #find all keys matching
         for attr, value in self.histo_locations[folder_str].iteritems():
             name = attr
@@ -510,7 +513,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             #if row.ePt < 30 : continue
             if not selections.tauSelection(row, 't'): continue
             #if not row.tAntiElectronMVA5Tight : continue
-            if not row.tAgaintElectronTightMVA5 : continue
+            if not row.tAgainstElectronTightMVA5 : continue
            # if not row.tAntiMuon2Loose : continue
             if not row.tAgainstMuonLoose3 : continue
            # if not row.tLooseIso3Hits : continue
@@ -525,7 +528,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             #
             #event weight
             #sys_shifts is precomputed
-            print "here**************1"
+            #print "here**************1"
             #set_trace()
             weight_map = self.event_weight(row, sys_shifts)
 
@@ -535,10 +538,12 @@ class LFVHETauAnalyzerMVA(MegaBase):
 
             # it is better vetoing on b-jets  after the histo for the DY embedded
             #bjet veto
-            if row.bjetCSVVeto30!=0 : continue
+          #  if row.bjetCSVVeto30!=0 : continue
+            if row.bjetCISVVeto30Loose!=0 : continue
 
             #tau ID, id Tau is tight then go in full selection, otherwise use for fakes
-            isTauTight = bool(row.tTightIso3Hits)
+           # isTauTight = bool(row.tTightIso3Hits)
+            isTauTight = bool(row.tByLooseCombinedIsolationDeltaBetaCorr3Hits)
             isETight = bool(selections.lepton_id_iso(row, 'e', 'eid13Tight_etauiso01'))
             etau_category = ['']
             if (not isETight) and (not isTauTight):
@@ -554,9 +559,12 @@ class LFVHETauAnalyzerMVA(MegaBase):
                 tPt = row.tPt,
                 ePt = row.ePt
                 )
-            jets = [min(row.jetVeto30, 3), min(row.jetVeto30jes_plus, 3),  min(row.jetVeto30jes_minus, 3)]
-            tpts = [row.tPt_tes_plus, row.tPt_tes_minus]
-            epts = [row.ePt_ees_plus, row.ePt_ees_minus]
+           # jets = [min(row.jetVeto30, 3), min(row.jetVeto30jes_plus, 3),  min(row.jetVeto30jes_minus, 3)]
+            jets = [min(row.jetVeto30, 3), min(row.jetVeto30, 3),  min(row.jetVeto30, 3)]
+           # tpts = [row.tPt_tes_plus, row.tPt_tes_minus]
+            tpts = [row.tPt, row.tPt]
+           # epts = [row.ePt_ees_plus, row.ePt_ees_minus]
+            epts = [row.ePt, row.ePt]
             #print 'electron pt' , row.ePt, row.ePt_ees_plus, row.ePt_ees_minus
             sys_effects = [(name, central.clone(njets = jnum)) for name, jnum in zip(jes_dirs, jets)]
             sys_effects.extend(
@@ -583,36 +591,36 @@ class LFVHETauAnalyzerMVA(MegaBase):
                     selection_categories.extend([
                         (name, '0', i) for i in optimizer.compute_regions_0jet(
                             shifted.tPt, shifted.ePt, deltaPhi(row.ePhi, row.tPhi),
-                            row.tMtToPfMet)
+                            row.tMtToPfMet_type1)
                         ])
                     
                     if shifted.tPt < 30: continue #was 35
                     if shifted.ePt < 45: continue #was 40
                     if deltaPhi(row.ePhi, row.tPhi) < 2.3 : continue #was 2.7
-                    if row.tMtToPfMet > 70 : continue #was 50
+                    if row.tMtToPfMet_type1 > 70 : continue #was 50
                     selection_categories.append((name, '0', 'selected'))
                     passes_full_selection = True 
                 elif shifted.njets == 1 :
                     selection_categories.extend([
                         (name, '1', i) for i in optimizer.compute_regions_1jet(
-                            shifted.tPt, shifted.ePt, row.tMtToPfMet)
+                            shifted.tPt, shifted.ePt, row.tMtToPfMet_type1)
                         ])
 
                     if shifted.tPt < 40: continue #was 40
                     if shifted.ePt < 35: continue #was 35
-                    if row.tMtToPfMet > 40 : continue #was 35
+                    if row.tMtToPfMet_type1 > 40 : continue #was 35
                     selection_categories.append((name, '1', 'selected'))
                     passes_full_selection = True 
                 elif shifted.njets == 2 :
                     selection_categories.extend([
                         (name, '2', i) for i in optimizer.compute_regions_2jet(
-                            shifted.tPt, shifted.ePt, row.tMtToPfMet, row.vbfMass,
+                            shifted.tPt, shifted.ePt, row.tMtToPfMet_type1, row.vbfMass,
                             row.vbfDeta)
                         ])
 
                     if shifted.tPt < 30: continue #was 40
                     if shifted.ePt < 35: continue #was 30
-                    if row.tMtToPfMet > 50 : continue #was 35
+                    if row.tMtToPfMet_type1> 50 : continue #was 35
                     if row.vbfMass < 400 : continue #was 550
                     if row.vbfDeta < 2.3 : continue #was 3.5
                     selection_categories.append((name, '2', 'selected'))
@@ -628,13 +636,16 @@ class LFVHETauAnalyzerMVA(MegaBase):
             processtype ='gg'
             ptthreshold = ['ept30']
 
-            print "here**************2"
+          #  print "here**************2"
             #
             # Lepton vetoes
             #
-            tvetoes = [row.tauVetoPt20EleTight3MuLoose, row.tauVetoPt20EleTight3MuLoose_tes_plus, row.tauVetoPt20EleTight3MuLoose_tes_minus]
-            mvetoes = [row.muVetoPt5IsoIdVtx          , row.muVetoPt5IsoIdVtx_mes_plus          , row.muVetoPt5IsoIdVtx_mes_minus          ]
-            evetoes = [row.eVetoCicLooseIso           , row.eVetoCicLooseIso_ees_plus           , row.eVetoCicLooseIso_ees_minus           ]
+          #  tvetoes = [row.tauVetoPt20EleTight3MuLoose, row.tauVetoPt20EleTight3MuLoose_tes_plus, row.tauVetoPt20EleTight3MuLoose_tes_minus]
+            tvetoes = [row.tauVetoPt20Loose3HitsNewDMVtx, row.tauVetoPt20Loose3HitsNewDMVtx, row.tauVetoPt20Loose3HitsNewDMVtx]
+           # mvetoes = [row.muVetoPt5IsoIdVtx          , row.muVetoPt5IsoIdVtx_mes_plus          , row.muVetoPt5IsoIdVtx_mes_minus          ]
+            mvetoes = [row.muVetoPt5IsoIdVtx          , row.muVetoPt5IsoIdVtx          , row.muVetoPt5IsoIdVtx          ]
+           # evetoes = [row.eVetoCicLooseIso           , row.eVetoCicLooseIso_ees_plus           , row.eVetoCicLooseIso_ees_minus           ]
+            evetoes = [row.eVetoMVAIso           , row.eVetoMVAIso           , row.eVetoMVAIso           ]
             
             tdirs = [ i for i, j in zip( systematics['tvetos'], tvetoes) if not j]
             mdirs = [ i for i, j in zip( systematics['mvetos'], mvetoes) if not j]
