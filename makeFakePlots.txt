@@ -1,0 +1,11 @@
+python plot_FakeRate.py OldIso tDecayMode
+python plot_FakeRate.py OldIso tEta
+python plot_FakeRate.py OldIso tPt
+
+python plot_FakeRate.py NewIso tDecayMode
+python plot_FakeRate.py NewIso tEta
+python plot_FakeRate.py NewIso tPt
+
+python plot_FakeRate.py NewIsoNewDMs tDecayMode
+python plot_FakeRate.py NewIsoNewDMs tEta
+python plot_FakeRate.py NewIsoNewDMs tPt

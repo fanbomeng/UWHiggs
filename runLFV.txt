@@ -1,0 +1,74 @@
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 gg
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 boost
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 vbf
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 preselection
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt gg
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt boost
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt vbf
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt preselection
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta gg
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta boost
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta vbf
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta preselection
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta gg
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta boost
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta vbf
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta preselection
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt gg
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt boost
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt vbf
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt preselection
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 vbf_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 boost_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 gg_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 preselection_newiso
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt gg_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt boost_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt vbf_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt preselection_newiso
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta gg_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta boost_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta vbf_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta preselection_newiso
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta gg_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta boost_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta vbf_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta preselection_newiso
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt gg_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt boost_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt vbf_newiso
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt preselection_newiso
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 vbf_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 gg_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 boost_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ collMass_type1 preselection_newiso_newdm
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt gg_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt boost_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt vbf_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mPt preselection_newiso_newdm
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta gg_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta boost_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta vbf_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ mEta preselection_newiso_newdm
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta gg_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta boost_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta vbf_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tEta preselection_newiso_newdm
+
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt gg_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt boost_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt vbf_newiso_newdm
+python plot_13TeV_LFV.py MariaNtuples_Oct13_MiniAODV2/ tPt preselection_newiso_newdm
