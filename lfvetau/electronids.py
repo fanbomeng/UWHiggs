@@ -58,7 +58,10 @@ def summer_2013_eid(row, name):
     return False
 
 def summer_2013_eid_tight(row, name):
-    mva_output = getattr(row, getVar(name, 'MVANonTrig'))
+    try:
+        mva_output = getattr(row, getVar(name, 'MVANonTrig'))
+    except:
+        mva_output= getattr(row, getVar(name, 'MVANonTrigID'))
     pT    = getattr(row, getVar(name, 'Pt'))
     abseta= getattr(row, getVar(name, 'AbsEta'))
     if pT > 20 and abseta < 0.8:
