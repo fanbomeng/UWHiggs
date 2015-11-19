@@ -10,7 +10,8 @@ def h2etau_tightId(row, name):
     return bool(getattr(row, getVar(name, 'CBID_TIGHT')))
 
 def zh_loose_2012eid(row, name):
-    value    = getattr(row, getVar(name, 'MVANonTrig'))
+   # value    = getattr(row, getVar(name, 'MVANonTrig'))
+    value    = getattr(row, getVar(name, 'MVANonTrigID'))
     pt       = getattr(row, getVar(name, 'Pt'))
     fabseta  = getattr(row, getVar(name, 'AbsEta'))
     if pt > 10. and fabseta < 0.8:
@@ -26,7 +27,8 @@ def h2tau_2012_LooseId(row, name):
 
 
 def h2tau_2012_tightId(row, name):
-    mva_output = getattr(row, getVar(name, 'MVANonTrig'))
+  #  mva_output = getattr(row, getVar(name, 'MVANonTrig'))
+    mva_output = getattr(row, getVar(name, 'MVANonTrigID'))
     pT         = getattr(row, getVar(name, 'Pt'))
     abseta     = getattr(row, getVar(name, 'AbsEta'))
     if pT > 20  and abseta < 0.8:

@@ -266,7 +266,6 @@ class LFVHETauAnalyzerMVA(MegaBase):
         sys_shifts = self.systematics['trig'] + \
                      self.systematics['pu'] + \
                      self.systematics['eid'] + \
-                     self.systematics['etaufake'] + \
                      self.systematics['eiso'] + \
                      self.systematics['mvetos'] + \
                      self.systematics['tvetos'] + \
@@ -677,7 +676,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             
             #at least one loose object
             if (not isETight) or (not isTauTight):
-              #  continue
+                continue
                 #if is a loose tau just compute the fakes!                            
                 sys_directories = etau_category
                 

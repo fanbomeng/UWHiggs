@@ -46,7 +46,8 @@ def eSelection(row, name):
     return True
 def eLowPtSelection(row, name):
     eAbsEta = getattr( row, getVar(name,'AbsEta'))
-    ept = getattr( row, getVar(name,'Pt_ees_minus'))
+    #ept = getattr( row, getVar(name,'Pt_ees_minus'))
+    ept = getattr( row, getVar(name,'Pt'))
     if ept:
         if ept < 15:           return False 
     else:
@@ -57,7 +58,8 @@ def eLowPtSelection(row, name):
     if getattr( row, getVar(name,'HasConversion')):     return False
     if eAbsEta > 1.4442 and eAbsEta < 1.566: return False
 #    if not getattr( row, getVar(name,'ChargeIdTight')): return False
-    if not getattr( row, getVar(name,'ChargeIdLoose')): return False
+ #   if not getattr( row, getVar(name,'ChargeIdLoose')): return False
+    if not getattr( row, getVar(name,'CBIDLoose')): return False
     if getattr( row, getVar(name,'JetPFCISVBtag')) > 0.8:  return False
     ###if getattr( row, getVar(name,'JetBtag')) > 3.3:     return False
     if abs(getattr( row, getVar(name,'PVDZ'))) > 0.2:     return False
@@ -66,7 +68,8 @@ def eLowPtSelection(row, name):
     
 def tauSelection(row, name):
     try:
-        tpt = getattr( row, getVar(name,'Pt_tes_minus'))
+      #  tpt = getattr( row, getVar(name,'Pt_tes_minus'))
+        tpt = getattr( row, getVar(name,'Pt'))
         if tpt < 30:           return False 
     except:
         if getattr( row, getVar(name,'Pt')) < 30:          return False
