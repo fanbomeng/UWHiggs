@@ -18,10 +18,18 @@ fi
 
 echo "Building cython wrappers from file: $afile"
 
-#rake "make_wrapper[$afile, ee/final/Ntuple, EETree]"
-#rake "make_wrapper[$afile, mmt/final/Ntuple, MMTTree]"
-#rake "make_wrapper[$afile, mmt/final/Ntuple, MMTTree]"
 rake "make_wrapper[$afile, et/final/Ntuple, ETauTree]"
+
+if [ -z $1 ]; then
+    export afile=`find $datasrc/ | grep root | grep data |  head -n 1`
+else
+    export afile=$1
+fi
+
+rake "make_wrapper[$afile, et/final/Ntuple, ETauDataTree]"
+#rake "make_wrapper[$afile, mmt/final/Ntuple, MMTTree]"
+#rake "make_wrapper[$afile, mmt/final/Ntuple, MMTTree]"
+#rake "make_wrapper[$afile, et/final/Ntuple, ETauTree]"
 #rake "make_wrapper[$afile, mmt/final/Ntuple, MMTTree]"
 #rake "make_wrapper[$afile, emm/final/Ntuple, MMETree]"
 

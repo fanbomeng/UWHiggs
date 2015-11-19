@@ -13,6 +13,8 @@ export MEGAPATH=/hdfs/store/user/cepeda/
 #./make_proxies.sh
 #rake "meta:getinputs[$jobid, $datasrc,emm/metaInfo, emm/summedWeights]"
 #rake "meta:getmeta[inputs/$jobid, emm/metaInfo, 13, emm/summedWeights]"
+#rake "meta:getinputs[$jobid, $datasrc,et/metaInfo, et/summedWeights]"
+rake "meta:getmeta[inputs/$jobid, et/metaInfo, 13, et/summedWeights]"
 
 #rake "meta:getinputs[$jobid, $datasrc,et/metaInfo,et/summedWeights]"
 rake "meta:getmeta[inputs/$jobid,et/metaInfo, 13, et/summedWeights]"
