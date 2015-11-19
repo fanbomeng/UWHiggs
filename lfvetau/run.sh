@@ -5,16 +5,17 @@ set -o nounset
 set -o errexit
 
 #export MEGAPATH=/hdfs/store/user/taroni/
-export MEGAPATH=/hdfs/store/user/cepeda/
+#export MEGAPATH=/hdfs/store/user/cepeda/
+export MEGAPATH=/hdfs/store/user/ndev/
 source jobid.sh
 export jobid=$jobid13
 
 #rake genkin
 #rake recoplots
-rake recoplotsMVAold
+#rake recoplotsMVAold
 #rake controlplots
 #rake controlplotsMVA
-#rake fakemmeMVA
+rake fakemmeMVA
 #rake fakemmtMVA
 #rake fits
 #rake drawTauFakeRate
