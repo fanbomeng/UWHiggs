@@ -120,22 +120,22 @@ efr_fits      = Hash.new
 #mysamples = [ "zjets_skimmedLL", "zjets_skimmedTT"]
 #for s in mysamples
 
-fr_fits["t_os_tLoose_tMedium_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
+###fr_fits["t_os_tLoose_tMedium_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
 fr_fits["t_os_tLoose_tTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+                                          "samples" => Array["diboson",'DY',  "dataSingleMu"],#, "zjets_skimmedLL"],
                                           "analyzer" => $fr_analyzer,
                                         #"function" => exponential,
                                           #"variables" => exponential_vars,
@@ -148,134 +148,134 @@ fr_fits["t_os_tLoose_tTigh_tPt"] = Hash[
                                           "min"=>"0",
                                         "max"=>"1"
                                          ]
-fr_fits["t_os_tLoose_tVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tLoose_tVVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
+###fr_fits["t_os_tLoose_tVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tLoose_tVVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
 #----------
-fr_fits["t_os_tVLoose_tMedium_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tVLoose_tTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tVLoose_tVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tVLoose_tVVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
+###fr_fits["t_os_tVLoose_tMedium_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tVLoose_tTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tVLoose_tVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tVLoose_tVVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
 #----------
-fr_fits["t_os_tMedium_tTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tMedium_tVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
-fr_fits["t_os_tMedium_tVVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
+###fr_fits["t_os_tMedium_tTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tMedium_tVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
+###fr_fits["t_os_tMedium_tVVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
 #----------
 ##fr_fits["t_os_tTigh_tVTigh_tPt"] = Hash[ 
 ##                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
@@ -291,20 +291,20 @@ fr_fits["t_os_tMedium_tVVTigh_tPt"] = Hash[
 ##                                          "min"=>"0",
 ##                                        "max"=>"1"
 ##                                         ]
-fr_fits["t_os_tTigh_tVVTigh_tPt"] = Hash[ 
-                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                          "analyzer" => $fr_analyzer,
-                                        #"function" => exponential,
-                                          #"variables" => exponential_vars,
-                                          "function" => pol0, 
-                                          "variables"=>pol1_vars, 
-                                          #"rebin" => 1,
-                                          "rebin" => $fr_binning,
-                                          "range" => "30 200",
-                                          "title" => "#tau p_{T} (GeV)",
-                                          "min"=>"0",
-                                        "max"=>"1"
-                                         ]
+###fr_fits["t_os_tTigh_tVVTigh_tPt"] = Hash[ 
+###                                          "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                          "analyzer" => $fr_analyzer,
+###                                        #"function" => exponential,
+###                                          #"variables" => exponential_vars,
+###                                          "function" => pol0, 
+###                                          "variables"=>pol1_vars, 
+###                                          #"rebin" => 1,
+###                                          "rebin" => $fr_binning,
+###                                          "range" => "30 200",
+###                                          "title" => "#tau p_{T} (GeV)",
+###                                          "min"=>"0",
+###                                        "max"=>"1"
+###                                         ]
 ###############
 mfr_fits["m_os_mLoose_mTigh_mPt"] = Hash[ 
                                           "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
@@ -364,20 +364,20 @@ efr_fits["e_os_eLoose_eTigh_eAbsEta"] = Hash[
                                            ]
 
 #-----------
-fr_fits["t_os_tLoose_tMedium_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
+###fr_fits["t_os_tLoose_tMedium_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
 fr_fits["t_os_tLoose_tTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+                                              "samples" => Array["diboson",'DY',  "dataSingleMu"],#, "zjets_skimmedLL"],
                                               "analyzer" => $fr_analyzer,
                                               "function" => pol0,
                                               "variables" => pol0_vars,
@@ -388,116 +388,116 @@ fr_fits["t_os_tLoose_tTigh_tAbsEta"] = Hash[
                                               "min"=>"0",
                                               "max"=>"1"
                                            ]
-fr_fits["t_os_tLoose_tVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tLoose_tVVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
+###fr_fits["t_os_tLoose_tVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tLoose_tVVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+####----
+###fr_fits["t_os_tVLoose_tMedium_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tVLoose_tTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tVLoose_tVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tVLoose_tVVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
 #----
-fr_fits["t_os_tVLoose_tMedium_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tVLoose_tTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tVLoose_tVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tVLoose_tVVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-#----
- fr_fits["t_os_tMedium_tTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tMedium_tVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                           ]
-fr_fits["t_os_tMedium_tVVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                          ]
+### fr_fits["t_os_tMedium_tTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tMedium_tVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                           ]
+###fr_fits["t_os_tMedium_tVVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                          ]
 #----
 ##fr_fits["t_os_tTigh_tVTigh_tAbsEta"] = Hash[ 
 ##                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
@@ -511,19 +511,19 @@ fr_fits["t_os_tMedium_tVVTigh_tAbsEta"] = Hash[
 ##                                              "min"=>"0",
 ##                                              "max"=>"1"
 ##                                           ]
-fr_fits["t_os_tTigh_tVVTigh_tAbsEta"] = Hash[ 
-                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
-                                              "analyzer" => $fr_analyzer,
-                                              "function" => pol0,
-                                              "variables" => pol0_vars,
-                                              "rebin" => 1,
-                                              "range" => "0 2.3",
-                                              #"range" => "-2.3 2.3",
-                                              "title" => "#tau #eta",
-                                              "min"=>"0",
-                                              "max"=>"1"
-                                          ]
-
+###fr_fits["t_os_tTigh_tVVTigh_tAbsEta"] = Hash[ 
+###                                              "samples" => Array["diboson",  "dataSingleMu"],#, "zjets_skimmedLL"],
+###                                              "analyzer" => $fr_analyzer,
+###                                              "function" => pol0,
+###                                              "variables" => pol0_vars,
+###                                              "rebin" => 1,
+###                                              "range" => "0 2.3",
+###                                              #"range" => "-2.3 2.3",
+###                                              "title" => "#tau #eta",
+###                                              "min"=>"0",
+###                                              "max"=>"1"
+###                                          ]
+###
  
 task :fits => []
 task :mfits => []
@@ -732,7 +732,8 @@ task :fakeeet => get_analyzer_results("TauFakeRateAnalyzer.py", samples['signalM
                                       samples['wzjets'] +
                                       samples['zjets'] +   samples['Zembedded']+samples['dataSingleE'])
 
-task :fakemmtMVA => get_analyzer_results("TauFakeRateAnalyzerMVA.py", samples['ggHiggsTo2Taus'] + samples['vbfHiggsTo2Taus'])#samples['signalMCgg']+samples['signalMCvbf']+samples['wjets'] + samples['diboson']  + samples['DY'] + samples['dataSingleMu']  )
+#task :fakemmtMVA => get_analyzer_results("TauFakeRateAnalyzerMVA.py", samples['ggHiggsTo2Taus'] + samples['vbfHiggsTo2Taus'])#samples['signalMCgg']+samples['signalMCvbf']+samples['wjets'] + samples['diboson']  + samples['DY'] + samples['dataSingleMu']  )
+task :fakemmtMVA => get_analyzer_results("TauFakeRateAnalyzerMVA.py",samples['DY'] )
 
 task :fakemmmMVA => get_analyzer_results("MuFakeRateAnalyzerMVA.py",
                                          samples['dataSingleMu']+samples['diboson'])

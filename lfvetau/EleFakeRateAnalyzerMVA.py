@@ -44,7 +44,7 @@ class EleFakeRateAnalyzerMVA(MegaBase):
         self.tree = MMETree(tree)
         self.out=outfile
         self.histograms = {}
-        #self.pucorrector = mcCorrections.make_puCorrector('singlee')
+        self.pucorrector = mcCorrections.make_puCorrector('singlee')
         self.mye1 = 'e1'
         self.mye2 = 'e2'
         self.mye3 = 'e3'
@@ -64,11 +64,11 @@ class EleFakeRateAnalyzerMVA(MegaBase):
  
         #if bool(row.e1MatchesEle27WP80) and  not bool(row.e2MatchesEle27WP80) : etrig = 'e1'
         #if not bool(row.e1MatchesEle27WP80) and  bool(row.e2MatchesEle27WP80) :  etrig = 'e2'
-        ##return self.pucorrector(row.nTruePU) * \
-        ##    mcCorrections.eid_correction( row, self.mye1, self.mye2, self.mye3) * \
-        ##    mcCorrections.eiso_correction(row, self.mye1, self.mye2, self.mye3) * \
-        ##    mcCorrections.trig_correction(row, self.mye3   )
-        return 1.
+        return self.pucorrector(row.nTruePU) * \
+            mcCorrections.eid_correction( row, self.mye1, self.mye2, self.mye3) * \
+            mcCorrections.eiso_correction(row, self.mye1, self.mye2, self.mye3) * \
+            mcCorrections.trig_correction(row, self.mye3   )
+      #  return 1.
 
 
     def ee3DR(self, row):
@@ -235,12 +235,14 @@ class EleFakeRateAnalyzerMVA(MegaBase):
        
                        
             if not selections.eSelection(row, 'e'): continue
-            if not selections.lepton_id_iso(row, 'e', 'eid13Loose_idiso05'): continue 
+            #if not selections.lepton_id_iso(row, 'e', 'eid13Loose_idiso05'): continue 
+            if not selections.lepton_id_iso(row, 'e', 'eid15Tight_idiso05'): continue 
             if abs(row.eEta) > 1.4442 and abs(row.eEta) < 1.566 : continue
           
 
 
-            if row.tauVetoPt20Loose3HitsNewDMVtx : continue 
+           # if row.tauVetoPt20Loose3HitsNewDMVtx : continue 
+            if row.tauVetoPt20Loose3HitsVtx : continue 
             if row.muVetoPt5IsoIdVtx : continue
             if row.eVetoMVAIso: continue
             #print row.m1Pt, row.m2Pt, row.ePt
@@ -260,7 +262,8 @@ class EleFakeRateAnalyzerMVA(MegaBase):
             folder=folder+'/'+str(int(jn))
             self.fill_histos(row, folder)
             
-            if selections.lepton_id_iso(row, 'e', 'eid13Loose_etauiso01'):
+          #  if selections.lepton_id_iso(row, 'e', 'eid13Loose_etauiso01'):
+            if selections.lepton_id_iso(row, 'e', 'eid15Tight_etauiso01'):
                 eleiso = 'eTigh' 
                 folder = sign+'/'+eleiso
                 self.fill_histos(row,  folder)

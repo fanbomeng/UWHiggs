@@ -56,7 +56,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
         self.tree = MMTTree(tree)
         self.out=outfile
         self.histograms = {}
-        #self.pucorrector = mcCorrections.make_puCorrector('singlem')
+        self.pucorrector = mcCorrections.make_puCorrector('singlem')
 
 
         if  ('RUN_OPTIMIZATION' in os.environ) and eval(os.environ['RUN_OPTIMIZATION']):
@@ -79,11 +79,11 @@ class TauFakeRateAnalyzerMVA(MegaBase):
         #if not bool(row.m1MatchesSingleE27WP80) and  bool(row.e2MatchesSingleE27WP80) :  etrig = 'e2'
 
             
-        return 1.    
-#        return self.pucorrector(row.nTruePU) * \
-#            mcCorrections.eid_correction( row, 'e1', 'e2') * \
-#            mcCorrections.eiso_correction(row, 'e1', 'e2') * \
-#            mcCorrections.trig_correction(row, etrig     )
+#        return 1.    
+        return self.pucorrector(row.nTruePU)# * \
+           # mcCorrections.eid_correction( row, 'e1', 'e2') * \
+           # mcCorrections.eiso_correction(row, 'e1', 'e2') * \
+           # mcCorrections.trig_correction(row, etrig     )
 
            
     def begin(self):
@@ -200,7 +200,8 @@ class TauFakeRateAnalyzerMVA(MegaBase):
             if not row.tAgainstMuonTight3: continue
             if not row.tAgainstElectronTightMVA5: continue #was 3
 
-            if row.tauVetoPt20Loose3HitsNewDMVtx : continue 
+           # if row.tauVetoPt20Loose3HitsNewDMVtx : continue 
+            if row.tauVetoPt20Loose3HitsVtx : continue 
             if row.muVetoPt5IsoIdVtx : continue
             if row.eVetoMVAIso: continue # change it with Loose
 
@@ -224,14 +225,14 @@ class TauFakeRateAnalyzerMVA(MegaBase):
             folder=folder+'/'+str(int(jn))
             self.fill_histos(row, folder)                
             #if not row.tByPileupWeightedIsolationRaw3Hits < 5 : continue
-            if row.tByVLooseIsolationMVA3newDMwLT :
+            if row.tByVLooseIsolationMVA3oldDMwLT :
                 tauiso = 'tVLoose'
                 folder = sign+'/'+tauiso
                 self.fill_histos(row, folder)
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
 
-            if  row.tByLooseIsolationMVA3newDMwLT : 
+            if  row.tByLooseIsolationMVA3oldDMwLT : 
                 tauiso = 'tLoose'
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -239,7 +240,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
 
-            if  row.tByMediumIsolationMVA3newDMwLT : 
+            if  row.tByMediumIsolationMVA3oldDMwLT : 
                 tauiso = 'tMedium'
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -247,7 +248,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
                
-            if row.tByTightIsolationMVA3newDMwLT :
+            if row.tByTightIsolationMVA3oldDMwLT :
                 tauiso = 'tTigh' 
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -255,7 +256,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
 
-            if row.tByVTightIsolationMVA3newDMwLT :
+            if row.tByVTightIsolationMVA3oldDMwLT :
                 tauiso = 'tVTigh' 
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -263,7 +264,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
               
-            if row.tByVVTightIsolationMVA3newDMwLT :
+            if row.tByVVTightIsolationMVA3oldDMwLT :
                 tauiso = 'tVTigh' 
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
