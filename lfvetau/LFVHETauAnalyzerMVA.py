@@ -628,9 +628,7 @@ class LFVHETauAnalyzerMVA(MegaBase):
             #print 'selection categories', selection_categories
             if passes_full_selection:
                 logging.debug('Passed full selection')
-           
-                           
-            #
+0
             #different selections
             #
             sign = 'ss' if row.e_t_SS else 'os'

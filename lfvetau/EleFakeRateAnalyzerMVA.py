@@ -64,10 +64,10 @@ class EleFakeRateAnalyzerMVA(MegaBase):
  
         #if bool(row.e1MatchesEle27WP80) and  not bool(row.e2MatchesEle27WP80) : etrig = 'e1'
         #if not bool(row.e1MatchesEle27WP80) and  bool(row.e2MatchesEle27WP80) :  etrig = 'e2'
-        return self.pucorrector(row.nTruePU) * \
-            mcCorrections.eid_correction( row, self.mye1, self.mye2, self.mye3) * \
-            mcCorrections.eiso_correction(row, self.mye1, self.mye2, self.mye3) * \
-            mcCorrections.trig_correction(row, self.mye3   )
+        return self.pucorrector(row.nTruePU) #* \
+   #         mcCorrections.eid_correction( row, self.mye1, self.mye2, self.mye3) * \
+   #         mcCorrections.eiso_correction(row, self.mye1, self.mye2, self.mye3) * \
+   #         mcCorrections.trig_correction(row, self.mye3   )
       #  return 1.
 
 

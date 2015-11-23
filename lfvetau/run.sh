@@ -18,8 +18,8 @@ export jobid=$jobid13
 #rake recoplotsMVA
 #rake controlplotsMVA
 #rake fakemmeMVA
-#rake fakemmtMVA
-rake fits
+rake fakemmtMVA
+#rake fits
 #rake drawTauFakeRate
 #export jobid=$jobidmt
 #rake recoplotsMuTau

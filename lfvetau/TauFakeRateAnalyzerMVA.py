@@ -199,7 +199,7 @@ class TauFakeRateAnalyzerMVA(MegaBase):
 
             if not row.tAgainstMuonTight3: continue
             if not row.tAgainstElectronTightMVA5: continue #was 3
-
+            if not row.tDecayModeFinding : continue
            # if row.tauVetoPt20Loose3HitsNewDMVtx : continue 
             if row.tauVetoPt20Loose3HitsVtx : continue 
             if row.muVetoPt5IsoIdVtx : continue
@@ -232,7 +232,8 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
 
-            if  row.tByLooseIsolationMVA3oldDMwLT : 
+           # if  row.tByLooseIsolationMVA3oldDMwLT : 
+            if  row.tByLooseCombinedIsolationDeltaBetaCorr3Hits : 
                 tauiso = 'tLoose'
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -240,7 +241,8 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
 
-            if  row.tByMediumIsolationMVA3oldDMwLT : 
+           # if  row.tByMediumIsolationMVA3oldDMwLT : 
+            if  row.tByMediumCombinedIsolationDeltaBetaCorr3Hits : 
                 tauiso = 'tMedium'
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
@@ -248,7 +250,8 @@ class TauFakeRateAnalyzerMVA(MegaBase):
                 folder=folder+'/'+str(int(jn))
                 self.fill_histos(row, folder)
                
-            if row.tByTightIsolationMVA3oldDMwLT :
+            #if row.tByTightIsolationMVA3oldDMwLT :
+            if row.tByTightCombinedIsolationDeltaBetaCorr3Hits :
                 tauiso = 'tTigh' 
                 folder = sign+'/'+tauiso
                 self.fill_histos(row,  folder)
