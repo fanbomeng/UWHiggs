@@ -1,11 +1,99 @@
-python plot_FakeRate.py OldIso tDecayMode
-python plot_FakeRate.py OldIso tEta
-python plot_FakeRate.py OldIso tPt
+python plot_FakeRate.py tightOldIso looseOldIso tDecayMode
+python plot_FakeRate.py tightOldIso looseOldIso tEta
+python plot_FakeRate.py tightOldIso looseOldIso tPt
 
-python plot_FakeRate.py NewIso tDecayMode
-python plot_FakeRate.py NewIso tEta
-python plot_FakeRate.py NewIso tPt
+python plot_FakeRate.py medOldIso looseOldIso tDecayMode
+python plot_FakeRate.py medOldIso looseOldIso tEta
+python plot_FakeRate.py medOldIso looseOldIso tPt
 
-python plot_FakeRate.py NewIsoNewDMs tDecayMode
-python plot_FakeRate.py NewIsoNewDMs tEta
-python plot_FakeRate.py NewIsoNewDMs tPt
+python plot_FakeRate.py tightNewIso looseNewIso tDecayMode
+python plot_FakeRate.py tightNewIso looseNewIso tEta
+python plot_FakeRate.py tightNewIso looseNewIso tPt
+
+python plot_FakeRate.py VtightNewIso looseNewIso tDecayMode
+python plot_FakeRate.py VtightNewIso looseNewIso tEta
+python plot_FakeRate.py VtightNewIso looseNewIso tPt
+
+python plot_FakeRate.py VVtightNewIso looseNewIso tDecayMode
+python plot_FakeRate.py VVtightNewIso looseNewIso tEta
+python plot_FakeRate.py VVtightNewIso looseNewIso tPt
+
+python plot_FakeRate.py tightNewIso VlooseNewIso tDecayMode
+python plot_FakeRate.py tightNewIso VlooseNewIso tEta
+python plot_FakeRate.py tightNewIso VlooseNewIso tPt
+
+python plot_FakeRate.py VtightNewIso VlooseNewIso tDecayMode
+python plot_FakeRate.py VtightNewIso VlooseNewIso tEta
+python plot_FakeRate.py VtightNewIso VlooseNewIso tPt
+
+python plot_FakeRate.py VVtightNewIso VlooseNewIso tDecayMode
+python plot_FakeRate.py VVtightNewIso VlooseNewIso tEta
+python plot_FakeRate.py VVtightNewIso VlooseNewIso tPt
+
+python plot_FakeRate.py tightOldIsoEndcap looseOldIsoEndcap tDecayMode
+python plot_FakeRate.py tightOldIsoEndcap looseOldIsoEndcap tEta
+python plot_FakeRate.py tightOldIsoEndcap looseOldIsoEndcap tPt
+
+python plot_FakeRate.py medOldIsoEndcap looseOldIsoEndcap tDecayMode
+python plot_FakeRate.py medOldIsoEndcap looseOldIsoEndcap tEta
+python plot_FakeRate.py medOldIsoEndcap looseOldIsoEndcap tPt
+
+python plot_FakeRate.py tightNewIsoEndcap looseNewIsoEndcap tDecayMode
+python plot_FakeRate.py tightNewIsoEndcap looseNewIsoEndcap tEta
+python plot_FakeRate.py tightNewIsoEndcap looseNewIsoEndcap tPt
+
+python plot_FakeRate.py VtightNewIsoEndcap looseNewIsoEndcap tDecayMode
+python plot_FakeRate.py VtightNewIsoEndcap looseNewIsoEndcap tEta
+python plot_FakeRate.py VtightNewIsoEndcap looseNewIsoEndcap tPt
+
+python plot_FakeRate.py VVtightNewIsoEndcap looseNewIsoEndcap tDecayMode
+python plot_FakeRate.py VVtightNewIsoEndcap looseNewIsoEndcap tEta
+python plot_FakeRate.py VVtightNewIsoEndcap looseNewIsoEndcap tPt
+
+python plot_FakeRate.py tightNewIsoEndcap VlooseNewIsoEndcap tDecayMode
+python plot_FakeRate.py tightNewIsoEndcap VlooseNewIsoEndcap tEta
+python plot_FakeRate.py tightNewIsoEndcap VlooseNewIsoEndcap tPt
+
+python plot_FakeRate.py VtightNewIsoEndcap VlooseNewIsoEndcap tDecayMode
+python plot_FakeRate.py VtightNewIsoEndcap VlooseNewIsoEndcap tEta
+python plot_FakeRate.py VtightNewIsoEndcap VlooseNewIsoEndcap tPt
+
+python plot_FakeRate.py VVtightNewIsoEndcap VlooseNewIsoEndcap tDecayMode
+python plot_FakeRate.py VVtightNewIsoEndcap VlooseNewIsoEndcap tEta
+python plot_FakeRate.py VVtightNewIsoEndcap VlooseNewIsoEndcap tPt
+
+python plot_FakeRate.py tightOldIsoBarrel looseOldIsoBarrel tDecayMode
+python plot_FakeRate.py tightOldIsoBarrel looseOldIsoBarrel tEta
+python plot_FakeRate.py tightOldIsoBarrel looseOldIsoBarrel tPt
+
+python plot_FakeRate.py medOldIsoBarrel looseOldIsoBarrel tDecayMode
+python plot_FakeRate.py medOldIsoBarrel looseOldIsoBarrel tEta
+python plot_FakeRate.py medOldIsoBarrel looseOldIsoBarrel tPt
+
+python plot_FakeRate.py tightNewIsoBarrel looseNewIsoBarrel tDecayMode
+python plot_FakeRate.py tightNewIsoBarrel looseNewIsoBarrel tEta
+python plot_FakeRate.py tightNewIsoBarrel looseNewIsoBarrel tPt
+
+python plot_FakeRate.py VtightNewIsoBarrel looseNewIsoBarrel tDecayMode
+python plot_FakeRate.py VtightNewIsoBarrel looseNewIsoBarrel tEta
+python plot_FakeRate.py VtightNewIsoBarrel looseNewIsoBarrel tPt
+
+python plot_FakeRate.py VVtightNewIsoBarrel looseNewIsoBarrel tDecayMode
+python plot_FakeRate.py VVtightNewIsoBarrel looseNewIsoBarrel tEta
+python plot_FakeRate.py VVtightNewIsoBarrel looseNewIsoBarrel tPt
+
+python plot_FakeRate.py tightNewIsoBarrel VlooseNewIsoBarrel tDecayMode
+python plot_FakeRate.py tightNewIsoBarrel VlooseNewIsoBarrel tEta
+python plot_FakeRate.py tightNewIsoBarrel VlooseNewIsoBarrel tPt
+
+python plot_FakeRate.py VtightNewIsoBarrel VlooseNewIsoBarrel tDecayMode
+python plot_FakeRate.py VtightNewIsoBarrel VlooseNewIsoBarrel tEta
+python plot_FakeRate.py VtightNewIsoBarrel VlooseNewIsoBarrel tPt
+
+python plot_FakeRate.py VVtightNewIsoBarrel VlooseNewIsoBarrel tDecayMode
+python plot_FakeRate.py VVtightNewIsoBarrel VlooseNewIsoBarrel tEta
+python plot_FakeRate.py VVtightNewIsoBarrel VlooseNewIsoBarrel tPt
+
+python plot_FakeRate.py tightNewIsoNewDMs looseNewIsoNewDMs tDecayMode
+python plot_FakeRate.py tightNewIsoNewDMs looseNewIsoNewDMs tEta
+python plot_FakeRate.py tightNewIsoNewDMs looseNewIsoNewDMs tPt

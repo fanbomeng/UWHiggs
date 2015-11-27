@@ -51,9 +51,12 @@ ROOT.gStyle.SetOptStat(0)
 savedir=argv[1]
 var=argv[2]
 channel=argv[3]
-
+VLoose = False
+if ("Tight" in channel):
+  LooseIso = argv[4]
+  if ("VLoose" in LooseIso):
+    VLoose = True
 fakeRate = True
-
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 
 shape_norm = False
@@ -115,10 +118,20 @@ data2015Dv4 = make_histo(savedir,"data_SingleMuon_Run2015D_PromptReco-v4_25ns",c
 #data2015Dv4 = make_histo(savedir,"data_SingleMuon_Run2015D_PromptRecov4_25ns",channel,var,lumidir,lumi,True)
 
 if (fakeRate == True):
-  fakechannel="antiiso_"+channel
+  if ("Tight" in channel):
+    fakechannel = channel.rstrip("iso")
+    print channel
+    print fakechannel
+    if (VLoose):
+      fakechannel = "antiiso_"+channel.rstrip("iso")+"VLooseiso"
+    else:
+      fakechannel = "antiiso_"+channel.rstrip("iso")+"Looseiso"
+  else:
+    fakechannel = "antiiso_"+channel
   data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_05Oct2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_05Oct2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2015Dv4fakes = make_histo(savedir,"data_SingleMuon_Run2015D_PromptReco-v4_25ns",fakechannel,var,lumidir,lumi,True)
+  print "fakes!!!" + str(fakechannel)
   wjets = data2015Cfakes.Clone()
   wjets.Add(data2015Dfakes)
   wjets.Add(data2015Dv4fakes)
@@ -172,7 +185,7 @@ smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,v
 #DYJets_10to50 = make_histo(savedir,"DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8", channel,var,lumidir,lumi)
 zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8", channel,var,lumidir,lumi)
 #FIIIIIIIIIIIIIIIIX NEEEEEEEEEEEEDED
-zjets.Scale(0.9) #10% ztautau
+#zjets.Scale(0.9) #10% ztautau
 
 
 #tFullT = make_histo(savedir,"ST_t-channel_4f_leptonDecays_13TeV-amcatnlo-pythia8_TuneCUETP8M1",channel,var,lumidir,lumi)
@@ -208,8 +221,13 @@ zjets.Rebin(binwidth)
 ttbar.Rebin(binwidth)
 #singlet.Rebin(binwidth)
 diboson.Rebin(binwidth)
-#smhgg.Rebin(binwidth)
-#gghmutau125.Rebin(binwidth)
+ww.Rebin(binwidth)
+wz.Rebin(binwidth)
+zz.Rebin(binwidth)
+smhgg.Rebin(binwidth)
+gghmutau125.Rebin(binwidth)
+smhvbf.Rebin(binwidth)
+vbfhmutau125.Rebin(binwidth)
 
 if ("collMass" in var):
   data.SetBinContent(6,-1000)
@@ -260,6 +278,14 @@ LFVStack.Add(zjets)
 LFVStack.Add(ttbar)
 #LFVStack.Add(singlet)
 LFVStack.Add(wjets)
+backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
+if ("vbf" in channel):
+  signalIntegral = vbfhmutau125.GetBinContent(7)
+else:
+  signalIntegral = gghmutau125.GetBinContent(7)
+print str(signalIntegral) + "   "+ str(backgroundIntegral)
+print "Signal/sqrt(Background+Signal)!!!"
+print str(signalIntegral/(backgroundIntegral+signalIntegral))
 
 #print "fw!!: " + str((yieldHisto(data2015B,50,200)-yieldHisto(diboson,50,200)-yieldHisto(zjets,50,200)-yieldHisto(ttbar,50,200)-yieldHisto(singlet,50,200)-yieldHisto(qcd,50,200))/(yieldHisto(wjets,50,200)))
 
@@ -272,12 +298,12 @@ maxHist = max(maxLFVStack,maxData)
 LFVStack.SetMaximum(maxHist*1.20)
 LFVStack.Draw('hist')
 data.Draw("sames,E1")
-#if ("vbf" in channel):
-#	smhvbf.Draw("hsames")
-#	vbfhmutau125.Draw("hsames")
-#else:
-#	smhgg.Draw("hsames")
-#	gghmutau125.Draw("hsames")
+if ("vbf" in channel):
+	smhvbf.Draw("hsames")
+	vbfhmutau125.Draw("hsames")
+else:
+	smhgg.Draw("hsames")
+	gghmutau125.Draw("hsames")
 
 legend.AddEntry(diboson,'EWK Di-Boson',"f")
 legend.AddEntry(zjets,'Z+Jets','f')
@@ -286,12 +312,12 @@ legend.AddEntry(ttbar,'t#bar{t}')
 #legend.AddEntry(singlet,'Single Top')
 legend.AddEntry(wjets,'Fakes','f')
 
-#if ("vbf" in channel):
-#        legend.AddEntry(smhvbf,'SM Higgs M=125')
-#        legend.AddEntry(vbfhmutau125,'LFV H->MuTau, M=125, BR=100%')
-#else:
-#	legend.AddEntry(smhgg,'SM Higgs M=125')
-#	legend.AddEntry(gghmutau125,'LFV H->MuTau, M=125, BR=100%')
+if ("vbf" in channel):
+        legend.AddEntry(smhvbf,'SM Higgs M=125')
+        legend.AddEntry(vbfhmutau125,'LFV H->MuTau, M=125, BR=100%')
+else:
+	legend.AddEntry(smhgg,'SM Higgs M=125')
+	legend.AddEntry(gghmutau125,'LFV H->MuTau, M=125, BR=100%')
 
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
@@ -336,6 +362,12 @@ exlUncert = array.array('f',[])
 exhUncert = array.array('f',[])
 eylUncert = array.array('f',[])
 eyhUncert = array.array('f',[])
+xUncertRatio = array.array('f',[])
+yUncertRatio = array.array('f',[])
+exlUncertRatio = array.array('f',[])
+exhUncertRatio = array.array('f',[])
+eylUncertRatio = array.array('f',[])
+eyhUncertRatio = array.array('f',[])
 binLength = wjets.GetBinCenter(2)-wjets.GetBinCenter(1)
 
 for i in range(1,size+1):
@@ -344,19 +376,43 @@ for i in range(1,size+1):
         wjetsBinContent = wjets.GetBinContent(i)
         xUncert.append(wjets.GetBinCenter(i))
         yUncert.append(stackBinContent)
+        xUncertRatio.append(wjets.GetBinCenter(i))
+        yUncertRatio.append(0)
+        
         exlUncert.append(binLength/2)
         exhUncert.append(binLength/2)
+        exlUncertRatio.append(binLength/2)
+        exhUncertRatio.append(binLength/2)
+        if (fakeRate):
+        	wjetsError = wjets.GetBinContent(i)*0.4
+        else:
+		wjetsError = wjets.GetBinError(i)
         #eylUncert.append(wjets.GetBinError(i)+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+ singlet.GetBinError(i))
         #eyhUncert.append(wjets.GetBinError(i)+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
-        eylUncert.append(wjets.GetBinError(i)+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))
-        eyhUncert.append(wjets.GetBinError(i)+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))
-        xUncertVec = ROOT.TVectorF(len(xUncert),xUncert)
-        yUncertVec = ROOT.TVectorF(len(yUncert),yUncert)
-        exlUncertVec = ROOT.TVectorF(len(exlUncert),exlUncert)
-        exhUncertVec = ROOT.TVectorF(len(exhUncert),exhUncert)
-        eylUncertVec = ROOT.TVectorF(len(eylUncert),eylUncert)
-        eyhUncertVec = ROOT.TVectorF(len(eyhUncert),eyhUncert)
-        systErrors = ROOT.TGraphAsymmErrors(xUncertVec,yUncertVec,exlUncertVec,exhUncertVec,eylUncertVec,eyhUncertVec)
+        eylUncert.append(wjetsError+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))
+        eyhUncert.append(wjetsError+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))
+        if (stackBinContent==0):
+        	eylUncertRatio.append(0)
+                eyhUncertRatio.append(0)
+	else:
+        	eylUncertRatio.append((wjetsError+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))/stackBinContent)
+        	eyhUncertRatio.append((wjetsError+zjets.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i))/stackBinContent)
+
+xUncertVec = ROOT.TVectorF(len(xUncert),xUncert)
+yUncertVec = ROOT.TVectorF(len(yUncert),yUncert)
+exlUncertVec = ROOT.TVectorF(len(exlUncert),exlUncert)
+exhUncertVec = ROOT.TVectorF(len(exhUncert),exhUncert)
+eylUncertVec = ROOT.TVectorF(len(eylUncert),eylUncert)
+eyhUncertVec = ROOT.TVectorF(len(eyhUncert),eyhUncert)
+systErrors = ROOT.TGraphAsymmErrors(xUncertVec,yUncertVec,exlUncertVec,exhUncertVec,eylUncertVec,eyhUncertVec)
+
+xUncertVecRatio = ROOT.TVectorF(len(xUncertRatio),xUncertRatio)
+yUncertVecRatio = ROOT.TVectorF(len(yUncertRatio),yUncertRatio)
+exlUncertVecRatio = ROOT.TVectorF(len(exlUncertRatio),exlUncertRatio)
+exhUncertVecRatio = ROOT.TVectorF(len(exhUncertRatio),exhUncertRatio)
+eylUncertVecRatio = ROOT.TVectorF(len(eylUncertRatio),eylUncertRatio)
+eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
+systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
 
 latex = ROOT.TLatex()
 latex.SetNDC()
@@ -368,10 +424,10 @@ latex.SetTextAlign(11)
 latex.DrawLatex(0.25,0.96,"CMS preliminary")
 
 systErrors.SetFillStyle(3001)
-systErrors.SetFillColor(ROOT.EColor.kGray+3)
+#systErrors.SetFillColor(ROOT.EColor.kGray)
 systErrors.SetMarkerSize(0)
-#systErrors.Draw('sames,E2')
-#legend.AddEntry(systErrors,'Bkg. Uncertainty')
+systErrors.Draw('E2,sames')
+legend.AddEntry(systErrors,'Bkg. Uncertainty')
 
 
 p_ratio.cd()
@@ -389,6 +445,10 @@ ratio.Add(mc)
 mc.Scale(-1)
 ratio.Divide(mc)
 ratio.Draw("E1")
+systErrorsRatio.SetFillStyle(3001)
+#systErrors.SetFillColor(ROOT.EColor.kGray)
+systErrorsRatio.SetMarkerSize(0)
+systErrorsRatio.Draw('E2,sames')
 if ("mMt" in var):
 	ratio.GetXaxis().SetRangeUser(0,200)
 ratio.GetXaxis().SetTitle(xlabel)
@@ -409,4 +469,34 @@ ratio.SetTitle("")
 
 if (fakeRate == True):
   outfile_name = outfile_name+"Fakes"
-canvas.SaveAs(outfile_name+"FixedWeight.png")
+  if (VLoose and "Tight" in channel):
+    outfile_name=outfile_name+"_VLooseAntiIso"
+  elif ("Tight" in channel):
+    outfile_name=outfile_name+"_LooseAntiIso"
+canvas.SaveAs(outfile_name+".png")
+
+outfile = ROOT.TFile(outfile_name+".root","RECREATE")
+outfile.mkdir("mutau")
+outfile.cd("mutau/")
+if fakeRate == False:
+        wjets.Write("wjets")
+else:
+        wjets.Write("fakes")
+zjets.Write("zjets")
+ttbar.Write("ttbar")
+#ttbar_semi.Write("ttbarsemi")
+#ttbar_full.Write("ttbarfull")
+ww.Write("ww")
+#singlet.Write("singlet")
+#data.Write("data_obs")
+vbfhmutau125.Write("LFVVBF125")
+gghmutau125.Write("LFVGG125")
+smhvbf.Write("SMVBF125")
+smhgg.Write("SMGG125")
+vbfhmutau125.Write("LFVVBF")
+gghmutau125.Write("LFVGG")
+smhvbf.Write("SMVBF")
+smhgg.Write("SMGG")
+wz.Write("WZ")
+zz.Write("ZZ")
+outfile.Write()
