@@ -97,10 +97,12 @@ p_ratio.Draw()
 p_lfv.cd()
 outfile_name = savedir+"LFV"+"_"+channel+"_"+var
 #lumidir = savedir+"json_lumicalc/"
-lumidir = savedir+"json_xsec/"
+lumidir = savedir+"weights/"
+#lumidir = savedir+"json_xsec/"
 #lumi =16.354
 #lumi=166
-lumi=1253 #pb
+#lumi=1253 #pb
+lumi = 2100
 #lumi = 25000 #25 fb-1
 
 #qcdShape = makeQCDShape()
@@ -135,6 +137,9 @@ if (fakeRate == True):
   wjets = data2015Cfakes.Clone()
   wjets.Add(data2015Dfakes)
   wjets.Add(data2015Dv4fakes)
+  zjetsfakes = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
+  zjetsfakes.Scale(-1)
+  wjets.Add(zjetsfakes)
 else:
   wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
 
@@ -175,7 +180,8 @@ gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8"
 smhvbf = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 
-
+vbfhmutau125.Scale(0.1)
+gghmutau125.Scale(0.1)
 
 
 #wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
@@ -183,7 +189,8 @@ smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,v
 #wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_PUFix",channel,var,lumidir,lumi)
 #wjets.Scale(wjetsScale)
 #DYJets_10to50 = make_histo(savedir,"DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8", channel,var,lumidir,lumi)
-zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8", channel,var,lumidir,lumi)
+#zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8", channel,var,lumidir,lumi)
+zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
 #FIIIIIIIIIIIIIIIIX NEEEEEEEEEEEEDED
 #zjets.Scale(0.9) #10% ztautau
 
@@ -233,6 +240,8 @@ if ("collMass" in var):
   data.SetBinContent(6,-1000)
   data.SetBinContent(7,-1000)
   data.SetBinContent(8,-1000)
+#if ("collMass" in var and ("vbf" in channel or "boost" in channel)):
+#  data.SetBinContent(3,-1000)
 
 data.SetMarkerStyle(8)
 data.SetMarkerSize(1)
@@ -314,10 +323,10 @@ legend.AddEntry(wjets,'Fakes','f')
 
 if ("vbf" in channel):
         legend.AddEntry(smhvbf,'SM Higgs M=125')
-        legend.AddEntry(vbfhmutau125,'LFV H->MuTau, M=125, BR=100%')
+        legend.AddEntry(vbfhmutau125,'LFV H->MuTau, M=125, BR=10%')
 else:
 	legend.AddEntry(smhgg,'SM Higgs M=125')
-	legend.AddEntry(gghmutau125,'LFV H->MuTau, M=125, BR=100%')
+	legend.AddEntry(gghmutau125,'LFV H->MuTau, M=125, BR=10%')
 
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
@@ -488,7 +497,7 @@ ttbar.Write("ttbar")
 #ttbar_full.Write("ttbarfull")
 ww.Write("ww")
 #singlet.Write("singlet")
-#data.Write("data_obs")
+data.Write("data_obs")
 vbfhmutau125.Write("LFVVBF125")
 gghmutau125.Write("LFVGG125")
 smhvbf.Write("SMVBF125")

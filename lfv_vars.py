@@ -49,7 +49,7 @@ vbfj1pt = ("j_{1}P_{T} [GeV]",10,"ROOT.TLegend(0.55,0.3,0.95,0.92,' ','brNDC')",
 
 vbfj2pt = ("j_{2}P_{T} [GeV]",10,"ROOT.TLegend(0.55,0.3,0.95,0.92,' ','brNDC')",0,0,True,0,10,"ROOT.TLegend(0.55,0.3,0.95,0.92,' ','brNDC')")
 
-m_t_Mass = ("M(#mu,#tau) [GeV]",20,"ROOT.TLegend(0.66,0.5,0.98,0.95,' ','brNDC')",60,140,True,0,20,"ROOT.TLegend(0.61,0.5,0.95,0.95,' ','brNDC')")
+m_t_Mass = ("M(#mu,#tau) [GeV]",20,"ROOT.TLegend(0.66,0.5,0.98,0.95,' ','brNDC')",60,140,True,0,5,"ROOT.TLegend(0.61,0.5,0.95,0.95,' ','brNDC')")
 
 m_t_DPhi = ("Muon Tau #Delta#phi",5,"ROOT.TLegend(0.25,0.6,0.6,0.8,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.25,0.6,0.6,0.8,' ','brNDC')")
 
@@ -62,6 +62,8 @@ m_t_ToMETDPhi_Ty1 = ("#Delta#phi (MET , MuonTau)",10,"ROOT.TLegend(0.15,0.7,0.4,
 mPhiMETPhiType1 = ("#Delta#phi (MET , #mu)",10,"ROOT.TLegend(0.60,0.4,0.81,0.87,' ','brNDC')",0,0,False,6,10,"ROOT.TLegend(0.55,0.67,0.72,0.97,' ','brNDC')")
 
 tPhiMETPhiType1 = ("#Delta#phi (MET , #tau)",2,"ROOT.TLegend(0.60,0.4,0.81,0.87,' ','brNDC')",0,0,False,6,10,"ROOT.TLegend(0.60,0.4,0.81,0.87,' ','brNDC')")
+
+nvtx = ("Number of Vertices", 5,"ROOT.TLegend(0.45,0.4,0.9,0.8,' ','brNDC')",0,0,True,0,0,"ROOT.TLegend(0.6,0.4,0.8,0.8,' ','brNDC')")
 
 
 fullMT_type1 = ("Full M_{T} [GeV]",40,"ROOT.TLegend(0.45,0.3,0.9,0.8,' ','brNDC')",0,160,True,0,10,"ROOT.TLegend(0.45,0.3,0.9,0.8,' ','brNDC')")

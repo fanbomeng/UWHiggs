@@ -1,6 +1,7 @@
 WJetsToLNu_TuneCUETP8M1_13TeV_amcatnloFXFX_pythia8 = (61526.7)
 WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8 = (61526.7)
 DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8 = (6025.2)
+DYJetsToLL_M_50_TuneCUETP8M1_13TeV_amcatnloFXFX_pythia8 = (6025.5)
 TTJets_TuneCUETP8M1_13TeV_amcatnloFXFX_pythia8 = (831.76)
 TTJets_TuneCUETP8M1_13TeV_madgraphMLM_pythia8 = (831.76)
 TT_TuneCUETP8M1_13TeV_amcatnlo_pythia8 = (831.76)
