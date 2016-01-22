@@ -238,9 +238,9 @@ def mc_corrector_2015(row):
 	m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
   	m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
 	m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
-	print "pu"
-	print str(pu)
-	print str(m1id*m1iso*m_trg)
+	#print "pu"
+	#print str(pu)
+	#print str(m1id*m1iso*m_trg)
         return pu*m1id*m1iso*m_trg
 
 mc_corrector = mc_corrector_2015
