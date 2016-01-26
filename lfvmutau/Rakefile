@@ -26,7 +26,7 @@ end
 samples = Hash[
   "HiggsGG" => get_sample_names('GluGlu'),
   "HiggsVBF" => get_sample_names('VBF'),
-  "TTBar" =>  get_sample_names('TT'),
+  "TTBar" =>  get_sample_names('TT_TuneCUETP8M1_13TeV-powheg-pythia8'),
   "WJets" =>  get_sample_names('WJets'),
   "DYJets" =>  get_sample_names('DYJetsToLL_M-50'),
   "ZTauTauJets" => get_sample_names('ZTauTau'),
@@ -58,6 +58,7 @@ end
 task :analyzeSpring2015Misc => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015WJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['WJets'])
 task :analyzeSpring2015ZJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['DYJets'])
+task :analyzeSpring2015TTBar => get_analyzer_results("AnalyzeLFVMuTau.py",samples['TTBar'])
 task :analyzeSpring2015ZTauTauJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['ZTauTauJets'])
 task :analyzeLFVMuTauData => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['Data2015C']+samples['Data2015D'])
 task :analyzeSpring2015MiscSignal => get_analyzer_results( "AnalyzeLFVMuTauSignal.py",samples['SingleTop']+samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
@@ -74,11 +75,13 @@ task :analyzeSpring2015MiscJesUp => get_analyzer_results( "AnalyzeLFVMuTaujesup.
 task :analyzeSpring2015WJetsJesUp => get_analyzer_results("AnalyzeLFVMuTaujesup.py",samples['WJets'])
 task :analyzeSpring2015ZJetsJesUp => get_analyzer_results("AnalyzeLFVMuTaujesup.py",samples['DYJets'])
 task :analyzeSpring2015ZTauTauJetsJesUp => get_analyzer_results("AnalyzeLFVMuTaujesup.py",samples['ZTauTauJets'])
+task :analyzeSpring2015TTBarJesUp => get_analyzer_results("AnalyzeLFVMuTaujesup.py",samples['TTBar'])
 task :analyzeLFVMuTauDataJesUp => get_analyzer_results( "AnalyzeLFVMuTaujesup.py",samples['Data2015C']+samples['Data2015D'])
 
 task :analyzeSpring2015MiscJesDown => get_analyzer_results( "AnalyzeLFVMuTaujesdown.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015WJetsJesDown => get_analyzer_results("AnalyzeLFVMuTaujesdown.py",samples['WJets'])
 task :analyzeSpring2015ZJetsJesDown => get_analyzer_results("AnalyzeLFVMuTaujesdown.py",samples['DYJets'])
+task :analyzeSpring2015TTBarJesDown => get_analyzer_results("AnalyzeLFVMuTaujesdown.py",samples['TTBar'])
 task :analyzeSpring2015ZTauTauJetsJesDown => get_analyzer_results("AnalyzeLFVMuTaujesdown.py",samples['ZTauTauJets'])
 task :analyzeLFVMuTauDataJesDown => get_analyzer_results( "AnalyzeLFVMuTaujesdown.py",samples['Data2015C']+samples['Data2015D'])
 
@@ -86,11 +89,13 @@ task :analyzeSpring2015MiscUesUp => get_analyzer_results( "AnalyzeLFVMuTauuesup.
 task :analyzeSpring2015WJetsUesUp => get_analyzer_results("AnalyzeLFVMuTauuesup.py",samples['WJets'])
 task :analyzeSpring2015ZJetsUesUp => get_analyzer_results("AnalyzeLFVMuTauuesup.py",samples['DYJets'])
 task :analyzeSpring2015ZTauTauJetsUesUp => get_analyzer_results("AnalyzeLFVMuTauuesup.py",samples['ZTauTauJets'])
+task :analyzeSpring2015TTBarUesUp => get_analyzer_results("AnalyzeLFVMuTauuesup.py",samples['TTBar'])
 task :analyzeLFVMuTauDataUesUp => get_analyzer_results( "AnalyzeLFVMuTauuesup.py",samples['Data2015C']+samples['Data2015D'])
 
 task :analyzeSpring2015MiscUesDown => get_analyzer_results( "AnalyzeLFVMuTauuesdown.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015WJetsUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['WJets'])
 task :analyzeSpring2015ZJetsUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['DYJets'])
+task :analyzeSpring2015TTBarUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['TTBar'])
 task :analyzeSpring2015ZTauTauJetsUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['ZTauTauJets'])
 task :analyzeLFVMuTauDataUesDown => get_analyzer_results( "AnalyzeLFVMuTauuesdown.py",samples['Data2015C']+samples['Data2015D'])
 #task :analyzetest2  => get_analyzer_results(  "AnalyzeLFVMuTauLoose.py",samples['signal'])
