@@ -12,7 +12,7 @@ import glob
 import os
 import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 #import FinalStateAnalysis.TagAndProbe.H2TauCorrections as H2TauCorrections
-import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
+#import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
 
@@ -20,6 +20,7 @@ from math import sqrt, pi
 
 data=bool ('true' in os.environ['isRealData'])
 ZTauTau = bool('true' in os.environ['isZTauTau'])
+ZeroJet = bool('true' in os.environ['isInclusive'])
 systematic = os.environ['systematic']
 
 def deltaPhi(phi1, phi2):
@@ -210,29 +211,37 @@ def getvbfJetVeto30(row,sys='none'):
 
 def getFakeRateFactor(row, isoName):
   if (isoName == "old"):
-    if (row.tDecayMode==0):
-      fTauIso = 0.380
-    elif (row.tDecayMode==1):
-      fTauIso = 0.431
-    elif (row.tDecayMode==10):
-      fTauIso = 0.304
+    if (row.tEta < 1.5):
+      if (row.tDecayMode==0):
+        fTauIso = 0.390
+      elif (row.tDecayMode==1):
+        fTauIso = 0.433
+      elif (row.tDecayMode==10):
+        fTauIso = 0.357
+    if (row.tEta >= 1.5):
+      if (row.tDecayMode==0):
+        fTauIso = 0.409
+      elif (row.tDecayMode==1):
+        fTauIso = 0.447
+      elif (row.tDecayMode==10):
+        fTauIso = 0.352
   fakeRateFactor = fTauIso/(1.0-fTauIso)
   return fakeRateFactor
 ################################################################################
 #### MC-DATA and PU corrections ################################################
 ################################################################################
 
-pu_distributions = glob.glob(os.path.join(
-        'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
+#pu_distributions = glob.glob(os.path.join(
+#        'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
 
-pu_corrector = PileupWeight.PileupWeight('Asympt25ns', *pu_distributions)
+#pu_corrector = PileupWeight.PileupWeight('Asympt25ns', *pu_distributions)
 
 muon_pog_PFTight_2015 = MuonPOGCorrections.make_muon_pog_PFTight_2015CD()
 muon_pog_TightIso_2015 = MuonPOGCorrections.make_muon_pog_TightIso_2015CD()
 muon_pog_IsoMu20oIsoTkMu20_2015 = MuonPOGCorrections.make_muon_pog_IsoMu20oIsoTkMu20_2015()
 
 def mc_corrector_2015(row):
-	pu = pu_corrector(row.nTruePU)
+	#pu = pu_corrector(row.nTruePU)
         
 
 	m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
@@ -241,7 +250,8 @@ def mc_corrector_2015(row):
 	#print "pu"
 	#print str(pu)
 	#print str(m1id*m1iso*m_trg)
-        return pu*m1id*m1iso*m_trg
+        #return pu*m1id*m1iso*m_trg
+	return m1id*m1iso*m_trg
 
 mc_corrector = mc_corrector_2015
 
@@ -434,7 +444,7 @@ class AnalyzeLFVMuTau(MegaBase):
         histos[name+'/nvtx'].Fill(row.nvtx, weight)
         histos[name+'/prescale'].Fill(row.doubleMuPrescale, weight)
 
-
+        
         histos[name+'/jet1Pt'].Fill(row.jet1Pt, weight)
         histos[name+'/jet2Pt'].Fill(row.jet2Pt, weight)
         histos[name+'/jet3Pt'].Fill(row.jet3Pt, weight)
@@ -450,7 +460,7 @@ class AnalyzeLFVMuTau(MegaBase):
         histos[name+'/jet3Phi'].Fill(row.jet3Phi, weight)
         histos[name+'/jet4Phi'].Fill(row.jet4Phi, weight)
         histos[name+'/jet5Phi'].Fill(row.jet5Phi, weight)
-
+        
         histos[name+'/mPt'].Fill(row.mPt, weight)
         histos[name+'/mEta'].Fill(row.mEta, weight)
         histos[name+'/mMtToPfMet_type1'].Fill(getmMtToPfMet(row,systematic),weight)
@@ -581,11 +591,16 @@ class AnalyzeLFVMuTau(MegaBase):
         if (not ZTauTau and row.isZtautau):
             return False
         return True
+ 
+    def selectZeroJet(self,row):
+	if (ZeroJet and row.NUP != 5):
+            return False
+	return True
 
     def kinematics(self, row):
         if row.mPt < 25:
             return False
-        if abs(row.mEta) >= 2.4:
+        if abs(row.mEta) >= 2.1:
             return False
         if row.tPt<30 :
             return False
@@ -602,33 +617,35 @@ class AnalyzeLFVMuTau(MegaBase):
            return False
        if gettMtToPfMet(row,systematic) > 50:
            return False
-       if getjetVeto30(row,systematic)!=0:
+       if getjetVeto30Eta3(row,systematic)!=0:
            return False
        return True
 
     def boost(self,row):
-          if getjetVeto30(row,systematic)!=1:
+          if getjetVeto30Eta3(row,systematic)!=1:
             return False
           if row.mPt < 35:
                 return False
           if row.tPt < 40:
                 return False
-          if gettMtToPfMet(row,systematic) > 50:
+          if gettMtToPfMet(row,systematic) > 35:
                 return False
           return True
 
     def vbf(self,row):
         if row.tPt < 40:
                 return False
-        if gettMtToPfMet(row,systematic) > 50:
+        if row.mPt < 40:
+		return False
+        if gettMtToPfMet(row,systematic) > 35:
                 return False
-        if getjetVeto30(row,systematic)<2:
+        if getjetVeto30Eta3(row,systematic)<2:
             return False
 	if(getvbfNJets(row,systematic)<2):
 	    return False
-	if(abs(getvbfDeta(row,systematic))<3.5):
+	if(abs(getvbfDeta(row,systematic))<2.5):
 	    return False
-        if getvbfMass(row,systematic) < 550:
+        if getvbfMass(row,systematic) < 200:
 	    return False
         if getvbfJetVeto30(row,systematic) > 0:
             return False
@@ -691,6 +708,8 @@ class AnalyzeLFVMuTau(MegaBase):
                 continue
             if not self.selectZtt(row):
                 continue
+            if not self.selectZeroJet(row):
+		continue
             if not self.kinematics(row): 
                 continue
  
@@ -723,11 +742,11 @@ class AnalyzeLFVMuTau(MegaBase):
             if self.obj2_iso(row) and self.oppositesign(row):  
 
               self.fill_histos(row,'preselection',False)
-              if getjetVeto30(row,systematic)==0:
+              if getjetVeto30Eta3(row,systematic)==0:
                 self.fill_histos(row,'preselection0Jet',False)
-              if getjetVeto30(row,systematic)==1:
+              if getjetVeto30Eta3(row,systematic)==1:
                 self.fill_histos(row,'preselection1Jet',False)
-              if getjetVeto30(row,systematic)==2:
+              if getjetVeto30Eta3(row,systematic)==2:
                 self.fill_histos(row,'preselection2Jet',False)
 
               if self.gg(row):
@@ -743,11 +762,11 @@ class AnalyzeLFVMuTau(MegaBase):
               self.fill_histos(row,'notIso',True)
               self.fill_histos(row,'notIsoNotWeighted',False)
 
-              if getjetVeto30(row,systematic)==0:
+              if getjetVeto30Eta3(row,systematic)==0:
                 self.fill_histos(row,'notIso0Jet',True)
-              if getjetVeto30(row,systematic)==1:
+              if getjetVeto30Eta3(row,systematic)==1:
                 self.fill_histos(row,'notIso1Jet',True)
-              if getjetVeto30(row,systematic)==2:
+              if getjetVeto30Eta3(row,systematic)==2:
                 self.fill_histos(row,'notIso2Jet',True)
 
               if self.gg(row):
