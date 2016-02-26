@@ -87,6 +87,30 @@ def collMass_type1(row,sys='none'):
         return mass
 
 
+def gettPt(row,sys='none'):
+	if (sys=='none' or 'jes' in sys or 'ues' in sys):
+		return row.tPt
+	if (sys=='tesup'):
+		return row.tPt_TauEnUp
+	if (sys=='tesdown'):
+		return row.tPt_TauEnDown
+
+def getmtMass(row,sys='none'):
+	if(sys=='none' or 'jes' in sys or 'ues' in sys):
+		return row.m_t_Mass
+	if(sys=='tesup'):
+		return row.m_t_Mass_TauEnUp
+	if(sys=='tesdown'):
+		return row.m_t_Mass_TauEnDown
+
+def gettMass(row,sys='none'):
+        if(sys=='none' or 'jes' in sys or 'ues' in sys):
+                return row.tMass
+        if(sys=='tesup'):
+                return row.tMass
+        if(sys=='tesdown'):
+                return row.tMass
+
 def getmMtToPfMet(row,sys='none'):
 	if (sys=='none'):
 		return row.mMtToPfMet_type1
@@ -110,6 +134,10 @@ def gettMtToPfMet(row,sys='none'):
                 return row.tMtToPfMet_UnclusteredEnDown
         elif (sys=='uesup'):
                 return row.tMtToPfMet_UnclusteredEnUp
+        elif (sys=='tesdown'):
+                return row.tMtToPfMet_TauEnDown
+        elif (sys=='tesup'):
+                return row.tMtToPfMet_TauEnUp
 
 def getmtcollMass(row,sys='none'):
         if (sys=='none'):
@@ -122,6 +150,10 @@ def getmtcollMass(row,sys='none'):
                 return row.m_t_collinearmass_UnclusteredEnDown
         elif (sys=='uesup'):
                 return row.m_t_collinearmass_UnclusteredEnUp
+        elif (sys=='tesup'):
+		return row.m_t_collinearmass_TauEnUp
+	elif (sys=='tesdown'):
+		return row.m_t_collinearmass_TauEnDown
 
 def gettmcollMass(row,sys='none'):
         if (sys=='none'):
@@ -146,6 +178,10 @@ def getpfMetEt(row,sys='none'):
                 return row.type1_pfMet_shiftedPt_UnclusteredEnDown
         elif (sys=='uesup'):
                 return row.type1_pfMet_shiftedPt_UnclusteredEnUp
+        elif (sys=='tesdown'):
+                return row.type1_pfMet_shiftedPt_TauEnDown
+        elif (sys=='tesup'):
+                return row.type1_pfMet_shiftedPt_TauEnUp
 
 def getpfMetPhi(row,sys='none'):
         if (sys=='none'):
@@ -158,6 +194,10 @@ def getpfMetPhi(row,sys='none'):
                 return row.type1_pfMet_shiftedPhi_UnclusteredEnDown
         elif (sys=='uesup'):
                 return row.type1_pfMet_shiftedPhi_UnclusteredEnUp
+        elif (sys=='tesdown'):
+                return row.type1_pfMet_shiftedPhi_TauEnDown
+        elif (sys=='tesup'):
+                return row.type1_pfMet_shiftedPhi_TauEnUp
 
 
 def getjetVeto30(row,sys='none'):
@@ -465,13 +505,13 @@ class AnalyzeLFVMuTau(MegaBase):
         histos[name+'/mEta'].Fill(row.mEta, weight)
         histos[name+'/mMtToPfMet_type1'].Fill(getmMtToPfMet(row,systematic),weight)
         histos[name+'/mCharge'].Fill(row.mCharge, weight)
-        histos[name+'/tPt'].Fill(row.tPt, weight)
+        histos[name+'/tPt'].Fill(gettPt(row,systematic), weight)
         histos[name+'/tEta'].Fill(row.tEta, weight)
         histos[name+'/tMtToPfMet_type1'].Fill(gettMtToPfMet(row),weight)
         histos[name+'/tCharge'].Fill(row.tCharge, weight)
 	histos[name+'/tJetPt'].Fill(row.tJetPt, weight)
 
-        histos[name+'/tMass'].Fill(row.tMass,weight)
+        histos[name+'/tMass'].Fill(gettMass(row,systematic),weight)
         histos[name+'/tLeadTrackPt'].Fill(row.tLeadTrackPt,weight)
 		       
         #histos[name+'/tAgainstElectronLoose'].Fill(row.tAgainstElectronLoose,weight)
@@ -528,7 +568,6 @@ class AnalyzeLFVMuTau(MegaBase):
 	histos[name+'/LT'].Fill(row.LT,weight)
 
         histos[name+'/collMass_type1_1'].Fill(getmtcollMass(row,systematic),weight)
-        histos[name+'/collMass_type1_2'].Fill(gettmcollMass(row,systematic),weight)
 
         histos[name+'/collMass_type1'].Fill(collMass_type1(row, systematic),weight)
         histos[name+'/fullMT_type1'].Fill(fullMT(row.mPt,row.tPt, row.mPhi, row.tPhi, row, systematic),weight)
@@ -536,7 +575,7 @@ class AnalyzeLFVMuTau(MegaBase):
 
 	histos[name+'/type1_pfMetEt'].Fill(getpfMetEt(row,systematic),weight)
 
-        histos[name+'/m_t_Mass'].Fill(row.m_t_Mass,weight)
+        histos[name+'/m_t_Mass'].Fill(getmtMass(row,systematic),weight)
         histos[name+'/m_t_Pt'].Fill(row.m_t_Pt,weight)
         histos[name+'/m_t_DR'].Fill(row.m_t_DR,weight)
         histos[name+'/m_t_DPhi'].Fill(row.m_t_DPhi,weight)
