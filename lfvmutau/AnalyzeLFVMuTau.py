@@ -107,9 +107,9 @@ def gettMass(row,sys='none'):
         if(sys=='none' or 'jes' in sys or 'ues' in sys):
                 return row.tMass
         if(sys=='tesup'):
-                return row.tMass
+                return row.tMass_TauEnUp
         if(sys=='tesdown'):
-                return row.tMass
+                return row.tMass_TauEnDown
 
 def getmMtToPfMet(row,sys='none'):
 	if (sys=='none'):
@@ -122,6 +122,10 @@ def getmMtToPfMet(row,sys='none'):
 		return row.mMtToPfMet_UnclusteredEnDown
 	elif (sys=='uesup'):
 		return row.mMtToPfMet_UnclusteredEnUp
+        elif (sys=='tesdown'):
+                return row.mMtToPfMet_TauEnDown
+        elif (sys=='tesup'):
+                return row.mMtToPfMet_TauEnUp
 
 def gettMtToPfMet(row,sys='none'):
         if (sys=='none'):
@@ -154,18 +158,6 @@ def getmtcollMass(row,sys='none'):
 		return row.m_t_collinearmass_TauEnUp
 	elif (sys=='tesdown'):
 		return row.m_t_collinearmass_TauEnDown
-
-def gettmcollMass(row,sys='none'):
-        if (sys=='none'):
-                return row.t_m_collinearmass
-        elif (sys=='jesdown'):
-                return row.t_m_collinearmass_JetEnDown
-        elif (sys=='jesup'):
-                return row.t_m_collinearmass_JetEnUp
-        elif (sys=='uesdown'):
-                return row.t_m_collinearmass_UnclusteredEnDown
-        elif (sys=='uesup'):
-                return row.t_m_collinearmass_UnclusteredEnUp
 
 def getpfMetEt(row,sys='none'):
         if (sys=='none'):
@@ -201,7 +193,7 @@ def getpfMetPhi(row,sys='none'):
 
 
 def getjetVeto30(row,sys='none'):
-	if (sys=='none' or sys=='uesdown' or sys=='uesup'):
+	if (sys=='none' or 'ues' in sys or 'tes' in sys):
 		return row.jetVeto30
 	elif (sys=='jesdown'):
 		return row.jetVeto30_JetEnDown
@@ -209,7 +201,7 @@ def getjetVeto30(row,sys='none'):
 		return row.jetVeto30_JetEnUp
 
 def getjetVeto30Eta3(row,sys='none'):
-        if (sys=='none' or sys=='uesdown' or sys=='uesup'):
+        if (sys=='none' or 'ues' in sys or 'tes' in sys):
                 return row.jetVeto30Eta3
         elif (sys=='jesdown'):
                 return row.jetVeto30Eta3_JetEnDown
@@ -217,7 +209,7 @@ def getjetVeto30Eta3(row,sys='none'):
                 return row.jetVeto30Eta3_JetEnUp
 
 def getvbfNJets(row,sys='none'):
-	if (sys=='none' or sys == 'uesdown' or sys == 'uesup'):
+	if (sys=='none' or 'ues' in sys or 'tes' in sys):
 		return row.vbfNJets
         elif (sys=='jesdown'):
                 return row.vbfNJets_JetEnDown
@@ -225,7 +217,7 @@ def getvbfNJets(row,sys='none'):
                 return row.vbfNJets_JetEnUp
 
 def getvbfDeta(row,sys='none'):
-        if (sys=='none' or sys == 'uesdown' or sys == 'uesup'):
+        if (sys=='none' or 'ues' in sys or 'tes' in sys):
                 return row.vbfDeta
         elif (sys=='jesdown'):
                 return row.vbfDeta_JetEnDown
@@ -233,7 +225,7 @@ def getvbfDeta(row,sys='none'):
                 return row.vbfDeta_JetEnUp
 
 def getvbfMass(row,sys='none'):
-        if (sys=='none' or sys == 'uesdown' or sys == 'uesup'):
+        if (sys=='none' or 'ues' in sys or 'tes' in sys):
                 return row.vbfMass
         elif (sys=='jesdown'):
                 return row.vbfMass_JetEnDown
@@ -241,7 +233,7 @@ def getvbfMass(row,sys='none'):
                 return row.vbfMass_JetEnUp
 
 def getvbfJetVeto30(row,sys='none'):
-        if (sys=='none' or sys == 'uesdown' or sys == 'uesup'):
+        if (sys=='none' or 'ues' in sys or 'tes' in sys):
                 return row.vbfJetVeto30
         elif (sys=='jesdown'):
                 return row.vbfJetVeto30_JetEnDown
@@ -656,12 +648,12 @@ class AnalyzeLFVMuTau(MegaBase):
            return False
        if gettMtToPfMet(row,systematic) > 50:
            return False
-       if getjetVeto30Eta3(row,systematic)!=0:
+       if getjetVeto(row,systematic)!=0:
            return False
        return True
 
     def boost(self,row):
-          if getjetVeto30Eta3(row,systematic)!=1:
+          if getjetVeto(row,systematic)!=1:
             return False
           if row.mPt < 35:
                 return False
@@ -678,7 +670,7 @@ class AnalyzeLFVMuTau(MegaBase):
 		return False
         if gettMtToPfMet(row,systematic) > 35:
                 return False
-        if getjetVeto30Eta3(row,systematic)<2:
+        if getjetVeto(row,systematic)<2:
             return False
 	if(getvbfNJets(row,systematic)<2):
 	    return False
@@ -686,7 +678,7 @@ class AnalyzeLFVMuTau(MegaBase):
 	    return False
         if getvbfMass(row,systematic) < 200:
 	    return False
-        if getvbfJetVeto30(row,systematic) > 0:
+        if getvbfJetVeto(row,systematic) > 0:
             return False
         return True
 
@@ -771,22 +763,22 @@ class AnalyzeLFVMuTau(MegaBase):
 
             #self.fill_histos(row,'noiso')
 
-            if self.obj2_iso(row) and not self.oppositesign(row):
-              self.fill_histos(row,'preselectionSS',False)
+            #if self.obj2_iso(row) and not self.oppositesign(row):
+            #  self.fill_histos(row,'preselectionSS',False)
 
-            if not self.obj2_iso(row) and not self.oppositesign(row):
-              self.fill_histos(row,'notIsoSS',True)
-              self.fill_histos(row,'notIsoNotWeightedSS',False)
+            #if not self.obj2_iso(row) and not self.oppositesign(row):
+            #  self.fill_histos(row,'notIsoSS',True)
+            #  self.fill_histos(row,'notIsoNotWeightedSS',False)
 
             if self.obj2_iso(row) and self.oppositesign(row):  
 
-              self.fill_histos(row,'preselection',False)
-              if getjetVeto30Eta3(row,systematic)==0:
-                self.fill_histos(row,'preselection0Jet',False)
-              if getjetVeto30Eta3(row,systematic)==1:
-                self.fill_histos(row,'preselection1Jet',False)
-              if getjetVeto30Eta3(row,systematic)==2:
-                self.fill_histos(row,'preselection2Jet',False)
+              #self.fill_histos(row,'preselection',False)
+              #if getjetVeto30Eta3(row,systematic)==0:
+              #  self.fill_histos(row,'preselection0Jet',False)
+              #if getjetVeto30Eta3(row,systematic)==1:
+              #  self.fill_histos(row,'preselection1Jet',False)
+              #if getjetVeto30Eta3(row,systematic)==2:
+              #  self.fill_histos(row,'preselection2Jet',False)
 
               if self.gg(row):
                   self.fill_histos(row,'gg',False)
@@ -798,15 +790,15 @@ class AnalyzeLFVMuTau(MegaBase):
                   self.fill_histos(row,'vbf',False)
 
             if not self.obj2_iso(row) and self.oppositesign(row):
-              self.fill_histos(row,'notIso',True)
-              self.fill_histos(row,'notIsoNotWeighted',False)
+              #self.fill_histos(row,'notIso',True)
+              #self.fill_histos(row,'notIsoNotWeighted',False)
 
-              if getjetVeto30Eta3(row,systematic)==0:
-                self.fill_histos(row,'notIso0Jet',True)
-              if getjetVeto30Eta3(row,systematic)==1:
-                self.fill_histos(row,'notIso1Jet',True)
-              if getjetVeto30Eta3(row,systematic)==2:
-                self.fill_histos(row,'notIso2Jet',True)
+              #if getjetVeto30Eta3(row,systematic)==0:
+              #  self.fill_histos(row,'notIso0Jet',True)
+              #if getjetVeto30Eta3(row,systematic)==1:
+              #  self.fill_histos(row,'notIso1Jet',True)
+              #if getjetVeto30Eta3(row,systematic)==2:
+              #  self.fill_histos(row,'notIso2Jet',True)
 
               if self.gg(row):
                   self.fill_histos(row,'ggNotIso',True)
