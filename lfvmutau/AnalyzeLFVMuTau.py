@@ -648,12 +648,12 @@ class AnalyzeLFVMuTau(MegaBase):
            return False
        if gettMtToPfMet(row,systematic) > 50:
            return False
-       if getjetVeto(row,systematic)!=0:
+       if getjetVeto30(row,systematic)!=0:
            return False
        return True
 
     def boost(self,row):
-          if getjetVeto(row,systematic)!=1:
+          if getjetVeto30(row,systematic)!=1:
             return False
           if row.mPt < 35:
                 return False
@@ -670,7 +670,7 @@ class AnalyzeLFVMuTau(MegaBase):
 		return False
         if gettMtToPfMet(row,systematic) > 35:
                 return False
-        if getjetVeto(row,systematic)<2:
+        if getjetVeto30(row,systematic)<2:
             return False
 	if(getvbfNJets(row,systematic)<2):
 	    return False
