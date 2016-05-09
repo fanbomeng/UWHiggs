@@ -12,7 +12,7 @@ import glob
 import os
 import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 #import FinalStateAnalysis.TagAndProbe.H2TauCorrections as H2TauCorrections
-#import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
+import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
 
@@ -257,33 +257,37 @@ def getFakeRateFactor(row, isoName):
         fTauIso = 0.447
       elif (row.tDecayMode==10):
         fTauIso = 0.352
+  
+  #if (row.tDecayMode==0):
+  #  fTauIso = 0.389
+  #elif (row.tDecayMode==1):
+  #  fTauIso = 0.447
+  #elif (row.tDecayMode==10):
+  #  fTauIso = 0.353
   fakeRateFactor = fTauIso/(1.0-fTauIso)
   return fakeRateFactor
 ################################################################################
 #### MC-DATA and PU corrections ################################################
 ################################################################################
-
-#pu_distributions = glob.glob(os.path.join(
-#        'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
-
-#pu_corrector = PileupWeight.PileupWeight('Asympt25ns', *pu_distributions)
+pu_distributions = glob.glob(os.path.join(
+#    'inputs', os.environ['jobid'], 'data_TauPlusX*pu.root'))
+        'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
+pu_corrector = PileupWeight.PileupWeight('25ns_matchData', *pu_distributions)
 
 muon_pog_PFTight_2015 = MuonPOGCorrections.make_muon_pog_PFTight_2015CD()
 muon_pog_TightIso_2015 = MuonPOGCorrections.make_muon_pog_TightIso_2015CD()
 muon_pog_IsoMu20oIsoTkMu20_2015 = MuonPOGCorrections.make_muon_pog_IsoMu20oIsoTkMu20_2015()
 
 def mc_corrector_2015(row):
-	#pu = pu_corrector(row.nTruePU)
-        
+  pu = pu_corrector(row.nTruePU)
 
-	m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
-  	m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
-	m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
-	#print "pu"
-	#print str(pu)
-	#print str(m1id*m1iso*m_trg)
-        #return pu*m1id*m1iso*m_trg
-	return m1id*m1iso*m_trg
+  m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
+  m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
+  m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
+
+  #print "pu"
+  #print str(pu)
+  return pu*m1id*m1iso*m_trg
 
 mc_corrector = mc_corrector_2015
 
@@ -589,8 +593,8 @@ class AnalyzeLFVMuTau(MegaBase):
 	histos[name+'/mRelPFIsoDBDefault'].Fill(row.mRelPFIsoDBDefault, weight)
         
 	histos[name+'/mPhiMtPhi'].Fill(deltaPhi(row.mPhi,row.tPhi),weight)
-        histos[name+'/mPhiMETPhiType1'].Fill(deltaPhi(row.mPhi,row.type1_pfMetEt),weight)
-        histos[name+'/tPhiMETPhiType1'].Fill(deltaPhi(row.tPhi,row.type1_pfMetEt),weight)
+        histos[name+'/mPhiMETPhiType1'].Fill(deltaPhi(row.mPhi,row.type1_pfMetPhi),weight)
+        histos[name+'/tPhiMETPhiType1'].Fill(deltaPhi(row.tPhi,row.type1_pfMetPhi),weight)
 	histos[name+'/tDecayMode'].Fill(row.tDecayMode, weight)
 	histos[name+'/vbfJetVeto30'].Fill(row.vbfJetVeto30, weight)
      	#histos[name+'/vbfJetVeto20'].Fill(row.vbfJetVeto20, weight)

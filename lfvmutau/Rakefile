@@ -63,6 +63,7 @@ end
 
 ##use $PU = false for samples with no pileup
 task :analyzeSpring2015Misc => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
+task :analyzeSpring2015MiscNoTTBar => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['DiBoson']+samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015Singlet => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['Singlet'])
 task :analyzeSpring2015WJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['WJets'])
 task :analyzeSpring2015ZJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['DYJets'])
@@ -119,7 +120,7 @@ task :analyzeSpring2015HiggsUesUp => get_analyzer_results("AnalyzeLFVMuTauuesup.
 task :analyzeLFVMuTauDataUesUp => get_analyzer_results( "AnalyzeLFVMuTauuesup.py",samples['Data2015C']+samples['Data2015D'])
 
 task :analyzeSpring2015MiscUesDown => get_analyzer_results( "AnalyzeLFVMuTauuesdown.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
-task :analyzeSpring2015SingletUesUp => get_analyzer_results( "AnalyzeLFVMuTauuesdown.py",samples['Singlet'])
+task :analyzeSpring2015SingletUesDown => get_analyzer_results( "AnalyzeLFVMuTauuesdown.py",samples['Singlet'])
 task :analyzeSpring2015WJetsUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['WJets'])
 task :analyzeSpring2015ZJetsUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['DYJets'])
 task :analyzeSpring2015TTBarUesDown => get_analyzer_results("AnalyzeLFVMuTauuesdown.py",samples['TTBar'])
