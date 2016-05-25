@@ -179,12 +179,7 @@ p_ratio.SetGridy()
 p_ratio.Draw()
 p_lfv.cd()
 outfile_name = savedir+"LFV"+"_"+channel+"_"+var+"_"+shiftStr
-#lumidir = savedir+"json_lumicalc/"
 lumidir = savedir+"weights/"
-#lumidir = savedir+"json_xsec/"
-#lumi =16.354
-#lumi=166
-#lumi=1253 #pb
 lumiScale = float(argv[4]) #lumi to scale to
 lumi = lumiScale*1000
 if (lumiScale==0):
