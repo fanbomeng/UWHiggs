@@ -1,0 +1,14 @@
+mkdir -p `dirname results/LFV_808v1/AnalyzeLFVMuTau/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root`
+#using farmout:1
+#dry run:1
+export jobid=LFV_808v1
+export MEGAPATH=/hdfs/store/user/fmeng/
+export blind='YES'
+export systematic=none
+export isZTauTau=false
+export isInclusive=false
+export isRealData=true
+export megatarget=results/LFV_808v1/AnalyzeLFVMuTau/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFV_808v1/data_SingleMuon_Run2016B_PromptReco-v2_25ns.txt results/LFV_808v1/AnalyzeLFVMuTau/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root --verbose >& batch_logs/results_LFV_808v1_AnalyzeLFVMuTau_data_SingleMuon_Run2016B_PromptReco-v2_25ns.log &
+sleep 10s
