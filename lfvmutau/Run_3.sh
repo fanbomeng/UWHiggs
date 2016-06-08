@@ -31,7 +31,7 @@ export isRealData=false
 #export isZTauTau=true
 #rake analyzeSpring2016MC
 export isZTauTau=false
-rake analyzeSpring2016MC_DiBoson
+rake analyzeSpring2016MC_2
 ###rake analyzeSpring2015DYZeroJets
 ##export isInclusive=false
 ##export isRealData=true

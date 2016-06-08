@@ -122,8 +122,8 @@ else:
 		shiftStr = "_FakeShapeMuTauUp"
 	else:
 		shiftStr="_CMS_MET_"+shift #corresponds to name Daniel used in datacards
-#rootdir = "mutau" #directory in datacard file
-rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
+rootdir = "mutau" #directory in datacard file
+#rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
 blinded = False #not blinded

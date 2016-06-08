@@ -15,12 +15,10 @@ import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
-import optimizer
+
 from math import sqrt, pi
-import itertools
 
 data=bool ('true' in os.environ['isRealData'])
-RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
 ZTauTau = bool('true' in os.environ['isZTauTau'])
 ZeroJet = bool('true' in os.environ['isInclusive'])
 systematic = os.environ['systematic']
@@ -312,13 +310,6 @@ class AnalyzeLFVMuTau(MegaBase):
         self.book('',"counts", "Event counts", 10, 0, 5)
         names=["preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","notIsoNotWeighted",
                "preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet"]
-        if RUN_OPTIMIZATION:
-		for region in optimizer.regions['0']:
-			names.append(os.path.join("gg",region))	
-		for region in optimizer.regions['1']:
-			names.append(os.path.join("boost",region))	
-		for region in optimizer.regions['2']:
-			names.append(os.path.join("vbf",region))	
         namesize = len(names)
 	for x in range(0,namesize):
 
@@ -804,37 +795,15 @@ class AnalyzeLFVMuTau(MegaBase):
               if row.jetVeto30==2:
                 self.fill_histos(row,'preselection2Jet',False)
 
-             # if self.gg(row):
-             #     self.fill_histos(row,'gg',False)
+              if self.gg(row):
+                  self.fill_histos(row,'gg',False)
 
-              if  row.jetVeto30==0:
-                  if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
-   		        tmp=os.path.join("gg",i)
-		        self.fill_histos(row,tmp,False)	
-                  if self.gg(row):
-                        self.fill_histos(row,'gg',False)
+              if self.boost(row):
+                  self.fill_histos(row,'boost',False)
 
-             # if self.boost(row):
-             #     self.fill_histos(row,'boost',False)
-              if row.jetVeto30==1:
-                  if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,row.tMtToPfMet_type1):
-		        tmp=os.path.join("boost",i)
-		        self.fill_histos(row,tmp,False)	
-                  if self.boost(row):
-                        self.fill_histos(row,'boost',False)
+              if self.vbf(row):
+                  self.fill_histos(row,'vbf',False)
 
-              if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
-                  if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
-		        tmp=os.path.join("vbf",i)
-		        self.fill_histos(row,tmp,False)	
-                  if self.vbf(row):
-                        self.fill_histos(row,'vbf',False)
-
-             # if self.vbf(row):
-             #     self.fill_histos(row,'vbf',False)
             if not self.obj2_iso(row) and self.oppositesign(row):
               self.fill_histos(row,'notIso',True)
               self.fill_histos(row,'notIsoNotWeighted',False)

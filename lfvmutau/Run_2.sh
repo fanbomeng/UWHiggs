@@ -9,7 +9,7 @@ set -o errexit
 #python MakeSysAnalyzers.py uesdown
 #python MakeSysAnalyzers.py tesdown
 #python MakeSysAnalyzers.py tesup
-
+export RUN_OPTIMIZATION=true
 export systematic=none
 export jobid=LFV_808v1
 #export isRealData=true
