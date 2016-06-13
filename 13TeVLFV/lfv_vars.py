@@ -1,7 +1,7 @@
 ##list of variables for plot_mutau.py
 ## order of parameters: xlabel, binwidth, legend, blindlow, blindhigh, include "GeV" on plot, xRangeMax, preselection binwidth
 higgsMass = ("Exact M(#mu#tau_{h}) (GeV)",50,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,145,True,300,50, "ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
-collMass_type1 = ("M(#mu#tau_{h})_{col} [GeV])",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,100,True,300,20, "ROOT.TLegend(0.65,0.60,0.93,0.98,' ','brNDC')")
+collMass_type1 = ("M(#mu#tau_{h})_{col} [GeV])",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,300,20, "ROOT.TLegend(0.65,0.60,0.93,0.98,' ','brNDC')")
 
 collMass_jes_plus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
 

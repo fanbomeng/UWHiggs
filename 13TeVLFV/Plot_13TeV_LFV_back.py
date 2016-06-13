@@ -91,8 +91,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 ##Set up style
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
-#JSONlumi =561.123523153 
-JSONlumi =809.0 
+JSONlumi =561.123523153 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -104,18 +103,13 @@ print "test"
 ROOT.gROOT.SetStyle("Plain")
 ROOT.gROOT.SetBatch(True)
 ROOT.gStyle.SetOptStat(0)
+
+fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+
 savedir=argv[1]
 var=argv[2]
 channel=argv[3]
 shift=argv[5]
-opcut=argv[6]
-RUN_OPTIMIZATION=int(argv[7])
-#RUN_OPTIMIZATION=1
-if RUN_OPTIMIZATION==1:
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-else:
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-
 poissonErrors=True
 if "collMass_type1_1" in var:
 	var = "collMass_type1"
@@ -135,26 +129,18 @@ rootdir = "mutau" #directory in datacard file
 blinded = False #not blinded
 #blinded = True #not blinded
 fillEmptyBins = True #empty bins filled
-#fakeRate = True #apply fake rate method
-fakeRate = False #apply fake rate method
+fakeRate = True #apply fake rate method
+#fakeRate = False #apply fake rate method
 shape_norm = False #normalize to 1 if True
 
 
 #directory names in datacard file
-if "preselection" in channel:
-	rootdir="mutau_preselection"
 if "vbf" in channel:
-	rootdir = "mutau_vbf"
+	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
 if "boost" in channel:
-	rootdir = "mutau_boost"
+	rootdir = "LFV_MuTau_1Jet_1_13TeVMuTau"
 if "gg" in channel:
-	rootdir = "mutau_gg"
-#if "vbf" in channel:
-#	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
-#if "boost" in channel:
-#	rootdir = "LFV_MuTau_1Jet_1_13TeVMuTau"
-#if "gg" in channel:
-#	rootdir = "LFV_MuTau_0Jet_1_13TeVMuTau"
+	rootdir = "LFV_MuTau_0Jet_1_13TeVMuTau"
 
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 
@@ -199,10 +185,7 @@ p_ratio.SetBottomMargin(0.295)
 p_ratio.SetGridy()
 p_ratio.Draw()
 p_lfv.cd()
-if RUN_OPTIMIZATION ==1:
-   outfile_name = savedir+"LFV"+"_"+channel.split("/",1)[0]+channel.split("/",1)[1]+"_"+var+"_"+shiftStr
-else:
-   outfile_name = savedir+"LFV"+"_"+channel+"_"+var+"_"+shiftStr
+outfile_name = savedir+"LFV"+"_"+channel+"_"+var+"_"+shiftStr
 lumidir = savedir+"weights/"
 lumiScale = float(argv[4]) #lumi to scale to
 lumi = lumiScale*1000
@@ -214,8 +197,8 @@ print lumi
 data2016B = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", channel,var,lumidir,lumi,True,)
 zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
 ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
-#ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
-ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
+ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
+#ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
 
 
 #apply fake rate method
@@ -232,8 +215,8 @@ if (fakeRate == True):
   ztautaufakes = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
   ztautaufakes.Scale(-1)
   ztautau.Add(ztautaufakes) #avoid double counting
-#  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
-  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
+  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
+#  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakes.Scale(-1)
   ttbar.Add(ttbarfakes) #avoid double counting
   wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
@@ -303,8 +286,6 @@ if blinded == False:
 if ("collMass" in var or "m_t_Mass" in var):
   binLow = data.FindBin(100)
   binHigh = data.FindBin(150)+1
-binLow = data.FindBin(100)
-binHigh = data.FindBin(150)+1
 if blinded == True:
         if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or ("preselection" in channel and "Jet" in channel)):
                 data.Write("data_obs")
@@ -385,17 +366,12 @@ if fakeRate == False:
 do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
 do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
 do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)
-#do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",lowDataBin,highDataBin)
-do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highDataBin)
+do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",lowDataBin,highDataBin)
+#do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highDataBin)
 do_binbybin(smhgg,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(smhvbf,"VBFHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",lowDataBin,highDataBin)
-BLAND=1
-#binLow = data.FindBin(100)
-#binHigh = data.FindBin(150)+1
-if BLAND==1:
-   for i in range(binLow,binHigh):
-        data.SetBinContent(i,-100)
+
 #Recommended by stats committee
 if(poissonErrors==True):
 	set_poissonerrors(data)
@@ -432,8 +408,6 @@ LFVStack.Draw('hist')
 data.Draw("sames,E0")
 lfvh = vbfhmutau125.Clone()
 lfvh.Add(gghmutau125)
-vbfhmutau125.Scale(0.2)
-gghmutau125.Scale(0.2)
 
 vbfhmutau125.Draw("hsames")
 gghmutau125.Draw("hsames")
@@ -505,8 +479,6 @@ for i in range(1,size+1):
         exhUncertRatio.append(binLength/2)
         if (fakeRate):
         	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
-        else:
-		wjetsError = wjets.GetBinError(i)
         eylUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
         eyhUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
         if (stackBinContent==0):
@@ -561,8 +533,8 @@ legend.AddEntry(ttbar,'t#bar{t}')
 legend.AddEntry(singlet,'Single Top')
 legend.AddEntry(diboson,'VV',"f")
 legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
-legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
-legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
+legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=100%)')
+legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=100%)')
 
 
 p_ratio.cd()
@@ -623,8 +595,8 @@ else:
 zjets.Write("Zothers"+shiftStr)
 ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)
-vbfhmutau125.Scale(0.05)
-gghmutau125.Scale(0.05)
+vbfhmutau125.Scale(0.01)
+gghmutau125.Scale(0.01)
 do_binbybin(vbfhmutau125,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(gghmutau125,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 vbfhmutau125.Write("LFVVBF125"+shiftStr)

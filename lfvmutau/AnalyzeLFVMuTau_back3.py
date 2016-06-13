@@ -21,8 +21,7 @@ import itertools
 
 #data=bool ('true' in os.environ['isRealData'])
 #RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
-#RUN_OPTIMIZATION=True
-RUN_OPTIMIZATION=False
+RUN_OPTIMIZATION=True
 #ZTauTau = bool('true' in os.environ['isZTauTau'])
 #ZeroJet = bool('true' in os.environ['isInclusive'])
 ZeroJet = False
@@ -322,8 +321,7 @@ class AnalyzeLFVMuTau(MegaBase):
 
     def begin(self):
 
-        self.book('treelev',"counts", "Event counts", 10, 0, 5)
-#        self.book('',"jetPt", "Event counts", 10, 0, 5)
+        self.book('',"counts", "Event counts", 10, 0, 5)
         names=["preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","notIsoNotWeighted",
                "preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet"]
         if RUN_OPTIMIZATION:
@@ -503,8 +501,6 @@ class AnalyzeLFVMuTau(MegaBase):
     def fill_histosup(self, row,name='gg', fakeRate=False, isoName="old"):
         histos = self.histograms
         histos['counts'].Fill(1,1)
-#        if 
-#          histos['jetPt'].Fill(1,1)
     def fill_histos(self, row,name='gg', fakeRate=False, isoName="old"):
         histos = self.histograms
         weight=1
@@ -525,21 +521,21 @@ class AnalyzeLFVMuTau(MegaBase):
 
         
         histos[name+'/counts'].Fill(1)
-        histos[name+'/jet1Pt'].Fill(row.jet1Pt, weight)
-        histos[name+'/jet2Pt'].Fill(row.jet2Pt, weight)
-        histos[name+'/jet3Pt'].Fill(row.jet3Pt, weight)
-        histos[name+'/jet4Pt'].Fill(row.jet4Pt, weight)
-        histos[name+'/jet5Pt'].Fill(row.jet5Pt, weight)
-        histos[name+'/jet1Eta'].Fill(row.jet1Eta, weight)
-        histos[name+'/jet2Eta'].Fill(row.jet2Eta, weight)
-        histos[name+'/jet3Eta'].Fill(row.jet3Eta, weight)
-        histos[name+'/jet4Eta'].Fill(row.jet4Eta, weight)
-        histos[name+'/jet5Eta'].Fill(row.jet5Eta, weight)
-        histos[name+'/jet1Phi'].Fill(row.jet1Phi, weight)
-        histos[name+'/jet2Phi'].Fill(row.jet2Phi, weight)
-        histos[name+'/jet3Phi'].Fill(row.jet3Phi, weight)
-        histos[name+'/jet4Phi'].Fill(row.jet4Phi, weight)
-        histos[name+'/jet5Phi'].Fill(row.jet5Phi, weight)
+##        histos[name+'/jet1Pt'].Fill(row.jet1Pt, weight)
+##        histos[name+'/jet2Pt'].Fill(row.jet2Pt, weight)
+##        histos[name+'/jet3Pt'].Fill(row.jet3Pt, weight)
+##        histos[name+'/jet4Pt'].Fill(row.jet4Pt, weight)
+##        histos[name+'/jet5Pt'].Fill(row.jet5Pt, weight)
+##        histos[name+'/jet1Eta'].Fill(row.jet1Eta, weight)
+##        histos[name+'/jet2Eta'].Fill(row.jet2Eta, weight)
+##        histos[name+'/jet3Eta'].Fill(row.jet3Eta, weight)
+##        histos[name+'/jet4Eta'].Fill(row.jet4Eta, weight)
+##        histos[name+'/jet5Eta'].Fill(row.jet5Eta, weight)
+##        histos[name+'/jet1Phi'].Fill(row.jet1Phi, weight)
+##        histos[name+'/jet2Phi'].Fill(row.jet2Phi, weight)
+##        histos[name+'/jet3Phi'].Fill(row.jet3Phi, weight)
+##        histos[name+'/jet4Phi'].Fill(row.jet4Phi, weight)
+##        histos[name+'/jet5Phi'].Fill(row.jet5Phi, weight)
         
         histos[name+'/mPt'].Fill(row.mPt, weight)
         histos[name+'/mEta'].Fill(row.mEta, weight)
@@ -555,43 +551,43 @@ class AnalyzeLFVMuTau(MegaBase):
         histos[name+'/tLeadTrackPt'].Fill(row.tLeadTrackPt,weight)
 		      ####herer 
         #histos[name+'/tAgainstElectronLoose'].Fill(row.tAgainstElectronLoose,weight)
-##        histos[name+'/tAgainstElectronLooseMVA6'].Fill(row.tAgainstElectronLooseMVA6,weight)  
+        histos[name+'/tAgainstElectronLooseMVA6'].Fill(row.tAgainstElectronLooseMVA6,weight)  
         #histos[name+'/tAgainstElectronMedium'].Fill(row.tAgainstElectronMedium,weight)     
-##        histos[name+'/tAgainstElectronMediumMVA6'].Fill(row.tAgainstElectronMediumMVA6,weight) 
+        histos[name+'/tAgainstElectronMediumMVA6'].Fill(row.tAgainstElectronMediumMVA6,weight) 
         #histos[name+'/tAgainstElectronTight'].Fill(row.tAgainstElectronTight,weight)      
-##        histos[name+'/tAgainstElectronTightMVA6'].Fill(row.tAgainstElectronTightMVA6,weight)  
-##        histos[name+'/tAgainstElectronVTightMVA6'].Fill(row.tAgainstElectronVTightMVA6,weight) 
+        histos[name+'/tAgainstElectronTightMVA6'].Fill(row.tAgainstElectronTightMVA6,weight)  
+        histos[name+'/tAgainstElectronVTightMVA6'].Fill(row.tAgainstElectronVTightMVA6,weight) 
 
 
         #histos[name+'/tAgainstMuonLoose'].Fill(row.tAgainstMuonLoose,weight)
-##        histos[name+'/tAgainstMuonLoose3'].Fill(row.tAgainstMuonLoose3,weight)
+        histos[name+'/tAgainstMuonLoose3'].Fill(row.tAgainstMuonLoose3,weight)
         #histos[name+'/tAgainstMuonMedium'].Fill(row.tAgainstMuonMedium,weight)
         #histos[name+'/tAgainstMuonTight'].Fill(row.tAgainstMuonTight,weight)
-##        histos[name+'/tAgainstMuonTight3'].Fill(row.tAgainstMuonTight3,weight)
+        histos[name+'/tAgainstMuonTight3'].Fill(row.tAgainstMuonTight3,weight)
 
         #histos[name+'/tAgainstMuonLooseMVA'].Fill(row.tAgainstMuonLooseMVA,weight)
         #histos[name+'/tAgainstMuonMediumMVA'].Fill(row.tAgainstMuonMediumMVA,weight)
         #histos[name+'/tAgainstMuonTightMVA'].Fill(row.tAgainstMuonTightMVA,weight)
 
-##        histos[name+'/tDecayModeFinding'].Fill(row.tDecayModeFinding,weight)
-##        histos[name+'/tDecayModeFindingNewDMs'].Fill(row.tDecayModeFindingNewDMs,weight)
-##        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
-##
-##        histos[name+'/tByLooseCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByLooseCombinedIsolationDeltaBetaCorr3Hits,weight)
-##        histos[name+'/tByMediumCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByMediumCombinedIsolationDeltaBetaCorr3Hits,weight)
-##        histos[name+'/tByTightCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByTightCombinedIsolationDeltaBetaCorr3Hits,weight)
-##
-##        histos[name+'/tByLooseIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByLooseIsolationMVArun2v1DBnewDMwLT,weight)
-##        histos[name+'/tByMediumIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByMediumIsolationMVArun2v1DBnewDMwLT,weight)
-##        histos[name+'/tByTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByTightIsolationMVArun2v1DBnewDMwLT,weight)
-##        histos[name+'/tByVTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByVTightIsolationMVArun2v1DBnewDMwLT,weight)
-##        histos[name+'/tByVVTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByVVTightIsolationMVArun2v1DBnewDMwLT,weight)
-##
-##        histos[name+'/tByLooseIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByLooseIsolationMVArun2v1DBoldDMwLT,weight)
-##        histos[name+'/tByMediumIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByMediumIsolationMVArun2v1DBoldDMwLT,weight)
-##        histos[name+'/tByTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByTightIsolationMVArun2v1DBoldDMwLT,weight)
-##        histos[name+'/tByVTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByVTightIsolationMVArun2v1DBoldDMwLT,weight)
-##        histos[name+'/tByVVTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByVVTightIsolationMVArun2v1DBoldDMwLT,weight)
+        histos[name+'/tDecayModeFinding'].Fill(row.tDecayModeFinding,weight)
+        histos[name+'/tDecayModeFindingNewDMs'].Fill(row.tDecayModeFindingNewDMs,weight)
+        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
+
+        histos[name+'/tByLooseCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByLooseCombinedIsolationDeltaBetaCorr3Hits,weight)
+        histos[name+'/tByMediumCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByMediumCombinedIsolationDeltaBetaCorr3Hits,weight)
+        histos[name+'/tByTightCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByTightCombinedIsolationDeltaBetaCorr3Hits,weight)
+
+        histos[name+'/tByLooseIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByLooseIsolationMVArun2v1DBnewDMwLT,weight)
+        histos[name+'/tByMediumIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByMediumIsolationMVArun2v1DBnewDMwLT,weight)
+        histos[name+'/tByTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByTightIsolationMVArun2v1DBnewDMwLT,weight)
+        histos[name+'/tByVTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByVTightIsolationMVArun2v1DBnewDMwLT,weight)
+        histos[name+'/tByVVTightIsolationMVArun2v1DBnewDMwLT'].Fill(row.tByVVTightIsolationMVArun2v1DBnewDMwLT,weight)
+
+        histos[name+'/tByLooseIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByLooseIsolationMVArun2v1DBoldDMwLT,weight)
+        histos[name+'/tByMediumIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByMediumIsolationMVArun2v1DBoldDMwLT,weight)
+        histos[name+'/tByTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByTightIsolationMVArun2v1DBoldDMwLT,weight)
+        histos[name+'/tByVTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByVTightIsolationMVArun2v1DBoldDMwLT,weight)
+        histos[name+'/tByVVTightIsolationMVArun2v1DBoldDMwLT'].Fill(row.tByVVTightIsolationMVArun2v1DBoldDMwLT,weight)
 
         #histos[name+'/tByLooseIsolationMVA3newDMwoLT'].Fill(row.tByLooseIsolationMVA3newDMwoLT,weight)
         #histos[name+'/tByMediumIsolationMVA3newDMwoLT'].Fill(row.tByMediumIsolationMVA3newDMwoLT,weight)
@@ -605,7 +601,7 @@ class AnalyzeLFVMuTau(MegaBase):
         #histos[name+'/tByVTightIsolationMVA3oldDMwoLT'].Fill(row.tByVTightIsolationMVA3oldDMwoLT,weight)
         #histos[name+'/tByVVTightIsolationMVA3oldDMwoLT'].Fill(row.tByVVTightIsolationMVA3oldDMwoLT,weight)
 
-##	histos[name+'/LT'].Fill(row.LT,weight)
+	histos[name+'/LT'].Fill(row.LT,weight)
 
         histos[name+'/collMass_type1'].Fill(row.m_t_collinearmass,weight)
 
@@ -625,10 +621,10 @@ class AnalyzeLFVMuTau(MegaBase):
         histos[name+'/mPixHits'].Fill(row.mPixHits, weight)
         histos[name+'/mJetBtag'].Fill(row.mJetBtag, weight)
 
-##        histos[name+'/muVetoPt5IsoIdVtx'].Fill(row.muVetoPt5IsoIdVtx, weight)
-##        histos[name+'/muVetoPt15IsoIdVtx'].Fill(row.muVetoPt15IsoIdVtx, weight)
-##        histos[name+'/tauVetoPt20Loose3HitsVtx'].Fill(row.tauVetoPt20Loose3HitsVtx, weight)
-##        histos[name+'/eVetoMVAIso'].Fill(row.eVetoMVAIso, weight)
+        histos[name+'/muVetoPt5IsoIdVtx'].Fill(row.muVetoPt5IsoIdVtx, weight)
+        histos[name+'/muVetoPt15IsoIdVtx'].Fill(row.muVetoPt15IsoIdVtx, weight)
+        histos[name+'/tauVetoPt20Loose3HitsVtx'].Fill(row.tauVetoPt20Loose3HitsVtx, weight)
+        histos[name+'/eVetoMVAIso'].Fill(row.eVetoMVAIso, weight)
         histos[name+'/jetVeto30'].Fill(row.jetVeto30, weight)
         histos[name+'/jetVeto30Eta3'].Fill(row.jetVeto30Eta3,weight)
         #histos[name+'/jetVeto30PUCleanedLoose'].Fill(row.jetVeto30PUCleanedLoose, weight)
@@ -677,16 +673,6 @@ class AnalyzeLFVMuTau(MegaBase):
             return False
 	return True
 
-    def kinematicst20(self, row):
-        if row.mPt < 25:
-            return False
-        if abs(row.mEta) >= 2.1:
-            return False
-        if row.tPt<20 :
-            return False
-        if abs(row.tEta)>=2.3:
-            return False
-        return True
     def kinematics(self, row):
         if row.mPt < 25:
             return False
@@ -788,7 +774,7 @@ class AnalyzeLFVMuTau(MegaBase):
         event =0
         sel=False
         for row in self.tree:
-#            self.fill_histosup(row,'treelev',False)
+            self.fill_histosup(row,'',False)
             if event!=row.evt:   # This is just to ensure we get the (Mu,Tau) with the highest Pt
                 event=row.evt    # In principle the code saves all the MU+Tau posibilities, if an event has several combinations
                 sel = False      # it will save them all.

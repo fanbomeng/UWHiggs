@@ -11,7 +11,7 @@ set -o errexit
 #python MakeSysAnalyzers.py tesup
 
 export systematic=none
-export jobid=LFV_808v1
+export jobid=LFV_808v1_data
 #export isRealData=true
 export isZTauTau=false
 export isInclusive=false   #ZeroJet
@@ -28,8 +28,8 @@ export isInclusive=false   #ZeroJet
 export isRealData=true
 #rake analyzeSpring2016B 
 export isRealData=false
-export isZTauTau=true
-rake analyzeSpring2016MC
+#export isZTauTau=true
+rake analyzeSpring2016B 
 export isZTauTau=false
 #rake analyzeSpring2016MC_2
 ###rake analyzeSpring2015DYZeroJets

@@ -91,8 +91,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 ##Set up style
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
-#JSONlumi =561.123523153 
-JSONlumi =809.0 
+JSONlumi =561.123523153 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -132,11 +131,11 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = False #not blinded
+#blinded = False #not blinded
 #blinded = True #not blinded
 fillEmptyBins = True #empty bins filled
-#fakeRate = True #apply fake rate method
-fakeRate = False #apply fake rate method
+fakeRate = True #apply fake rate method
+#fakeRate = False #apply fake rate method
 shape_norm = False #normalize to 1 if True
 
 
@@ -303,8 +302,6 @@ if blinded == False:
 if ("collMass" in var or "m_t_Mass" in var):
   binLow = data.FindBin(100)
   binHigh = data.FindBin(150)+1
-binLow = data.FindBin(100)
-binHigh = data.FindBin(150)+1
 if blinded == True:
         if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or ("preselection" in channel and "Jet" in channel)):
                 data.Write("data_obs")
@@ -390,12 +387,7 @@ do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highD
 do_binbybin(smhgg,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(smhvbf,"VBFHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",lowDataBin,highDataBin)
-BLAND=1
-#binLow = data.FindBin(100)
-#binHigh = data.FindBin(150)+1
-if BLAND==1:
-   for i in range(binLow,binHigh):
-        data.SetBinContent(i,-100)
+
 #Recommended by stats committee
 if(poissonErrors==True):
 	set_poissonerrors(data)
@@ -432,8 +424,8 @@ LFVStack.Draw('hist')
 data.Draw("sames,E0")
 lfvh = vbfhmutau125.Clone()
 lfvh.Add(gghmutau125)
-vbfhmutau125.Scale(0.2)
-gghmutau125.Scale(0.2)
+vbfhmutau125.Scale(0.1)
+gghmutau125.Scale(0.1)
 
 vbfhmutau125.Draw("hsames")
 gghmutau125.Draw("hsames")
@@ -505,8 +497,6 @@ for i in range(1,size+1):
         exhUncertRatio.append(binLength/2)
         if (fakeRate):
         	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
-        else:
-		wjetsError = wjets.GetBinError(i)
         eylUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
         eyhUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
         if (stackBinContent==0):
@@ -561,8 +551,8 @@ legend.AddEntry(ttbar,'t#bar{t}')
 legend.AddEntry(singlet,'Single Top')
 legend.AddEntry(diboson,'VV',"f")
 legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
-legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
-legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
+legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=10%)')
+legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=10%)')
 
 
 p_ratio.cd()
@@ -623,8 +613,8 @@ else:
 zjets.Write("Zothers"+shiftStr)
 ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)
-vbfhmutau125.Scale(0.05)
-gghmutau125.Scale(0.05)
+vbfhmutau125.Scale(0.01)
+gghmutau125.Scale(0.01)
 do_binbybin(vbfhmutau125,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(gghmutau125,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 vbfhmutau125.Write("LFVVBF125"+shiftStr)

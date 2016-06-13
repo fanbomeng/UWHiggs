@@ -27,6 +27,7 @@ samples = Hash[
   "Singlet" => get_sample_names('ST_t'),
   "HiggsGG" => get_sample_names('GluGlu'),
   "HiggsVBF" => get_sample_names('VBF'),
+  "HiggsVBFLFV" => get_sample_names('VBF_LFV'),
   #"TTBar" =>  get_sample_names('TT_TuneCUETP8M1_13TeV-powheg-pythia8'),
   "TTBar" =>  get_sample_names('TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen'),
   "WJets" =>  get_sample_names('WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8'),
@@ -66,10 +67,11 @@ end
 
 ##use $PU = false for samples with no pileup
 task :analyzeSpring2016B => get_analyzer_results("AnalyzeLFVMuTau.py",samples['Data2016B'])
-task :analyzeSpring2016MC => get_analyzer_results("AnalyzeLFVMuTau.py",samples['ZTauTauAmcJets'])
+task :analyzeSpring2016VBFLFV => get_analyzer_results("AnalyzeLFVMuTau.py",samples['HiggsVBFLFV'])
+task :analyzeSpring2016MC => get_analyzer_results("AnalyzeLFVMuTau.py",samples['HiggsVBF'])
 task :analyzeSpring2016MC_DY_WJets => get_analyzer_results("AnalyzeLFVMuTau.py",samples['DYAmcJets']+samples['WJets'])
 task :analyzeSpring2016MC_DiBoson => get_analyzer_results("AnalyzeLFVMuTau.py",samples['DiBoson'])
-task :analyzeSpring2016MC_1 => get_analyzer_results("AnalyzeLFVMuTau.py",samples['SingleTop']+samples['WJets']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF']+samples['DYAmcJets']+samples['DiBoson'])
+task :analyzeSpring2016all => get_analyzer_results("AnalyzeLFVMuTau.py",samples['SingleTop']+samples['ZTauTauAmcJets']+samples['Data2016B']+samples['WJets']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF']+samples['DYAmcJets']+samples['DiBoson'])
 task :analyzeSpring2016MC_2 => get_analyzer_results("AnalyzeLFVMuTau.py",samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015Misc => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['DiBoson']+samples['TTBar']+samples['HiggsGG']+samples['HiggsVBF'])
 task :analyzeSpring2015MiscNoTTBar => get_analyzer_results( "AnalyzeLFVMuTau.py",samples['DiBoson']+samples['HiggsGG']+samples['HiggsVBF'])

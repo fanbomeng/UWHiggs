@@ -9,7 +9,7 @@ set -o errexit
 #python MakeSysAnalyzers.py uesdown
 #python MakeSysAnalyzers.py tesdown
 #python MakeSysAnalyzers.py tesup
-
+export RUN_OPTIMIZATION=true
 export systematic=none
 export jobid=LFV_808v1
 #export isRealData=true
@@ -26,13 +26,13 @@ export isInclusive=false   #ZeroJet
 #export isIncluse=false
 #export isInclusive=true   #ZeroJet
 export isRealData=true
-#rake analyzeSpring2016B 
+rake analyzeSpring2016all  
 export isRealData=false
 export isZTauTau=true
 #rake analyzeSpring2016MC
 export isZTauTau=false
-#rake analyzeSpring2016MC_1
-rake analyzeSpring2016VBFLFV 
+#rake analyzeSpring2016MC_2
+###rake analyzeSpring2015DYZeroJets
 ##export isInclusive=false
 ##export isRealData=true
 ###rake analyzeLFVMuTauData

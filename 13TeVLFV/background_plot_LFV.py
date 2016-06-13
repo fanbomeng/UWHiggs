@@ -137,7 +137,8 @@ blinded = False #not blinded
 fillEmptyBins = True #empty bins filled
 #fakeRate = True #apply fake rate method
 fakeRate = False #apply fake rate method
-shape_norm = False #normalize to 1 if True
+#shape_norm = False #normalize to 1 if True
+shape_norm = True #normalize to 1 if True
 
 
 #directory names in datacard file
@@ -212,74 +213,74 @@ print lumi
 #data2015C = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns", channel,var,lumidir,lumi,True,)
 #data2015D = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns", channel,var,lumidir,lumi,True)
 data2016B = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", channel,var,lumidir,lumi,True,)
-zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
-ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
+##zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
+##ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
 #ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
-ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
+##ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
 
 
 #apply fake rate method
-if (fakeRate == True):
-  fakechannel = fakeChannels[channel]
-  #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
-  #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
-  data2016Bfakes = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", fakechannel,var,lumidir,lumi,True,)
- # wjets = data2015Cfakes.Clone()
- # wjets.Add(data2015Dfakes)
-  wjets = data2016Bfakes.Clone()
-  zjetsfakes = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
-  zjetsfakes.Scale(-1)
-  ztautaufakes = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
-  ztautaufakes.Scale(-1)
-  ztautau.Add(ztautaufakes) #avoid double counting
-#  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
-  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
-  ttbarfakes.Scale(-1)
-  ttbar.Add(ttbarfakes) #avoid double counting
-  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
-else: #if fakeRate==False
-  wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
+##if (fakeRate == True):
+##  fakechannel = fakeChannels[channel]
+##  #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
+##  #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
+##  data2016Bfakes = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", fakechannel,var,lumidir,lumi,True,)
+## # wjets = data2015Cfakes.Clone()
+## # wjets.Add(data2015Dfakes)
+##  wjets = data2016Bfakes.Clone()
+##  zjetsfakes = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
+##  zjetsfakes.Scale(-1)
+##  ztautaufakes = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",fakechannel,var,lumidir,lumi)
+##  ztautaufakes.Scale(-1)
+##  ztautau.Add(ztautaufakes) #avoid double counting
+###  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
+##  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
+##  ttbarfakes.Scale(-1)
+##  ttbar.Add(ttbarfakes) #avoid double counting
+##  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+##else: #if fakeRate==False
+wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
 
 
-vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+##vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 
-smhvbf = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
-smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+##smhvbf = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+##smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 
-ww = make_histo(savedir,"WW_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
-wz = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
-zz = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
+##ww = make_histo(savedir,"WW_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
+##wz = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
+##zz = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
 
-St_tW_anti = make_histo(savedir,"ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",channel,var,lumidir,lumi)
-St_tW_top = make_histo(savedir,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",channel,var,lumidir,lumi)
+##St_tW_anti = make_histo(savedir,"ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",channel,var,lumidir,lumi)
+##St_tW_top = make_histo(savedir,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",channel,var,lumidir,lumi)
 
-singlet = St_tW_top.Clone()
-singlet.Add(St_tW_anti)
+##singlet = St_tW_top.Clone()
+##singlet.Add(St_tW_anti)
 
 #data=data2015C.Clone()
 #data.Add(data2015D)
 data=data2016B.Clone()
 
-diboson = ww.Clone()
-diboson.Add(wz)
-diboson.Add(zz)
+##diboson = ww.Clone()
+##diboson.Add(wz)
+##diboson.Add(zz)
 
 #Set bin widths
 data.Rebin(binwidth)
-wjets.Rebin(binwidth)
-zjets.Rebin(binwidth)
-ztautau.Rebin(binwidth)
-ttbar.Rebin(binwidth)
-diboson.Rebin(binwidth)
-ww.Rebin(binwidth)
-wz.Rebin(binwidth)
-zz.Rebin(binwidth)
-singlet.Rebin(binwidth)
-smhgg.Rebin(binwidth)
+##wjets.Rebin(binwidth)
+##zjets.Rebin(binwidth)
+##ztautau.Rebin(binwidth)
+##ttbar.Rebin(binwidth)
+##diboson.Rebin(binwidth)
+##ww.Rebin(binwidth)
+##wz.Rebin(binwidth)
+##zz.Rebin(binwidth)
+##singlet.Rebin(binwidth)
+##smhgg.Rebin(binwidth)
 gghmutau125.Rebin(binwidth)
-smhvbf.Rebin(binwidth)
-vbfhmutau125.Rebin(binwidth)
+##smhvbf.Rebin(binwidth)
+##vbfhmutau125.Rebin(binwidth)
 
 #options for name of outputfile
 if (fakeRate == True):
@@ -296,77 +297,77 @@ outfile = ROOT.TFile(outfile_name+".root","RECREATE")
 
 outfile.mkdir(rootdir)
 outfile.cd(rootdir+"/")
-if blinded == False:
-	if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir):
-        	data.Write("data_obs")
+##if blinded == False:
+##	if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir):
+##        	data.Write("data_obs")
 
-if ("collMass" in var or "m_t_Mass" in var):
-  binLow = data.FindBin(100)
-  binHigh = data.FindBin(150)+1
-binLow = data.FindBin(100)
-binHigh = data.FindBin(150)+1
-if blinded == True:
-        if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or ("preselection" in channel and "Jet" in channel)):
-                data.Write("data_obs")
+##if ("collMass" in var or "m_t_Mass" in var):
+##  binLow = data.FindBin(100)
+##  binHigh = data.FindBin(150)+1
+##binLow = data.FindBin(100)
+##binHigh = data.FindBin(150)+1
+##if blinded == True:
+##       if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or ("preselection" in channel and "Jet" in channel)):
+##                data.Write("data_obs")
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,
 #              kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
 
 #Plotting options (not to be used for final plots)
-data.SetMarkerStyle(20)
-data.SetMarkerSize(1)
+##data.SetMarkerStyle(20)
+##data.SetMarkerSize(1)
 #data.SetLineColor(ROOT.EColor.kBlack)
-data.SetLineColor(1)
+##data.SetLineColor(1)
 #gghmutau125.SetLineColor(ROOT.EColor.kRed)
 gghmutau125.SetLineColor(632)
 gghmutau125.SetLineWidth(3)
-smhgg.SetLineWidth(3)
+##smhgg.SetLineWidth(3)
 #smhgg.SetLineColor(ROOT.EColor.kMagenta)
 #smhgg.SetFillColor(ROOT.EColor.kMagenta)
-smhgg.SetLineColor(616)
-smhgg.SetFillColor(616)
+##smhgg.SetLineColor(616)
+##smhgg.SetFillColor(616)
 #vbfhmutau125.SetLineColor(ROOT.EColor.kBlue)
-vbfhmutau125.SetLineColor(600)
-vbfhmutau125.SetLineWidth(3)
-smhvbf.SetLineWidth(3)
+##vbfhmutau125.SetLineColor(600)
+##vbfhmutau125.SetLineWidth(3)
+##smhvbf.SetLineWidth(3)
 #smhvbf.SetLineColor(ROOT.EColor.kMagenta)
 #smhvbf.SetFillColor(ROOT.EColor.kMagenta)
-smhvbf.SetLineColor(616)
-smhvbf.SetFillColor(616)
-wjets.SetFillColor(616-10)
-wjets.SetLineColor(616+4)
-wjets.SetLineWidth(1)
-wjets.SetMarkerSize(0)
+##smhvbf.SetLineColor(616)
+##smhvbf.SetFillColor(616)
+##wjets.SetFillColor(616-10)
+##wjets.SetLineColor(616+4)
+##wjets.SetLineWidth(1)
+##wjets.SetMarkerSize(0)
 #ztautau.SetFillColor(ROOT.EColor.kOrange-4)
 #ztautau.SetLineColor(ROOT.EColor.kOrange+4)
-ztautau.SetFillColor(800-4)
-ztautau.SetLineColor(800+4)
-ztautau.SetLineWidth(1)
-ztautau.SetMarkerSize(0)
+##ztautau.SetFillColor(800-4)
+##ztautau.SetLineColor(800+4)
+##ztautau.SetLineWidth(1)
+##ztautau.SetMarkerSize(0)
 #zjets.SetFillColor(ROOT.EColor.kAzure+3)
 #zjets.SetLineColor(ROOT.EColor.kAzure+3)
-zjets.SetFillColor(860+3)
-zjets.SetLineColor(860+3)
-zjets.SetLineWidth(1)
-zjets.SetMarkerSize(0)
+##zjets.SetFillColor(860+3)
+##zjets.SetLineColor(860+3)
+##zjets.SetLineWidth(1)
+##zjets.SetMarkerSize(0)
 #ttbar.SetFillColor(ROOT.EColor.kGreen+3)
 #ttbar.SetLineColor(ROOT.EColor.kBlack)
-ttbar.SetFillColor(416+3)
-ttbar.SetLineColor(1)
-ttbar.SetLineWidth(1)
-ttbar.SetMarkerSize(0)
-#diboson.SetFillColor(ROOT.EColor.kRed+2)
-#diboson.SetLineColor(ROOT.EColor.kRed+4)
-diboson.SetFillColor(632+2)
-diboson.SetLineColor(632+4)
-diboson.SetLineWidth(1)
-diboson.SetMarkerSize(0)
-#singlet.SetFillColor(ROOT.EColor.kGreen+4)
-#singlet.SetLineColor(ROOT.EColor.kBlack)
-singlet.SetFillColor(416+4)
-singlet.SetLineColor(1)
-singlet.SetLineWidth(1)
-singlet.SetMarkerSize(0)
+##ttbar.SetFillColor(416+3)
+##ttbar.SetLineColor(1)
+##ttbar.SetLineWidth(1)
+##ttbar.SetMarkerSize(0)
+###diboson.SetFillColor(ROOT.EColor.kRed+2)
+###diboson.SetLineColor(ROOT.EColor.kRed+4)
+##diboson.SetFillColor(632+2)
+##diboson.SetLineColor(632+4)
+##diboson.SetLineWidth(1)
+##diboson.SetMarkerSize(0)
+###singlet.SetFillColor(ROOT.EColor.kGreen+4)
+###singlet.SetLineColor(ROOT.EColor.kBlack)
+##singlet.SetFillColor(416+4)
+##singlet.SetLineColor(1)
+##singlet.SetLineWidth(1)
+##singlet.SetMarkerSize(0)
 
 lowDataBin = 1
 highDataBin = data.GetNbinsX()
@@ -380,41 +381,41 @@ for i in range(data.GetNbinsX(),0,-1):
 		break
 
 #fill empty bins
-if fakeRate == False:
-	do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
-do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
-do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
-do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)
-#do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",lowDataBin,highDataBin)
-do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highDataBin)
-do_binbybin(smhgg,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
-do_binbybin(smhvbf,"VBFHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
-do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",lowDataBin,highDataBin)
+##if fakeRate == False:
+##	do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
+##do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
+##do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
+##do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)
+###do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",lowDataBin,highDataBin)
+##do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highDataBin)
+##do_binbybin(smhgg,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+##do_binbybin(smhvbf,"VBFHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+##do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",lowDataBin,highDataBin)
 BLAND=1
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
-if BLAND==1:
-   for i in range(binLow,binHigh):
-        data.SetBinContent(i,-100)
-#Recommended by stats committee
-if(poissonErrors==True):
-	set_poissonerrors(data)
-
-smh = smhgg.Clone()
-smh.Add(smhvbf)
+##if BLAND==1:
+##   for i in range(binLow,binHigh):
+##        data.SetBinContent(i,-100)
+###Recommended by stats committee
+##if(poissonErrors==True):
+##	set_poissonerrors(data)
+##
+##smh = smhgg.Clone()
+##smh.Add(smhvbf)
 LFVStack = ROOT.THStack("stack","")
 LFVStack.Add(wjets)
-LFVStack.Add(diboson)
-LFVStack.Add(ttbar)
-LFVStack.Add(singlet)
-LFVStack.Add(zjets)
-LFVStack.Add(ztautau)
-LFVStack.Add(smh)
-backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
-if ("vbf" in channel):
-  signalIntegral = vbfhmutau125.GetBinContent(7)
-else:
-  signalIntegral = gghmutau125.GetBinContent(7)
+##LFVStack.Add(diboson)
+##LFVStack.Add(ttbar)
+##LFVStack.Add(singlet)
+##LFVStack.Add(zjets)
+##LFVStack.Add(ztautau)
+##LFVStack.Add(smh)
+##backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
+##if ("vbf" in channel):
+##  signalIntegral = vbfhmutau125.GetBinContent(7)
+##else:
+##  signalIntegral = gghmutau125.GetBinContent(7)
 #print str(signalIntegral) + "   "+ str(backgroundIntegral)
 #print "Signal/sqrt(Background+Signal)!!!"
 #print str(signalIntegral/(backgroundIntegral+signalIntegral))
@@ -428,14 +429,16 @@ maxData=data.GetMaximum()
 maxHist = max(maxLFVStack,maxData)
 
 LFVStack.SetMaximum(maxHist*1.20)
-LFVStack.Draw('hist')
-data.Draw("sames,E0")
-lfvh = vbfhmutau125.Clone()
-lfvh.Add(gghmutau125)
-vbfhmutau125.Scale(0.2)
+#LFVStack.Draw('hist')
+##data.Draw("sames,E0")
+##lfvh = vbfhmutau125.Clone()
+lfvh = gghmutau125.Clone()
+##lfvh.Add(gghmutau125)
+##vbfhmutau125.Scale(0.2)
 gghmutau125.Scale(0.2)
 
-vbfhmutau125.Draw("hsames")
+##vbfhmutau125.Draw("hsames")
+##gghmutau125.Draw("hsames")
 gghmutau125.Draw("hsames")
 
 legend.SetFillColor(0)
@@ -451,12 +454,12 @@ else:
         ylabel = ynormlabel  + " Events / " + str(widthOfBin)
 
 legend.Draw('sames')
-LFVStack.GetXaxis().SetTitle(xlabel)
-LFVStack.GetXaxis().SetNdivisions(510)
-LFVStack.GetXaxis().SetLabelSize(0.035)
-LFVStack.GetYaxis().SetTitle(ylabel)
-LFVStack.GetYaxis().SetTitleOffset(1.40)
-LFVStack.GetYaxis().SetLabelSize(0.035)
+##LFVStack.GetXaxis().SetTitle(xlabel)
+##LFVStack.GetXaxis().SetNdivisions(510)
+##LFVStack.GetXaxis().SetLabelSize(0.035)
+##LFVStack.GetYaxis().SetTitle(ylabel)
+##LFVStack.GetYaxis().SetTitleOffset(1.40)
+##LFVStack.GetYaxis().SetLabelSize(0.035)
 
 
 
@@ -467,9 +470,9 @@ pave.SetFillColor(920+4)
 pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
-if (xRange!=0):
-	LFVStack.GetXaxis().SetRangeUser(0,xRange)
-LFVStack.GetXaxis().SetTitle(xlabel)
+##if (xRange!=0):
+##	LFVStack.GetXaxis().SetRangeUser(0,xRange)
+##LFVStack.GetXaxis().SetTitle(xlabel)
 
 xbinLength = wjets.GetBinWidth(1)
 widthOfBin = binwidth*xbinLength
@@ -491,46 +494,46 @@ eyhUncertRatio = array.array('f',[])
 binLength = wjets.GetBinCenter(2)-wjets.GetBinCenter(1)
 
 #build tgraph of errors   
-for i in range(1,size+1):
-        stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
-        wjetsBinContent = wjets.GetBinContent(i)
-        xUncert.append(wjets.GetBinCenter(i))
-        yUncert.append(stackBinContent)
-        xUncertRatio.append(wjets.GetBinCenter(i))
-        yUncertRatio.append(0)
-        
-        exlUncert.append(binLength/2)
-        exhUncert.append(binLength/2)
-        exlUncertRatio.append(binLength/2)
-        exhUncertRatio.append(binLength/2)
-        if (fakeRate):
-        	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
-        else:
-		wjetsError = wjets.GetBinError(i)
-        eylUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
-        eyhUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
-        if (stackBinContent==0):
-        	eylUncertRatio.append(0)
-                eyhUncertRatio.append(0)
-	else:
-        	eylUncertRatio.append((wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))/stackBinContent)
-        	eyhUncertRatio.append((wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))/stackBinContent)
-
-xUncertVec = ROOT.TVectorF(len(xUncert),xUncert)
-yUncertVec = ROOT.TVectorF(len(yUncert),yUncert)
-exlUncertVec = ROOT.TVectorF(len(exlUncert),exlUncert)
-exhUncertVec = ROOT.TVectorF(len(exhUncert),exhUncert)
-eylUncertVec = ROOT.TVectorF(len(eylUncert),eylUncert)
-eyhUncertVec = ROOT.TVectorF(len(eyhUncert),eyhUncert)
-systErrors = ROOT.TGraphAsymmErrors(xUncertVec,yUncertVec,exlUncertVec,exhUncertVec,eylUncertVec,eyhUncertVec)
-
-xUncertVecRatio = ROOT.TVectorF(len(xUncertRatio),xUncertRatio)
-yUncertVecRatio = ROOT.TVectorF(len(yUncertRatio),yUncertRatio)
-exlUncertVecRatio = ROOT.TVectorF(len(exlUncertRatio),exlUncertRatio)
-exhUncertVecRatio = ROOT.TVectorF(len(exhUncertRatio),exhUncertRatio)
-eylUncertVecRatio = ROOT.TVectorF(len(eylUncertRatio),eylUncertRatio)
-eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
-systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
+##for i in range(1,size+1):
+##        stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
+##        wjetsBinContent = wjets.GetBinContent(i)
+##        xUncert.append(wjets.GetBinCenter(i))
+##        yUncert.append(stackBinContent)
+##        xUncertRatio.append(wjets.GetBinCenter(i))
+##        yUncertRatio.append(0)
+##        
+##        exlUncert.append(binLength/2)
+##        exhUncert.append(binLength/2)
+##        exlUncertRatio.append(binLength/2)
+##        exhUncertRatio.append(binLength/2)
+##        if (fakeRate):
+##        	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
+##        else:
+##		wjetsError = wjets.GetBinError(i)
+##        eylUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
+##        eyhUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
+##        if (stackBinContent==0):
+##        	eylUncertRatio.append(0)
+##                eyhUncertRatio.append(0)
+##	else:
+##        	eylUncertRatio.append((wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))/stackBinContent)
+##        	eyhUncertRatio.append((wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))/stackBinContent)
+##
+##xUncertVec = ROOT.TVectorF(len(xUncert),xUncert)
+##yUncertVec = ROOT.TVectorF(len(yUncert),yUncert)
+##exlUncertVec = ROOT.TVectorF(len(exlUncert),exlUncert)
+##exhUncertVec = ROOT.TVectorF(len(exhUncert),exhUncert)
+##eylUncertVec = ROOT.TVectorF(len(eylUncert),eylUncert)
+##eyhUncertVec = ROOT.TVectorF(len(eyhUncert),eyhUncert)
+##systErrors = ROOT.TGraphAsymmErrors(xUncertVec,yUncertVec,exlUncertVec,exhUncertVec,eylUncertVec,eyhUncertVec)
+##
+##xUncertVecRatio = ROOT.TVectorF(len(xUncertRatio),xUncertRatio)
+##yUncertVecRatio = ROOT.TVectorF(len(yUncertRatio),yUncertRatio)
+##exlUncertVecRatio = ROOT.TVectorF(len(exlUncertRatio),exlUncertRatio)
+##exhUncertVecRatio = ROOT.TVectorF(len(exhUncertRatio),exhUncertRatio)
+##eylUncertVecRatio = ROOT.TVectorF(len(eylUncertRatio),eylUncertRatio)
+##eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
+##systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
 
 latex = ROOT.TLatex()
 latex.SetNDC()
@@ -548,59 +551,59 @@ latex.SetTextSize(0.027)
 latex.DrawLatex(0.25,0.87,"Preliminary")
 
 #systErrors.SetFillColorAlpha(ROOT.EColor.kGray+2,0.35)
-systErrors.SetFillColorAlpha(920+2,0.35)
-systErrors.SetMarkerSize(0)
-systErrors.Draw('E2,sames')
-legend.AddEntry(data, 'Data #mu#tau_{had}')
-legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
-legend.AddEntry(smh, 'SM Higgs')
+##systErrors.SetFillColorAlpha(920+2,0.35)
+##systErrors.SetMarkerSize(0)
+##systErrors.Draw('E2,sames')
+##legend.AddEntry(data, 'Data #mu#tau_{had}')
+##legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
+##legend.AddEntry(smh, 'SM Higgs')
 #legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
-legend.AddEntry(ztautau,'Z->#tau#tau ','f')
-legend.AddEntry(zjets,'Z->l^{+}l^{-}','f')
-legend.AddEntry(ttbar,'t#bar{t}')
-legend.AddEntry(singlet,'Single Top')
-legend.AddEntry(diboson,'VV',"f")
-legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
+##legend.AddEntry(ztautau,'Z->#tau#tau ','f')
+##legend.AddEntry(zjets,'Z->l^{+}l^{-}','f')
+##legend.AddEntry(ttbar,'t#bar{t}')
+##legend.AddEntry(singlet,'Single Top')
+##legend.AddEntry(diboson,'VV',"f")
+##legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
 legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
-legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
+##legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
 
 
-p_ratio.cd()
+##p_ratio.cd()
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 ROOT.setTDRStyle()
-ratio = data.Clone()
-mc = wjets.Clone()
-mc.Add(zjets)
-mc.Add(ztautau)
-mc.Add(ttbar)
-mc.Add(diboson)
-mc.Scale(-1)
-ratio.Add(mc)
-mc.Scale(-1)
-ratio.Divide(mc)
-ratio.Draw("E1")
+##ratio = data.Clone()
+##mc = wjets.Clone()
+##mc.Add(zjets)
+##mc.Add(ztautau)
+##mc.Add(ttbar)
+##mc.Add(diboson)
+##mc.Scale(-1)
+##ratio.Add(mc)
+##mc.Scale(-1)
+##ratio.Divide(mc)
+##ratio.Draw("E1")
 #systErrorsRatio.SetFillColorAlpha(ROOT.EColor.kGray+2,0.35)
-systErrorsRatio.SetFillColorAlpha(920+2,0.35)
-systErrorsRatio.SetMarkerSize(0)
-systErrorsRatio.Draw('E2,sames')
-if ("mMt" in var):
-	ratio.GetXaxis().SetRangeUser(0,200)
-ratio.GetXaxis().SetTitle(xlabel)
-ratio.GetXaxis().SetTitleSize(0.12)
-ratio.GetXaxis().SetNdivisions(510)
-ratio.GetXaxis().SetTitleOffset(1.1)
-ratio.GetXaxis().SetLabelSize(0.12)
-ratio.GetXaxis().SetLabelFont(42)
-ratio.GetYaxis().SetNdivisions(505)
-ratio.GetYaxis().SetLabelFont(42)
-ratio.GetYaxis().SetLabelSize(0.1)
-ratio.GetYaxis().SetRangeUser(-1,1)
-#ratio.GetYaxis().SetTitle("#frac{Data-MC}{MC}")
-ratio.GetYaxis().SetTitle("#frac{Data-BG}{BG}")
-ratio.GetYaxis().CenterTitle(1)
-ratio.GetYaxis().SetTitleOffset(0.4)
-ratio.GetYaxis().SetTitleSize(0.12)
-ratio.SetTitle("")
+##systErrorsRatio.SetFillColorAlpha(920+2,0.35)
+##systErrorsRatio.SetMarkerSize(0)
+##systErrorsRatio.Draw('E2,sames')
+##if ("mMt" in var):
+##	ratio.GetXaxis().SetRangeUser(0,200)
+##ratio.GetXaxis().SetTitle(xlabel)
+##ratio.GetXaxis().SetTitleSize(0.12)
+##ratio.GetXaxis().SetNdivisions(510)
+##ratio.GetXaxis().SetTitleOffset(1.1)
+##ratio.GetXaxis().SetLabelSize(0.12)
+##ratio.GetXaxis().SetLabelFont(42)
+##ratio.GetYaxis().SetNdivisions(505)
+##ratio.GetYaxis().SetLabelFont(42)
+##ratio.GetYaxis().SetLabelSize(0.1)
+##ratio.GetYaxis().SetRangeUser(-1,1)
+###ratio.GetYaxis().SetTitle("#frac{Data-MC}{MC}")
+##ratio.GetYaxis().SetTitle("#frac{Data-BG}{BG}")
+##ratio.GetYaxis().CenterTitle(1)
+##ratio.GetYaxis().SetTitleOffset(0.4)
+##ratio.GetYaxis().SetTitleSize(0.12)
+##ratio.SetTitle("")
 
 paveratio = ROOT.TPave(100,-1,150,1,4,"br")
 #pave.SetFillColor(ROOT.kGray+4)
@@ -609,48 +612,48 @@ pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
 
-if (xRange!=0):
-        ratio.GetXaxis().SetRangeUser(0,xRange)
+##if (xRange!=0):
+##        ratio.GetXaxis().SetRangeUser(0,xRange)
 
 canvas.SaveAs(outfile_name+".png")
 canvas.SaveAs(outfile_name+".pdf")
 
 #fill output root file
-if fakeRate == False:
-        wjets.Write("wjets"+shiftStr)
-else:
-	wjets.Write("Fakes"+shiftStr)
-zjets.Write("Zothers"+shiftStr)
-ztautau.Write("ZTauTau"+shiftStr)
-ttbar.Write("TT"+shiftStr)
-vbfhmutau125.Scale(0.05)
+##if fakeRate == False:
+##        wjets.Write("wjets"+shiftStr)
+##else:
+##	wjets.Write("Fakes"+shiftStr)
+##zjets.Write("Zothers"+shiftStr)
+##ztautau.Write("ZTauTau"+shiftStr)
+##ttbar.Write("TT"+shiftStr)
+##vbfhmutau125.Scale(0.05)
 gghmutau125.Scale(0.05)
-do_binbybin(vbfhmutau125,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+##do_binbybin(vbfhmutau125,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(gghmutau125,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
-vbfhmutau125.Write("LFVVBF125"+shiftStr)
-gghmutau125.Write("LFVGG125"+shiftStr)
-smhvbf.Write("vbfHTauTau"+shiftStr)
-smhgg.Write("ggHTauTau"+shiftStr)
-print "Single Top Yield: " + str(singlet.Integral())
-diboson.Write("Diboson"+shiftStr)
-singlet.Write("T"+shiftStr)
-full_bckg = wjets.Clone()
-full_bckg.Add(zjets)
-full_bckg.Add(ztautau)
-full_bckg.Add(ttbar)
-full_bckg.Add(diboson)
-full_bckg.Add(smhvbf)
-full_bckg.Add(smhgg)
-full_bckg.Add(singlet)
-#print total yields
-print "Fakes Yield: " + str(wjets.Integral())
-print "DY Yield:" +str(zjets.Integral())
-print "ZTauTau Yield: " +str(ztautau.Integral())
-print "ttbar Yield: " + str(ttbar.Integral())
-print "DiBoson Yield: " + str(diboson.Integral())
-print "SMHVBF Yield: " + str(smhvbf.Integral())
-print "SMHGG Yield: " + str(smhgg.Integral())
-print "LFVVBF Yield: " +str(vbfhmutau125.Integral())
-print "LFVGG Yield: " +str(gghmutau125.Integral())
-print "Data Yield: " +str(data.Integral())
+##vbfhmutau125.Write("LFVVBF125"+shiftStr)
+##gghmutau125.Write("LFVGG125"+shiftStr)
+##smhvbf.Write("vbfHTauTau"+shiftStr)
+##smhgg.Write("ggHTauTau"+shiftStr)
+##print "Single Top Yield: " + str(singlet.Integral())
+##diboson.Write("Diboson"+shiftStr)
+##singlet.Write("T"+shiftStr)
+##full_bckg = wjets.Clone()
+##full_bckg.Add(zjets)
+##full_bckg.Add(ztautau)
+##full_bckg.Add(ttbar)
+##full_bckg.Add(diboson)
+##full_bckg.Add(smhvbf)
+##full_bckg.Add(smhgg)
+##full_bckg.Add(singlet)
+###print total yields
+##print "Fakes Yield: " + str(wjets.Integral())
+##print "DY Yield:" +str(zjets.Integral())
+##print "ZTauTau Yield: " +str(ztautau.Integral())
+##print "ttbar Yield: " + str(ttbar.Integral())
+##print "DiBoson Yield: " + str(diboson.Integral())
+##print "SMHVBF Yield: " + str(smhvbf.Integral())
+##print "SMHGG Yield: " + str(smhgg.Integral())
+##print "LFVVBF Yield: " +str(vbfhmutau125.Integral())
+##print "LFVGG Yield: " +str(gghmutau125.Integral())
+##print "Data Yield: " +str(data.Integral())
 outfile.Write()
