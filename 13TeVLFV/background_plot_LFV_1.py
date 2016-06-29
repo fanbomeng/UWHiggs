@@ -111,7 +111,7 @@ channel=argv[3]
 shift=argv[5]
 opcut=argv[6]
 ##RUN_OPTIMIZATION=int(argv[7])
-samepleused=argv[7]
+#samepleused=argv[7]
 #RUN_OPTIMIZATION=1
 ##if RUN_OPTIMIZATION==1:
 ##   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
@@ -164,10 +164,10 @@ if "gg" in channel:
 
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 
-if shape_norm == False:
-        ynormlabel = " "
-else:
-        ynormlabel = "Normalized to 1 "
+#if shape_norm == False:
+ynormlabel = " "
+#else:
+#        ynormlabel = "Normalized to 1 "
 
 # Get parameters unique to each variable
 getVarParams = "lfv_vars."+var
@@ -187,16 +187,17 @@ elif "collMass" in var and "preselection2Jet" in channel:
 elif "collMass" in var and "preselection" in channel:
         binwidth = 5
 
-legend = eval(varParams[8])
+#legend = eval(varParams[8])
 isGeV = varParams[5]
 xRange = varParams[6]
 
-#p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
-#p_lfv.SetLeftMargin(0.2147651)
-#p_lfv.SetRightMargin(0.06543624)
-#p_lfv.SetTopMargin(0.04895105)
-#p_lfv.SetBottomMargin(0.305)
-#p_lfv.Draw()
+##p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
+##p_lfv.SetLeftMargin(0.2147651)
+##p_lfv.SetRightMargin(0.06543624)
+##p_lfv.SetTopMargin(0.04895105)
+##p_lfv.SetBottomMargin(0.305)
+##p_lfv.Draw()
+##p_lfv.cd()
 ##p_ratio = ROOT.TPad('p_ratio','p_ratio',0,0,1,0.295)
 ##p_ratio.SetLeftMargin(0.2147651)
 ##p_ratio.SetRightMargin(0.06543624)
@@ -204,7 +205,6 @@ xRange = varParams[6]
 ##p_ratio.SetBottomMargin(0.295)
 ##p_ratio.SetGridy()
 ##p_ratio.Draw()
-#p_lfv.cd()
 ##if RUN_OPTIMIZATION ==1:
 ##   outfile_name = savedir+"LFV"+"_"+channel.split("/",1)[0]+channel.split("/",1)[1]+"_"+var+"_"+shiftStr
 ##else:
@@ -225,7 +225,11 @@ data2016B = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", ch
 Sampletable={'DYJets':'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
 	     'ZTauTauJets':'ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
              'TT':'TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen',
-             'WJets':'WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
+             'WJets':'WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'W1Jets':'W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'W2Jets':'W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'W3Jets':'W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'W4Jets':'W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
 	     'VBF_LFV':'VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8',
              'GluGlu_LFV':'GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8',
              'VBFHToTauTau':'VBFHToTauTau_M125_13TeV_powheg_pythia8',
@@ -235,7 +239,7 @@ Sampletable={'DYJets':'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
              'ZZ':'ZZ_TuneCUETP8M1_13TeV-pythia8',
              'ST_tW_antitop':'ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1',
              'ST_tW_top':'ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1'}
-
+Sample_list=['DYJets','ZTauTauJets','TT','WJets','VBF_LFV','GluGlu_LFV','VBFHToTauTau','GluGluHToTauTau','WW','WZ','ZZ','ST_tW_antitop','ST_tW_top']
 data=data2016B.Clone()
 data.Rebin(binwidth)
 lowDataBin = 1
@@ -268,64 +272,160 @@ for i in range(data.GetNbinsX(),0,-1):
 ##  ttbar.Add(ttbarfakes) #avoid double counting
 ##  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 ##else: #if fakeRate==False
-wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
+wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 
+xbinLength = data.GetBinWidth(1)
+widthOfBin = xbinLength
+
+if isGeV:
+        ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
+else:
+        ylabel = ynormlabel  + " Events / " + str(widthOfBin)
 ##vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 colorlist=[1,632,416,600,400,616,432,800,820,840,860,880,900]
-histlist=[hist0,hist1,hist2,hist3,hist4,hist5,hist6,hist7,hist8]
+hist0=type(wjets) #hist0#,hist1,hist2,hist3,hist4,hist5,hist6,hist7,hist8
+hist1=type(wjets)
+hist2=type(wjets)
+hist3=type(wjets)
+hist4=type(wjets)
+hist5=type(wjets)
+hist6=type(wjets)
+hist7=type(wjets)
+hist8=type(wjets)
+hist9=type(wjets)
+hist10=type(wjets)
+W1jets=type(wjets)
+W2jets=type(wjets)
+W3jets=type(wjets)
+W4jets=type(wjets)
+histlist=[hist0,hist1,hist2,hist3,hist4,hist5,hist6,hist7,hist8,hist9,hist10]
 ## samepleused
-i=0
-normalize=1
-for region in optimizer.regions[numberJet]:
-   if opcut in region:
-       channelwithcut=os.path.join(channel,region) 
-       if i==0:
-          gghmutau125_0 = make_histo(savedir,Sampletable[samepleused],channelwithcut,var,lumidir,lumi)
-          gghmutau125_0.Rebin(binwidth)
-          gghmutau125_0.SetLineColor(colorlist[i])
-          gghmutau125_0.SetLineWidth(3)
-          legend.AddEntry(gghmutau125_0,samepleused+region)
-          #norm=gghmutau125_0.GetEntries()
-          #gghmutau125_0.Scale(1.00/norm);
-#          gghmutau125_0.GetXaxis().SetTitle(xlabel)
-#          gghmutau125_0.GetXaxis().SetNdivisions(510)
-#          gghmutau125_0.GetXaxis().SetLabelSize(0.035)
-#          gghmutau125_0.GetXaxis().SetRangeUser(0,xRange)
-          if normalize==1:
-             do_binbybin(gghmutau125_0,Sampletable[samepleused],1,500)
-             scale = 1.00/(gghmutau125_0.Integral());
-             gghmutau125_0.Scale(scale)
-          gghmutau125_0.Draw("h")
-          #p_lfv.Update()
-     ##     gghmutau125_0.Draw("hsames")
-        #gghmutau125.Rebin(binwidth)
-       else:
-          gghmutau125 = make_histo(savedir,Sampletable[samepleused],channelwithcut,var,lumidir,lumi)
-          gghmutau125.Rebin(binwidth)
-          gghmutau125.SetLineColor(colorlist[i])
-          gghmutau125.SetLineWidth(3)
-          #legend.AddEntry(gghmutau125,samepleused+region)
-          #norm=gghmutau125.GetEntries()
-          if normalize==1:
-             do_binbybin(gghmutau125,Sampletable[samepleused],1,500)
-             scale = 1.00/(gghmutau125.Integral());
-             gghmutau125.Scale(scale)
-        #  gghmutau125.Scale(1.00/norm);
-          gghmutau125.Draw("hsames")
-         # p_lfv.Update()
-           
-       i=i+1
-
-#p_lfv.Update()
-outfile_name = savedir+samepleused+"_"+channel+"_"+var+"_"+shiftStr+opcut
-##gghmutau125.GetXaxis().SetTitle(xlabel)
-##gghmutau125.GetXaxis().SetNdivisions(510)
-##gghmutau125.GetXaxis().SetLabelSize(0.035)
-##gghmutau125.GetXaxis().SetRangeUser(0,xRange)
-legend.SetFillColor(0)
-legend.SetBorderSize(0)
-legend.SetFillStyle(0)
-legend.Draw('sames')
+for sampleused in Sample_list:
+   p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
+   p_lfv.SetLeftMargin(0.2147651)
+   p_lfv.SetRightMargin(0.06543624)
+   p_lfv.SetTopMargin(0.04895105)
+   p_lfv.SetBottomMargin(0.305)
+   p_lfv.Draw()
+   p_lfv.cd()
+   legend = eval(varParams[8])
+   i=0
+   normalize=int(argv[7])
+   normalizetag=''
+   for region in optimizer.regions[numberJet]:
+      if opcut in region:
+          channelwithcut=os.path.join(channel,region) 
+          if i==0:
+             if sampleused=="WJets":
+                histlist[i] = make_histo(savedir,Sampletable[sampleused],channelwithcut,var,lumidir,lumi)
+                
+                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+                W1jets = make_histo(savedir,Sampletable["W1Jets"],channelwithcut,var,lumidir,lumi)
+                W2jets = make_histo(savedir,Sampletable["W2Jets"],channelwithcut,var,lumidir,lumi)
+                W3jets = make_histo(savedir,Sampletable["W3Jets"],channelwithcut,var,lumidir,lumi)
+                W4jets = make_histo(savedir,Sampletable["W4Jets"],channelwithcut,var,lumidir,lumi)
+                do_binbybin(W1jets,Sampletable["W1Jets"],1,500)
+                do_binbybin(W2jets,Sampletable["W2Jets"],1,500)
+                do_binbybin(W3jets,Sampletable["W3Jets"],1,500)
+                do_binbybin(W4jets,Sampletable["W4Jets"],1,500)
+                histlist[i].Add(W1jets)
+                histlist[i].Add(W2jets)
+                histlist[i].Add(W3jets)
+                histlist[i].Add(W4jets)
+             else:
+                histlist[i] = make_histo(savedir,Sampletable[sampleused],channelwithcut,var,lumidir,lumi)
+                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+             histlist[i].Rebin(binwidth)
+             histlist[i].SetLineColor(colorlist[i])
+             histlist[i].SetLineWidth(3)
+             legend.AddEntry(histlist[i],sampleused+region)
+             #norm=gghmutau125_0.GetEntries()
+             #gghmutau125_0.Scale(1.00/norm);
+             histlist[i].SetTitle("")
+             histlist[i].GetXaxis().SetTitle(xlabel)
+             histlist[i].GetXaxis().SetNdivisions(510)
+             histlist[i].GetXaxis().SetLabelSize(0.035)
+             histlist[i].GetXaxis().SetRangeUser(0,xRange)
+             histlist[i].GetYaxis().SetTitle(ylabel)
+             histlist[i].GetYaxis().SetTitleOffset(1.40)
+             histlist[i].SetMinimum(0)
+             if normalize==1:
+#                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+                normalizetag="normalized"
+                scale = 1.00/(histlist[i].Integral());
+                histlist[i].Scale(scale)
+             #   histlist[i].GetYaxis().SetTitle(ylabel)
+             #   histlist[i].GetYaxis().SetTitleOffset(1.40)
+                histlist[i].GetYaxis().SetLabelSize(0.035)
+   #             histlist[i].GetYaxis().SetRangeUser(0,1)
+                histlist[i].SetMaximum(1)
+                histlist[i].SetMinimum(0)
+             histlist[i].Draw("hsames")
+             #p_lfv.Update()
+        ##     gghmutau125_0.Draw("hsames")
+           #gghmutau125.Rebin(binwidth)
+          else:
+             if sampleused=="WJets":
+                histlist[i] = make_histo(savedir,Sampletable[sampleused],channelwithcut,var,lumidir,lumi)
+                
+                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+                W1jets = make_histo(savedir,Sampletable["W1Jets"],channelwithcut,var,lumidir,lumi)
+                W2jets = make_histo(savedir,Sampletable["W2Jets"],channelwithcut,var,lumidir,lumi)
+                W3jets = make_histo(savedir,Sampletable["W3Jets"],channelwithcut,var,lumidir,lumi)
+                W4jets = make_histo(savedir,Sampletable["W4Jets"],channelwithcut,var,lumidir,lumi)
+                do_binbybin(W1jets,Sampletable["W1Jets"],1,500)
+                do_binbybin(W2jets,Sampletable["W2Jets"],1,500)
+                do_binbybin(W3jets,Sampletable["W3Jets"],1,500)
+                do_binbybin(W4jets,Sampletable["W4Jets"],1,500)
+                histlist[i].Add(W1jets)
+                histlist[i].Add(W2jets)
+                histlist[i].Add(W3jets)
+                histlist[i].Add(W4jets)
+             else:
+                histlist[i] = make_histo(savedir,Sampletable[sampleused],channelwithcut,var,lumidir,lumi)
+                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+             histlist[i].Rebin(binwidth)
+             histlist[i].SetLineColor(colorlist[i])
+             histlist[i].SetLineWidth(3)
+             legend.AddEntry(histlist[i],sampleused+region)
+             #norm=gghmutau125.GetEntries()
+             if normalize==1:
+                do_binbybin(histlist[i],Sampletable[sampleused],1,500)
+                scale = 1.00/(histlist[i].Integral());
+                histlist[i].Scale(scale)
+           #  gghmutau125.Scale(1.00/norm);
+             histlist[i].Draw("hsames")
+            # p_lfv.Update()
+              
+          i=i+1
+   
+   #p_lfv.Update()
+   outfile_name = savedir+'background'+sampleused+"_"+channel+"_"+var+"_"+shiftStr+opcut+normalizetag
+   ##gghmutau125.GetXaxis().SetTitle(xlabel)
+   ##gghmutau125.GetXaxis().SetNdivisions(510)
+   ##gghmutau125.GetXaxis().SetLabelSize(0.035)
+   ##gghmutau125.GetXaxis().SetRangeUser(0,xRange)
+   latex = ROOT.TLatex()
+   latex.SetNDC()
+   latex.SetTextSize(0.03)
+   latex.SetTextAlign(31)
+   print lumi
+   latexStr = "%.2f fb^{-1} (13 TeV)"%(lumi/1000)
+   #latex.DrawLatex(0.9,0.96,latexStr)
+   latex.SetTextAlign(11)
+   latex.SetTextFont(61)
+   latex.SetTextSize(0.04)
+   latex.DrawLatex(0.25,0.92,"CMS")
+   latex.SetTextFont(52)
+   latex.SetTextSize(0.027)
+   latex.DrawLatex(0.25,0.87,"Preliminary")
+   legend.SetFillColor(0)
+   legend.SetBorderSize(0)
+   legend.SetFillStyle(0)
+   legend.Draw('sames')
+   canvas.SaveAs(outfile_name+".png")
+   canvas.SaveAs(outfile_name+".pdf")
+#legend.Draw('sames')
 #p_lfv.Update()
 ##smhvbf = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 ##smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -505,7 +605,7 @@ BLAND=1
 ##lfvh = gghmutau125.Clone()
 ##lfvh.Add(gghmutau125)
 ##vbfhmutau125.Scale(0.2)
-gghmutau125.Scale(0.2)
+#gghmutau125.Scale(0.2)
 
 ##vbfhmutau125.Draw("hsames")
 ##gghmutau125.Draw("hsames")
@@ -515,10 +615,10 @@ gghmutau125.Scale(0.2)
 xbinLength = wjets.GetBinWidth(1)
 widthOfBin = xbinLength
 
-if isGeV:
-        ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
-else:
-        ylabel = ynormlabel  + " Events / " + str(widthOfBin)
+##if isGeV:
+##        ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
+##else:
+##        ylabel = ynormlabel  + " Events / " + str(widthOfBin)
 
 ##legend.Draw('sames')
 ##LFVStack.GetXaxis().SetTitle(xlabel)
@@ -602,20 +702,20 @@ else:
 ##eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
 ##systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
 
-latex = ROOT.TLatex()
-latex.SetNDC()
-latex.SetTextSize(0.03)
-latex.SetTextAlign(31)
-print lumi
-latexStr = "%.2f fb^{-1} (13 TeV)"%(lumi/1000)
-latex.DrawLatex(0.9,0.96,latexStr)
-latex.SetTextAlign(11)
-latex.SetTextFont(61)
-latex.SetTextSize(0.04)
-latex.DrawLatex(0.25,0.92,"CMS")
-latex.SetTextFont(52)
-latex.SetTextSize(0.027)
-latex.DrawLatex(0.25,0.87,"Preliminary")
+##latex = ROOT.TLatex()
+##latex.SetNDC()
+##latex.SetTextSize(0.03)
+##latex.SetTextAlign(31)
+##print lumi
+##latexStr = "%.2f fb^{-1} (13 TeV)"%(lumi/1000)
+###latex.DrawLatex(0.9,0.96,latexStr)
+##latex.SetTextAlign(11)
+##latex.SetTextFont(61)
+##latex.SetTextSize(0.04)
+##latex.DrawLatex(0.25,0.92,"CMS")
+##latex.SetTextFont(52)
+##latex.SetTextSize(0.027)
+##latex.DrawLatex(0.25,0.87,"Preliminary")
 
 #systErrors.SetFillColorAlpha(ROOT.EColor.kGray+2,0.35)
 ##systErrors.SetFillColorAlpha(920+2,0.35)
@@ -682,8 +782,8 @@ latex.DrawLatex(0.25,0.87,"Preliminary")
 ##if (xRange!=0):
 ##        ratio.GetXaxis().SetRangeUser(0,xRange)
 
-canvas.SaveAs(outfile_name+".png")
-canvas.SaveAs(outfile_name+".pdf")
+##canvas.SaveAs(outfile_name+".png")
+##canvas.SaveAs(outfile_name+".pdf")
 
 #fill output root file
 ##if fakeRate == False:
@@ -694,9 +794,9 @@ canvas.SaveAs(outfile_name+".pdf")
 ##ztautau.Write("ZTauTau"+shiftStr)
 ##ttbar.Write("TT"+shiftStr)
 ##vbfhmutau125.Scale(0.05)
-gghmutau125.Scale(0.05)
+#gghmutau125.Scale(0.05)
 ##do_binbybin(vbfhmutau125,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
-do_binbybin(gghmutau125,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+#do_binbybin(gghmutau125,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 ##vbfhmutau125.Write("LFVVBF125"+shiftStr)
 ##gghmutau125.Write("LFVGG125"+shiftStr)
 ##smhvbf.Write("vbfHTauTau"+shiftStr)

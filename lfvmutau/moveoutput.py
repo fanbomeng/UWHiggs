@@ -10,10 +10,10 @@ for folder1 in listdir(mypath):
 	folder2=join(mypath, folder1)
 	for folder3 in listdir(folder2):
            if folder3.startswith("mergeFilesJob-mergeFilesJob-mega-batch"):
-  		 copy(folder2+"/"+folder3,"/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_8/src/UWHiggs/lfvmutau/trial_new/"+filename)
+  		 copy(folder2+"/"+folder3,"/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_8/src/UWHiggs/lfvmutau/me_et_mt/"+filename)
                  print folder2+"/"+folder3
                  print filename
            elif folder3.startswith("mergeFilesJob-mega"):
-  		 copy(folder2+"/"+folder3,"/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_8/src/UWHiggs/lfvmutau/trial_new/"+filename)
+  		 copy(folder2+"/"+folder3,"/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_8/src/UWHiggs/lfvmutau/me_et_mt/"+filename)
                  print folder2+"/"+folder3
                  print filename

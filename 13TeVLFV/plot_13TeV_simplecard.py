@@ -92,8 +92,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
 #JSONlumi =561.123523153 
-#JSONlumi =809.0 
-JSONlumi =1807.26 
+JSONlumi =809.0 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -133,11 +132,11 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = False #not blinded
-#blinded = True #not blinded
+#blinded = False #not blinded
+blinded = True #not blinded
 fillEmptyBins = True #empty bins filled
-fakeRate = False #apply fake rate method
 #fakeRate = True #apply fake rate method
+fakeRate = True #apply fake rate method
 shape_norm = False #normalize to 1 if True
 
 
@@ -239,12 +238,8 @@ if (fakeRate == True):
   ttbar.Add(ttbarfakes) #avoid double counting
   wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 else: #if fakeRate==False
-  wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-  w1jets = make_histo(savedir,"W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-  w2jets = make_histo(savedir,"W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-  w3jets = make_histo(savedir,"W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-  w4jets = make_histo(savedir,"W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-  
+  wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
+
 
 vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -273,10 +268,6 @@ diboson.Add(zz)
 #Set bin widths
 data.Rebin(binwidth)
 wjets.Rebin(binwidth)
-w1jets.Rebin(binwidth)
-w2jets.Rebin(binwidth)
-w3jets.Rebin(binwidth)
-w4jets.Rebin(binwidth)
 zjets.Rebin(binwidth)
 ztautau.Rebin(binwidth)
 ttbar.Rebin(binwidth)
@@ -391,14 +382,6 @@ for i in range(data.GetNbinsX(),0,-1):
 #fill empty bins
 if fakeRate == False:
 	do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
-	do_binbybin(w1jets,"W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-	do_binbybin(w2jets,"W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-	do_binbybin(w3jets,"W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-	do_binbybin(w4jets,"W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-        wjets.Add(w1jets)
-        wjets.Add(w2jets)
-        wjets.Add(w3jets)
-        wjets.Add(w4jets)
 do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
 do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",lowDataBin,highDataBin)
 do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)

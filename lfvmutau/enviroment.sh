@@ -3,7 +3,7 @@ source ../environment.sh
 export farmout=1
 export dryrun=1
 
-export jobid=LFV_808v1
+export jobid=LFV_808_me_mt_et
 export MEGAPATH=/hdfs/store/user/fmeng/
 export blind='YES'
 export systematic=none

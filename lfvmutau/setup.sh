@@ -15,7 +15,7 @@ export datasrc=/hdfs/store/user/fmeng/
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Dec2_LFV_NoHF_JetEta25_MissingHiggs
 #export jobid=MiniAodV2For25ns_ExtraJets_LFV_Data
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetEtaFix_LFV
-export jobid=LFV_808v1_data
+export jobid=LFV_808_me_mt_et
 #export jobid=LFV_76X_V1_SingleMu
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetFix_LFVData
 #export jobid=MiniAODv2_2fb_v2
@@ -33,7 +33,7 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 #bash compileTree.txt
 
 #rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo]"
-rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
+#rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
 echo "come here 22222222222222"
 #rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
