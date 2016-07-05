@@ -10,11 +10,12 @@ RUN_OPTIMIZATION = True
 _0jets = {
    'tPt'  : range(30,50,10)+[45,50],
   # 'tPt'  : [50],
-   'mPt'  :[25,35,55]+ range(30,60,10),
+   'mPt'  :[25,30,35]+ range(40,60,10)+[55],
   # 'mPt'  : [50,55],
-   'deltaPhi' : [2.0,3.00,2.5,2.4,2.2],
+   'deltaPhi' : [3.00,2.8,2.7,2.6,2.5,2.4,2.2,2.0],
   # 'deltaPhi' : [2.1,2.5],
-   'tMtToPfMet_type1' :[80,35,70]+ range(40,70,10),#was [20,50,10]+[35]
+  # 'tMtToPfMet_type1' :[80,35,70]+ range(40,70,10),#was [20,50,10]+[35]
+   'tMtToPfMet_type1' :range(80,30,-10)+[35],#was [20,50,10]+[35]
   # 'tMtToPfMet_type1' :[70,75],#was [20,50,10]+[35]
 }
 _0jets_default = {
@@ -44,11 +45,14 @@ def _get_0jet_regions(tPt, mPt, deltaPhi, tMtToPfMet_type1):
           
    return ret
 _1jets = {
-    'tPt'  :[30,50,55]+ range(35,55,10),
+   # 'tPt'  :[30,50,55]+ range(35,55,10),
+    'tPt'  :[30]+ range(35,55,10)+[50,55],
   #  'tPt'  : [50],
-    'mPt'  :[25,45,50,55]+ range(30,50,10),
+    #'mPt'  :[25,45,50,55]+ range(30,50,10),
+    'mPt'  :[25,30,40,45,50,55],
   #  'mPt'  : [33],
-    'tMtToPfMet_type1' :[80,45,50,55,60,70]+ range(30,50,10),
+  #  'tMtToPfMet_type1' :[80,45,50,55,60,70]+ range(30,50,10),
+    'tMtToPfMet_type1' :[80,70,60,55,50,45,40,30],
  #   'tMtToPfMet_type1' : [45,50,55],
 }
 _1jets_default = {
@@ -79,11 +83,16 @@ def _get_1jet_regions(tPt, mPt, tMtToPfMet_type1):
     
     
 _2jets = {
-    'tPt'  : [30,50,55]+range(35,55,10),
-    'mPt'  : [25,30,50,55]+range(35,55,10),
-    'tMtToPfMet_type1' :[80,45,60,70]+ range(30,60,10),
-    'vbfMass' :[100,300,400]+ range(150, 650, 100),
-    'vbfDeta' : [2.0,2.2,2.7,3.0,3.5, 4.0],
+    #'tPt'  : [30,50,55]+range(35,55,10),
+    'tPt'  : [30,35,45,50,55],
+   # 'mPt'  : [25,30,50,55]+range(35,55,10),
+    'mPt'  : [25,30,35,45,50,55],
+    #'tMtToPfMet_type1' :[80,45,60,70]+ range(30,60,10),
+    'tMtToPfMet_type1' :[80,70,60,50,45,40,30],
+    #'vbfMass' :[100,300,400]+ range(150, 650, 100),
+    'vbfMass' :[100,150,200,250,300,350,400,450,550],
+    #'vbfDeta' : [2.0,2.2,2.7,3.0,3.5, 4.0],
+    'vbfDeta' : [2.2,2.7,3.0,3.5,4.0,4.5,5.0],
     #'tPt'  : [33],
     #'mPt'  : [33],
     #'tMtToPfMet_type1' :[55,60],

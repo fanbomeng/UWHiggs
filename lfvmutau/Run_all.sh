@@ -26,7 +26,15 @@ export isInclusive=false   #ZeroJet
 #export isIncluse=false
 #export isInclusive=true   #ZeroJet
 export isRealData=true
-rake analyzeSpring2016all  
+#rake analyzeSpring2016WjetsandDatafakesdown  
+rake analyzeSpring2016WjetsandDatafakesup  
+#rake analyzeSpring2016WjetsandDatajesdown  
+#rake analyzeSpring2016WjetsandDatajesup  
+#rake analyzeSpring2016WjetsandDatatesdown 
+#rake analyzeSpring2016WjetsandDatatesup 
+#rake analyzeSpring2016WjetsandDatauesdown 
+#rake analyzeSpring2016WjetsandDatauesup
+#rake analyzeSpring2016WjetsandData
 export isRealData=false
 export isZTauTau=true
 #rake analyzeSpring2016MC

@@ -141,20 +141,20 @@ shape_norm = False #normalize to 1 if True
 
 
 #directory names in datacard file
-if "preselection" in channel:
-	rootdir="mutau_preselection"
-if "vbf" in channel:
-	rootdir = "mutau_vbf"
-if "boost" in channel:
-	rootdir = "mutau_boost"
-if "gg" in channel:
-	rootdir = "mutau_gg"
+#if "preselection" in channel:
+#	rootdir="mutau_preselection"
 #if "vbf" in channel:
-#	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
+#	rootdir = "mutau_vbf"
 #if "boost" in channel:
-#	rootdir = "LFV_MuTau_1Jet_1_13TeVMuTau"
+#	rootdir = "mutau_boost"
 #if "gg" in channel:
-#	rootdir = "LFV_MuTau_0Jet_1_13TeVMuTau"
+#	rootdir = "mutau_gg"
+if "vbf" in channel:
+	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
+if "boost" in channel:
+	rootdir = "LFV_MuTau_1Jet_1_13TeVMuTau"
+if "gg" in channel:
+	rootdir = "LFV_MuTau_0Jet_1_13TeVMuTau"
 
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 
@@ -377,8 +377,8 @@ singlet.SetLineColor(1)
 singlet.SetLineWidth(1)
 singlet.SetMarkerSize(0)
 
-lowDataBin = 1
-highDataBin = data.GetNbinsX()
+lowDataBin =1 
+highDataBin = data.GetNbinsX()#-1
 for i in range(1,data.GetNbinsX()+1):
 	if (data.GetBinContent(i) > 0):
 		lowDataBin = i

@@ -22,7 +22,8 @@ import itertools
 #data=bool ('true' in os.environ['isRealData'])
 #RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
 #RUN_OPTIMIZATION=True
-RUN_OPTIMIZATION=True
+RUN_OPTIMIZATION=False
+#RUN_OPTIMIZATION=False
 #ZTauTau = bool('true' in os.environ['isZTauTau'])
 #ZeroJet = bool('true' in os.environ['isInclusive'])
 #ZeroJet = False
@@ -389,6 +390,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 	    self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
             self.book(names[x], "tMass", "Tau  Mass", 1000, 0, 10)
             self.book(names[x], "tLeadTrackPt", "Tau  LeadTrackPt", 300,0,300)
+            self.book(names[x], "tDPhiToPfMet_type1", "tDPhiToPfMet_type1", 100, 0, 4)
 
 		       
             #self.book(names[x], "tAgainstElectronLoose", "tAgainstElectronLoose", 2,-0.5,1.5)
@@ -461,6 +463,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
             self.book(names[x], "m_t_Pt", "Muon + Tau Pt", 200, 0, 200)
             self.book(names[x], "m_t_DR", "Muon + Tau DR", 100, 0, 10)
             self.book(names[x], "m_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
+            self.book(names[x], "mDPhiToPfMet_type1", "mDPhiToPfMet_type1", 100, 0, 4)
             self.book(names[x], "m_t_SS", "Muon + Tau SS", 5, -2, 2)
             self.book(names[x], "m_t_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
     
@@ -558,6 +561,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 
         histos[name+'/tMass'].Fill(row.tMass_TauEnUp,weight)
         histos[name+'/tLeadTrackPt'].Fill(row.tLeadTrackPt,weight)
+	histos[name+'/tDPhiToPfMet_type1'].Fill(abs(row.tDPhiToPfMet_TauEnUp),weight)
 		      ####herer 
         #histos[name+'/tAgainstElectronLoose'].Fill(row.tAgainstElectronLoose,weight)
 ##        histos[name+'/tAgainstElectronLooseMVA6'].Fill(row.tAgainstElectronLooseMVA6,weight)  
@@ -641,6 +645,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 
 	histos[name+'/mRelPFIsoDBDefault'].Fill(row.mRelPFIsoDBDefault, weight)
         
+	histos[name+'/mDPhiToPfMet_type1'].Fill(abs(row.mDPhiToPfMet_TauEnUp),weight)
 	histos[name+'/mPhiMtPhi'].Fill(deltaPhi(row.mPhi,row.tPhi),weight)
         histos[name+'/mPhiMETPhiType1'].Fill(deltaPhi(row.mPhi,row.type1_pfMet_shiftedPhi_TauEnUp),weight)
         histos[name+'/tPhiMETPhiType1'].Fill(deltaPhi(row.tPhi,row.type1_pfMet_shiftedPhi_TauEnUp),weight)
@@ -747,7 +752,11 @@ class AnalyzeLFVMuTautesup(MegaBase):
         if row.tPt_TauEnUp < 40:
                 return False
         if row.mPt < 40:
-		return False
+       		return False
+       # if row.tPt_TauEnUp < 30:
+       #         return False
+       # if row.mPt < 30:
+       # 	return False
         if row.tMtToPfMet_TauEnUp > 35:
                 return False
         if row.jetVeto30<2:

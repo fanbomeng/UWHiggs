@@ -19,6 +19,9 @@ python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.20    0 none  deltaPhi2.20 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.40    0 none  deltaPhi2.40 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.50    0 none  deltaPhi2.50 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.60    0 none  deltaPhi2.60 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.70    0 none  deltaPhi2.70 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi2.80    0 none  deltaPhi2.80 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/deltaPhi3.00    0 none  deltaPhi3.00 1
 
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  gg/mPt25    0 none  mPt25 1
@@ -85,6 +88,8 @@ python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta2
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta3.0    0 none  vbfDeta3.0 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta3.5    0 none  vbfDeta3.5 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta4.0    0 none  vbfDeta4.0 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta4.5    0 none  vbfDeta4.5 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfDeta5.0    0 none  vbfDeta5.0 1
 
 
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/tMtToPfMet_type130    0 none  tMtToPfMet_type130 1
@@ -98,6 +103,7 @@ python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/tMtToPfM
 
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass100    0 none  vbfMass100 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass150    0 none  vbfMass150 1
+python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass200    0 none  vbfMass200 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass250    0 none  vbfMass250 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass300    0 none  vbfMass300 1
 python plot_13TeV_LFVwjetbin.py LFV_MiniAODVtrial/  collMass_type1  vbf/vbfMass350    0 none  vbfMass350 1
