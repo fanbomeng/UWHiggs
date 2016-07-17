@@ -1,7 +1,7 @@
 import subprocess
 import optimizer
 
-outputdir="cardroot_2point3_sys/"
+outputdir="cardroot4fb_sys/"
 #inputdir="LFV_MiniAODVtrial/"
 inputdir=["LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesup/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesdown/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesdown/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesup/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTautesdown/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTautesup/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTauuesdown/","LFV_MiniAODVtrial_sys/AnalyzeLFVMuTauuesup/"]
 sysname=['','FakeShapeMuTauUp_','FakeShapeMuTauDown_','CMS_MET_JesDown_','CMS_MET_JesUp_','CMS_MET_TesDown_','CMS_MET_TesUp_','CMS_MET_UesDown_','CMS_MET_UesUp_']

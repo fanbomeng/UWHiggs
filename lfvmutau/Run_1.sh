@@ -32,9 +32,9 @@ export isZTauTau=true
 #rake analyzeSpring2016MC
 export isZTauTau=false
 #rake analyzeSpring2016MC_1
-rake analyzeSpring2016WjetsandDatafakesdown_DY
-rake analyzeSpring2016WjetsandDatafakesup_VBF_LFV
-rake analyzeSpring2016WjetsandDatatesdown_w4jets 
+rake analyzeSpring2016WjetsandDataDM
+#rake analyzeSpring2016WjetsandDatafakesup_VBF_LFV
+#rake analyzeSpring2016WjetsandDatatesdown_w4jets 
 ##export isInclusive=false
 ##export isRealData=true
 ###rake analyzeLFVMuTauData

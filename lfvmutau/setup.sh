@@ -35,6 +35,6 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 #rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo]"
 rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
 echo "come here 22222222222222"
-#rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
+#rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 echo "come here 33333333333333"

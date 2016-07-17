@@ -136,6 +136,15 @@ cdef class MuTauTree:
     cdef TBranch* doubleESingleMuPrescale_branch
     cdef float doubleESingleMuPrescale_value
 
+    cdef TBranch* doubleE_23_12Group_branch
+    cdef float doubleE_23_12Group_value
+
+    cdef TBranch* doubleE_23_12Pass_branch
+    cdef float doubleE_23_12Pass_value
+
+    cdef TBranch* doubleE_23_12Prescale_branch
+    cdef float doubleE_23_12Prescale_value
+
     cdef TBranch* doubleMuGroup_branch
     cdef float doubleMuGroup_value
 
@@ -153,6 +162,15 @@ cdef class MuTauTree:
 
     cdef TBranch* doubleMuSingleEPrescale_branch
     cdef float doubleMuSingleEPrescale_value
+
+    cdef TBranch* doubleTau32Group_branch
+    cdef float doubleTau32Group_value
+
+    cdef TBranch* doubleTau32Pass_branch
+    cdef float doubleTau32Pass_value
+
+    cdef TBranch* doubleTau32Prescale_branch
+    cdef float doubleTau32Prescale_value
 
     cdef TBranch* doubleTau35Group_branch
     cdef float doubleTau35Group_value
@@ -895,24 +913,6 @@ cdef class MuTauTree:
     cdef TBranch* singleE17SingleMu8Prescale_branch
     cdef float singleE17SingleMu8Prescale_value
 
-    cdef TBranch* singleE22WP75Group_branch
-    cdef float singleE22WP75Group_value
-
-    cdef TBranch* singleE22WP75Pass_branch
-    cdef float singleE22WP75Pass_value
-
-    cdef TBranch* singleE22WP75Prescale_branch
-    cdef float singleE22WP75Prescale_value
-
-    cdef TBranch* singleE22eta2p1LooseGroup_branch
-    cdef float singleE22eta2p1LooseGroup_value
-
-    cdef TBranch* singleE22eta2p1LoosePass_branch
-    cdef float singleE22eta2p1LoosePass_value
-
-    cdef TBranch* singleE22eta2p1LoosePrescale_branch
-    cdef float singleE22eta2p1LoosePrescale_value
-
     cdef TBranch* singleE23SingleMu8Group_branch
     cdef float singleE23SingleMu8Group_value
 
@@ -921,24 +921,6 @@ cdef class MuTauTree:
 
     cdef TBranch* singleE23SingleMu8Prescale_branch
     cdef float singleE23SingleMu8Prescale_value
-
-    cdef TBranch* singleE23WP75Group_branch
-    cdef float singleE23WP75Group_value
-
-    cdef TBranch* singleE23WP75Pass_branch
-    cdef float singleE23WP75Pass_value
-
-    cdef TBranch* singleE23WP75Prescale_branch
-    cdef float singleE23WP75Prescale_value
-
-    cdef TBranch* singleE23WPLooseGroup_branch
-    cdef float singleE23WPLooseGroup_value
-
-    cdef TBranch* singleE23WPLoosePass_branch
-    cdef float singleE23WPLoosePass_value
-
-    cdef TBranch* singleE23WPLoosePrescale_branch
-    cdef float singleE23WPLoosePrescale_value
 
     cdef TBranch* singleEGroup_branch
     cdef float singleEGroup_value
@@ -976,14 +958,14 @@ cdef class MuTauTree:
     cdef TBranch* singleE_leg2Prescale_branch
     cdef float singleE_leg2Prescale_value
 
-    cdef TBranch* singleIsoMu17eta2p1Group_branch
-    cdef float singleIsoMu17eta2p1Group_value
+    cdef TBranch* singleEeta2p1LooseGroup_branch
+    cdef float singleEeta2p1LooseGroup_value
 
-    cdef TBranch* singleIsoMu17eta2p1Pass_branch
-    cdef float singleIsoMu17eta2p1Pass_value
+    cdef TBranch* singleEeta2p1LoosePass_branch
+    cdef float singleEeta2p1LoosePass_value
 
-    cdef TBranch* singleIsoMu17eta2p1Prescale_branch
-    cdef float singleIsoMu17eta2p1Prescale_value
+    cdef TBranch* singleEeta2p1LoosePrescale_branch
+    cdef float singleEeta2p1LoosePrescale_value
 
     cdef TBranch* singleIsoMu20Group_branch
     cdef float singleIsoMu20Group_value
@@ -993,15 +975,6 @@ cdef class MuTauTree:
 
     cdef TBranch* singleIsoMu20Prescale_branch
     cdef float singleIsoMu20Prescale_value
-
-    cdef TBranch* singleIsoMu20eta2p1Group_branch
-    cdef float singleIsoMu20eta2p1Group_value
-
-    cdef TBranch* singleIsoMu20eta2p1Pass_branch
-    cdef float singleIsoMu20eta2p1Pass_value
-
-    cdef TBranch* singleIsoMu20eta2p1Prescale_branch
-    cdef float singleIsoMu20eta2p1Prescale_value
 
     cdef TBranch* singleIsoMu22Group_branch
     cdef float singleIsoMu22Group_value
@@ -1020,15 +993,6 @@ cdef class MuTauTree:
 
     cdef TBranch* singleIsoMu24Prescale_branch
     cdef float singleIsoMu24Prescale_value
-
-    cdef TBranch* singleIsoMu24eta2p1Group_branch
-    cdef float singleIsoMu24eta2p1Group_value
-
-    cdef TBranch* singleIsoMu24eta2p1Pass_branch
-    cdef float singleIsoMu24eta2p1Pass_value
-
-    cdef TBranch* singleIsoMu24eta2p1Prescale_branch
-    cdef float singleIsoMu24eta2p1Prescale_value
 
     cdef TBranch* singleIsoMu27Group_branch
     cdef float singleIsoMu27Group_value
@@ -1074,15 +1038,6 @@ cdef class MuTauTree:
 
     cdef TBranch* singleMu23SingleE12Prescale_branch
     cdef float singleMu23SingleE12Prescale_value
-
-    cdef TBranch* singleMu23SingleE12v3Group_branch
-    cdef float singleMu23SingleE12v3Group_value
-
-    cdef TBranch* singleMu23SingleE12v3Pass_branch
-    cdef float singleMu23SingleE12v3Pass_value
-
-    cdef TBranch* singleMu23SingleE12v3Prescale_branch
-    cdef float singleMu23SingleE12v3Prescale_value
 
     cdef TBranch* singleMuGroup_branch
     cdef float singleMuGroup_value
@@ -2197,6 +2152,33 @@ cdef class MuTauTree:
         else:
             self.doubleESingleMuPrescale_branch.SetAddress(<void*>&self.doubleESingleMuPrescale_value)
 
+        #print "making doubleE_23_12Group"
+        self.doubleE_23_12Group_branch = the_tree.GetBranch("doubleE_23_12Group")
+        #if not self.doubleE_23_12Group_branch and "doubleE_23_12Group" not in self.complained:
+        if not self.doubleE_23_12Group_branch and "doubleE_23_12Group":
+            warnings.warn( "MuTauTree: Expected branch doubleE_23_12Group does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleE_23_12Group")
+        else:
+            self.doubleE_23_12Group_branch.SetAddress(<void*>&self.doubleE_23_12Group_value)
+
+        #print "making doubleE_23_12Pass"
+        self.doubleE_23_12Pass_branch = the_tree.GetBranch("doubleE_23_12Pass")
+        #if not self.doubleE_23_12Pass_branch and "doubleE_23_12Pass" not in self.complained:
+        if not self.doubleE_23_12Pass_branch and "doubleE_23_12Pass":
+            warnings.warn( "MuTauTree: Expected branch doubleE_23_12Pass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleE_23_12Pass")
+        else:
+            self.doubleE_23_12Pass_branch.SetAddress(<void*>&self.doubleE_23_12Pass_value)
+
+        #print "making doubleE_23_12Prescale"
+        self.doubleE_23_12Prescale_branch = the_tree.GetBranch("doubleE_23_12Prescale")
+        #if not self.doubleE_23_12Prescale_branch and "doubleE_23_12Prescale" not in self.complained:
+        if not self.doubleE_23_12Prescale_branch and "doubleE_23_12Prescale":
+            warnings.warn( "MuTauTree: Expected branch doubleE_23_12Prescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleE_23_12Prescale")
+        else:
+            self.doubleE_23_12Prescale_branch.SetAddress(<void*>&self.doubleE_23_12Prescale_value)
+
         #print "making doubleMuGroup"
         self.doubleMuGroup_branch = the_tree.GetBranch("doubleMuGroup")
         #if not self.doubleMuGroup_branch and "doubleMuGroup" not in self.complained:
@@ -2250,6 +2232,33 @@ cdef class MuTauTree:
             #self.complained.add("doubleMuSingleEPrescale")
         else:
             self.doubleMuSingleEPrescale_branch.SetAddress(<void*>&self.doubleMuSingleEPrescale_value)
+
+        #print "making doubleTau32Group"
+        self.doubleTau32Group_branch = the_tree.GetBranch("doubleTau32Group")
+        #if not self.doubleTau32Group_branch and "doubleTau32Group" not in self.complained:
+        if not self.doubleTau32Group_branch and "doubleTau32Group":
+            warnings.warn( "MuTauTree: Expected branch doubleTau32Group does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleTau32Group")
+        else:
+            self.doubleTau32Group_branch.SetAddress(<void*>&self.doubleTau32Group_value)
+
+        #print "making doubleTau32Pass"
+        self.doubleTau32Pass_branch = the_tree.GetBranch("doubleTau32Pass")
+        #if not self.doubleTau32Pass_branch and "doubleTau32Pass" not in self.complained:
+        if not self.doubleTau32Pass_branch and "doubleTau32Pass":
+            warnings.warn( "MuTauTree: Expected branch doubleTau32Pass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleTau32Pass")
+        else:
+            self.doubleTau32Pass_branch.SetAddress(<void*>&self.doubleTau32Pass_value)
+
+        #print "making doubleTau32Prescale"
+        self.doubleTau32Prescale_branch = the_tree.GetBranch("doubleTau32Prescale")
+        #if not self.doubleTau32Prescale_branch and "doubleTau32Prescale" not in self.complained:
+        if not self.doubleTau32Prescale_branch and "doubleTau32Prescale":
+            warnings.warn( "MuTauTree: Expected branch doubleTau32Prescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("doubleTau32Prescale")
+        else:
+            self.doubleTau32Prescale_branch.SetAddress(<void*>&self.doubleTau32Prescale_value)
 
         #print "making doubleTau35Group"
         self.doubleTau35Group_branch = the_tree.GetBranch("doubleTau35Group")
@@ -4474,60 +4483,6 @@ cdef class MuTauTree:
         else:
             self.singleE17SingleMu8Prescale_branch.SetAddress(<void*>&self.singleE17SingleMu8Prescale_value)
 
-        #print "making singleE22WP75Group"
-        self.singleE22WP75Group_branch = the_tree.GetBranch("singleE22WP75Group")
-        #if not self.singleE22WP75Group_branch and "singleE22WP75Group" not in self.complained:
-        if not self.singleE22WP75Group_branch and "singleE22WP75Group":
-            warnings.warn( "MuTauTree: Expected branch singleE22WP75Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22WP75Group")
-        else:
-            self.singleE22WP75Group_branch.SetAddress(<void*>&self.singleE22WP75Group_value)
-
-        #print "making singleE22WP75Pass"
-        self.singleE22WP75Pass_branch = the_tree.GetBranch("singleE22WP75Pass")
-        #if not self.singleE22WP75Pass_branch and "singleE22WP75Pass" not in self.complained:
-        if not self.singleE22WP75Pass_branch and "singleE22WP75Pass":
-            warnings.warn( "MuTauTree: Expected branch singleE22WP75Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22WP75Pass")
-        else:
-            self.singleE22WP75Pass_branch.SetAddress(<void*>&self.singleE22WP75Pass_value)
-
-        #print "making singleE22WP75Prescale"
-        self.singleE22WP75Prescale_branch = the_tree.GetBranch("singleE22WP75Prescale")
-        #if not self.singleE22WP75Prescale_branch and "singleE22WP75Prescale" not in self.complained:
-        if not self.singleE22WP75Prescale_branch and "singleE22WP75Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleE22WP75Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22WP75Prescale")
-        else:
-            self.singleE22WP75Prescale_branch.SetAddress(<void*>&self.singleE22WP75Prescale_value)
-
-        #print "making singleE22eta2p1LooseGroup"
-        self.singleE22eta2p1LooseGroup_branch = the_tree.GetBranch("singleE22eta2p1LooseGroup")
-        #if not self.singleE22eta2p1LooseGroup_branch and "singleE22eta2p1LooseGroup" not in self.complained:
-        if not self.singleE22eta2p1LooseGroup_branch and "singleE22eta2p1LooseGroup":
-            warnings.warn( "MuTauTree: Expected branch singleE22eta2p1LooseGroup does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22eta2p1LooseGroup")
-        else:
-            self.singleE22eta2p1LooseGroup_branch.SetAddress(<void*>&self.singleE22eta2p1LooseGroup_value)
-
-        #print "making singleE22eta2p1LoosePass"
-        self.singleE22eta2p1LoosePass_branch = the_tree.GetBranch("singleE22eta2p1LoosePass")
-        #if not self.singleE22eta2p1LoosePass_branch and "singleE22eta2p1LoosePass" not in self.complained:
-        if not self.singleE22eta2p1LoosePass_branch and "singleE22eta2p1LoosePass":
-            warnings.warn( "MuTauTree: Expected branch singleE22eta2p1LoosePass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22eta2p1LoosePass")
-        else:
-            self.singleE22eta2p1LoosePass_branch.SetAddress(<void*>&self.singleE22eta2p1LoosePass_value)
-
-        #print "making singleE22eta2p1LoosePrescale"
-        self.singleE22eta2p1LoosePrescale_branch = the_tree.GetBranch("singleE22eta2p1LoosePrescale")
-        #if not self.singleE22eta2p1LoosePrescale_branch and "singleE22eta2p1LoosePrescale" not in self.complained:
-        if not self.singleE22eta2p1LoosePrescale_branch and "singleE22eta2p1LoosePrescale":
-            warnings.warn( "MuTauTree: Expected branch singleE22eta2p1LoosePrescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE22eta2p1LoosePrescale")
-        else:
-            self.singleE22eta2p1LoosePrescale_branch.SetAddress(<void*>&self.singleE22eta2p1LoosePrescale_value)
-
         #print "making singleE23SingleMu8Group"
         self.singleE23SingleMu8Group_branch = the_tree.GetBranch("singleE23SingleMu8Group")
         #if not self.singleE23SingleMu8Group_branch and "singleE23SingleMu8Group" not in self.complained:
@@ -4554,60 +4509,6 @@ cdef class MuTauTree:
             #self.complained.add("singleE23SingleMu8Prescale")
         else:
             self.singleE23SingleMu8Prescale_branch.SetAddress(<void*>&self.singleE23SingleMu8Prescale_value)
-
-        #print "making singleE23WP75Group"
-        self.singleE23WP75Group_branch = the_tree.GetBranch("singleE23WP75Group")
-        #if not self.singleE23WP75Group_branch and "singleE23WP75Group" not in self.complained:
-        if not self.singleE23WP75Group_branch and "singleE23WP75Group":
-            warnings.warn( "MuTauTree: Expected branch singleE23WP75Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WP75Group")
-        else:
-            self.singleE23WP75Group_branch.SetAddress(<void*>&self.singleE23WP75Group_value)
-
-        #print "making singleE23WP75Pass"
-        self.singleE23WP75Pass_branch = the_tree.GetBranch("singleE23WP75Pass")
-        #if not self.singleE23WP75Pass_branch and "singleE23WP75Pass" not in self.complained:
-        if not self.singleE23WP75Pass_branch and "singleE23WP75Pass":
-            warnings.warn( "MuTauTree: Expected branch singleE23WP75Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WP75Pass")
-        else:
-            self.singleE23WP75Pass_branch.SetAddress(<void*>&self.singleE23WP75Pass_value)
-
-        #print "making singleE23WP75Prescale"
-        self.singleE23WP75Prescale_branch = the_tree.GetBranch("singleE23WP75Prescale")
-        #if not self.singleE23WP75Prescale_branch and "singleE23WP75Prescale" not in self.complained:
-        if not self.singleE23WP75Prescale_branch and "singleE23WP75Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleE23WP75Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WP75Prescale")
-        else:
-            self.singleE23WP75Prescale_branch.SetAddress(<void*>&self.singleE23WP75Prescale_value)
-
-        #print "making singleE23WPLooseGroup"
-        self.singleE23WPLooseGroup_branch = the_tree.GetBranch("singleE23WPLooseGroup")
-        #if not self.singleE23WPLooseGroup_branch and "singleE23WPLooseGroup" not in self.complained:
-        if not self.singleE23WPLooseGroup_branch and "singleE23WPLooseGroup":
-            warnings.warn( "MuTauTree: Expected branch singleE23WPLooseGroup does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WPLooseGroup")
-        else:
-            self.singleE23WPLooseGroup_branch.SetAddress(<void*>&self.singleE23WPLooseGroup_value)
-
-        #print "making singleE23WPLoosePass"
-        self.singleE23WPLoosePass_branch = the_tree.GetBranch("singleE23WPLoosePass")
-        #if not self.singleE23WPLoosePass_branch and "singleE23WPLoosePass" not in self.complained:
-        if not self.singleE23WPLoosePass_branch and "singleE23WPLoosePass":
-            warnings.warn( "MuTauTree: Expected branch singleE23WPLoosePass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WPLoosePass")
-        else:
-            self.singleE23WPLoosePass_branch.SetAddress(<void*>&self.singleE23WPLoosePass_value)
-
-        #print "making singleE23WPLoosePrescale"
-        self.singleE23WPLoosePrescale_branch = the_tree.GetBranch("singleE23WPLoosePrescale")
-        #if not self.singleE23WPLoosePrescale_branch and "singleE23WPLoosePrescale" not in self.complained:
-        if not self.singleE23WPLoosePrescale_branch and "singleE23WPLoosePrescale":
-            warnings.warn( "MuTauTree: Expected branch singleE23WPLoosePrescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleE23WPLoosePrescale")
-        else:
-            self.singleE23WPLoosePrescale_branch.SetAddress(<void*>&self.singleE23WPLoosePrescale_value)
 
         #print "making singleEGroup"
         self.singleEGroup_branch = the_tree.GetBranch("singleEGroup")
@@ -4717,32 +4618,32 @@ cdef class MuTauTree:
         else:
             self.singleE_leg2Prescale_branch.SetAddress(<void*>&self.singleE_leg2Prescale_value)
 
-        #print "making singleIsoMu17eta2p1Group"
-        self.singleIsoMu17eta2p1Group_branch = the_tree.GetBranch("singleIsoMu17eta2p1Group")
-        #if not self.singleIsoMu17eta2p1Group_branch and "singleIsoMu17eta2p1Group" not in self.complained:
-        if not self.singleIsoMu17eta2p1Group_branch and "singleIsoMu17eta2p1Group":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu17eta2p1Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu17eta2p1Group")
+        #print "making singleEeta2p1LooseGroup"
+        self.singleEeta2p1LooseGroup_branch = the_tree.GetBranch("singleEeta2p1LooseGroup")
+        #if not self.singleEeta2p1LooseGroup_branch and "singleEeta2p1LooseGroup" not in self.complained:
+        if not self.singleEeta2p1LooseGroup_branch and "singleEeta2p1LooseGroup":
+            warnings.warn( "MuTauTree: Expected branch singleEeta2p1LooseGroup does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleEeta2p1LooseGroup")
         else:
-            self.singleIsoMu17eta2p1Group_branch.SetAddress(<void*>&self.singleIsoMu17eta2p1Group_value)
+            self.singleEeta2p1LooseGroup_branch.SetAddress(<void*>&self.singleEeta2p1LooseGroup_value)
 
-        #print "making singleIsoMu17eta2p1Pass"
-        self.singleIsoMu17eta2p1Pass_branch = the_tree.GetBranch("singleIsoMu17eta2p1Pass")
-        #if not self.singleIsoMu17eta2p1Pass_branch and "singleIsoMu17eta2p1Pass" not in self.complained:
-        if not self.singleIsoMu17eta2p1Pass_branch and "singleIsoMu17eta2p1Pass":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu17eta2p1Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu17eta2p1Pass")
+        #print "making singleEeta2p1LoosePass"
+        self.singleEeta2p1LoosePass_branch = the_tree.GetBranch("singleEeta2p1LoosePass")
+        #if not self.singleEeta2p1LoosePass_branch and "singleEeta2p1LoosePass" not in self.complained:
+        if not self.singleEeta2p1LoosePass_branch and "singleEeta2p1LoosePass":
+            warnings.warn( "MuTauTree: Expected branch singleEeta2p1LoosePass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleEeta2p1LoosePass")
         else:
-            self.singleIsoMu17eta2p1Pass_branch.SetAddress(<void*>&self.singleIsoMu17eta2p1Pass_value)
+            self.singleEeta2p1LoosePass_branch.SetAddress(<void*>&self.singleEeta2p1LoosePass_value)
 
-        #print "making singleIsoMu17eta2p1Prescale"
-        self.singleIsoMu17eta2p1Prescale_branch = the_tree.GetBranch("singleIsoMu17eta2p1Prescale")
-        #if not self.singleIsoMu17eta2p1Prescale_branch and "singleIsoMu17eta2p1Prescale" not in self.complained:
-        if not self.singleIsoMu17eta2p1Prescale_branch and "singleIsoMu17eta2p1Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu17eta2p1Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu17eta2p1Prescale")
+        #print "making singleEeta2p1LoosePrescale"
+        self.singleEeta2p1LoosePrescale_branch = the_tree.GetBranch("singleEeta2p1LoosePrescale")
+        #if not self.singleEeta2p1LoosePrescale_branch and "singleEeta2p1LoosePrescale" not in self.complained:
+        if not self.singleEeta2p1LoosePrescale_branch and "singleEeta2p1LoosePrescale":
+            warnings.warn( "MuTauTree: Expected branch singleEeta2p1LoosePrescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleEeta2p1LoosePrescale")
         else:
-            self.singleIsoMu17eta2p1Prescale_branch.SetAddress(<void*>&self.singleIsoMu17eta2p1Prescale_value)
+            self.singleEeta2p1LoosePrescale_branch.SetAddress(<void*>&self.singleEeta2p1LoosePrescale_value)
 
         #print "making singleIsoMu20Group"
         self.singleIsoMu20Group_branch = the_tree.GetBranch("singleIsoMu20Group")
@@ -4770,33 +4671,6 @@ cdef class MuTauTree:
             #self.complained.add("singleIsoMu20Prescale")
         else:
             self.singleIsoMu20Prescale_branch.SetAddress(<void*>&self.singleIsoMu20Prescale_value)
-
-        #print "making singleIsoMu20eta2p1Group"
-        self.singleIsoMu20eta2p1Group_branch = the_tree.GetBranch("singleIsoMu20eta2p1Group")
-        #if not self.singleIsoMu20eta2p1Group_branch and "singleIsoMu20eta2p1Group" not in self.complained:
-        if not self.singleIsoMu20eta2p1Group_branch and "singleIsoMu20eta2p1Group":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu20eta2p1Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu20eta2p1Group")
-        else:
-            self.singleIsoMu20eta2p1Group_branch.SetAddress(<void*>&self.singleIsoMu20eta2p1Group_value)
-
-        #print "making singleIsoMu20eta2p1Pass"
-        self.singleIsoMu20eta2p1Pass_branch = the_tree.GetBranch("singleIsoMu20eta2p1Pass")
-        #if not self.singleIsoMu20eta2p1Pass_branch and "singleIsoMu20eta2p1Pass" not in self.complained:
-        if not self.singleIsoMu20eta2p1Pass_branch and "singleIsoMu20eta2p1Pass":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu20eta2p1Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu20eta2p1Pass")
-        else:
-            self.singleIsoMu20eta2p1Pass_branch.SetAddress(<void*>&self.singleIsoMu20eta2p1Pass_value)
-
-        #print "making singleIsoMu20eta2p1Prescale"
-        self.singleIsoMu20eta2p1Prescale_branch = the_tree.GetBranch("singleIsoMu20eta2p1Prescale")
-        #if not self.singleIsoMu20eta2p1Prescale_branch and "singleIsoMu20eta2p1Prescale" not in self.complained:
-        if not self.singleIsoMu20eta2p1Prescale_branch and "singleIsoMu20eta2p1Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu20eta2p1Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu20eta2p1Prescale")
-        else:
-            self.singleIsoMu20eta2p1Prescale_branch.SetAddress(<void*>&self.singleIsoMu20eta2p1Prescale_value)
 
         #print "making singleIsoMu22Group"
         self.singleIsoMu22Group_branch = the_tree.GetBranch("singleIsoMu22Group")
@@ -4851,33 +4725,6 @@ cdef class MuTauTree:
             #self.complained.add("singleIsoMu24Prescale")
         else:
             self.singleIsoMu24Prescale_branch.SetAddress(<void*>&self.singleIsoMu24Prescale_value)
-
-        #print "making singleIsoMu24eta2p1Group"
-        self.singleIsoMu24eta2p1Group_branch = the_tree.GetBranch("singleIsoMu24eta2p1Group")
-        #if not self.singleIsoMu24eta2p1Group_branch and "singleIsoMu24eta2p1Group" not in self.complained:
-        if not self.singleIsoMu24eta2p1Group_branch and "singleIsoMu24eta2p1Group":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu24eta2p1Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu24eta2p1Group")
-        else:
-            self.singleIsoMu24eta2p1Group_branch.SetAddress(<void*>&self.singleIsoMu24eta2p1Group_value)
-
-        #print "making singleIsoMu24eta2p1Pass"
-        self.singleIsoMu24eta2p1Pass_branch = the_tree.GetBranch("singleIsoMu24eta2p1Pass")
-        #if not self.singleIsoMu24eta2p1Pass_branch and "singleIsoMu24eta2p1Pass" not in self.complained:
-        if not self.singleIsoMu24eta2p1Pass_branch and "singleIsoMu24eta2p1Pass":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu24eta2p1Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu24eta2p1Pass")
-        else:
-            self.singleIsoMu24eta2p1Pass_branch.SetAddress(<void*>&self.singleIsoMu24eta2p1Pass_value)
-
-        #print "making singleIsoMu24eta2p1Prescale"
-        self.singleIsoMu24eta2p1Prescale_branch = the_tree.GetBranch("singleIsoMu24eta2p1Prescale")
-        #if not self.singleIsoMu24eta2p1Prescale_branch and "singleIsoMu24eta2p1Prescale" not in self.complained:
-        if not self.singleIsoMu24eta2p1Prescale_branch and "singleIsoMu24eta2p1Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleIsoMu24eta2p1Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleIsoMu24eta2p1Prescale")
-        else:
-            self.singleIsoMu24eta2p1Prescale_branch.SetAddress(<void*>&self.singleIsoMu24eta2p1Prescale_value)
 
         #print "making singleIsoMu27Group"
         self.singleIsoMu27Group_branch = the_tree.GetBranch("singleIsoMu27Group")
@@ -5013,33 +4860,6 @@ cdef class MuTauTree:
             #self.complained.add("singleMu23SingleE12Prescale")
         else:
             self.singleMu23SingleE12Prescale_branch.SetAddress(<void*>&self.singleMu23SingleE12Prescale_value)
-
-        #print "making singleMu23SingleE12v3Group"
-        self.singleMu23SingleE12v3Group_branch = the_tree.GetBranch("singleMu23SingleE12v3Group")
-        #if not self.singleMu23SingleE12v3Group_branch and "singleMu23SingleE12v3Group" not in self.complained:
-        if not self.singleMu23SingleE12v3Group_branch and "singleMu23SingleE12v3Group":
-            warnings.warn( "MuTauTree: Expected branch singleMu23SingleE12v3Group does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleMu23SingleE12v3Group")
-        else:
-            self.singleMu23SingleE12v3Group_branch.SetAddress(<void*>&self.singleMu23SingleE12v3Group_value)
-
-        #print "making singleMu23SingleE12v3Pass"
-        self.singleMu23SingleE12v3Pass_branch = the_tree.GetBranch("singleMu23SingleE12v3Pass")
-        #if not self.singleMu23SingleE12v3Pass_branch and "singleMu23SingleE12v3Pass" not in self.complained:
-        if not self.singleMu23SingleE12v3Pass_branch and "singleMu23SingleE12v3Pass":
-            warnings.warn( "MuTauTree: Expected branch singleMu23SingleE12v3Pass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleMu23SingleE12v3Pass")
-        else:
-            self.singleMu23SingleE12v3Pass_branch.SetAddress(<void*>&self.singleMu23SingleE12v3Pass_value)
-
-        #print "making singleMu23SingleE12v3Prescale"
-        self.singleMu23SingleE12v3Prescale_branch = the_tree.GetBranch("singleMu23SingleE12v3Prescale")
-        #if not self.singleMu23SingleE12v3Prescale_branch and "singleMu23SingleE12v3Prescale" not in self.complained:
-        if not self.singleMu23SingleE12v3Prescale_branch and "singleMu23SingleE12v3Prescale":
-            warnings.warn( "MuTauTree: Expected branch singleMu23SingleE12v3Prescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("singleMu23SingleE12v3Prescale")
-        else:
-            self.singleMu23SingleE12v3Prescale_branch.SetAddress(<void*>&self.singleMu23SingleE12v3Prescale_value)
 
         #print "making singleMuGroup"
         self.singleMuGroup_branch = the_tree.GetBranch("singleMuGroup")
@@ -7712,6 +7532,21 @@ cdef class MuTauTree:
             self.doubleESingleMuPrescale_branch.GetEntry(self.localentry, 0)
             return self.doubleESingleMuPrescale_value
 
+    property doubleE_23_12Group:
+        def __get__(self):
+            self.doubleE_23_12Group_branch.GetEntry(self.localentry, 0)
+            return self.doubleE_23_12Group_value
+
+    property doubleE_23_12Pass:
+        def __get__(self):
+            self.doubleE_23_12Pass_branch.GetEntry(self.localentry, 0)
+            return self.doubleE_23_12Pass_value
+
+    property doubleE_23_12Prescale:
+        def __get__(self):
+            self.doubleE_23_12Prescale_branch.GetEntry(self.localentry, 0)
+            return self.doubleE_23_12Prescale_value
+
     property doubleMuGroup:
         def __get__(self):
             self.doubleMuGroup_branch.GetEntry(self.localentry, 0)
@@ -7741,6 +7576,21 @@ cdef class MuTauTree:
         def __get__(self):
             self.doubleMuSingleEPrescale_branch.GetEntry(self.localentry, 0)
             return self.doubleMuSingleEPrescale_value
+
+    property doubleTau32Group:
+        def __get__(self):
+            self.doubleTau32Group_branch.GetEntry(self.localentry, 0)
+            return self.doubleTau32Group_value
+
+    property doubleTau32Pass:
+        def __get__(self):
+            self.doubleTau32Pass_branch.GetEntry(self.localentry, 0)
+            return self.doubleTau32Pass_value
+
+    property doubleTau32Prescale:
+        def __get__(self):
+            self.doubleTau32Prescale_branch.GetEntry(self.localentry, 0)
+            return self.doubleTau32Prescale_value
 
     property doubleTau35Group:
         def __get__(self):
@@ -8977,36 +8827,6 @@ cdef class MuTauTree:
             self.singleE17SingleMu8Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleE17SingleMu8Prescale_value
 
-    property singleE22WP75Group:
-        def __get__(self):
-            self.singleE22WP75Group_branch.GetEntry(self.localentry, 0)
-            return self.singleE22WP75Group_value
-
-    property singleE22WP75Pass:
-        def __get__(self):
-            self.singleE22WP75Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleE22WP75Pass_value
-
-    property singleE22WP75Prescale:
-        def __get__(self):
-            self.singleE22WP75Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleE22WP75Prescale_value
-
-    property singleE22eta2p1LooseGroup:
-        def __get__(self):
-            self.singleE22eta2p1LooseGroup_branch.GetEntry(self.localentry, 0)
-            return self.singleE22eta2p1LooseGroup_value
-
-    property singleE22eta2p1LoosePass:
-        def __get__(self):
-            self.singleE22eta2p1LoosePass_branch.GetEntry(self.localentry, 0)
-            return self.singleE22eta2p1LoosePass_value
-
-    property singleE22eta2p1LoosePrescale:
-        def __get__(self):
-            self.singleE22eta2p1LoosePrescale_branch.GetEntry(self.localentry, 0)
-            return self.singleE22eta2p1LoosePrescale_value
-
     property singleE23SingleMu8Group:
         def __get__(self):
             self.singleE23SingleMu8Group_branch.GetEntry(self.localentry, 0)
@@ -9021,36 +8841,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.singleE23SingleMu8Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleE23SingleMu8Prescale_value
-
-    property singleE23WP75Group:
-        def __get__(self):
-            self.singleE23WP75Group_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WP75Group_value
-
-    property singleE23WP75Pass:
-        def __get__(self):
-            self.singleE23WP75Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WP75Pass_value
-
-    property singleE23WP75Prescale:
-        def __get__(self):
-            self.singleE23WP75Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WP75Prescale_value
-
-    property singleE23WPLooseGroup:
-        def __get__(self):
-            self.singleE23WPLooseGroup_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WPLooseGroup_value
-
-    property singleE23WPLoosePass:
-        def __get__(self):
-            self.singleE23WPLoosePass_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WPLoosePass_value
-
-    property singleE23WPLoosePrescale:
-        def __get__(self):
-            self.singleE23WPLoosePrescale_branch.GetEntry(self.localentry, 0)
-            return self.singleE23WPLoosePrescale_value
 
     property singleEGroup:
         def __get__(self):
@@ -9112,20 +8902,20 @@ cdef class MuTauTree:
             self.singleE_leg2Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleE_leg2Prescale_value
 
-    property singleIsoMu17eta2p1Group:
+    property singleEeta2p1LooseGroup:
         def __get__(self):
-            self.singleIsoMu17eta2p1Group_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu17eta2p1Group_value
+            self.singleEeta2p1LooseGroup_branch.GetEntry(self.localentry, 0)
+            return self.singleEeta2p1LooseGroup_value
 
-    property singleIsoMu17eta2p1Pass:
+    property singleEeta2p1LoosePass:
         def __get__(self):
-            self.singleIsoMu17eta2p1Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu17eta2p1Pass_value
+            self.singleEeta2p1LoosePass_branch.GetEntry(self.localentry, 0)
+            return self.singleEeta2p1LoosePass_value
 
-    property singleIsoMu17eta2p1Prescale:
+    property singleEeta2p1LoosePrescale:
         def __get__(self):
-            self.singleIsoMu17eta2p1Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu17eta2p1Prescale_value
+            self.singleEeta2p1LoosePrescale_branch.GetEntry(self.localentry, 0)
+            return self.singleEeta2p1LoosePrescale_value
 
     property singleIsoMu20Group:
         def __get__(self):
@@ -9141,21 +8931,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.singleIsoMu20Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleIsoMu20Prescale_value
-
-    property singleIsoMu20eta2p1Group:
-        def __get__(self):
-            self.singleIsoMu20eta2p1Group_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu20eta2p1Group_value
-
-    property singleIsoMu20eta2p1Pass:
-        def __get__(self):
-            self.singleIsoMu20eta2p1Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu20eta2p1Pass_value
-
-    property singleIsoMu20eta2p1Prescale:
-        def __get__(self):
-            self.singleIsoMu20eta2p1Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu20eta2p1Prescale_value
 
     property singleIsoMu22Group:
         def __get__(self):
@@ -9186,21 +8961,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.singleIsoMu24Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleIsoMu24Prescale_value
-
-    property singleIsoMu24eta2p1Group:
-        def __get__(self):
-            self.singleIsoMu24eta2p1Group_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu24eta2p1Group_value
-
-    property singleIsoMu24eta2p1Pass:
-        def __get__(self):
-            self.singleIsoMu24eta2p1Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu24eta2p1Pass_value
-
-    property singleIsoMu24eta2p1Prescale:
-        def __get__(self):
-            self.singleIsoMu24eta2p1Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleIsoMu24eta2p1Prescale_value
 
     property singleIsoMu27Group:
         def __get__(self):
@@ -9276,21 +9036,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.singleMu23SingleE12Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleMu23SingleE12Prescale_value
-
-    property singleMu23SingleE12v3Group:
-        def __get__(self):
-            self.singleMu23SingleE12v3Group_branch.GetEntry(self.localentry, 0)
-            return self.singleMu23SingleE12v3Group_value
-
-    property singleMu23SingleE12v3Pass:
-        def __get__(self):
-            self.singleMu23SingleE12v3Pass_branch.GetEntry(self.localentry, 0)
-            return self.singleMu23SingleE12v3Pass_value
-
-    property singleMu23SingleE12v3Prescale:
-        def __get__(self):
-            self.singleMu23SingleE12v3Prescale_branch.GetEntry(self.localentry, 0)
-            return self.singleMu23SingleE12v3Prescale_value
 
     property singleMuGroup:
         def __get__(self):

@@ -92,7 +92,8 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
 #JSONlumi =561.123523153 
-JSONlumi =2300.00 
+#JSONlumi =3950.74 
+JSONlumi =4270.724706 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -133,7 +134,7 @@ rootdir = "mutau" #directory in datacard file
 
 ##########OPTIONS#########################
 #blinded = False #not blinded
-blinded = True #not blinded
+blinded = False #not blinded
 fillEmptyBins = True #empty bins filled
 fakeRate = False #apply fake rate method
 #fakeRate = True #apply fake rate method
@@ -399,12 +400,12 @@ do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",lowDataBin,highD
 do_binbybin(smhgg,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(smhvbf,"VBFHToTauTau_M125_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",lowDataBin,highDataBin)
-BLAND=1
-#binLow = data.FindBin(100)
-#binHigh = data.FindBin(150)+1
-#if BLAND==1:
-#   for i in range(binLow,binHigh):
-#        data.SetBinContent(i,-100)
+BLAND=0
+binLow = data.FindBin(100)
+binHigh = data.FindBin(150)+1
+if blinded==False:
+   for i in range(binLow,binHigh):
+        data.SetBinContent(i,-100)
 #Recommended by stats committee
 if(poissonErrors==True):
 	set_poissonerrors(data)

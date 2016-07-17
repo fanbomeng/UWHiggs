@@ -93,7 +93,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
 #JSONlumi =561.123523153 
-JSONlumi =809.0 
+JSONlumi =4270.724706 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -564,9 +564,9 @@ outfile.cd(rootdir+"/")
 BLAND=1
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
-##if BLAND==1:
-##   for i in range(binLow,binHigh):
-##        data.SetBinContent(i,-100)
+if BLAND==1:
+   for i in range(binLow,binHigh):
+        data.SetBinContent(i,-100)
 ###Recommended by stats committee
 ##if(poissonErrors==True):
 ##	set_poissonerrors(data)
