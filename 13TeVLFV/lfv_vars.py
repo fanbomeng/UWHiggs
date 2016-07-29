@@ -20,6 +20,7 @@ tJetPt = ("Tau Jet P_{T}" , 10,"ROOT.TLegend(0.55,0.45,0.8,0.85,' ','brNDC')",0,
 mEta = ("Muon #eta",10,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 
 tEta = ("Tau #eta",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
+tPhi = ("Tau #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 
 mMtToPfMet_Ty1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')")
 
@@ -35,8 +36,8 @@ tMtToPfMet_ues = ("#tau,MET M_{T} Ty1 [GeV]",2,"ROOT.TLegend(0.58,0.55,0.87,0.95
 
 vbfDeta = ("#Delta#eta_{jj}",10,"ROOT.TLegend(0.55,0.2,0.9,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
 
-mDPhiToPfMet_type1 = ("#Delta#eta_{m_met}",10,"ROOT.TLegend(0.75,0.2,1.1,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
-tDPhiToPfMet_type1 = ("#Delta#eta_{t_met}",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
+mDPhiToPfMet_type1 = ("#Delta#phi_{m_met}",10,"ROOT.TLegend(0.75,0.2,1.1,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
+tDPhiToPfMet_type1 = ("#Delta#phi_{t_met}",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
 mDPhiToPfMet_tDPhiToPfMet = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 mDPhiToPfMet_ggdeltaphi = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 tDPhiToPfMet_ggdeltaphi = ("tDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")

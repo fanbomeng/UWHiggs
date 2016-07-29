@@ -283,7 +283,9 @@ pu_distributions = glob.glob(os.path.join(
 #pu_corrector = PileupWeight.PileupWeight('25ns_matchData', *pu_distributions)
 pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
 
+muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_TriggerIso22_2016B()
 muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016B()
+muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016B()
 muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016B()
 muon_pog_IsoMu20oIsoTkMu20_2015 = MuonPOGCorrections.make_muon_pog_IsoMu20oIsoTkMu20_2015()
 
@@ -293,14 +295,18 @@ def mc_corrector_2016(row):
   #m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
   #m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
   #m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
+  m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,row.mEta)
+  m1tracking =muon_pog_Tracking_2016B(row.mEta)
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
   m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
   m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
-
+  
+#  print "in the analyzer muon trigger"
+  print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
   #print "pu"
   #print str(pu)
   #return pu*m1id*m1iso*m_trg
-  return pu*m1id*m1iso
+  return pu*m1id*m1iso*m1tracking*m_trgiso22
  # return pu*m1id*m1iso
  # return m1id*m1iso*m_trg
 
@@ -686,8 +692,8 @@ class AnalyzeLFVMuTauTdecaymold(MegaBase):
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
         if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
-            return False
-        return True
+            return   False
+        return True 
 
     def selectZtt(self,row):
         if (self.is_ZTauTau and not row.isZtautau):
@@ -838,8 +844,9 @@ class AnalyzeLFVMuTauTdecaymold(MegaBase):
                 sel = False      # it will save them all.
             if sel==True:
                 continue
-         #   if not self.presel(row):
-         #       continue
+            if self.is_data: 
+               if not self.presel(row):
+                  continue
             if not self.selectZtt(row):
                 continue
             if not self.selectZeroJet(row):

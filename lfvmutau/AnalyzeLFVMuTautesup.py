@@ -37,6 +37,11 @@ def deltaPhi(phi1, phi2):
       return PHI
   else:
       return 2*pi-PHI
+def deltaR(phi1, phi2, eta1, eta2):
+    deta = eta1 - eta2
+    dphi = abs(phi1-phi2)
+    if (dphi>pi) : dphi = 2*pi-dphi
+    return sqrt(deta*deta + dphi*dphi);
 
 def fullMT(mupt,taupt , muphi, tauphi, row, sys='none'):
 	mux=mupt*math.cos(muphi)
@@ -74,17 +79,17 @@ def fullPT(mupt,taupt, muphi, tauphi, row, sys='none'):
         return full_pt
 
 def collMass_type1(row,sys='none'):
-        taupx=row.tPt_TauEnUp*math.cos(row.tPhi)
-        taupy=row.tPt_TauEnUp*math.sin(row.tPhi)
+        taupx=row.tPt*math.cos(row.tPhi)
+        taupy=row.tPt*math.sin(row.tPhi)
 	metE = row.type1_pfMet_shiftedPt_TauEnUp
 	metPhi = row.type1_pfMet_shiftedPhi_TauEnUp
         metpx = metE*math.cos(metPhi)
         metpy = metE*math.sin(metPhi)
         met = sqrt(metpx*metpx+metpy*metpy)
 
-        METproj= abs(metpx*taupx+metpy*taupy)/row.tPt_TauEnUp
+        METproj= abs(metpx*taupx+metpy*taupy)/row.tPt
 
-        xth=row.tPt_TauEnUp/(row.tPt+METproj)
+        xth=row.tPt/(row.tPt+METproj)
         den=math.sqrt(xth)
 
         mass=row.m_t_Mass_TauEnUp/den
@@ -97,11 +102,11 @@ def collMass_type1(row,sys='none'):
 '''
 def gettPt(row,sys='none'):
 	if (sys=='none' or 'jes' in sys or 'ues' in sys):
-		return row.tPt_TauEnUp
+		return row.tPt
 	if (sys=='tesup'):
-		return row.tPt_TauEnUp_TauEnUp
+		return row.tPt_TauEnUp
 	if (sys=='tesdown'):
-		return row.tPt_TauEnUp_TauEnDown
+		return row.tPt_TauEnDown
 
 def getmtMass(row,sys='none'):
 	if(sys=='none' or 'jes' in sys or 'ues' in sys):
@@ -283,25 +288,39 @@ pu_distributions = glob.glob(os.path.join(
 #pu_corrector = PileupWeight.PileupWeight('25ns_matchData', *pu_distributions)
 pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
 
-muon_pog_PFTight_2015 = MuonPOGCorrections.make_muon_pog_PFTight_2015CD()
-muon_pog_TightIso_2015 = MuonPOGCorrections.make_muon_pog_TightIso_2015CD()
+muon_HTauTau_TriggerIso22_2016B= MuonPOGCorrections.make_muon_HTauTau_TriggerIso22_2016B()
+muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_TriggerEfficency_2016B()
+muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016B()
+muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016B()
+#muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016B()
+muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_DEN_ID_2016B()
 muon_pog_IsoMu20oIsoTkMu20_2015 = MuonPOGCorrections.make_muon_pog_IsoMu20oIsoTkMu20_2015()
 
-def mc_corrector_2015(row):
+def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
 
-  m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
-  m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
-  m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
-
+  #m1id = muon_pog_PFTight_2015(row.mPt,abs(row.mEta))
+  #m1iso = muon_pog_TightIso_2015('Tight',row.mPt,abs(row.mEta))
+  #m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
+  m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
+  m1tracking =muon_pog_Tracking_2016B(row.mEta)
+  m_trgiso22=muon_pog_TriggerIso22_2016B(abs(row.mPt),abs(row.mEta))
+#  m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
+  m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
+#  m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
+#  m_trg = muon_pog_IsoMu20oIsoTkMu20_2015(row.mPt,abs(row.mEta))
+  
+#  print "in the analyzer muon trigger"
+#  print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
   #print "pu"
   #print str(pu)
   #return pu*m1id*m1iso*m_trg
-  return pu*m1id*m1iso
+  return pu*m1id*m1iso*m1tracking*m_trgiso22
+#  return pu*m1id**m1tracking*m_trgiso22
  # return pu*m1id*m1iso
  # return m1id*m1iso*m_trg
 
-mc_corrector = mc_corrector_2015
+mc_corrector = mc_corrector_2016
 
 class AnalyzeLFVMuTautesup(MegaBase):
     tree = 'mt/final/Ntuple'
@@ -315,11 +334,11 @@ class AnalyzeLFVMuTautesup(MegaBase):
         self.is_data = target.startswith('data_')
      #   print "*************"
      #   print self.is_data
-        self.is_ZeroJet=('WJetsToLNu' in target)
-        self.is_OneJet=('W1JetsToLNu' in target)
-        self.is_TwoJet=('W2JetsToLNu' in target)
-        self.is_ThreeJet=('W3JetsToLNu' in target)
-        self.is_FourJet=('W4JetsToLNu' in target)
+        self.is_ZeroJet=(('WJetsToLNu' in target)or('DYJetsToLL' in target)or('ZTauTauJetsToLL' in target))
+        self.is_OneJet=('W1JetsToLNu' in target or('DY1JetsToLL' in target)or('ZTauTau1JetsToLL' in target))
+        self.is_TwoJet=('W2JetsToLNu' in target or('DY2JetsToLL' in target)or('ZTauTau2JetsToLL' in target))
+        self.is_ThreeJet=('W3JetsToLNu' in target or('DY3JetsToLL' in target)or('ZTauTau3JetsToLL' in target))
+        self.is_FourJet=('W4JetsToLNu' in target or('DY4JetsToLL' in target)or('ZTauTau4JetsToLL' in target))
         self.is_embedded = ('Embedded' in target)
         self.is_ZTauTau= ('ZTauTau' in target)
         self.is_mc = not (self.is_data or self.is_embedded)
@@ -331,8 +350,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 
         self.book('treelev',"counts", "Event counts", 10, 0, 5)
 #        self.book('',"jetPt", "Event counts", 10, 0, 5)
-        names=["preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","notIsoNotWeighted",
-               "preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet"]
+        names=["preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","notIsoNotWeighted","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","ggTD0","ggTD1","ggTD10","boostTD0","boostTD1","boostTD10","vbfTD0","vbfTD1","vbfTD10"]
         if RUN_OPTIMIZATION:
 		for region in optimizer.regions['0']:
 			names.append(os.path.join("gg",region))	
@@ -353,7 +371,6 @@ class AnalyzeLFVMuTautesup(MegaBase):
             self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
             self.book(names[x], "singleIsoMu22Pass", "singleIsoMu22Pass", 12 ,-0.1,1.1)
             self.book(names[x], "singleIsoTkMu22Pass", "singleIsoTkMu22Pass", 12 ,-0.1,1.1)
- 
             self.book(names[x], "rho", "Fastjet #rho", 100, 0, 25)
            # self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
             self.book(names[x], "nvtx", "Number of vertices", 20, -0.5, 100.5)
@@ -379,6 +396,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
             self.book(names[x], "jet4Phi", "", 280,-7,7)
             self.book(names[x], "jet5Phi", "", 280,-7,7)
  
+      #      self.book(names[x], "deltaR", "deltaR", 100,0,5)
             self.book(names[x], "mPt", "Muon  Pt", 300,0,300)
             self.book(names[x], "mEta", "Muon  eta", 100, -2.5, 2.5)
             self.book(names[x], "mMtToPfMet_type1", "Muon MT (PF Ty1)", 200, 0, 200)
@@ -386,6 +404,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 
             self.book(names[x], "tPt", "Tau  Pt", 300,0,300)
             self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
+            self.book(names[x], "tPhi", "tPhi", 100 ,-3.4,3.4)
             self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
             self.book(names[x], "tCharge", "Tau  Charge", 5, -2, 2)
 	    self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
@@ -468,6 +487,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
             self.book2(names[x], "mDPhiToPfMet_tDPhiToPfMet", "mDPhiToPfMet_tDPhiToPfMet", 100, 0, 4, 100, 0, 4)
             self.book2(names[x], "mDPhiToPfMet_ggdeltaphi", "mDPhiToPfMet_ggdeltaphi", 100, 0, 4, 100, 0, 4)
             self.book2(names[x], "tDPhiToPfMet_ggdeltaphi", "tDPhiToPfMet_ggdeltaphi", 100, 0, 4, 100, 0, 4)
+            self.book2(names[x], "tDPhiToPfMet_tMtToPfMet_type1", "tDPhiToPfMet_tMtToPfMet_type1", 100, 0, 4, 200, 0,200)
             self.book(names[x], "m_t_SS", "Muon + Tau SS", 5, -2, 2)
             self.book(names[x], "m_t_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
     
@@ -553,12 +573,14 @@ class AnalyzeLFVMuTautesup(MegaBase):
 ##        histos[name+'/jet4Phi'].Fill(row.jet4Phi, weight)
 ##        histos[name+'/jet5Phi'].Fill(row.jet5Phi, weight)
         
+#        histos[name+'/deltaR'].Fill(deltaR(row.tPhi,row.mPhi,row.tEta,row.mEta), weight)
         histos[name+'/mPt'].Fill(row.mPt, weight)
         histos[name+'/mEta'].Fill(row.mEta, weight)
         histos[name+'/mMtToPfMet_type1'].Fill(row.mMtToPfMet_TauEnUp,weight)
         histos[name+'/mCharge'].Fill(row.mCharge, weight)
-        histos[name+'/tPt'].Fill(row.tPt_TauEnUp, weight)
+        histos[name+'/tPt'].Fill(row.tPt, weight)
         histos[name+'/tEta'].Fill(row.tEta, weight)
+        histos[name+'/tPhi'].Fill(row.tPhi, weight)
         histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_TauEnUp,weight)
         histos[name+'/tCharge'].Fill(row.tCharge, weight)
 	histos[name+'/tJetPt'].Fill(row.tJetPt, weight)
@@ -569,8 +591,9 @@ class AnalyzeLFVMuTautesup(MegaBase):
 	histos[name+'/mDPhiToPfMet_tDPhiToPfMet'].Fill(abs(row.mDPhiToPfMet_TauEnUp),abs(row.tDPhiToPfMet_TauEnUp),weight)
 	histos[name+'/mDPhiToPfMet_ggdeltaphi'].Fill(abs(row.mDPhiToPfMet_TauEnUp),deltaPhi(row.mPhi, row.tPhi),weight)
 	histos[name+'/tDPhiToPfMet_ggdeltaphi'].Fill(abs(row.tDPhiToPfMet_TauEnUp),deltaPhi(row.mPhi, row.tPhi),weight)
+	histos[name+'/tDPhiToPfMet_tMtToPfMet_type1'].Fill(abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp,weight)
 
-
+#tDPhiToPfMet_tMtToPfMet_type1
 		      ####herer 
         #histos[name+'/tAgainstElectronLoose'].Fill(row.tAgainstElectronLoose,weight)
 ##        histos[name+'/tAgainstElectronLooseMVA6'].Fill(row.tAgainstElectronLooseMVA6,weight)  
@@ -628,8 +651,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
         histos[name+'/collMass_type1'].Fill(row.m_t_collinearmass_TauEnUp,weight)
 
         #histos[name+'/collMass_type1'].Fill(collMass_type1(row, systematic),weight)
-        histos[name+'/fullMT_type1'].Fill(fullMT(row.mPt,row.tPt_TauEnUp, row.mPhi, row.tPhi, row, systematic),weight)
-        histos[name+'/fullPT_type1'].Fill(fullPT(row.mPt,row.tPt_TauEnUp, row.mPhi, row.tPhi, row, systematic),weight) 
+        histos[name+'/fullMT_type1'].Fill(fullMT(row.mPt,row.tPt, row.mPhi, row.tPhi, row, systematic),weight)
+        histos[name+'/fullPT_type1'].Fill(fullPT(row.mPt,row.tPt, row.mPhi, row.tPhi, row, systematic),weight) 
 
 	histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMet_shiftedPt_TauEnUp,weight)
 
@@ -681,8 +704,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
         if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
-            return False
-        return True
+            return   False
+        return True 
 
     def selectZtt(self,row):
         if (self.is_ZTauTau and not row.isZtautau):
@@ -717,7 +740,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
             return False
         if abs(row.mEta) >= 2.1:
             return False
-        if row.tPt_TauEnUp<20 :
+        if row.tPt<20 :
             return False
         if abs(row.tEta)>=2.3:
             return False
@@ -727,20 +750,22 @@ class AnalyzeLFVMuTautesup(MegaBase):
             return False
         if abs(row.mEta) >= 2.1:
             return False
-        if row.tPt_TauEnUp<30 :
+        if row.tPt<30 :
             return False
         if abs(row.tEta)>=2.3:
             return False
         return True
 
     def gg(self,row):
-       if row.mPt < 25:   #was45 
+       if row.mPt < 25:   #was45     #newcuts 25 
            return False
-       if deltaPhi(row.mPhi, row.tPhi) <2.7:  # was 2.7
+       if deltaPhi(row.mPhi, row.tPhi) <2.7:  # was 2.7    #new cut 2.7
            return False
-       if row.tPt_TauEnUp < 30:  #was 35
+       if row.tPt < 30:  #was 35   #newcuts30
            return False
-       if row.tMtToPfMet_TauEnUp > 65:  #was 50
+       if row.tMtToPfMet_TauEnUp > 75:  #was 50   #newcuts65
+           return False
+       if abs(row.tDPhiToPfMet_TauEnUp)>3.0:
            return False
        if row.jetVeto30!=0:
            return False
@@ -749,33 +774,35 @@ class AnalyzeLFVMuTautesup(MegaBase):
     def boost(self,row):
           if row.jetVeto30!=1:
             return False
-          if row.mPt < 25:  #was 35
+          if row.mPt < 25:  #was 35    #newcuts 25
                 return False
-          if row.tPt_TauEnUp < 30:  #was 40
+          if row.tPt < 30:  #was 40  #newcut 30
                 return False
-          if row.tMtToPfMet_TauEnUp > 75: #was 35
+          if row.tMtToPfMet_TauEnUp > 105: #was 35   #newcuts 75
+                return False
+          if abs(row.tDPhiToPfMet_TauEnUp)>3.0:
                 return False
           return True
 
     def vbf(self,row):
-        if row.tPt_TauEnUp < 30:   #was 40
+        if row.tPt < 30:   #was 40   #newcuts 30
                 return False
-        if row.mPt < 25:   #was 40
+        if row.mPt < 25:   #was 40    #newcut 25
        		return False
-       # if row.tPt_TauEnUp < 30:
+       # if row.tPt < 30:
        #         return False
        # if row.mPt < 30:
        # 	return False
-        if row.tMtToPfMet_TauEnUp > 55: #was 35
+        if row.tMtToPfMet_TauEnUp > 75: #was 35   #newcuts 55
                 return False
         if row.jetVeto30<2:  
             return False
 	if(row.vbfNJets<2):
 	    return False
-	if(abs(row.vbfDeta)<2.0):   #was 2.5
+	if(abs(row.vbfDeta)<0.3):   #was 2.5    #newcut 2.0
 	    return False
-        if row.vbfMass < 325:    #was 200
-	    return False
+     #   if row.vbfMass < 200:    #was 200   newcut 325
+#	    return False
         if row.vbfJetVeto30 > 0:
             return False
         return True
@@ -833,8 +860,9 @@ class AnalyzeLFVMuTautesup(MegaBase):
                 sel = False      # it will save them all.
             if sel==True:
                 continue
-         #   if not self.presel(row):
-         #       continue
+            if self.is_data: 
+               if not self.presel(row):
+                  continue
             if not self.selectZtt(row):
                 continue
             if not self.selectZeroJet(row):
@@ -885,30 +913,46 @@ class AnalyzeLFVMuTautesup(MegaBase):
 
               if  row.jetVeto30==0:
                   if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_0jet(row.tPt_TauEnUp, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.mDPhiToPfMet_TauEnUp),abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp):
+                     for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp):
    		        tmp=os.path.join("gg",i)
 		        self.fill_histos(row,tmp,False)	
                   if self.gg(row):
                         self.fill_histos(row,'gg',False)
+                        if row.tDecayMode==0:
+                               self.fill_histos(row,'ggTD0',False)
+                        if row.tDecayMode==1:
+                               self.fill_histos(row,'ggTD1',False)
+                        if row.tDecayMode==10:
+                               self.fill_histos(row,'ggTD10',False)
 
              # if self.boost(row):
              #     self.fill_histos(row,'boost',False)
               if row.jetVeto30==1:
                   if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_1jet(row.tPt_TauEnUp, row.mPt,row.tMtToPfMet_TauEnUp):
+                     for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp):
 		        tmp=os.path.join("boost",i)
 		        self.fill_histos(row,tmp,False)	
                   if self.boost(row):
                         self.fill_histos(row,'boost',False)
-
+                        if row.tDecayMode==0:
+                               self.fill_histos(row,'boostTD0',False)
+                        if row.tDecayMode==1:
+                               self.fill_histos(row,'boostTD1',False)
+                        if row.tDecayMode==10:
+                               self.fill_histos(row,'boostTD10',False)
               if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
                   if RUN_OPTIMIZATION:
-                     for  i in optimizer.compute_regions_2jet(row.tPt_TauEnUp, row.mPt,row.tMtToPfMet_TauEnUp,row.vbfMass,row.vbfDeta):
+                     for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_TauEnUp,row.vbfMass,row.vbfDeta):
 		        tmp=os.path.join("vbf",i)
 		        self.fill_histos(row,tmp,False)	
                   if self.vbf(row):
                         self.fill_histos(row,'vbf',False)
-
+                        if row.tDecayMode==0:
+                               self.fill_histos(row,'vbfTD0',False)
+                        if row.tDecayMode==1:
+                               self.fill_histos(row,'vbfTD1',False)
+                        if row.tDecayMode==10:
+                               self.fill_histos(row,'vbfTD10',False)
              # if self.vbf(row):
              #     self.fill_histos(row,'vbf',False)
             if not self.obj2_iso(row) and self.oppositesign(row):
@@ -923,8 +967,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
                 self.fill_histos(row,'notIso2Jet',True)
               if  row.jetVeto30==0:
                  # #if RUN_OPTIMIZATION:
-                    # for  i in optimizer.compute_regions_0jet(row.tPt_TauEnUp, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_TauEnUp):
-                 # #   for  i in optimizer.compute_regions_0jet(row.tPt_TauEnUp, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.mDPhiToPfMet_TauEnUp),abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp):
+                    # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_TauEnUp):
+                 # #   for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.mDPhiToPfMet_TauEnUp),abs(row.tDPhiToPfMet_TauEnUp),row.tMtToPfMet_TauEnUp):
                  # #      tmp=os.path.join("ggNotIso",i)
                  # #      self.fill_histos(row,tmp,True)
                   if self.gg(row):
@@ -933,7 +977,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
            #       self.fill_histos(row,'ggNotIso',True)
               if row.jetVeto30==1:
                #  # if RUN_OPTIMIZATION:
-               #  #    for  i in optimizer.compute_regions_1jet(row.tPt_TauEnUp, row.mPt,row.tMtToPfMet_TauEnUp):
+               #  #    for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,row.tMtToPfMet_TauEnUp):
                #  #      tmp=os.path.join("boostNotIso",i)
                #  #       self.fill_histos(row,tmp,True)
                   if self.boost(row):
@@ -942,7 +986,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
          #         self.fill_histos(row,'boostNotIso',True)
               if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
             #  #    if RUN_OPTIMIZATION:
-            #  #       for  i in optimizer.compute_regions_2jet(row.tPt_TauEnUp, row.mPt,row.tMtToPfMet_TauEnUp,row.vbfMass,row.vbfDeta):
+            #  #       for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_TauEnUp,row.vbfMass,row.vbfDeta):
             #  #          tmp=os.path.join("vbfNotIso",i)
             #  #          self.fill_histos(row,tmp,True)
                   if self.vbf(row):

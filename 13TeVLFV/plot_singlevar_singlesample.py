@@ -7,7 +7,7 @@ import math
 import array
 import lfv_vars
 import XSec
-import optimizer
+#import optimizer
 import numpy as np
 def NoNegBins(histo):    #no negtive bin, if negtive then set Zero
 	for i in range(1,histo.GetNbinsX()+1):
@@ -119,7 +119,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 2297.7
 #JSONlumi =334.836434 
 #JSONlumi =561.123523153 
-JSONlumi =4270.724706 
+JSONlumi =9824.0 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
@@ -250,8 +250,16 @@ data2016B = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", ch
 #ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
 ##ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
 Sampletable={'Data':'data_SingleMuon_Run2016B_PromptReco-v2_25ns',
-             'DYJets':'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
-	     'ZTauTauJets':'ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',
+             'DYJets':'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'DY1Jets':'DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'DY2Jets':'DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'DY3Jets':'DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+             'DY4Jets':'DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+	     'ZTauTauJets':'ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+	     'ZTauTau1Jets':'ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+	     'ZTauTau2Jets':'ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+	     'ZTauTau3Jets':'ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
+	     'ZTauTau4Jets':'ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
              'TT':'TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen',
              'WJets':'WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
              'W1Jets':'W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8',
@@ -334,10 +342,10 @@ histlist=[hist0,hist1,hist2,hist3,hist4,hist5,hist6,hist7,hist8,hist9,hist10]
 ## samepleused
 for sampleused in Sample_list:
    p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
-   p_lfv.SetLeftMargin(0.2147651)
-   p_lfv.SetRightMargin(0.06543624)
-   p_lfv.SetTopMargin(0.04895105)
-   p_lfv.SetBottomMargin(0.305)
+  # p_lfv.SetLeftMargin(0.2147651)
+  # p_lfv.SetRightMargin(0.06543624)
+  # p_lfv.SetTopMargin(0.04895105)
+  # p_lfv.SetBottomMargin(0.305)
    p_lfv.Draw()
    p_lfv.cd()
    legend = eval(varParams[8])
@@ -366,7 +374,42 @@ for sampleused in Sample_list:
                 histlist[0].Add(W4jets)
    elif sampleused=="Data":
              histlist[0] = make_histo(savedir,Sampletable[sampleused],channel,var,lumidir,lumi,True)
+             histlist[1] = make_histo(savedir,'data_SingleMuon_Run2016C_PromptReco-v2_25ns',channel,var,lumidir,lumi,True)
+             histlist[2] = make_histo(savedir,'data_SingleMuon_Run2016D_PromptReco-v2_25ns',channel,var,lumidir,lumi,True)
+             histlist[0].Add(histlist[1])
+             histlist[0].Add(histlist[2])
              #do_binbybin2d(histlist[0],Sampletable[sampleused],binlowx,binhigx)
+   elif sampleused=="DYJets":
+             histlist[0] = make_histo(savedir,Sampletable[sampleused],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[0],Sampletable[sampleused],binlowx,binhigx)
+             histlist[1] = make_histo(savedir,Sampletable["DY1Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[1],Sampletable["DY1Jets"],binlowx,binhigx)
+             histlist[2] = make_histo(savedir,Sampletable["DY2Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[2],Sampletable["DY2Jets"],binlowx,binhigx)
+             histlist[3] = make_histo(savedir,Sampletable["DY3Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[3],Sampletable["DY3Jets"],binlowx,binhigx)
+             histlist[4] = make_histo(savedir,Sampletable["DY4Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[4],Sampletable["DY4Jets"],binlowx,binhigx)
+             histlist[0].Add(histlist[1])
+             histlist[0].Add(histlist[2])
+             histlist[0].Add(histlist[3])
+             histlist[0].Add(histlist[4])
+              
+   elif sampleused=="ZTauTauJets":
+             histlist[0] = make_histo(savedir,Sampletable[sampleused],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[0],Sampletable[sampleused],binlowx,binhigx)
+             histlist[1] = make_histo(savedir,Sampletable["ZTauTau1Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[1],Sampletable["ZTauTau1Jets"],binlowx,binhigx)
+             histlist[2] = make_histo(savedir,Sampletable["ZTauTau2Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[2],Sampletable["ZTauTau2Jets"],binlowx,binhigx)
+             histlist[3] = make_histo(savedir,Sampletable["ZTauTau3Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[3],Sampletable["ZTauTau3Jets"],binlowx,binhigx)
+             histlist[4] = make_histo(savedir,Sampletable["ZTauTau4Jets"],channel,var,lumidir,lumi)
+             do_binbybin2d(histlist[4],Sampletable["ZTauTau4Jets"],binlowx,binhigx)
+             histlist[0].Add(histlist[1])
+             histlist[0].Add(histlist[2])
+             histlist[0].Add(histlist[3])
+             histlist[0].Add(histlist[4])
    else:
              histlist[0] = make_histo(savedir,Sampletable[sampleused],channel,var,lumidir,lumi,True)
              do_binbybin2d(histlist[0],Sampletable[sampleused],binlowx,binhigx)
@@ -391,7 +434,7 @@ for sampleused in Sample_list:
       histlist[0].GetYaxis().SetLabelSize(0.035)
       histlist[0].SetMaximum(1)
       histlist[0].SetMinimum(0)
-   histlist[0].Draw("hsames")
+   histlist[0].Draw("hsames COLZ")
              #p_lfv.Update()
         ##     gghmutau125_0.Draw("hsames")
            #gghmutau125.Rebin(binwidth)

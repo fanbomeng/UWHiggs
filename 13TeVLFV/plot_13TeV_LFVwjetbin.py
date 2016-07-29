@@ -93,7 +93,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi =334.836434 
 #JSONlumi =561.123523153 
 #JSONlumi =3950.74 
-JSONlumi =4270.724706 
+JSONlumi =4272.1 
 #JSONlumi =218.042 
 ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
