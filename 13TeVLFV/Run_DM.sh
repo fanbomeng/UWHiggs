@@ -61,19 +61,19 @@ python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    
 
 
 
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD0                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD1                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD10                      0 none              tPt30   0
-
-                                                                                                                         
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD0                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD1                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD10                      0 none              tPt30   0
-
-
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD0                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD1                       0 none              tPt30   0
-python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD10                      0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD0                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD1                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            ggTD10                      0 none              tPt30   0
+#
+#                                                                                                                         
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD0                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD1                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass        boostTD10                      0 none              tPt30   0
+#
+#
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD0                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD1                       0 none              tPt30   0
+#python plot_13TeV_LFVwjetdybin10fb.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/    tMass            vbfTD10                      0 none              tPt30   0
 
 
 

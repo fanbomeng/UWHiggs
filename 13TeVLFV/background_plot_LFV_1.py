@@ -374,7 +374,7 @@ for sampleused in Sample_list:
                 W3jets = make_histo(savedir,Sampletable["W3Jets"],channelwithcut,var,lumidir,lumi)
                 W4jets = make_histo(savedir,Sampletable["W4Jets"],channelwithcut,var,lumidir,lumi)
                 do_binbybin(W1jets,Sampletable["W1Jets"],1,500)
-                do_binbybin(W2jets,Sampletable["W2Jets"],1,500)
+                do_binbyb(W2jets,Sampletable["W2Jets"],1,500)
                 do_binbybin(W3jets,Sampletable["W3Jets"],1,500)
                 do_binbybin(W4jets,Sampletable["W4Jets"],1,500)
                 histlist[i].Add(W1jets)

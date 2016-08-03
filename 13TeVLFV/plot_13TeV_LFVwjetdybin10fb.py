@@ -52,7 +52,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
 			if histo.GetBinContent(i) <= 0:
 				histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)   
 			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
-				histo.SetBinError(i,0.018/nevents*xsec*JSONlumi)
+				histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
 		else:
                         if histo.GetBinContent(i) < 0:
                                 histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
@@ -97,7 +97,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi =3950.74 
 #JSONlumi =20000.00 
 JSONlumi =12890.00 
-#JSONlumi =9824.0 
+#JSONlumi = 20000.0 
 #JSONlumi =12878.27 
 #JSONlumi =15000.0 
 #JSONlumi =218.042 
@@ -139,11 +139,11 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+blinded = True #not blinded
+#blinded = False #not blinded
 fillEmptyBins = True #empty bins filled
-#fakeRate = False #apply fake rate method
-fakeRate = True #apply fake rate method
+fakeRate = False #apply fake rate method
+#fakeRate = True #apply fake rate method
 shape_norm = False #normalize to 1 if True
 
 
