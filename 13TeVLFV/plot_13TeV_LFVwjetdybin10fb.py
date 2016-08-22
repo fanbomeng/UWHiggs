@@ -139,8 +139,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = True #not blinded
-#blinded = False #not blinded
+#blinded = True #not blinded
+blinded = False #not blinded
 fillEmptyBins = True #empty bins filled
 fakeRate = False #apply fake rate method
 #fakeRate = True #apply fake rate method
@@ -717,7 +717,8 @@ canvas.SaveAs(outfile_name+".pdf")
 if fakeRate == False:
         wjets.Write("wjets"+shiftStr)
 else:
-	wjets.Write("Fakes"+shiftStr)
+#	wjets.Write("Fakes"+shiftStr)
+	wjets.Write("wjets"+shiftStr)
 zjets.Write("Zothers"+shiftStr)
 ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)

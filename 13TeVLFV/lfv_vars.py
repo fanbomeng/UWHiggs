@@ -12,6 +12,8 @@ collMass_type1_ues_plus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0
 collMass_type1_ues_minus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
 
 mPt = ("#mu P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+m1Pt = ("#mu1 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+m2Pt = ("#mu2 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
 tPt = ("#tau P_{T} [GeV]",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
@@ -22,6 +24,8 @@ mEta = ("Muon #eta",10,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0
 tEta = ("Tau #eta",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 tPhi = ("Tau #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 
+#m1_m2_Mass= ("Exact M(#mu#mu) (GeV)",50,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,145,True,300,2, "ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+m1_m2_Mass= ("Exact M(#mu#mu) (GeV)",50,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,145,True,300,2, "ROOT.TLegend(0.62,0.45,0.97,0.95,' ','brNDC')")
 mMtToPfMet_Ty1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')")
 
 mMtToPfMet_type1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.55,0.6,0.93,0.93,' ','brNDC')")
@@ -41,6 +45,7 @@ tDPhiToPfMet_type1 = ("#Delta#phi_{t_met}",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' '
 mDPhiToPfMet_tDPhiToPfMet = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 mDPhiToPfMet_ggdeltaphi = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 tDPhiToPfMet_ggdeltaphi = ("tDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
+vbfmass_vbfdeta= ("vbfmass_vbfdeta",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 vbfDijetrap = ("Rapidity_{jj}",10,"ROOT.TLegend(0.45,0.6,0.8,0.8,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.45,0.6,0.8,0.8,' ','brNDC')")
 
 vbfDphihjnomet = ("#Delta#phi_{Hj} (no MET)",10,"ROOT.TLegend(0.2,0.6,0.5,0.8,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.2,0.6,0.5,0.8,' ','brNDC')")
