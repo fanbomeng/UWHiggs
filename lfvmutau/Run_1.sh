@@ -9,9 +9,9 @@ set -o errexit
 #python MakeSysAnalyzers.py uesdown
 #python MakeSysAnalyzers.py tesdown
 #python MakeSysAnalyzers.py tesup
-
+#export RUN_OPTIMIZATION=true
 export systematic=none
-export jobid=LFV_808v1
+export jobid=LFV_8013v1
 #export isRealData=true
 export isZTauTau=false
 export isInclusive=false   #ZeroJet
@@ -24,17 +24,26 @@ export isInclusive=false   #ZeroJet
 #export isZTauTau=true
 #rake analyzeSpring2015ZTauTauJets
 #export isIncluse=false
-#export isInclusive=true   #ZeroJet
+#export fakeset=true   #ZeroJet
 export isRealData=true
-#rake analyzeSpring2016B 
+#rake analyzeSpring2016WjetsandData
+#export fakeset=false   #ZeroJet
+#rake analyzeSpring2016Wjetfake  
+#rake analyzeSpring2016WjetsandDatafakesup  
+rake analyzeSpring2016WjetsandDatajesdown  
+#rake analyzeSpring2016WjetsandDatajesup  
+#rake analyzeSpring2016WjetsandDatatesdown 
+#rake analyzeSpring2016WjetsandDatatesup 
+#rake analyzeSpring2016WjetsandDatauesdown 
+#rake analyzeSpring2016WjetsandDatauesup
+#rake analyzeSpring2016WjetsandDatatrial
+#rake analyzeSpring2016WjetsandDataBDT
 export isRealData=false
 export isZTauTau=true
 #rake analyzeSpring2016MC
 export isZTauTau=false
-#rake analyzeSpring2016MC_1
-rake analyzeSpring2016WjetsandDataDM
-#rake analyzeSpring2016WjetsandDatafakesup_VBF_LFV
-#rake analyzeSpring2016WjetsandDatatesdown_w4jets 
+#rake analyzeSpring2016MC_2
+###rake analyzeSpring2015DYZeroJets
 ##export isInclusive=false
 ##export isRealData=true
 ###rake analyzeLFVMuTauData

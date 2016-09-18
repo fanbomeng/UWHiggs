@@ -27,8 +27,3 @@ chmod 777 Run_cut_uesup.sh
 ./Run_cut_uesup.sh &
 
 
-rm Run_cut_nosys.sh
-cp  Run_cutauto.txt  Run_cut_nosys.sh
-sed -e "s,LFV_MiniAODVtrial,LFV_MiniAODVtrial_sys\/AnalyzeLFVMuTau," -i Run_cut_nosys.sh
-chmod 777 Run_cut_nosys.sh
-./Run_cut_nosys.sh &

@@ -12,10 +12,12 @@ collMass_type1_ues_plus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0
 collMass_type1_ues_minus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
 
 mPt = ("#mu P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+mPtavColMass = ("#mu P_{T} / ColMass",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 m1Pt = ("#mu1 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 m2Pt = ("#mu2 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
 tPt = ("#tau P_{T} [GeV]",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+tPtavColMass = ("#tau P_{T} / ColMass",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
 tJetPt = ("Tau Jet P_{T}" , 10,"ROOT.TLegend(0.55,0.45,0.8,0.85,' ','brNDC')",0,0,True,0,10,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 

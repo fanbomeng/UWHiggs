@@ -120,19 +120,38 @@ RUN_OPTIMIZATION=int(argv[7])
 #RUN_OPTIMIZATION=1
 if RUN_OPTIMIZATION==1:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+elif shift=="Fakes1stDown":
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stDown","boost":"boostNotIso1stDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stDown","vbf_vbf":"vbf_vbfNotIso1stDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+elif shift=="Fakes1stUp":
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stUp","boost":"boostNotIso1stUp","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stUp","vbf_vbf":"vbf_vbfNotIso1stUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+elif shift=="Fakes2ndUp":
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndUp","boost":"boostNotIso2ndUp","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso2ndUp","vbf_vbf":"vbf_vbfNotIso2ndUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+elif shift=="Fakes2ndDown":
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndDown","boost":"boostNotIso2ndDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso2ndDown","vbf_vbf":"vbf_vbfNotIso2ndDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 else:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-QCDChannels={"preselection0Jet":"IsoSS0Jet","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS"}
+QCDChannels={"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS"}
 poissonErrors=True
 if "collMass_type1_1" in var:
 	var = "collMass_type1"
 if "none" in shift:
 	shiftStr="" #Not JES,TES, etc.
+#else:
+#	if "FakesDown" in shift:
+#		shiftStr = "_FakeShapeMuTauDown"
+#	elif "FakesUp" in shift:
+#		shiftStr = "_FakeShapeMuTauUp"
+#	else:
+#		shiftStr="_CMS_MET_"+shift #corresponds to name Daniel used in datacards
 else:
-	if "FakesDown" in shift:
-		shiftStr = "_FakeShapeMuTauDown"
-	elif "FakesUp" in shift:
-		shiftStr = "_FakeShapeMuTauUp"
+	if "Fakes1stDown" in shift:
+		shiftStr = "_FakeShapeMuTau1stDown"
+	elif "Fakes1stUp" in shift:
+		shiftStr = "_FakeShapeMuTau1stUp"
+	elif "Fakes2ndDown" in shift:
+		shiftStr = "_FakeShapeMuTau2ndDown"
+	elif "Fakes2ndUp" in shift:
+		shiftStr = "_FakeShapeMuTau2ndUp"
 	else:
 		shiftStr="_CMS_MET_"+shift #corresponds to name Daniel used in datacards
 rootdir = "mutau" #directory in datacard file
@@ -142,11 +161,11 @@ rootdir = "mutau" #directory in datacard file
 #blinded = True #not blinded
 blinded = False #not blinded
 fillEmptyBins = True #empty bins filled
-fakeRate = False #apply fake rate method
-#fakeRate = True #apply fake rate method
+#fakeRate = False #apply fake rate method
+fakeRate = True #apply fake rate method
 shape_norm = False #normalize to 1 if True
-#QCDflag=False
-QCDflag=True
+QCDflag=False
+#QCDflag=True
 
 #directory names in datacard file
 #if "preselection" in channel:
@@ -421,7 +440,7 @@ else: #if fakeRate==False
   wjets.Add(w4jets)
   if QCDflag==True:
      QCDs.Scale(1.06)
-     wjets.Add(QCDs)
+#     wjets.Add(QCDs)
 
 vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -446,6 +465,8 @@ diboson.Add(zz)
 #Set bin widths
 data.Rebin(binwidth)
 #if (fakeRate == True):
+if QCDflag==True:
+   QCDs.Rebin(binwidth)
 wjets.Rebin(binwidth)
 zjets.Rebin(binwidth)
 ztautau.Rebin(binwidth)
@@ -516,6 +537,11 @@ wjets.SetFillColor(616-10)
 wjets.SetLineColor(616+4)
 wjets.SetLineWidth(1)
 wjets.SetMarkerSize(0)
+if (QCDflag == True):
+   QCDs.SetFillColor(221)
+   QCDs.SetLineColor(221)
+   QCDs.SetLineWidth(1)
+   QCDs.SetMarkerSize(0)
 #ztautau.SetFillColor(ROOT.EColor.kOrange-4)
 #ztautau.SetLineColor(ROOT.EColor.kOrange+4)
 ztautau.SetFillColor(800-4)
@@ -572,8 +598,8 @@ do_binbybin(singlet,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP
 BLAND=0
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
-if "preselection" not in channel:
-  if blinded==False and ("collMass" in var or "m_t_Mass" in var):
+#if "preselection" not in channel:
+if blinded==False and ("collMass" in var or "m_t_Mass" in var):
     for i in range(binLow,binHigh):
         data.SetBinContent(i,-100)
 #Recommended by stats committee
@@ -584,13 +610,18 @@ smh = smhgg.Clone()
 smh.Add(smhvbf)
 LFVStack = ROOT.THStack("stack","")
 LFVStack.Add(wjets)
+if (QCDflag == True):
+   LFVStack.Add(QCDs)
 LFVStack.Add(diboson)
 LFVStack.Add(ttbar)
 LFVStack.Add(singlet)
 LFVStack.Add(zjets)
 LFVStack.Add(ztautau)
 LFVStack.Add(smh)
-backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
+if (QCDflag == True):
+   backgroundIntegral =QCDs.GetBinContent(7)+ wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
+else:
+   backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
 if ("vbf" in channel):
   signalIntegral = vbfhmutau125.GetBinContent(7)
 else:
@@ -676,7 +707,11 @@ binLength = wjets.GetBinCenter(2)-wjets.GetBinCenter(1)
 
 #build tgraph of errors   
 for i in range(1,size+1):
-        stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
+        if (QCDflag == True):
+           stackBinContent =QCDs.GetBinContent(i)+ wjets.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
+        else:
+           stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
+
         wjetsBinContent = wjets.GetBinContent(i)
         xUncert.append(wjets.GetBinCenter(i))
         yUncert.append(stackBinContent)
@@ -689,8 +724,11 @@ for i in range(1,size+1):
         exhUncertRatio.append(binLength/2)
         if (fakeRate):
         	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
-        else:
-        	wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
+        else: 
+                if (QCDflag == True):
+        	    wjetsError = math.sqrt((QCDs.GetBinContent(i)*0.3*QCDs.GetBinContent(i)*0.3)+(QCDs.GetBinError(i)*QCDs.GetBinError(i))+(wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
+                else:
+        	    wjetsError = math.sqrt((wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3)+(wjets.GetBinError(i)*wjets.GetBinError(i)))  #here is different from others, why?
 		#wjetsError = wjets.GetBinError(i)
         eylUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
         eyhUncert.append(wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+singlet.GetBinError(i))
@@ -745,7 +783,11 @@ legend.AddEntry(zjets,'Z->l^{+}l^{-}','f')
 legend.AddEntry(ttbar,'t#bar{t}')
 legend.AddEntry(singlet,'Single Top')
 legend.AddEntry(diboson,'VV',"f")
-legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
+if (QCDflag == True):
+   legend.AddEntry(wjets,'Wjets','f')
+   legend.AddEntry(QCDs,'QCDs','f')
+else :
+   legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
 legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
 legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
 
@@ -801,11 +843,14 @@ canvas.SaveAs(outfile_name+".png")
 canvas.SaveAs(outfile_name+".pdf")
 
 #fill output root file
-if fakeRate == False:
+if fakeRate == True:
         wjets.Write("wjets"+shiftStr)
 else:
-#	wjets.Write("Fakes"+shiftStr)
-	wjets.Write("wjets"+shiftStr)
+  if QCDflag==True:
+     wjets.Add(QCDs)
+     wjets.Write("wjets"+shiftStr)
+  else:
+     wjets.Write("wjets"+shiftStr)
 zjets.Write("Zothers"+shiftStr)
 ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)

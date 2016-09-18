@@ -1,6 +1,4 @@
 cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/weights
-cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesup/weights
-cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesdown/weights
 cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesup/weights
 cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesdown/weights
 cp -r ../lfvmutau/inputs/LFV_8013v1/ LFV_MiniAODVtrial_sys/AnalyzeLFVMuTautesup/weights

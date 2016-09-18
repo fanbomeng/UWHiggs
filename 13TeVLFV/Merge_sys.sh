@@ -1,7 +1,5 @@
-hadd LFV_12fb_mutauhad_1DicnewcutTIsoWjetsvbfbveto.root \
+hadd LFV_13fb_mutauhad_1DicnewcutTIsofakeshapeoldcut.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/LFV_*.root  \
-LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesdown/LFV_*.root  \
-LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaufakesup/LFV_*.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesdown/LFV_*.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesup/LFV_*.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTautesdown/LFV_*.root  \
