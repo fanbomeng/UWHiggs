@@ -105,6 +105,84 @@ singlet = inputSingletFile.Get(singletDirMap[rootdir]+"/T")
 
 ttbar.Add(singlet) #combine ttbar and singlet
 
+xbinLength = wjets.GetBinWidth(1)
+widthOfBin = xbinLength
+print "widthOfBin:" + str(widthOfBin)
+
+if (widthOfBin == 50):
+        print "Signal Region Yields:"
+        print "misidentified leptons: " +str(wjets.GetBinContent(3))
+        print "Z->TauTau: " + str(ztautau.GetBinContent(3))
+        print "ZZ, WW: " + str(diboson.GetBinContent(3))
+        if "mue" in rootdir:
+                print "Wgamma: " +str(wg.GetBinContent(3))
+        elif "mutau" in rootdir:
+                print "Wgamma: -"
+        print "Z->ll: " + str(zjets.GetBinContent(3))
+        print "ttbar: " + str(ttbar.GetBinContent(3))
+        print "t: " + str(singlet.GetBinContent(3))
+        print "sm higgs: " + str(smhgg.GetBinContent(3)+smhvbf.GetBinContent(3))
+        if "mue" in rootdir:
+                print "sum of backgrounds: " + str(wjets.GetBinContent(3)+ztautau.GetBinContent(3)+diboson.GetBinContent(3)+zjets.GetBinContent(3)+ttbar.GetBinContent(3)+singlet.GetBinContent(3)+smhgg.GetBinContent(3)+smhvbf.GetBinContent(3)+wg.GetBinContent(3))
+        elif "mutau" in rootdir:
+                print "sum of backgrounds: " + str(wjets.GetBinContent(3)+ztautau.GetBinContent(3)+diboson.GetBinContent(3)+zjets.GetBinContent(3)+ttbar.GetBinContent(3)+singlet.GetBinContent(3)+smhgg.GetBinContent(3)+smhvbf.GetBinContent(3))
+        print "lfv higgs: " + str(gghmutau125.GetBinContent(3)+vbfhmutau125.GetBinContent(3))
+        print "data: " + str(data.GetBinContent(3))
+if (widthOfBin == 15):
+        print "Signal Region Yields 0 or 1:"
+        print "misidentified leptons: " +str(wjets.Integral(7,10))
+        print "Z->TauTau: " + str(ztautau.Integral(7,10))
+        print "ZZ, WW: " + str(diboson.Integral(7,10))
+        print "Wgamma: " + str(wg.Integral(7,10))
+        print "Z->ll: " + str(zjets.Integral(7,10))
+        print "ttbar: " + str(ttbar.Integral(7,10))
+        print "t: " + str(singlet.Integral(7,10))
+        print "sm higgs: " + str(smhgg.Integral(7,10)+smhvbf.Integral(7,10))
+        print "sum of backgrounds: " + str(wjets.Integral(7,10)+ztautau.Integral(7,10)+diboson.Integral(7,10)+zjets.Integral(7,10)+ttbar.Integral(7,10)+singlet.Integral(7,10)+smhgg.Integral(7,10)+smhvbf.Integral(7,10)+wg.Integral(7,10))
+        print "lfv higgs: " + str(gghmutau125.Integral(7,10)+vbfhmutau125.Integral(7,10))
+        print "data: " + str(data.Integral(7,10))
+if (widthOfBin == 20):
+        print "Signal Region Yields 0 or 1:"
+        print "misidentified leptons: " +str(wjets.Integral(6,8))
+        print "Z->TauTau: " + str(ztautau.Integral(6,8))
+        print "ZZ, WW: " + str(diboson.Integral(6,8))
+        print "Wgamma: -"
+        print "Z->ll: " + str(zjets.Integral(6,8))
+        print "ttbar: " + str(ttbar.Integral(6,8))
+        print "t: " + str(singlet.Integral(6,8))
+        print "sm higgs: " + str(smhgg.Integral(6,8)+smhvbf.Integral(6,8))
+        print "sum of backgrounds: " + str(wjets.Integral(6,8)+ztautau.Integral(6,8)+diboson.Integral(6,8)+zjets.Integral(6,8)+ttbar.Integral(6,8)+singlet.Integral(6,8)+smhgg.Integral(6,8)+smhvbf.Integral(6,8))
+        print "lfv higgs: " + str(gghmutau125.Integral(6,8)+vbfhmutau125.Integral(6,8))
+        print "data: " + str(data.Integral(6,8))
+if (widthOfBin == 10):
+        print "Signal Region Yields 0 or 1:"
+        print "misidentified leptons: " +str(wjets.Integral(11,15))
+        print "Z->TauTau: " + str(ztautau.Integral(11,15))
+        print "ZZ, WW: " + str(diboson.Integral(11,15))
+        print "Wgamma: -"
+        print "Z->ll: " + str(zjets.Integral(11,15))
+        print "ttbar: " + str(ttbar.Integral(11,15))
+        print "t: " + str(singlet.Integral(11,15))
+        print "sm higgs: " + str(smhgg.Integral(11,15)+smhvbf.Integral(11,15))
+        print "sum of backgrounds: " + str(wjets.Integral(11,15)+ztautau.Integral(11,15)+diboson.Integral(11,15)+zjets.Integral(11,15)+ttbar.Integral(11,15)+singlet.Integral(11,15)+smhgg.Integral(11,15)+smhvbf.Integral(11,15))
+        print "lfv higgs: " + str(gghmutau125.Integral(11,15)+vbfhmutau125.Integral(11,15))
+        print "data: " + str(data.Integral(11,15))
+if (widthOfBin == 5):
+        print "Signal Region Yields 0 or 1:"
+        print "misidentified leptons: " +str(wjets.Integral(21,30))
+        print "Z->TauTau: " + str(ztautau.Integral(21,30))
+        print "ZZ, WW: " + str(diboson.Integral(21,30))
+        print "Wgamma: -"
+        print "Z->ll: " + str(zjets.Integral(21,30))
+        print "ttbar: " + str(ttbar.Integral(21,30))
+        print "t: " + str(singlet.Integral(21,30))
+        print "sm higgs: " + str(smhgg.Integral(21,30)+smhvbf.Integral(21,30))
+        print "sum of backgrounds: " + str(wjets.Integral(21,30)+ztautau.Integral(21,30)+diboson.Integral(21,30)+zjets.Integral(21,30)+ttbar.Integral(21,30)+singlet.Integral(21,30)+smhgg.Integral(21,30)+smhvbf.Integral(21,30))
+        print "lfv higgs: " + str(gghmutau125.Integral(21,30)+vbfhmutau125.Integral(21,30))
+        print "data: " + str(data.Integral(21,30))
+
+
+
 gghmutau125.Scale(100)
 vbfhmutau125.Scale(100) #100% BR
 

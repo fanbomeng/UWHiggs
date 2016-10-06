@@ -14,7 +14,7 @@ def get_histos(savedir,filename, rootdir,histoname,postfit=True):
         print histoname
         if postfit == True:
                 fitHisto = inputFile.Get("shapes_fit_s/"+rootdir+"/"+histoname)
-	else:
+	elif postfit == False:
 		fitHisto = inputFile.Get("shapes_prefit/"+rootdir+"/"+histoname)
         if "mue2" in rootdir:
                 histo = ROOT.TH1D(histoname,histoname,6,0,300) #mue 2 Jet
@@ -44,7 +44,8 @@ ROOT.gStyle.SetOptStat(0)
 
 savedir=argv[1]
 rootdir = argv[2]
-postfit = argv[3]
+postfit = True
+#postfit = False
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 
 legend = ROOT.TLegend(0.65,0.60,0.93,0.98,' ','brNDC')
@@ -220,7 +221,7 @@ for i in range(1,size+1):
 		if postfit == False: #manually apply fakes uncertainty
                         wjetsError = math.sqrt(wjets.GetBinContent(i)*0.4*wjets.GetBinContent(i)*0.4 + wjets.GetBinError(i)*wjets.GetBinError(i))
 
-		else:
+		elif postfit == True:
 			wjetsError = wjets.GetBinError(i)
 		errTot = wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)+wg.GetBinError(i)
         	eylUncert.append(errTot)
@@ -229,7 +230,7 @@ for i in range(1,size+1):
                 if postfit == False: #manually apply fakes uncertainty
                         wjetsError = math.sqrt(wjets.GetBinContent(i)*0.3*wjets.GetBinContent(i)*0.3 + wjets.GetBinError(i)*wjets.GetBinError(i))
 
-                else:
+                elif postfit == True:
                         wjetsError = wjets.GetBinError(i)
 		errTot = wjetsError+zjets.GetBinError(i)+ztautau.GetBinError(i)+ttbar.GetBinError(i)+diboson.GetBinError(i)
                 eylUncert.append(errTot)
@@ -296,7 +297,7 @@ systErrors.Draw('E2,sames')
 legend.AddEntry(data, 'Data #mu#tau_{e}',"lp")
 if postfit == False:
         legend.AddEntry(systErrors,'Pre-fit background unc.','f')
-else:
+elif postfit == True:
         legend.AddEntry(systErrors,'Post-fit background unc.','f')
 legend.AddEntry(smh, 'SM Higgs','f')
 legend.AddEntry(ztautau,'Z->#tau#tau','f')
@@ -348,7 +349,10 @@ ratio.GetYaxis().SetTitleSize(0.12)
 ratio.SetTitle("")
 
 ratio.GetXaxis().SetRangeUser(0,xRange)
+print "postfit:" + str(postfit)
+#if (postfit == False):
 if (postfit == False):
+	print "False"
 	outfile_name = savedir+"/"+rootdir+"prefit"
 canvas.SaveAs(outfile_name+".png")
 canvas.SaveAs(outfile_name+".pdf")
@@ -367,11 +371,15 @@ if (widthOfBin == 50):
         print "Z->ll: " + str(zjets.GetBinContent(3))
         print "ttbar: " + str(ttbar.GetBinContent(3))
         print "t: " + str(singlet.GetBinContent(3))
+        print "sm gg :" + str(smhgg.GetBinContent(3))
+        print "sm vbf:" + str(smhvbf.GetBinContent(3))
         print "sm higgs: " + str(smhgg.GetBinContent(3)+smhvbf.GetBinContent(3))
 	if "mue" in rootdir:
         	print "sum of backgrounds: " + str(wjets.GetBinContent(3)+ztautau.GetBinContent(3)+diboson.GetBinContent(3)+zjets.GetBinContent(3)+ttbar.GetBinContent(3)+singlet.GetBinContent(3)+smhgg.GetBinContent(3)+smhvbf.GetBinContent(3)+wg.GetBinContent(3))
 	elif "mutau" in rootdir:
                 print "sum of backgrounds: " + str(wjets.GetBinContent(3)+ztautau.GetBinContent(3)+diboson.GetBinContent(3)+zjets.GetBinContent(3)+ttbar.GetBinContent(3)+singlet.GetBinContent(3)+smhgg.GetBinContent(3)+smhvbf.GetBinContent(3))
+        print "gg lfv higgs" + str(gghmutau125.GetBinContent(3))
+        print "vbf lfv higgs" + str(vbfhmutau125.GetBinContent(3))
         print "lfv higgs: " + str(gghmutau125.GetBinContent(3)+vbfhmutau125.GetBinContent(3))
         print "data: " + str(data.GetBinContent(3))
 if (widthOfBin == 15):
@@ -396,7 +404,11 @@ if (widthOfBin == 20):
         print "Z->ll: " + str(zjets.Integral(6,8))
         print "ttbar: " + str(ttbar.Integral(6,8))
         print "t: " + str(singlet.Integral(6,8))
+        print "sm gg :" + str(smhgg.Integral(6,8))
+	print "sm vbf:" + str(smhvbf.Integral(6,8))
         print "sm higgs: " + str(smhgg.Integral(6,8)+smhvbf.Integral(6,8))
         print "sum of backgrounds: " + str(wjets.Integral(6,8)+ztautau.Integral(6,8)+diboson.Integral(6,8)+zjets.Integral(6,8)+ttbar.Integral(6,8)+singlet.Integral(6,8)+smhgg.Integral(6,8)+smhvbf.Integral(6,8))
+	print "gg lfv higgs" + str(gghmutau125.Integral(6,8))
+	print "vbf lfv higgs" + str(vbfhmutau125.Integral(6,8))
         print "lfv higgs: " + str(gghmutau125.Integral(6,8)+vbfhmutau125.Integral(6,8))
         print "data: " + str(data.Integral(6,8))

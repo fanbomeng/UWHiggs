@@ -67,6 +67,8 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,): #get h
                 nevents = float((f[0]).split(': ',1)[-1])
                 xsec = eval("XSec."+file_str.replace("-","_"))
 		efflumi = nevents/xsec
+ 		print "nevents: " + str(nevents)
+ 		print "efflumi: " + str(efflumi) + " " + file_str
 		histo.Scale(lumi/efflumi) 
 	else:	
 		histo.Scale(lumi/JSONlumi)
@@ -121,9 +123,9 @@ else:
 rootdir = "mutau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = False #not blinded
+blinded = True #not blinded
 fillEmptyBins = True #empty bins filled
-fakeRate = True #apply fake rate method
+fakeRate = False #apply fake rate method
 shape_norm = False #normalize to 1 if True
 
 

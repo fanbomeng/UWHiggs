@@ -95,6 +95,25 @@ ttbar.Add(singlet) #combine singlet and ttbar
 gghmutau125.Sumw2()
 vbfhmutau125.Sumw2()
 
+xbinLength = wjets.GetBinWidth(1)
+widthOfBin = xbinLength
+
+
+if (widthOfBin == 15):
+        print "Signal Region Yields 0 or 1:"
+        print "misidentified leptons: " +str(wjets.Integral(7,10))
+        print "Z->TauTau: " + str(ztautau.Integral(7,10))
+        print "ZZ, WW: " + str(diboson.Integral(7,10))
+        print "Wgamma: " + str(wg.Integral(7,10))
+        print "Z->ll: " + str(zjets.Integral(7,10))
+        print "ttbar: " + str(ttbar.Integral(7,10))
+        print "t: " + str(singlet.Integral(7,10))
+        print "sm higgs: " + str(smhgg.Integral(7,10)+smhvbf.Integral(7,10))
+        print "sum of backgrounds: " + str(wjets.Integral(7,10)+ztautau.Integral(7,10)+diboson.Integral(7,10)+zjets.Integral(7,10)+ttbar.Integral(7,10)+singlet.Integral(7,10)+smhgg.Integral(7,10)+smhvbf.Integral(7,10)+wg.Integral(7,10))
+        print "lfv higgs: " + str(gghmutau125.Integral(7,10)+vbfhmutau125.Integral(7,10))
+        print "data: " + str(data.Integral(7,10))
+
+
 gghmutau125.Scale(100)
 vbfhmutau125.Scale(100)
 
