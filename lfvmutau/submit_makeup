@@ -1,14 +1,14 @@
-mkdir -p `dirname results/LFV_8013v1/AnalyzeLFVMuTau/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+mkdir -p `dirname results/SMHTT_aug16_v2//AnalyzeLFVMuTau/data_SingleMuon_Run2016F.root`
+mkdir -p `dirname results/SMHTT_aug16_v2//AnalyzeLFVMuTau/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
 #using farmout:1
 #dry run:1
-export megatarget=results/LFV_8013v1/AnalyzeLFVMuTau/WZ_TuneCUETP8M1_13TeV-pythia8.root
+export megatarget=results/SMHTT_aug16_v2//AnalyzeLFVMuTau/data_SingleMuon_Run2016F.root
 mkdir -p batch_logs
-mega-farmout AnalyzeLFVMuTau.py inputs/LFV_8013v1/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/LFV_8013v1/AnalyzeLFVMuTau/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_LFV_8013v1_AnalyzeLFVMuTau_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+mega-farmout AnalyzeLFVMuTau.py inputs/SMHTT_aug16_v2//data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2//AnalyzeLFVMuTau/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2__AnalyzeLFVMuTau_data_SingleMuon_Run2016F.log &
 sleep 10s
-mkdir -p `dirname results/LFV_8013v1/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root`
 #using farmout:1
 #dry run:1
-export megatarget=results/LFV_8013v1/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root
+export megatarget=results/SMHTT_aug16_v2//AnalyzeLFVMuTau/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
 mkdir -p batch_logs
-mega-farmout AnalyzeLFVMuTautesdown.py inputs/LFV_8013v1/data_SingleMuon_Run2016B_PromptReco-v2_25ns.txt results/LFV_8013v1/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016B_PromptReco-v2_25ns.root --verbose >& batch_logs/results_LFV_8013v1_AnalyzeLFVMuTautesdown_data_SingleMuon_Run2016B_PromptReco-v2_25ns.log &
+mega-farmout AnalyzeLFVMuTau.py inputs/SMHTT_aug16_v2//W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2//AnalyzeLFVMuTau/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2__AnalyzeLFVMuTau_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
 sleep 10s

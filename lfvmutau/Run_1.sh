@@ -26,16 +26,17 @@ export isInclusive=false   #ZeroJet
 #export isIncluse=false
 #export fakeset=true   #ZeroJet
 export isRealData=true
-#rake analyzeSpring2016WjetsandData
+rake analyzeSpring2016WjetsandData
+#rake analyzeSpring2016WjetsandDataBDTmakeup
 #export fakeset=false   #ZeroJet
 #rake analyzeSpring2016Wjetfake  
 #rake analyzeSpring2016WjetsandDatafakesup  
 rake analyzeSpring2016WjetsandDatajesdown  
-#rake analyzeSpring2016WjetsandDatajesup  
-#rake analyzeSpring2016WjetsandDatatesdown 
-#rake analyzeSpring2016WjetsandDatatesup 
-#rake analyzeSpring2016WjetsandDatauesdown 
-#rake analyzeSpring2016WjetsandDatauesup
+rake analyzeSpring2016WjetsandDatajesup  
+rake analyzeSpring2016WjetsandDatatesdown 
+rake analyzeSpring2016WjetsandDatatesup 
+rake analyzeSpring2016WjetsandDatauesdown 
+rake analyzeSpring2016WjetsandDatauesup
 #rake analyzeSpring2016WjetsandDatatrial
 #rake analyzeSpring2016WjetsandDataBDT
 export isRealData=false

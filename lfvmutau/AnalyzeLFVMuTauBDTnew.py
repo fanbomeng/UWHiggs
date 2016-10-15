@@ -126,7 +126,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         self.tree = MuTauTree.MuTauTree(tree)
         self.out = outfile
         self.histograms = {}
-        self.branches="mPt_/F:tPt_/F:mEta_/F:tEta_/F:m_t_DPhi_/F:mMtToPfMet_type1_/F:tMtToPfMet_type1_/F:tDPhiToPfMet_type1_/F:mDPhiToPfMet_type1_/F:type1_pfMetEt_/F:jetVeto30_/F:vbfDeta_/F:vbfMass_/F:m_t_collinearmass_/F:weight_/F"
+        self.branches="mPt_/F:tPt_/F:mEta_/F:tEta_/F:m_t_DPhi_/F:mMtToPfMet_type1_/F:tMtToPfMet_type1_/F:tDPhiToPfMet_type1_/F:mDPhiToPfMet_type1_/F:type1_pfMetEt_/F:jetVeto30_/F:vbfDeta_/F:vbfMass_/F:m_t_collinearmass_/F:weight_/F:deltaeta_m_t_/F"
         self.holders = []
         if ("LFV_HToMuTau" in target ):
            self.name="TreeS"
@@ -189,7 +189,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
-          weight=weight*0.83
+          weight=weight*0.92
         #  print weight
         histos[name+'/weight'].Fill(weight)
         histos[name+'/counts'].Fill(1)
@@ -201,10 +201,10 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         weight = eval("weightBDT."+self.filename.replace("-","_"))
         if (not(self.is_data)):
            weight =weight*row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
-        if (fakeRate == True):
-           weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
+        #if (fakeRate == True):
+        #   weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
-           weight=weight*0.83
+           weight=weight*0.92
         if weight<0:
            weight=0.0 
         #set_trace()
@@ -219,18 +219,25 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
                     holder_tuple[1][0] = 0
         else:
             for varname, holder in self.holders:
-              if varname!="weight_":
+              if varname!="weight_" and varname!="deltaeta_m_t_":
                 try:
                     holder[0] = getattr(to_fill, varname.rsplit("_",1)[0])
                 except OverflowError as e:
                     print "OverflowError detected! %s. Variable %s was fed with %s. It will be set to 0" % (e, varname, getattr(to_fill, varname))
                     holder[0] = 0
-              else: 
+              elif varname=="weight_": 
                  try:
                     holder[0] = weight
                  except OverflowError as e:
                     print "Problem of getting weights, the weight will be set to be 0"
                     holder[0] = 0 
+              elif varname=="deltaeta_m_t_": 
+                 try:
+                    holder[0] = row.mEta-row.tEta
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+             
         self.tree1.Fill()
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
@@ -279,7 +286,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
     def kinematics(self, row):
         if row.mPt < 25:
             return False
-        if abs(row.mEta) >= 2.1:
+        if abs(row.mEta) >= 2.3:
             return False
         if row.tPt<30 :
             return False
@@ -479,7 +486,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
 
             if not self.obj2_Vlooseiso(row):
                 continue
-            if row.vbfDeta<0 or row.vbfDeta>10:
+            if row.vbfDeta<0 or row.vbfDeta>10 or row.vbfMass>7000 or row.vbfMass<0:
 #                print "vbf variable ************** %f" %row.vbfDeta
                 continue
             if self.obj2_iso(row) and self.oppositesign(row):  

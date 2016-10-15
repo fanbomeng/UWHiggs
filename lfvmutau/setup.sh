@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Get the data
-export datasrc=/hdfs/store/user/fmeng/
-#export datasrc=/hdfs/store/user/caillol/
+#export datasrc=/hdfs/store/user/fmeng/
+#export hdfs=/hdfs/store/user/caillol/
 #export datasrc=/hdfs/store/user/ndev/
 #export datasrc=/hdfs/store/user/cepeda/
 #export datasrc=/hdfs/store/user/taroni/
@@ -15,9 +15,10 @@ export datasrc=/hdfs/store/user/fmeng/
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Dec2_LFV_NoHF_JetEta25_MissingHiggs
 #export jobid=MiniAodV2For25ns_ExtraJets_LFV_Data
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetEtaFix_LFV
-#export jobid=SMHTT_aug16_v2
-export jobid=LFV_8013v1
-#export jobid=LFV_76X_V1_SingleMu
+export datasrc=/hdfs/store/user/caillol/
+export jobid=SMHTT_aug16_v2/
+#export jobid=LFV_8013v1
+#export jobid=SMH_sep16_newTriggers
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetFix_LFVData
 #export jobid=MiniAODv2_2fb_v2
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Data

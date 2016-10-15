@@ -22,8 +22,8 @@ import itertools
 
 #data=bool ('true' in os.environ['isRealData'])
 #RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
-RUN_OPTIMIZATION=True
-#RUN_OPTIMIZATION=False
+#RUN_OPTIMIZATION=True
+RUN_OPTIMIZATION=False
 #ZTauTau = bool('true' in os.environ['isZTauTau'])
 #ZeroJet = bool('true' in os.environ['isInclusive'])
 #ZeroJet = False
@@ -258,9 +258,25 @@ def getvbfJetVeto30(row,sys='none'):
                 return row.vbfJetVeto30_JetEnUp
 '''
 
+
+def getGenMfakeTSF(ABStEta):
+    if (ABStEta>0 and ABStEta<0.4):
+       return 1.470
+    if (ABStEta>0.4 and ABStEta<0.8):
+       return 1.367
+    if (ABStEta>0.8 and ABStEta<1.2):
+       return 1.251
+    if (ABStEta>1.2 and ABStEta<1.7):
+       return 1.770
+    if (ABStEta>1.7 and ABStEta<2.3):
+       return 1.713
+
+
 def getFakeRateFactor(row, fakeset):
+  #if fakeset=="def":
+  #   fTauIso= 0.2089 - 0.00113*(row.tPt-30)
   if fakeset=="def":
-     fTauIso= 0.2089 - 0.00113*(row.tPt-30)
+     fTauIso= 0.13392 - 0.000505*(row.tPt-30)
   if fakeset=="1stUp":
      fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
   if fakeset=="1stDown":
@@ -281,13 +297,17 @@ pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
 #muon_HTauTau_TriggerIso22_2016B= MuonPOGCorrections.make_muon_HTauTau_TriggerIso22_2016B()
 muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
 muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
-muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
+#muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
+#muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
+#muon_pog_Tracking_2016B = MuonPOGCorrections.mu_trackingEta_2016()
 muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
-  m1tracking =muon_pog_Tracking_2016B(row.mEta)
+ # m1tracking =muon_pog_Tracking_2016B(row.mPt,row.mEta)
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
+#  print m1tracking
   m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,abs(row.mEta))
   m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
   
@@ -322,6 +342,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
         self.is_FourJet=('W4JetsToLNu' in target or('DY4JetsToLL' in target)or('ZTauTau4JetsToLL' in target))
         self.is_embedded = ('Embedded' in target)
         self.is_ZTauTau= ('ZTauTau' in target)
+        self.is_ZMuMu= ('Zmumu' in target)
+        self.is_DY= ('DY' in target)
         self.is_HToTauTau= ('HToTauTau' in target)
         self.is_HToMuTau= ('HToMuTau' in target)
         self.is_mc = not (self.is_data or self.is_embedded)
@@ -337,7 +359,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
 # moremal full      names=["preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","notIsoNotWeighted","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_vbfNotIso","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
 #cancled channals "preselection","preselectionSS", "notIso","notIsoNotWeightedSS","notIsoSS","notIsoNotWeighted"
         if fakeset  :
-           names=["preselection","notIso","preselectionSS","notIsoSS","gg","boost","vbf","ggNotIso","boostNotIso","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIso2ndUp","ggNotIso2ndDown","boostNotIso2ndUp","boostNotIso2ndDown","vbfNotIso","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_vbfNotIso","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIso2ndUp","vbf_ggNotIso2ndDown","vbf_vbfNotIso2ndUp","vbf_vbfNotIso2ndDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
+           names=["preselection","notIso","preselectionSS","notIsoSS","preslectionEnWjets","notIsoEnWjets","preslectionSSEnWjets","notIsoEnWjetsSS","gg","boost","vbf","ggNotIso","boostNotIso","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIso2ndUp","ggNotIso2ndDown","boostNotIso2ndUp","boostNotIso2ndDown","vbfNotIso","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_vbfNotIso","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIso2ndUp","vbf_ggNotIso2ndDown","vbf_vbfNotIso2ndUp","vbf_vbfNotIso2ndDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
         if (not fakeset) and (not wjets_fakes) :
            #names=["gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_vbfNotIso","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
            names=["gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_vbfNotIso","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
@@ -547,7 +569,11 @@ class AnalyzeLFVMuTautesup(MegaBase):
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
-          weight=weight*0.83
+          #weight=weight*0.83
+          weight=weight*0.92
+        if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
+          weight=weight*getGenMfakeTSF(abs(row.tEta))
+#          print "Genmother of Tau ID %d and the additional weight passed %f"  %(row.tGenMotherPdgId,getGenMfakeTSF(abs(row.tEta)))
         #  print weight
         histos[name+'/weight'].Fill(weight)
         histos[name+'/GenWeight'].Fill(row.GenWeight)
@@ -723,6 +749,12 @@ class AnalyzeLFVMuTautesup(MegaBase):
             return False
         return True
  
+    def selectZmm(self,row):
+        if (self.is_ZMuMu and not row.isZmumu):
+            return False
+        if (not self.is_ZMuMu and row.isZmumu):
+            return False
+        return True
     def selectZeroJet(self,row):
 	if (self.is_ZeroJet and row.NUP != 5):
             return False
@@ -744,6 +776,10 @@ class AnalyzeLFVMuTautesup(MegaBase):
 	if (self.is_FourJet and row.NUP != 9):
             return False
 	return True
+    def WjetsEnrich(self,row):
+        if (row.tMtToPfMet_TauEnUp>60 and row.mMtToPfMet_TauEnUp>80):
+            return True
+        return False
     def kinematicst20(self, row):
         if row.mPt < 25:
             return False
@@ -757,7 +793,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
     def kinematics(self, row):
         if row.mPt < 25:
             return False
-        if abs(row.mEta) >= 2.1:
+        if abs(row.mEta) >= 2.3:
             return False
         if row.tPt<30 :
             return False
@@ -768,11 +804,13 @@ class AnalyzeLFVMuTautesup(MegaBase):
     def gg(self,row):
        if row.mPt < 25:   #was45     #newcuts 25 
            return False
-       if deltaPhi(row.mPhi, row.tPhi) <2.7:  # was 2.7    #new cut 2.7
-           return False
+#       if deltaPhi(row.mPhi, row.tPhi) <2.7:  # was 2.7    #new cut 2.7
+#           return False
        if row.tPt < 30:  #was 35   #newcuts30
            return False
-       if row.tMtToPfMet_TauEnUp > 75:  #was 50   #newcuts65
+      # if row.tMtToPfMet_TauEnUp > 105:  #was 50   #newcuts65
+      #     return False
+       if row.tMtToPfMet_TauEnUp > 60:  #was 50   #newcuts65
            return False
        if abs(row.tDPhiToPfMet_TauEnUp)>3.0:
            return False
@@ -789,7 +827,9 @@ class AnalyzeLFVMuTautesup(MegaBase):
                 return False
           if row.tPt < 30:  #was 40  #newcut 30
                 return False
-          if row.tMtToPfMet_TauEnUp > 105: #was 35   #newcuts 75
+         # if row.tMtToPfMet_TauEnUp > 105: #was 35   #newcuts 75
+         #       return False
+          if row.tMtToPfMet_TauEnUp > 60: #was 35   #newcuts 75
                 return False
           if abs(row.tDPhiToPfMet_TauEnUp)>3.0:
                 return False
@@ -827,16 +867,20 @@ class AnalyzeLFVMuTautesup(MegaBase):
                 return False
         if row.mPt < 25:   #was 40    #newcut 25
        		return False
-        if row.tMtToPfMet_TauEnUp > 75: #was 35   #newcuts 55
+        #if row.tMtToPfMet_TauEnUp > 105: #was 35   #newcuts 55
+        #        return False
+        if row.tMtToPfMet_TauEnUp > 60: #was 35   #newcuts 55
                 return False
         if row.jetVeto30<2:  
             return False
 	if(row.vbfNJets<2):
 	    return False
-	if(abs(row.vbfDeta)>3.2):   #was 2.5    #newcut 2.0
+	if(abs(row.vbfDeta)>3.5):   #was 2.5    #newcut 2.0
 	    return False
-        if row.vbfMass > 500:    #was 20   newcut 240
+        if row.vbfMass > 550:    #was 20   newcut 240
 	    return False
+       # if row.vbfMass < 200:    #was 20   newcut 240
+#	    return False
         if row.vbfJetVeto30 > 0:
             return False
         if row.bjetCISVVeto30Medium:
@@ -847,13 +891,15 @@ class AnalyzeLFVMuTautesup(MegaBase):
                 return False
         if row.mPt < 25:   #was 40    #newcut 25
        		return False
-        if row.tMtToPfMet_TauEnUp > 75: #was 35   #newcuts 55
+        #if row.tMtToPfMet_TauEnUp > 85: #was 35   #newcuts 55
+        #        return False
+        if row.tMtToPfMet_TauEnUp > 60: #was 35   #newcuts 55
                 return False
         if row.jetVeto30<2:  
             return False
 	if(row.vbfNJets<2):
 	    return False
-	if(abs(row.vbfDeta)<3.2 or (row.vbfMass < 500)):   #was 2.5    #newcut 2.0
+	if(abs(row.vbfDeta)<3.5 or (row.vbfMass < 550)):   #was 2.5    #newcut 2.0
 	    return False
 #        if row.vbfMass > 240:    #was 200   newcut 325
 #	    return False
@@ -870,8 +916,13 @@ class AnalyzeLFVMuTautesup(MegaBase):
     #def obj1_id(self, row):
     #    return bool(row.mPFIDTight)  
  
+    def obj1_idICHEP(self,row):
+   
+        goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
+        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+    	return isICHEPMedium
     def obj1_id(self,row):
-    	 return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
+        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
 
     def obj2_id(self, row):
 	#return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
@@ -891,9 +942,9 @@ class AnalyzeLFVMuTautesup(MegaBase):
   #  def obj2_iso(self, row):
   #      return  row.tByTightIsolationMVArun2v1DBoldDMwLT
     def obj2_iso(self, row):
-        return  row.tByTightIsolationMVArun2v1DBoldDMwLT
+        return  row.tByVTightIsolationMVArun2v1DBoldDMwLT
     def obj2_iso_NT_VLoose(self, row):
-        return  (not row.tByTightIsolationMVArun2v1DBoldDMwLT) and  row.tByVLooseIsolationMVArun2v1DBoldDMwLT
+        return  (not row.tByVTightIsolationMVArun2v1DBoldDMwLT) and  row.tByVLooseIsolationMVArun2v1DBoldDMwLT
 
 #    def obj2_mediso(self, row):
 #	 return row.tByMediumCombinedIsolationDeltaBetaCorr3Hits
@@ -928,6 +979,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
             if self.is_data: 
                if not self.presel(row):
                   continue
+#            if not self.selectZmm(row):
+#                continue
             if not self.selectZtt(row):
                 continue
             if not self.selectZeroJet(row):
@@ -949,17 +1002,30 @@ class AnalyzeLFVMuTautesup(MegaBase):
             if not self.obj1_id(row):
                 continue
 
+#            if not self.obj1_idICHEP(row):
+#                continue
             if not self.vetos (row):
-                continue
-
-            if not self.obj2_id (row):
                 continue
 
             if not self.obj2_Vlooseiso(row):
                 continue
+#            if  row.bjetCISVVeto30Medium:
+#                continue
+            if not self.obj2_id (row):
+                continue
+    
+
+#            if abs(row.tGenPdgId)!=15 and abs(row.tGenPdgId)!=999:
+#               print row.tGenPdgId
+#            else: 
+#               continue
+
             if fakeset or wjets_fakes or tuning:
                if self.obj2_iso(row) and not self.oppositesign(row):
-            #      self.fill_histos(row,'preselectionSS',False)
+                  if fakeset:
+                     if self.WjetsEnrich(row):
+                        self.fill_histos(row,'preslectionSSEnWjets',False)
+                     self.fill_histos(row,'preselectionSS',False)
                   if row.jetVeto30==0:
                     self.fill_histos(row,'IsoSS0Jet',False)
                     if self.gg(row):
@@ -994,14 +1060,20 @@ class AnalyzeLFVMuTautesup(MegaBase):
                           self.fill_histos(row,tmp,False)
 #"IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"
             if fakeset:
-               if not self.obj2_iso(row) and not self.oppositesign(row):
+               if not self.obj2_iso(row) and not self.oppositesign(row) :#and self.obj2_iso_NT_VLoose(row):
                       self.fill_histos(row,'notIsoSS',True)
+                      if self.WjetsEnrich(row):
+                         self.fill_histos(row,'notIsoEnWjetsSS',True)
 #              self.fill_histos(row,'notIsoNotWeightedSS',False)
 
             if self.obj2_iso(row) and self.oppositesign(row):  
 #              print row.m_t_collinearmass_TauEnUp
               if fakeset:
                  self.fill_histos(row,'preselection',False)
+                 if self.WjetsEnrich(row):
+                    self.fill_histos(row,'preslectionEnWjets',False)
+
+
               if wjets_fakes:
                  self.fill_histos(row,'preselection',False)
               if row.jetVeto30==0:
@@ -1116,6 +1188,8 @@ class AnalyzeLFVMuTautesup(MegaBase):
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):
               if fakeset:
                  self.fill_histos(row,'notIso',True)
+                 if self.WjetsEnrich(row):
+                    self.fill_histos(row,'notIsoEnWjets',True)
 #              self.fill_histos(row,'notIsoNotWeighted',False)
 
               if row.jetVeto30==0:
@@ -1175,7 +1249,7 @@ class AnalyzeLFVMuTautesup(MegaBase):
                            self.fill_histos(row,'vbf_vbfNotIso1stDown',True,"1stDown")
                            self.fill_histos(row,'vbf_vbfNotIso2ndUp',True,"2ndUp")
                            self.fill_histos(row,'vbf_vbfNotIso2ndDown',True,"2ndDown")
-                 
+                         #  print "herer33333333333"
 #              if self.vbf(row):
 #                  self.fill_histos(row,'vbfNotIso',True)
 

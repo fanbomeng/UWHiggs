@@ -1,0 +1,1470 @@
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDT.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDT/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDT_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesup.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesup_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTjesdown.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTjesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTjesdown_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesdown.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesdown_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTtesup.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTtesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTtesup_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesdown.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesdown/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesdown_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016E.root`
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016E.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016E.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_data_SingleMuon_Run2016E.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016F.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016F.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_data_SingleMuon_Run2016F.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016B.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016B.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_data_SingleMuon_Run2016B.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016C.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016C.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_data_SingleMuon_Run2016C.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/data_SingleMuon_Run2016D.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/data_SingleMuon_Run2016D.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_data_SingleMuon_Run2016D.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/TT_TuneCUETP8M1_13TeV-powheg-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/TT_TuneCUETP8M1_13TeV-powheg-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_TT_TuneCUETP8M1_13TeV-powheg-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/VBFHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBFHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_VBFHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/GluGluHToTauTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_GluGluHToTauTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WW_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WW_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/WW_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WW_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_WW_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/WZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/WZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_WZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ZZ_TuneCUETP8M1_13TeV-pythia8.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ZZ_TuneCUETP8M1_13TeV-pythia8.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ZZ_TuneCUETP8M1_13TeV-pythia8.log &
+sleep 10s
+mkdir -p `dirname results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauPostBDTuesup.py inputs/SMHTT_aug16_v2/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.txt results/SMHTT_aug16_v2/AnalyzeLFVMuTauPostBDTuesup/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root --verbose >& batch_logs/results_SMHTT_aug16_v2_AnalyzeLFVMuTauPostBDTuesup_ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.log &
+sleep 10s

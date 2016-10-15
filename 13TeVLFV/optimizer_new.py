@@ -16,23 +16,24 @@ _0jets = {
   # 'mPt'  : [50,55],
   # 'deltaPhi' : [2.95,2.9,2.85,2.8,2.7],
    #'DeltaPhi' : [2.80,2.70,2.6,2.5,2.4],
-   'DeltaPhi' : [2.2,2.4,2.6,2.8],
+   'DeltaPhi' : [0.2],
+  # 'DeltaPhi' : [0.2],
 #   'deltaPhi' : [2.80,2.70],
  #  'mmetdeltaPhi' : [0.0],
    #'tmetdeltaPhi' : [2.6,2.7,2.8,2.9,3.0,3.1],
-   'tmetdeltaPhi' : [3.1,3.0,2.9,2.8],
+   'tmetdeltaPhi' : [3.0],
    #'deltaPhi' : [3.00,2.8,2.7,2.6,2.5,2.4,2.2,2.0],
   # 'deltaPhi' : [2.1,2.5],
   # 'tMtToPfMet_type1' :[80,35,70]+ range(40,70,10),#was [20,50,10]+[35]
-   'tMtToPfMet_type1' :[65,75,85,95,105],#was [20,50,10]+[35]
+   'tMtToPfMet_type1' :[95],#was [20,50,10]+[35]
   # 'tMtToPfMet_type1' :[70,75],#was [20,50,10]+[35]
 }
 _0jets_default = {
    'tPt' : 30,     #was 35
    'mPt' : 25,     #was 45
    'DeltaPhi': 0,    #was 2.7
-   'tmetdeltaPhi' :5.0,  #was 50
-   'tMtToPfMet_type1' :200,  #was 50
+   'tmetdeltaPhi' :3.0,  #was 50
+   'tMtToPfMet_type1' :105,  #was 50
   # 'mmetdeltaPhi' :0.0,  #was 50
 }
 _0jet_region_templates = ['tPt%i', 'mPt%i', 'DeltaPhi%.2f','tmetdeltaPhi%.2f', 'tMtToPfMet_type1%i'] #'tPt%i_mPt%i_deltaPhi%.2f_tMtToPfMet_type1%i'
@@ -62,25 +63,25 @@ def _get_0jet_regions(tPt, mPt, DeltaPhi,tmetdeltaPhi, tMtToPfMet_type1):
 _1jets = {
    # 'tPt'  :[30,50,55]+ range(35,55,10),
    # 'tPt'  :[30]+ range(35,55,10)+[50,55],
-    'tPt'  :[30],
+    'tPt'  :[50],
   #  'tPt'  : [50],
     #'mPt'  :[25,45,50,55]+ range(30,50,10),
    # 'mPt'  :[25,30,40,45,50,55],
-    'mPt'  :[25],
-    'DeltaPhi' : [3.0,2.7,2.4,2.2], 
-    'tmetdeltaPhi' : [2.8,2.9,3.0,3.1],
+    'mPt'  :[50],
+    'DeltaPhi' : [3.0], 
+    'tmetdeltaPhi' : [3.2],
   #  'mPt'  : [33],
   #  'tMtToPfMet_type1' :[80,45,50,55,60,70]+ range(30,50,10),
 #    'tMtToPfMet_type1' :[80,70,60,55,50,45,40,30],
-    'tMtToPfMet_type1' :[85,95,105,115],
+    'tMtToPfMet_type1' :[105],
  #   'tMtToPfMet_type1' : [45,50,55],
 }
 _1jets_default = {
     'tPt' :30,#was  40 
     'mPt' : 25,#was 35
     'DeltaPhi': 0.0,  
-    'tmetdeltaPhi' :3.2, 
-    'tMtToPfMet_type1' :200,#was 35
+    'tmetdeltaPhi' :3.0, 
+    'tMtToPfMet_type1' :105,#was 35
 }
 
 _1jet_region_templates = ['tPt%i', 'mPt%i','DeltaPhi%.2f','tmetdeltaPhi%.2f', 'tMtToPfMet_type1%i']#'tPt%i_mPt%i_tMtToPfMet_type1%i'
@@ -111,18 +112,18 @@ def _get_1jet_regions(tPt, mPt,DeltaPhi,tmetdeltaPhi, tMtToPfMet_type1):
 _2jetsloose = {
     #'tPt'  : [30,50,55]+range(35,55,10),
    # 'tPt'  : [30,35,45,50,55],
-    'tPt'  : [35],
+    'tPt'  : [30],
    # 'mPt'  : [25,30,50,55]+range(35,55,10),
    # 'mPt'  : [25,30,35,45,50,55],
-    'mPt'  : [30],
+    'mPt'  : [25],
     #'tMtToPfMet_type1' :[80,45,60,70]+ range(30,60,10),
     #'tMtToPfMet_type1' :[80,70,60,50,45,40,30],
-    'tMtToPfMet_type1' :[55,65,75,85,95],
+    'tMtToPfMet_type1' :[80,90,100,111,115],
     #'vbfMass' :[100,300,400]+ range(150, 650, 100),
-    'vbfMass' :[300,400,500,600,700],
+    'vbfMass' :[10,50,100,150,200,250,300,400,450],
     #'vbfDeta' : [2.0,2.2,2.7,3.0,3.5, 4.0],
     #'vbfDeta' : [1.0,1.2,1.5,1.8,2.0,2.2,2.5,2.7,3.0,3.3,3.5],
-    'vbfDeta' : [2.0,2.5,3.0,3.5,4.0,4.5,5.0],
+    'vbfDeta' : [3.0,3.5,4.0,4.5],
     #'tPt'  : [33],
     #'mPt'  : [33],
     #'tMtToPfMet_type1' :[55,60],
@@ -132,9 +133,9 @@ _2jetsloose = {
 _2jetsloose_default = {
     'tPt' : 30,#40
     'mPt' : 25,#40
-    'tMtToPfMet_type1' : 200,#was 35
-    'vbfMass' : 1000.0,#was 200
-    'vbfDeta' : 10.0,#was 2.5
+    'tMtToPfMet_type1' : 105,#was 35
+    'vbfMass' : 650.0,#was 200
+    'vbfDeta' : 3.5,#was 2.5
 }
 
 _2jetloose_region_templates = ['tPt%i', 'mPt%i', 'tMtToPfMet_type1%i', 'vbfMass%i', 'vbfDeta%.1f' ]#'tPt%i_mPt%i_tMtToPfMet_type1%i_vbfMass%i_vbfDeta%.1f'
@@ -142,14 +143,14 @@ def _get_2jetloose_regions(tPt, mPt, tMtToPfMet_type1, vbfMass, vbfDeta):
     pass_tPt        = [i for i in _2jetsloose['tPt'       ] if tPt        > i] 
     pass_mPt        = [i for i in _2jetsloose['mPt'       ] if mPt        > i] 
     pass_tMtToPfMet_type1 = [i for i in _2jetsloose['tMtToPfMet_type1'] if tMtToPfMet_type1 < i]
-    pass_vbfMass = [i for i in _2jetsloose['vbfMass'] if vbfMass < i]
+    pass_vbfMass = [i for i in _2jetsloose['vbfMass'] if (vbfMass > i and vbfMass<650)]
     pass_vbfDeta = [i for i in _2jetsloose['vbfDeta'] if vbfDeta < i]
 
     cuts = [pass_tPt, pass_mPt, pass_tMtToPfMet_type1, pass_vbfMass, pass_vbfDeta]
     pass_default_tPt        = tPt        > _2jetsloose_default['tPt'       ] 
     pass_default_mPt        = mPt        > _2jetsloose_default['mPt'       ] 
     pass_default_tMtToPfMet_type1 = tMtToPfMet_type1 < _2jetsloose_default['tMtToPfMet_type1']
-    pass_default_vbfMass = vbfMass <  _2jetsloose_default['vbfMass'] 
+    pass_default_vbfMass = (vbfMass <  _2jetsloose_default['vbfMass']  and vbfMass >0)
     pass_default_vbfDeta = vbfDeta < _2jetsloose_default['vbfDeta']
 
     defaults = [pass_default_tPt, pass_default_mPt,  pass_default_tMtToPfMet_type1, pass_default_vbfMass, pass_default_vbfDeta]
@@ -164,18 +165,18 @@ def _get_2jetloose_regions(tPt, mPt, tMtToPfMet_type1, vbfMass, vbfDeta):
 _2jetstight = {
     #'tPt'  : [30,50,55]+range(35,55,10),
    # 'tPt'  : [30,35,45,50,55],
-    'tPt'  : [35],
+    'tPt'  : [30],
    # 'mPt'  : [25,30,50,55]+range(35,55,10),
    # 'mPt'  : [25,30,35,45,50,55],
-    'mPt'  : [30],
+    'mPt'  : [25],
     #'tMtToPfMet_type1' :[80,45,60,70]+ range(30,60,10),
     #'tMtToPfMet_type1' :[80,70,60,50,45,40,30],
-    'tMtToPfMet_type1' :[65,75,85,95,105],
+    'tMtToPfMet_type1' :[115],
     #'vbfMass' :[100,300,400]+ range(150, 650, 100),
-    'vbfMass' :[400,500,600,700],
+    'vbfMass' :[900],
     #'vbfDeta' : [2.0,2.2,2.7,3.0,3.5, 4.0],
     #'vbfDeta' : [1.0,1.2,1.5,1.8,2.0,2.2,2.5,2.7,3.0,3.3,3.5],
-    'vbfDeta' : [2.0,2.5,3.0,3.5,4.0,4.5,5.0],
+    'vbfDeta' : [4.5],
     #'tPt'  : [33],
     #'mPt'  : [33],
     #'tMtToPfMet_type1' :[55,60],
@@ -185,9 +186,9 @@ _2jetstight = {
 _2jetstight_default = {
     'tPt' : 30,#40
     'mPt' : 25,#40
-    'tMtToPfMet_type1' : 200,#was 35
-    'vbfMass' : 0.0,#was 200
-    'vbfDeta' : 0.0,#was 2.5
+    'tMtToPfMet_type1' : 85,#was 35
+    'vbfMass' : 650.0,#was 200
+    'vbfDeta' : 3.5,#was 2.5
 }
 
 _2jettight_region_templates = ['tPt%i', 'mPt%i', 'tMtToPfMet_type1%i', 'vbfMass%i', 'vbfDeta%.1f' ]#'tPt%i_mPt%i_tMtToPfMet_type1%i_vbfMass%i_vbfDeta%.1f'

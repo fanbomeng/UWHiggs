@@ -33,6 +33,24 @@ def yieldHisto(histo,xmin,xmax):   # Find the bin number from the range of x axi
         signal = histo.Integral(binmin,binmax)
         return signal
 
+def do_binbybinQCD(histo,lowBound,highBound): #fill empty bins and negtive content bins to a scaled number, but detail ?
+        for i in range(1,lowBound):
+                if histo.GetBinContent(i) != 0:
+                        lowBound = i
+                        break
+        for i in range(histo.GetNbinsX(),highBound,-1):
+                if histo.GetBinContent(i) != 0:
+                        highBound = i
+                        break
+        for i in range(lowBound, highBound+1):
+		if fillEmptyBins: #fill empty bins
+			if histo.GetBinContent(i) <= 0:
+				histo.SetBinContent(i,0.0)   
+				histo.SetBinError(i,0.0)
+		else:
+                        if histo.GetBinContent(i) < 0:
+                                histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
+                                histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
 def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive content bins to a scaled number, but detail ?
 	metafile = lumidir + file_str+"_weight.log"
         f = open(metafile).read().splitlines()
@@ -96,6 +114,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi =561.123523153 
 #JSONlumi =3950.74 
 #JSONlumi =20000.00 
+#JSONlumi =12890.00 
 JSONlumi =12890.00 
 #JSONlumi = 20000.0 
 #JSONlumi =12878.27 
@@ -121,16 +140,20 @@ RUN_OPTIMIZATION=int(argv[7])
 if RUN_OPTIMIZATION==1:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes1stDown":
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stDown","boost":"boostNotIso1stDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stDown","vbf_vbf":"vbf_vbfNotIso1stDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stDown","boost":"boostNotIso1stDown","vbf":"vbfNotIso1stDown","vbf_gg":"vbf_ggNotIso1stDown","vbf_vbf":"vbf_vbfNotIso1stDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes1stUp":
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stUp","boost":"boostNotIso1stUp","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stUp","vbf_vbf":"vbf_vbfNotIso1stUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stUp","boost":"boostNotIso1stUp","vbf":"vbfNotIso1stUp","vbf_gg":"vbf_ggNotIso1stUp","vbf_vbf":"vbf_vbfNotIso1stUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes2ndUp":
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndUp","boost":"boostNotIso2ndUp","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso2ndUp","vbf_vbf":"vbf_vbfNotIso2ndUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndUp","boost":"boostNotIso2ndUp","vbf":"vbfNotIso2ndUp","vbf_gg":"vbf_ggNotIso2ndUp","vbf_vbf":"vbf_vbfNotIso2ndUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes2ndDown":
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndDown","boost":"boostNotIso2ndDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso2ndDown","vbf_vbf":"vbf_vbfNotIso2ndDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndDown","boost":"boostNotIso2ndDown","vbf":"vbfNotIso2ndDown","vbf_gg":"vbf_ggNotIso2ndDown","vbf_vbf":"vbf_vbfNotIso2ndDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 else:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-QCDChannels={"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS"}
+if RUN_OPTIMIZATION==1: 
+   tmpvariable=channel.split("/")[1]
+   QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
+else:
+   QCDChannels={"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS"}
 WmunufakeChannels={"preselection0Jet":"Wmunu_preselection0Jet","preselection1Jet":"Wmunu_preselection1Jet","preselection2Jet":"Wmunu_preselection2Jet","gg":"Wmunu_gg","boost":"Wmunu_boost","vbf_gg":"Wmunu_vbf_gg","vbf_vbf":"Wmunu_vbf_vbf"}
 WtaunufakeChannels={"preselection0Jet":"Wtaunu_preselection0Jet","preselection1Jet":"Wtaunu_preselection1Jet","preselection2Jet":"Wtaunu_preselection2Jet","gg":"Wtaunu_gg","boost":"Wtaunu_boost","vbf_gg":"Wtaunu_vbf_gg","vbf_vbf":"Wtaunu_vbf_vbf"}
 W2jetsfakeChannels={"preselection0Jet":"W2jets_preselection0Jet","preselection1Jet":"W2jets_preselection1Jet","preselection2Jet":"W2jets_preselection2Jet","gg":"W2jets_gg","boost":"W2jets_boost","vbf_gg":"W2jets_vbf_gg","vbf_vbf":"W2jets_vbf_vbf"}
@@ -161,19 +184,18 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+#blinded = False #not blinded
+fakeRate = True #apply fake rate method
+QCDflag=False
 fillEmptyBins = True #empty bins filled
-fakeRate = False #apply fake rate method
-#fakeRate = True #apply fake rate method
 shape_norm = False #normalize to 1 if True
-#QCDflag=False
-wjets_fakes=True
-#wjets_fakes=False
+#wjets_fakes=True
+wjets_fakes=False
 #drawdata=False
 drawdata=True
-QCDflag=True
-
+blinded = True #not blinded
+#QCDflag=True
+#fakeRate = False #apply fake rate method
 #directory names in datacard file
 #if "preselection" in channel:
 #	rootdir="mutau_preselection"
@@ -183,15 +205,16 @@ QCDflag=True
 #	rootdir = "mutau_boost"
 #if "gg" in channel:
 #	rootdir = "mutau_gg"
-if channel=="vbf":
+channeltmp=channel.split("/")[0]
+if channeltmp=="vbf":
 	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
-if channel=="vbf_gg":
+if channeltmp=="vbf_gg":
 	rootdir = "LFV_MuTau_2Jetgg_1_13TeVMuTau"
-if channel=="vbf_vbf":
+if channeltmp=="vbf_vbf":
 	rootdir = "LFV_MuTau_2Jetvbf_1_13TeVMuTau"
-if "boost" in channel:
+if channeltmp=="boost":
 	rootdir = "LFV_MuTau_1Jet_1_13TeVMuTau"
-if channel=="gg":
+if channeltmp=="gg":
 	rootdir = "LFV_MuTau_0Jet_1_13TeVMuTau"
 
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
@@ -302,7 +325,7 @@ ztautau.Add(ztautau4Jets)
 ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
 
 if (QCDflag == True):
-  QCDChannel = QCDChannels[channel]
+  QCDChannel = QCDChannels[channel.split("/")[0]]
   data2016BQCDs = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", QCDChannel,var,lumidir,lumi,True,)
   data2016CQCDs = make_histo(savedir,"data_SingleMuon_Run2016C_PromptReco-v2_25ns", QCDChannel,var,lumidir,lumi,True,)
   data2016DQCDs = make_histo(savedir,"data_SingleMuon_Run2016D_PromptReco-v2_25ns", QCDChannel,var,lumidir,lumi,True,)
@@ -379,15 +402,11 @@ if (QCDflag == True):
 #apply fake rate method
 if (fakeRate == True):
   fakechannel = fakeChannels[channel]
-  #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
-  #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2016Bfakes = make_histo(savedir,"data_SingleMuon_Run2016B_PromptReco-v2_25ns", fakechannel,var,lumidir,lumi,True,)
   data2016Cfakes = make_histo(savedir,"data_SingleMuon_Run2016C_PromptReco-v2_25ns", fakechannel,var,lumidir,lumi,True,)
   data2016Dfakes = make_histo(savedir,"data_SingleMuon_Run2016D_PromptReco-v2_25ns", fakechannel,var,lumidir,lumi,True,)
   data2016Bfakes.Add(data2016Cfakes)
   data2016Bfakes.Add(data2016Dfakes)
- # wjets = data2015Cfakes.Clone()
- # wjets.Add(data2015Dfakes)
   wjets = data2016Bfakes.Clone()
   zjetsfakes = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakechannel,var,lumidir,lumi)
   zjetsfakes.Sumw2()
@@ -426,8 +445,8 @@ if (fakeRate == True):
   ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakes.Scale(-1)
   ttbar.Add(ttbarfakes) #avoid double counting
-  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
- # zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+ # wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 else: #if fakeRate==False
   #wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
   if wjets_fakes==False :
@@ -448,6 +467,7 @@ else: #if fakeRate==False
      wjets.Add(w4jets)
      if QCDflag==True:
         QCDs.Scale(1.06)
+	do_binbybinQCD(QCDs,lowDataBin,highDataBin)
   else:
      wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
      wjets.Sumw2()
