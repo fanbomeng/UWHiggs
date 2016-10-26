@@ -431,10 +431,11 @@ class AnalyzeLFVMuTau_progress(MegaBase):
 #          histos['jetPt'].Fill(1,1)
     def fill_histos(self, row,name='gg', fakeRate=False,fakeset="def"):
         histos = self.histograms
-        weight=1
+        weight=bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
         if (not(self.is_data)):
-	   weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0) #apply gen and pu reweighting to MC
-           print bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
+        #some difference from the btag stuff
+	   weight = row.GenWeight * self.correction(row)
+           #print bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
         if (fakeRate == True):
 #          print self.fakeRateMethod(row,fakeset)
           weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
@@ -741,11 +742,11 @@ class AnalyzeLFVMuTau_progress(MegaBase):
             return False
 	if(row.vbfNJets<2):
 	    return False
-	if(abs(row.vbfDeta)>3.5):   #was 2.5    #newcut 2.0
+	if(abs(row.vbfDeta)>3.5 and row.vbfMass > 550):   #was 2.5    #newcut 2.0
 	    return False
-        if row.vbfMass > 550:    #was 20   newcut 240
-	    return False
-       # if row.vbfMass < 200:    #was 20   newcut 240
+#        if row.vbfMass > 550:    #was 20   newcut 240
+#	    return False
+#        if row.vbfMass < 100:    #was 20   newcut 240
 #	    return False
         if row.vbfJetVeto30 > 0:
             return False
@@ -916,7 +917,10 @@ class AnalyzeLFVMuTau_progress(MegaBase):
                           tmp=os.path.join("vbf_vbfIsoSS",i)
                           self.fill_histos(row,tmp,False)
                     if self.vbf_gg(row):
-                       self.fill_histos(row,'vbf_ggIsoSS',False)
+                       if row.vbfMass>100:
+                          self.fill_histos(row,'vbf_ggIsoSS',False)
+                       else:
+                          self.fill_histos(row,'boostIsoSS',False) 
                     if RUN_OPTIMIZATION:
                        for  i in optimizer_new.compute_regions_2jetloose(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
                           tmp=os.path.join("vbf_ggIsoSS",i)
@@ -1017,6 +1021,7 @@ class AnalyzeLFVMuTau_progress(MegaBase):
                   if self.vbf(row):
                         self.fill_histos(row,'vbf',False)
                   if self.vbf_gg(row):
+                     if row.vbfMass>100:
                         self.fill_histos(row,'vbf_gg',False)
                         if wjets_fakes and row.isWmunu==1:
                            self.fill_histos(row,'Wmunu_vbf_gg',False)
@@ -1024,6 +1029,14 @@ class AnalyzeLFVMuTau_progress(MegaBase):
                            self.fill_histos(row,'Wtaunu_vbf_gg',False)
                         if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
                            self.fill_histos(row,'W2jets_vbf_gg',False)
+                     else:
+                        self.fill_histos(row,'boost',False)
+                        if wjets_fakes and row.isWmunu==1:
+                           self.fill_histos(row,'Wmunu_boost',False)
+                        if wjets_fakes and row.isWtaunu==1:
+                           self.fill_histos(row,'Wtaunu_boost',False)
+                        if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
+                           self.fill_histos(row,'W2jets_boost',False)
                   if RUN_OPTIMIZATION:
                         for  i in optimizer_new.compute_regions_2jetloose(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
                            tmp=os.path.join("vbf_gg",i)
@@ -1098,12 +1111,20 @@ class AnalyzeLFVMuTau_progress(MegaBase):
                   if self.vbf(row):
                         self.fill_histos(row,'vbfNotIso',True)
                   if self.vbf_gg(row):
+                     if row.vbfMass>100: 
                         self.fill_histos(row,'vbf_ggNotIso',True)
                         if fakeset:
                            self.fill_histos(row,'vbf_ggNotIso1stUp',True,"1stUp")
                            self.fill_histos(row,'vbf_ggNotIso1stDown',True,"1stDown")
                            self.fill_histos(row,'vbf_ggNotIso2ndUp',True,"2ndUp")
                            self.fill_histos(row,'vbf_ggNotIso2ndDown',True,"2ndDown")
+                     else:
+                        self.fill_histos(row,'boostNotIso',True)
+                        if fakeset:
+                           self.fill_histos(row,'boostNotIso1stUp',True,"1stUp")
+                           self.fill_histos(row,'boostNotIso1stDown',True,"1stDown")
+                           self.fill_histos(row,'boostNotIso2ndUp',True,"2ndUp")
+                           self.fill_histos(row,'boostNotIso2ndDown',True,"2ndDown")
 
                   if self.vbf_vbf(row):
                         self.fill_histos(row,'vbf_vbfNotIso',True)

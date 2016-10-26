@@ -584,6 +584,8 @@ class AnalyzeLFVMuTau(MegaBase):
         weight=1
         if (not(self.is_data)):
 	   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
+           if row.GenWeight<0:
+               print row.GenWeight
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
