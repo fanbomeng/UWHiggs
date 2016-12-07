@@ -1,0 +1,112 @@
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaujesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaujesup_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaujesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesup/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaujesup_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaujesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaujesdown_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaujesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaujesdown/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaujesdown_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTautesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTautesdown_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTautesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesdown/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTautesdown_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTautesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTautesup_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTautesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTautesup/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTautesup_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauuesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTauuesup_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauuesup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesup/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTauuesup_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauuesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTauuesdown_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTauuesdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTauuesdown/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTauuesdown_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaubtagup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaubtagup_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaubtagup.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagup/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaubtagup_data_SingleMuon_Run2016H.log &
+sleep 10s
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaubtagdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaubtagdown_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTaubtagdown.py inputs/LFVdata_ExtraG_Hnew/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_Hnew/AnalyzeLFVMuTaubtagdown/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_Hnew_AnalyzeLFVMuTaubtagdown_data_SingleMuon_Run2016H.log &
+sleep 10s

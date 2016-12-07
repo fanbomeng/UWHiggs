@@ -1,0 +1,7 @@
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau_progressbeforMtcorrection/EmbeddingRun2016B.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau_progressbeforMtcorrection/EmbeddingRun2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau_progressbeforMtcorrection.py inputs/LFVZTauTauEm/EmbeddingRun2016B.txt results/LFVZTauTauEm/AnalyzeLFVMuTau_progressbeforMtcorrection/EmbeddingRun2016B.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_progressbeforMtcorrection_EmbeddingRun2016B.log &
+sleep 10s

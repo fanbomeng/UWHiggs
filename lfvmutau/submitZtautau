@@ -1,0 +1,48 @@
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016B.root`
+(in /afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_22/src/UWHiggs/lfvmutau)
+warning: Insecure world writable dir /afs/hep.wisc.edu/cms/fmeng in PATH, mode 040777
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016C.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016B.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016B.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016B.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016B.log &
+sleep 10s
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016D.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016C.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016C.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016C.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016C.log &
+sleep 10s
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016E.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016D.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016D.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016D.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016D.log &
+sleep 10s
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016F.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016E.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016E.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016E.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016E.log &
+sleep 10s
+mkdir -p `dirname results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016G.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016F.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016F.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016F.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016F.log &
+sleep 10s
+rake aborted!
+Don't know how to build task 'results/LFVZTauTauEm/AnalyzeLFVMuTau/WW_TuneCUETP8M1_13TeV-pythia8.root'
+
+(See full trace by running task with --trace)
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuTau.py inputs/LFVZTauTauEm/EmbeddingRun2016G.txt results/LFVZTauTauEm/AnalyzeLFVMuTau/EmbeddingRun2016G.root --verbose >& batch_logs/results_LFVZTauTauEm_AnalyzeLFVMuTau_EmbeddingRun2016G.log &
+sleep 10s

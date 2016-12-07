@@ -1,0 +1,14 @@
+mkdir -p `dirname results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016G.root`
+mkdir -p `dirname results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016H.root`
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016G.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuMuMu.py inputs/LFVdata_ExtraG_HTrilep/data_SingleMuon_Run2016G.txt results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016G.root --verbose >& batch_logs/results_LFVdata_ExtraG_HTrilep_AnalyzeLFVMuMuMu_data_SingleMuon_Run2016G.log &
+sleep 10s
+#using farmout:1
+#dry run:1
+export megatarget=results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016H.root
+mkdir -p batch_logs
+mega-farmout AnalyzeLFVMuMuMu.py inputs/LFVdata_ExtraG_HTrilep/data_SingleMuon_Run2016H.txt results/LFVdata_ExtraG_HTrilep/AnalyzeLFVMuMuMu/data_SingleMuon_Run2016H.root --verbose >& batch_logs/results_LFVdata_ExtraG_HTrilep_AnalyzeLFVMuMuMu_data_SingleMuon_Run2016H.log &
+sleep 10s

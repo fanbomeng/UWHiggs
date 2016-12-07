@@ -71,13 +71,14 @@ pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
 #muon_HTauTau_TriggerIso22_2016B= MuonPOGCorrections.make_muon_HTauTau_TriggerIso22_2016B()
 muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
 muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
-muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
+#muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
 muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
-  m1tracking =muon_pog_Tracking_2016B(row.mEta)
+#  m1tracking =muon_pog_Tracking_2016B(row.mEta)
   m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,abs(row.mEta))
   m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
   

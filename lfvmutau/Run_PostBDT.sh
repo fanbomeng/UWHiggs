@@ -11,6 +11,7 @@ set -o errexit
 #python MakeSysAnalyzers.py tesup
 #export RUN_OPTIMIZATION=true
 export systematic=none
+#export jobid=SMHTT_aug16_v2
 export jobid=SMHTT_aug16_v2
 #export isRealData=true
 export isZTauTau=false
