@@ -77,72 +77,102 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
                                 histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
                             #    histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                                 histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
-
 def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #get histogram from file, properly weight histogram
         histoFile = ROOT.TFile(savedir+file_str+".root")
         ROOT.gROOT.cd()
         histo = histoFile.Get(channel+"/"+var).Clone()
         if (isData==False): #calculate effective luminosity
-                metafile = lumidir + file_str+"_weight.log"
-        	f = open(metafile).read().splitlines()
-                nevents = float((f[0]).split(': ',1)[-1])
-                xsec = eval("XSec."+file_str.replace("-","_"))
-		efflumi = nevents/xsec
-                if ("1Jets" in file_str ):
-                   print "lumi befor adding %f " %efflumi
-                   Inclusivefilenambe=file_str.split("1Jets",1)[0]+file_str.split("1",1)[1]
-                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
-               	   f1 = open(metafile1).read().splitlines()
-                   nevents1 = float((f1[0]).split(': ',1)[-1])
-                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
-	   	   efflumi1 = nevents1/xsec1
-                   efflumi=efflumi+efflumi1
-                   print "lumi after adding %f " %efflumi
-                if ("2Jets" in file_str ):
-                   Inclusivefilenambe=file_str.split("2Jets",1)[0]+file_str.split("2",1)[1]
-                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
-               	   f1 = open(metafile1).read().splitlines()
-                   nevents1 = float((f1[0]).split(': ',1)[-1])
-                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
-	   	   efflumi1 = nevents1/xsec1
-                   efflumi=efflumi+efflumi1
-                    
-                if ("3Jets" in file_str ):
-                   Inclusivefilenambe=file_str.split("3Jets",1)[0]+file_str.split("3",1)[1]
-                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
-               	   f1 = open(metafile1).read().splitlines()
-                   nevents1 = float((f1[0]).split(': ',1)[-1])
-                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
-	   	   efflumi1 = nevents1/xsec1
-                   efflumi=efflumi+efflumi1
-                if ("4Jets" in file_str ):
-                   Inclusivefilenambe=file_str.split("4Jets",1)[0]+file_str.split("4",1)[1]
-                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
-               	   f1 = open(metafile1).read().splitlines()
-                   nevents1 = float((f1[0]).split(': ',1)[-1])
-                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
-	   	   efflumi1 = nevents1/xsec1
-                   efflumi=efflumi+efflumi1
-		histo.Scale(lumi/efflumi) 
-	else:	
-		histo.Scale(lumi/JSONlumi)
+                #metafile = lumidir + file_str+"_weight.log"
+                #f = open(metafile).read().splitlines()
+                #nevents = float((f[0]).split(': ',1)[-1])
+                #xsec = eval("XSec."+file_str.replace("-","_"))
+                #efflumi = nevents/xsec
+                #histo.Scale(lumi/efflumi) 
+                histo.Scale(lumi)
+        else:
+                histo.Scale(lumi/JSONlumi)
         if (shift in savedir and isData == False):  ##get normalization uncertainty
-		savedirNoShift = savedir.strip("_"+shift+"/")
-		histoNoShift = make_histo(savedirNoShift+"/",file_str, channel,var,lumidir,lumi,isData)
+                savedirNoShift = savedir.strip("_"+shift+"/")
+                histoNoShift = make_histo(savedirNoShift+"/",file_str, channel,var,lumidir,lumi,isData)
                 if "Up" in shift:
-			savedirOppShift = savedir.strip("Up/")+"Down"  
-		elif "Down" in shift:
-			savedirOppShift = savedir.strip("Down/")+"Up"
-		histoOppShift = make_histo(savedirOppShift+"/",file_str, channel,var,lumidir,lumi,isData)
+                        savedirOppShift = savedir.strip("Up/")+"Down"
+                elif "Down" in shift:
+                        savedirOppShift = savedir.strip("Down/")+"Up"
+                histoOppShift = make_histo(savedirOppShift+"/",file_str, channel,var,lumidir,lumi,isData)
                 if (histo.Integral() > 0.0):
- 			scale = abs(histoNoShift.Integral()-histo.Integral())/histoNoShift.Integral()
- 			scaleOppShift = abs(histoNoShift.Integral()-histoOppShift.Integral())/histoNoShift.Integral()
-			if (scaleOppShift > scale):
-				scale = scaleOppShift
-			print savedir +": " + channel + ": " + file_str + ": " + str(scale+1)
-		else:
-			print savedir +": " + file_str + ": ---"
+                        scale = abs(histoNoShift.Integral()-histo.Integral())/histoNoShift.Integral()
+                        scaleOppShift = abs(histoNoShift.Integral()-histoOppShift.Integral())/histoNoShift.Integral()
+                        if (scaleOppShift > scale):
+                                scale = scaleOppShift
+                        print savedir +": " + channel + ": " + file_str + ": " + str(scale+1)
+                else:
+                        print savedir +": " + file_str + ": ---"
         return histo
+#def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #get histogram from file, properly weight histogram
+#        histoFile = ROOT.TFile(savedir+file_str+".root")
+#        ROOT.gROOT.cd()
+#        histo = histoFile.Get(channel+"/"+var).Clone()
+#        if (isData==False): #calculate effective luminosity
+#                metafile = lumidir + file_str+"_weight.log"
+#        	f = open(metafile).read().splitlines()
+#                nevents = float((f[0]).split(': ',1)[-1])
+#                xsec = eval("XSec."+file_str.replace("-","_"))
+#		efflumi = nevents/xsec
+#                if ("1Jets" in file_str ):
+#                   print "lumi befor adding %f " %efflumi
+#                   Inclusivefilenambe=file_str.split("1Jets",1)[0]+file_str.split("1",1)[1]
+#                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
+#               	   f1 = open(metafile1).read().splitlines()
+#                   nevents1 = float((f1[0]).split(': ',1)[-1])
+#                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
+#	   	   efflumi1 = nevents1/xsec1
+#                   efflumi=efflumi+efflumi1
+#                   print "lumi after adding %f " %efflumi
+#                if ("2Jets" in file_str ):
+#                   Inclusivefilenambe=file_str.split("2Jets",1)[0]+file_str.split("2",1)[1]
+#                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
+#               	   f1 = open(metafile1).read().splitlines()
+#                   nevents1 = float((f1[0]).split(': ',1)[-1])
+#                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
+#	   	   efflumi1 = nevents1/xsec1
+#                   efflumi=efflumi+efflumi1
+#                    
+#                if ("3Jets" in file_str ):
+#                   Inclusivefilenambe=file_str.split("3Jets",1)[0]+file_str.split("3",1)[1]
+#                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
+#               	   f1 = open(metafile1).read().splitlines()
+#                   nevents1 = float((f1[0]).split(': ',1)[-1])
+#                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
+#	   	   efflumi1 = nevents1/xsec1
+#                   efflumi=efflumi+efflumi1
+#                if ("4Jets" in file_str ):
+#                   Inclusivefilenambe=file_str.split("4Jets",1)[0]+file_str.split("4",1)[1]
+#                   metafile1 = lumidir + Inclusivefilenambe+"_weight.log"
+#               	   f1 = open(metafile1).read().splitlines()
+#                   nevents1 = float((f1[0]).split(': ',1)[-1])
+#                   xsec1 = eval("XSec."+Inclusivefilenambe.replace("-","_"))
+#	   	   efflumi1 = nevents1/xsec1
+#                   efflumi=efflumi+efflumi1
+#		histo.Scale(lumi/efflumi) 
+#	else:	
+#		histo.Scale(lumi/JSONlumi)
+#        if (shift in savedir and isData == False):  ##get normalization uncertainty
+#		savedirNoShift = savedir.strip("_"+shift+"/")
+#		histoNoShift = make_histo(savedirNoShift+"/",file_str, channel,var,lumidir,lumi,isData)
+#                if "Up" in shift:
+#			savedirOppShift = savedir.strip("Up/")+"Down"  
+#		elif "Down" in shift:
+#			savedirOppShift = savedir.strip("Down/")+"Up"
+#		histoOppShift = make_histo(savedirOppShift+"/",file_str, channel,var,lumidir,lumi,isData)
+#                if (histo.Integral() > 0.0):
+# 			scale = abs(histoNoShift.Integral()-histo.Integral())/histoNoShift.Integral()
+# 			scaleOppShift = abs(histoNoShift.Integral()-histoOppShift.Integral())/histoNoShift.Integral()
+#			if (scaleOppShift > scale):
+#				scale = scaleOppShift
+#			print savedir +": " + channel + ": " + file_str + ": " + str(scale+1)
+#		else:
+#			print savedir +": " + file_str + ": ---"
+#        return histo
 
 ##Set up style
 #JSONlumi = 2297.7
@@ -227,8 +257,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+blinded = True #not blinded
+#blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method

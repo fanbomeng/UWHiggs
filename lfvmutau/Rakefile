@@ -136,7 +136,7 @@ task :analyzeSpring2016WjetsandDatagtagdownGH => get_analyzer_results("AnalyzeLF
 task :analyzeSpring2016WjetsandDatabtagdown => get_analyzer_results("AnalyzeLFVMuTaubtagdown.py",samples['HiggsGG']+samples['Data2016E']+samples['Data2016F']+samples['ZTauTauZeroJets']+samples['WZeroJets']+samples['SingleTop']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['Data2016B']+samples['WOneJets']+samples['Data2016C']+samples['Data2016D']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson'])
 
 
-#task :analyzeSpring2016WjetsandData => get_analyzer_results("AnalyzeLFVMuTau.py",samples['HiggsGG']+samples['Data2016E']+samples['Data2016F']+samples['ZTauTauZeroJets']+samples['WZeroJets']+samples['SingleTop']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['Data2016B']+samples['WOneJets']+samples['Data2016C']+samples['Data2016D']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson'])
+task :analyzeSpring2016WjetsandData => get_analyzer_results("AnalyzeLFVMuTau.py",samples['HiggsGG']+samples['Data2016E']+samples['Data2016F']+samples['ZTauTauZeroJets']+samples['WZeroJets']+samples['SingleTop']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['Data2016B']+samples['WOneJets']+samples['Data2016C']+samples['Data2016D']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson'])
 
 
 
@@ -167,8 +167,7 @@ task :analyzeSpring2016WjetsandDatatesup => get_analyzer_results("AnalyzeLFVMuTa
 
 #task :analyzeSpring2016WjetsandDataBDT => get_analyzer_results("AnalyzeLFVMuTauBDTnew.py",samples['QCDs']+samples['WZeroJets']+samples['WOneJets']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 task :analyzeSpring2016WjetsandDataBDT => get_analyzer_results("AnalyzeLFVMuTauBDTnew.py",samples['WZeroJets']+samples['WOneJets']+samples['HiggsGG']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['HiggsVBF'])
-#task :analyzeSpring2016WjetsandDataBDTnew => get_analyzer_results("AnalyzeLFVMuTau_progressBDT.py",samples['HiggsVBF'])
-task :analyzeSpring2016WjetsandDataBDTnew => get_analyzer_results("AnalyzeLFVMuTau_progressBDT.py",samples['WZeroJets']+samples['WOneJets']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['LFVGG']+samples['LFVVBF']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['DYZeroJets'])
+task :analyzeSpring2016WjetsandDataBDTnew => get_analyzer_results("AnalyzeLFVMuTau_progressBDT.py",samples['WZeroJets']+samples['WOneJets']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['LFVGG']+samples['LFVVBF']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['DYZeroJets']+samples['TTBar'])
 #task :analyzeSpring2016WjetsandDataBDTnew => get_analyzer_results("AnalyzeLFVMuTau_progressBDT.py",samples['DYOneJets']+samples['LFVGG']+samples['LFVVBF']+samples['WZeroJets']+samples['WOneJets']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets'])
 
 
@@ -176,7 +175,7 @@ task :analyzeSpring2016WjetsandDataBDTnew => get_analyzer_results("AnalyzeLFVMuT
 
 
 
-task :analyzeSpring2016WjetsandDataPostBDT => get_analyzer_results("AnalyzeLFVMuTauPostBDT.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
+task :analyzeSpring2016WjetsandDataPostBDT => get_analyzer_results("AnalyzeLFVMuTauPostBDT.py",samples['WOneJets']+samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 
 
 task :analyzeSpring2016WjetsandDataPostBDTtesup => get_analyzer_results("AnalyzeLFVMuTauPostBDTtesup.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
@@ -185,7 +184,7 @@ task :analyzeSpring2016WjetsandDataPostBDTtesup => get_analyzer_results("Analyze
 task :analyzeSpring2016WjetsandDataPostBDTtesdown => get_analyzer_results("AnalyzeLFVMuTauPostBDTtesdown.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 
 
-task :analyzeSpring2016WjetsandDataPostBDTjesup => get_analyzer_results("AnalyzeLFVMuTauPostBDTjesup.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
+task :analyzeSpring2016WjetsandDataPostBDTjesup => get_analyzer_results("AnalyzeLFVMuTauPostBDTjesup.py",samples['WOneJets']+samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 
 
 task :analyzeSpring2016WjetsandDataPostBDTjesdown => get_analyzer_results("AnalyzeLFVMuTauPostBDTjesdown.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
@@ -198,38 +197,10 @@ task :analyzeSpring2016WjetsandDataPostBDTuesdown => get_analyzer_results("Analy
 
 
 
+task :analyzeSpring2016WjetsandDataPostBDTbtagup => get_analyzer_results("AnalyzeLFVMuTauPostBDTbtagup.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 
 
-
-
-
-
-
-
-
-
-
-
-task :analyzeSpring2016WjetsandDataon => get_analyzer_results("AnalyzeLFVMuTauon.py",samples['HiggsGG']+samples['Data2016E']+samples['Data2016F']+samples['ZTauTauZeroJets']+samples['WZeroJets']+samples['SingleTop']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['Data2016B']+samples['WOneJets']+samples['Data2016C']+samples['Data2016D']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson'])
-
-
-
-task :analyzeSpring2016WjetsandDatajesdownon => get_analyzer_results("AnalyzeLFVMuTaujesdownon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
-
-
-task :analyzeSpring2016WjetsandDatajesupon => get_analyzer_results("AnalyzeLFVMuTaujesupon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
-
-
-
-task :analyzeSpring2016WjetsandDatauesdownon => get_analyzer_results("AnalyzeLFVMuTauuesdownon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
-
-task :analyzeSpring2016WjetsandDatauesupon => get_analyzer_results("AnalyzeLFVMuTauuesupon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
-
-
-
-task :analyzeSpring2016WjetsandDatatesdownon => get_analyzer_results("AnalyzeLFVMuTautesdownon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
-
-task :analyzeSpring2016WjetsandDatatesupon => get_analyzer_results("AnalyzeLFVMuTautesupon.py",samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['WOneJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
+task :analyzeSpring2016WjetsandDataPostBDTbtagdown => get_analyzer_results("AnalyzeLFVMuTauPostBDTbtagdown.py",samples['WOneJets']+samples['Data2016E']+samples['Data2016F']+samples['WZeroJets']+samples['Data2016B']+samples['Data2016C']+samples['Data2016D']+samples['WTwoJets']+samples['WThreeJets']+samples['WFourJets']+samples['DYZeroJets']+samples['DYOneJets']+samples['DYTwoJets']+samples['DYThreeJets']+samples['DYFourJets']+samples['TTBar']+samples['HiggsVBF']+samples['HiggsGG']+samples['ZTauTauZeroJets']+samples['ZTauTauOneJets']+samples['ZTauTauTwoJets']+samples['ZTauTauThreeJets']+samples['ZTauTauFourJets']+samples['DiBoson']+samples['SingleTop'])
 
 
 

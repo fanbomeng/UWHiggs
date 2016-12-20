@@ -40,8 +40,8 @@ channelTight=argv[1]
 channelLoose=argv[2]
 var=argv[3]
 savedir = argv[4]
-JSONlumi=36145.360  
-#JSONlumi=20076.26  
+#JSONlumi=36145.360  
+JSONlumi=20076.26  
 #JSONlumi=36161.136  
 canvas = ROOT.TCanvas("asdf", "adsf", 800, 800)
 canvas.SetGrid()
@@ -91,14 +91,14 @@ dataLooseC = make_histo(savedir,"data_SingleMuon_Run2016C",channelLoose,var,True
 dataLooseD = make_histo(savedir,"data_SingleMuon_Run2016D",channelLoose,var,True)
 dataLooseE = make_histo(savedir,"data_SingleMuon_Run2016E",channelLoose,var,True)
 dataLooseF = make_histo(savedir,"data_SingleMuon_Run2016F",channelLoose,var,True)
-dataLooseG = make_histo(savedir,"data_SingleMuon_Run2016G",channelLoose,var,True)
-dataLooseH = make_histo(savedir,"data_SingleMuon_Run2016H",channelLoose,var,True)
+#dataLooseG = make_histo(savedir,"data_SingleMuon_Run2016G",channelLoose,var,True)
+#dataLooseH = make_histo(savedir,"data_SingleMuon_Run2016H",channelLoose,var,True)
 dataLoose.Add(dataLooseC)
 dataLoose.Add(dataLooseD)
 dataLoose.Add(dataLooseE)
 dataLoose.Add(dataLooseF)
-dataLoose.Add(dataLooseG)
-dataLoose.Add(dataLooseH)
+#dataLoose.Add(dataLooseG)
+#dataLoose.Add(dataLooseH)
 print "the number of Loose  data %f"   %(dataLoose.Integral())
 dataLoose.Add(mmtLooseww)
 dataTight = make_histo(savedir,"data_SingleMuon_Run2016B",channelTight,var,True)
@@ -106,14 +106,14 @@ dataTightC = make_histo(savedir,"data_SingleMuon_Run2016C",channelTight,var,True
 dataTightD = make_histo(savedir,"data_SingleMuon_Run2016D",channelTight,var,True)
 dataTightE = make_histo(savedir,"data_SingleMuon_Run2016E",channelTight,var,True)
 dataTightF = make_histo(savedir,"data_SingleMuon_Run2016F",channelTight,var,True)
-dataTightG = make_histo(savedir,"data_SingleMuon_Run2016G",channelTight,var,True)
-dataTightH = make_histo(savedir,"data_SingleMuon_Run2016H",channelTight,var,True)
+#dataTightG = make_histo(savedir,"data_SingleMuon_Run2016G",channelTight,var,True)
+#dataTightH = make_histo(savedir,"data_SingleMuon_Run2016H",channelTight,var,True)
 dataTight.Add(dataTightC)
 dataTight.Add(dataTightD)
 dataTight.Add(dataTightE)
 dataTight.Add(dataTightF)
-dataTight.Add(dataTightG)
-dataTight.Add(dataTightH)
+#dataTight.Add(dataTightG)
+#dataTight.Add(dataTightH)
 print "the number of Tight data %f"   %(dataTight.Integral())
 dataTight.Add(mmtTightww)
 
@@ -224,7 +224,8 @@ latex.SetTextSize(0.04)
 
 if ("Eta" in var):
     if ("tEta" in var):
-        fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",-2.5,2.5)
+        #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",-2.5,2.5)
+        fakeFit = ROOT.TF1("adsf","[0]+[1]*x",-2.3,2.3)
   #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
         fakeRateData.Fit(fakeFit,"R")
         fakeFit.Draw("sames")

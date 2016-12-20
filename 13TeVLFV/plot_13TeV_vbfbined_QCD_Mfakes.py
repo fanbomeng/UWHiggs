@@ -195,8 +195,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+blinded = True #not blinded
+#blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -555,7 +555,9 @@ if (fakeRate == True):
 #  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakes.Scale(-1)
   ttbar.Add(ttbarfakes) #avoid double counting
- # wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  wjets.Add(ztautaufakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  wjets.Add(ttbarfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 
 
@@ -820,7 +822,7 @@ outfile.mkdir(rootdir)
 outfile.cd(rootdir+"/")
 if blinded == False:
 	#if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
-	if not ("Jes" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or "Fakes" in shift):
+	if not ("Jes" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or "Fakes" in shift or "Btag" in shift):
         	data.Write("data_obs")
 
 if ("collMass" in var or "m_t_Mass" in var):
@@ -829,7 +831,7 @@ if ("collMass" in var or "m_t_Mass" in var):
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 if blinded == True:
-        if not ("Jes" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift):
+        if not ("Jes" in shift or "Btag" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift):
                 data.Write("data_obs")
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,
@@ -993,7 +995,7 @@ if not  DY_bin:
 else:
    LFVStack.Add(zlljets)
    LFVStack.Add(zmmjets)
-#LFVStack.Add(ztautau)
+LFVStack.Add(ztautau)
 LFVStack.Add(smh)
 if (QCDflag == True):
    backgroundIntegral =QCDs.GetBinContent(7)+ wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
@@ -1092,7 +1094,7 @@ for i in range(1,size+1):
               #stackBinContent = wjets.GetBinContent(i)+wjetsM.GetBinContent(i)+wjetsMT.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
               stackBinContent = wjets.GetBinContent(i)+wjetsM.GetBinContent(i)+zjets.GetBinContent(i)+ztautau.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
            else:
-              stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)
+              stackBinContent = wjets.GetBinContent(i)+zjets.GetBinContent(i)+ttbar.GetBinContent(i)+diboson.GetBinContent(i)+singlet.GetBinContent(i)+ztautau.GetBinContent(i)
      
         if fakeallplot:
            #wjetsBinContent = wjets.GetBinContent(i)+wjetsM.GetBinContent(i)+wjetsMT.GetBinContent(i)
@@ -1113,7 +1115,9 @@ for i in range(1,size+1):
         	   #wjetsError = math.sqrt(((wjets.GetBinContent(i)+wjetsM.GetBinContent(i)+wjetsMT.GetBinContent(i))*0.3*(wjets.GetBinContent(i)+wjetsM.GetBinContent(i))*0.3+wjetsMT.GetBinContent(i))+((wjets.GetBinError(i)+wjetsM.GetBinError(i)+wjetsMT.GetBinError(i))*(wjets.GetBinError(i)+wjetsM.GetBinError(i)+wjetsMT.GetBinError(i))))  #here is different from others, why?
         	   wjetsError = math.sqrt(((wjets.GetBinContent(i)+wjetsM.GetBinContent(i))*0.3*(wjets.GetBinContent(i)+wjetsM.GetBinContent(i))*0.3)+((wjets.GetBinError(i)+wjetsM.GetBinError(i))*(wjets.GetBinError(i)+wjetsM.GetBinError(i))))  #here is different from others, why?
                 else:
-        	   wjetsError = math.sqrt(((wjets.GetBinContent(i))*0.3*(wjets.GetBinContent(i))*0.3)+((wjets.GetBinError(i))*(wjets.GetBinError(i))))  #here is different from others, why?
+                   wjetsError = math.sqrt((wjets.GetBinContent(i)*0.30*wjets.GetBinContent(i)*0.30)+(wjets.GetBinError(i)*wjets.GetBinError(i))+ztautau.GetBinContent(i)*0.03*ztautau.GetBinContent(i)*0.03+ztautau.GetBinError(i)*ztautau.GetBinError(i)+ttbar.GetBinContent(i)*0.1*ttbar.GetBinContent(i)*0.1+ttbar.GetBinError(i)*ttbar.GetBinError(i)+diboson.GetBinContent(i)*0.05*diboson.GetBinContent(i)*0.05+diboson.GetBinError(i)*diboson.GetBinError(i)+zjets.GetBinContent(i)*0.1*zjets.GetBinContent(i)*0.1+zjets.GetBinError(i)*zjets.GetBinError(i)+singlet.GetBinContent(i)*0.1*singlet.GetBinContent(i)*0.1+singlet.GetBinError(i)*singlet.GetBinError(i)) 
+                   #wjetsError = math.sqrt((wjets.GetBinError(i)*wjets.GetBinError(i))+ztautau.GetBinError(i)*ztautau.GetBinError(i)+ttbar.GetBinError(i)*ttbar.GetBinError(i)+diboson.GetBinError(i)*diboson.GetBinError(i)+zjets.GetBinError(i)*zjets.GetBinError(i)+singlet.GetBinError(i)*singlet.GetBinError(i)) 
+        	   #wjetsError = math.sqrt(((wjets.GetBinContent(i))*0.3*(wjets.GetBinContent(i))*0.3)+((wjets.GetBinError(i))*(wjets.GetBinError(i))))  #here is different from others, why?
         else: 
                 if (QCDflag == True):
         	    wjetsError = math.sqrt((QCDs.GetBinContent(i)*0.3*QCDs.GetBinContent(i)*0.3)+(wjets.GetBinContent(i)*0.25*wjets.GetBinContent(i)*0.25)+ztautau.GetBinContent(i)*0.03*ztautau.GetBinContent(i)*0.03+ttbar.GetBinContent(i)*0.1*ttbar.GetBinContent(i)*0.1+diboson.GetBinContent(i)*0.05*diboson.GetBinContent(i)*0.05+zjets.GetBinContent(i)*0.1*zjets.GetBinContent(i)*0.1+singlet.GetBinContent(i)*0.1*singlet.GetBinContent(i)*0.1)  #here is different from others, why?
@@ -1285,7 +1289,6 @@ BLAND=0
 #     wjets.Write("wjets"+shiftStr)
 #  else:
 #     wjets.Write("wjets"+shiftStr)
-zjets.Write("Zothers"+shiftStr)
 ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)
 vbfhmutau125.Scale(0.05)

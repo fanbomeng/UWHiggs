@@ -29,7 +29,7 @@ export isInclusive=false   #ZeroJet
 #export fakeset=true   #ZeroJet
 export isRealData=true
 #rake analyzeSpring2016WjetsandDataprogress
-##rake analyzeSpring2016WjetsandData
+rake analyzeSpring2016WjetsandData
 ###rake AnalyzeLFVMuTau_progressbeforMtcorrection
 ###rake analyzeSpring2016WjetsandDataprogress
 ###export fakeset=false   #ZeroJet
@@ -41,8 +41,8 @@ rake analyzeSpring2016WjetsandDatatesdown
 rake analyzeSpring2016WjetsandDatatesup 
 rake analyzeSpring2016WjetsandDatauesdown 
 rake analyzeSpring2016WjetsandDatauesup
-rake analyzeSpring2016WjetsandDatabtagdown
-rake analyzeSpring2016WjetsandDatabtagup
+#rake analyzeSpring2016WjetsandDatabtagdown
+#rake analyzeSpring2016WjetsandDatabtagup
 #rake analyzeSpring2016WjetsandDatatrial
 #rake analyzeSpring2016WjetsandDataBDT
 export isRealData=false

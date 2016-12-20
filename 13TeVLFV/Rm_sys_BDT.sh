@@ -9,3 +9,5 @@ rm  LFV_BDT/AnalyzeLFVMuTauPostBDTtesdown/LFV*
 rm  LFV_BDT/AnalyzeLFVMuTauPostBDTtesup/LFV*
 rm  LFV_BDT/AnalyzeLFVMuTauPostBDTuesdown/LFV*    
 rm  LFV_BDT/AnalyzeLFVMuTauPostBDTuesup/LFV*
+rm  LFV_BDT/AnalyzeLFVMuTauPostBDTBtagup/LFV*
+rm  LFV_BDT/AnalyzeLFVMuTauPostBDTBtagdown/LFV*

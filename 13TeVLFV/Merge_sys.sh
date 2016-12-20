@@ -1,4 +1,4 @@
-hadd LFV_30fb_mutauhad_1Dicnewchecksfakesnewcutetau.root \
+hadd LFV_20fb_mutauhad_cutbasenewforcard_2.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/LFV_*.root  \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesdown/LFV_*.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesup/LFV_*.root \
