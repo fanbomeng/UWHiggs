@@ -124,11 +124,14 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         target = os.path.basename(os.environ['megatarget'])
       #  print "the target is ***********    %s"    %target
         self.is_data = target.startswith('data_')
+        self.weighttarget=target.split(".",1)[0].replace("-","_")
      #   print "*************"
      #   print self.is_data
 #        print "the target is *****************"
         self.filename=target.split('.')[0]
  #       print self.filename
+        self.is_Wjets=("JetsToLNu" in target)
+        self.is_Jets=('Jets' in target)
         self.is_ZeroJet=(('WJetsToLNu' in target)or('DYJetsToLL' in target)or('ZTauTauJetsToLL' in target))
         self.is_OneJet=('W1JetsToLNu' in target or('DY1JetsToLL' in target)or('ZTauTau1JetsToLL' in target))
         self.is_TwoJet=('W2JetsToLNu' in target or('DY2JetsToLL' in target)or('ZTauTau2JetsToLL' in target))
@@ -138,10 +141,15 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         self.is_ZTauTau= ('ZTauTau' in target)
         self.is_HToTauTau= ('HToTauTau' in target)
         self.is_HToMuTau= ('HToMuTau' in target)
+        self.is_DY=("DY" in target)
         self.is_mc = not (self.is_data or self.is_embedded)
         self.tree = MuTauTree.MuTauTree(tree)
         self.out = outfile
+        if self.is_DY or self.is_ZTauTau:
+           self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
+           self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
         self.histograms = {}
+        self.branches="mPt_/F:tPt_/F:mEta_/F:tEta_/F:m_t_DPhi_/F:mMtToPfMet_type1_/F:tMtToPfMet_type1_/F:tDPhiToPfMet_type1_/F:mDPhiToPfMet_type1_/F:type1_pfMetEt_/F:jetVeto30_/F:vbfDeta_/F:vbfMass_/F:m_t_collinearmass_/F:weight_/F:deltaeta_m_t_/F:lepton_asymmetry_/F:m_t_PZeta_/F:m_t_PZetaVis_/F"
         self.holders = []
         if ("LFV_HToMuTau" in target ):
            self.name="TreeS"
@@ -220,11 +228,14 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         #if (fakeRate == True):
         #   weight=weight*self.fakeRateMethod(row,fakeset) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
-           weight=weight*0.92
+           weight=weight*0.90
         if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
           weight=weight*getGenMfakeTSF(abs(row.tEta))
         if weight<0:
-           weight=0.0 
+           weight=0.0
+        if self.is_DY or self.is_ZTauTau:
+           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+           weight=weight*wtzpt 
         #set_trace()
         if isinstance(to_fill, (tuple, list)):
             if len(to_fill) <> len(self.holders):
@@ -258,7 +269,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
               elif varname=="lepton_asymmetry_": 
                  try:
                     holder[0] = (row.mPt-row.tPt)/(row.mPt+row.tPt)
-                    print "comes here"
+               #     print "comes here"
                  except OverflowError as e:
                     print "Problem of getting weights, the weight will be set to be 0"
                     holder[0] = 0 
@@ -278,20 +289,20 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
         return True
     def WeightJetbin(self,row):
         weighttargettmp=self.weighttarget
-        if self.ls_Jets:
+        if self.is_Jets:
            if row.numGenJets>4:
               print "Error***********************Error***********"
-           if self.ls_Wjets:
+           if self.is_Wjets:
               if row.numGenJets == 0:
                  return  1.0/(eval("weightBDT."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
                  return 1.0/(eval("weightBDT."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
-           if self.ls_ZTauTau:
+           if self.is_ZTauTau:
               if row.numGenJets == 0:
                  return  1.0/(eval("weightBDT."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
                  return 1.0/(eval("weightBDT."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
-           if self.ls_DY:
+           if self.is_DY:
               if row.numGenJets == 0:
                  return  1.0/(eval("weightBDT."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
@@ -311,7 +322,7 @@ class AnalyzeLFVMuTauBDTnew(MegaBase):
     def kinematics(self, row):
         if row.mPt < 25:
             return False
-        if abs(row.mEta) >= 2.3:
+        if abs(row.mEta) >= 2.4:
             return False
         if row.tPt<30 :
             return False

@@ -15,11 +15,14 @@
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Dec2_LFV_NoHF_JetEta25_MissingHiggs
 #export jobid=MiniAodV2For25ns_ExtraJets_LFV_Data
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetEtaFix_LFV
-export datasrc=/hdfs/store/user/caillol/
+#export datasrc=/hdfs/store/user/caillol/
+export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/truggles/
 #export jobid=LFVdata_oct28/
-export jobid=SMHTT_oct25/
+#export jobid=SMHTT_oct25/
+#export jobid=LFVtrileptons_Dec7/
+export jobid=LFVH_Dec21/
 #export jobid=LFVtrilepton_oct31/
 #export jobid=LFVZTauTauEm/
 #export jobid=LFVdata_ExtraG_Hnew/
@@ -36,7 +39,7 @@ echo $afile
 ## Build the cython wrappers
 #rake "make_wrapper[$afile, mmm/final/Ntuple, MuMuMuTree]"
 #rake "make_wrapper[$afile, mmt/final/Ntuple, MuMuTauTree]"
-rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
+#rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
 #rake "make_wrapper[$afile, em/final/Ntuple, MuMuTauTree]"
 echo "come here 1111111111111111"
 ls *pyx | sed "s|pyx|so|" | xargs rake 
@@ -51,6 +54,6 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 ########rake "meta:getinputs[$jobid, $datasrc,mmt/metaInfo, mmt/summedWeights]"
 echo "come here 22222222222222"
 #rake "meta:getmeta[inputs/$jobid, mmm/metaInfo, 13,mmm/summedWeights]"
-#rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
+rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 #########rake "meta:getmeta[inputs/$jobid, mmt/metaInfo, 13,mmt/summedWeights]"
 #rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"echo "come here 33333333333333"

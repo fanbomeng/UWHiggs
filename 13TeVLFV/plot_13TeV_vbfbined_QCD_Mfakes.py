@@ -195,8 +195,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = True #not blinded
-#blinded = False #not blinded
+#blinded = True #not blinded
+blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -261,6 +261,8 @@ elif "collMass" in var and "preselection2Jet" in channel:
         binwidth = 20
 elif "collMass" in var and "preselection" in channel:
         binwidth = 5
+elif "BDT" in var and "vbf_vbf"==channel:
+        binwidth = 10
 
 legend = eval(varParams[8])
 isGeV = varParams[5]
@@ -550,15 +552,15 @@ if (fakeRate == True):
   ztautaufakes.Add(ztautau3fakes)
   ztautaufakes.Add(ztautau4fakes)
   ztautaufakes.Scale(-1)
-  ztautau.Add(ztautaufakes) #avoid double counting
+#  ztautau.Add(ztautaufakes) #avoid double counting
   ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
 #  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakes.Scale(-1)
-  ttbar.Add(ttbarfakes) #avoid double counting
-#  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
-#  wjets.Add(ztautaufakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
-#  wjets.Add(ttbarfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
-  zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  ttbar.Add(ttbarfakes) #avoid double counting
+  wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ztautaufakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ttbarfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 
 
 
@@ -607,13 +609,15 @@ if (fakeRate == True):
   ztautaufakesM.Add(ztautau3fakesM)
   ztautaufakesM.Add(ztautau4fakesM)
   ztautaufakesM.Scale(-1)
-##  ztautau.Add(ztautaufakesM) #avoid double counting
+  ###ztautau.Add(ztautaufakesM) #avoid double counting
   ttbarfakesM = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakeMchannel,var,lumidir,lumi)
 #  ttbarfakesM = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakesM.Scale(-1)
-##  ttbar.Add(ttbarfakesM) #avoid double counting
- # wjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
-##  zjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+#  ttbar.Add(ttbarfakesM) #avoid double counting
+  wjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ztautaufakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ttbarfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+#  zjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
   
 
   fakeMTchannel = fakeMTChannels[channel]
@@ -659,12 +663,14 @@ if (fakeRate == True):
   ztautaufakesMT.Add(ztautau2fakesMT)
   ztautaufakesMT.Add(ztautau3fakesMT)
   ztautaufakesMT.Add(ztautau4fakesMT)
-##  ztautau.Add(ztautaufakesMT) #avoid double counting
+#  ztautau.Add(ztautaufakesMT) #avoid double counting
   ttbarfakesMT = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakeMTchannel,var,lumidir,lumi)
 #  ttbarfakesMT = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
-##  ttbar.Add(ttbarfakesMT) #avoid double counting
- # wjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
-##  zjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+#  ttbar.Add(ttbarfakesMT) #avoid double counting
+  wjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ztautaufakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(ttbarfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+#  zjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
 else: #if fakeRate==False
   #wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
   if wjets_fakes==False :
@@ -779,9 +785,9 @@ if fakeallplot and fakeRate:
    wjetsMT.Rebin(binwidth)
    wjets.Rebin(binwidth)
 if (not fakeallplot) and fakeRate:
- #  wjetsMT.Scale(-1)
- #  wjets.Add(wjetsMT)
- #  wjets.Add(wjetsM)
+   wjetsMT.Scale(-1)
+   wjets.Add(wjetsMT)
+   wjets.Add(wjetsM)
    wjets.Rebin(binwidth)
   # wjetsM.Rebin(binwidth)
    #wjetsMT.Rebin(binwidth)
@@ -966,7 +972,7 @@ BLAND=0
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 #if "preselection" not in channel:
-if blinded==False and ("collMass" in var or "m_t_Mass" in var):
+if blinded==False and ("collMass" in var or "m_t_Mass" in var):   #Fanbo
     for i in range(binLow,binHigh):
         data.SetBinContent(i,-100)
 #Recommended by stats committee
@@ -1021,7 +1027,7 @@ LFVStack.SetMaximum(maxHist*1.20)
 LFVStack.Draw('hist')
 if drawdata:
    if blinded==False :
-     if ("preselection" in channel) or (("preselection" not in channel) and ("collMass" in var or "m_t_Mass" in var)):
+     if ("preselection" in channel) or (("preselection" not in channel) and ("collMass" in var or "m_t_Mass" in var or 'BDTcuts' in var)):
        data.Draw("sames,E0")
    else:
        data.Draw("sames,E0")
@@ -1063,7 +1069,11 @@ pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
 if (xRange!=0):
-	LFVStack.GetXaxis().SetRangeUser(0,xRange)
+        if "BDT" in var:
+       	   LFVStack.GetXaxis().SetRangeUser(-0.8,xRange)
+        else:
+       	   LFVStack.GetXaxis().SetRangeUser(0,xRange)
+
 LFVStack.GetXaxis().SetTitle(xlabel)
 
 xbinLength = wjets.GetBinWidth(1)
@@ -1270,9 +1280,11 @@ pave.SetFillColor(920+4)
 pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
-
 if (xRange!=0):
-        ratio.GetXaxis().SetRangeUser(0,xRange)
+        if "BDT" in var:
+           ratio.GetXaxis().SetRangeUser(-0.8,xRange)
+        else:
+           ratio.GetXaxis().SetRangeUser(0,xRange)
 
 canvas.SaveAs(outfile_name+".png")
 canvas.SaveAs(outfile_name+".pdf")

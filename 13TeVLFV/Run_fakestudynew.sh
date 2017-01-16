@@ -48,6 +48,18 @@ python plot_2016_FakeRatenew.py preselectionDecay10  preselectionVLooseIsoDecay1
 python plot_2016_FakeRatenew.py preselectionDecay0  preselectionVLooseIsoDecay0  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenew.py preselectionDecay1  preselectionVLooseIsoDecay1  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenew.py preselectionDecay10  preselectionVLooseIsoDecay10  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+
+
+python plot_2016_FakeRatenewDiboson.py preselection preselectionLooseIso m3Eta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py preselection preselectionLooseIso m3Etaabs   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+
+python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay10  preselectionVLooseIsoDecay10  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay10  preselectionVLooseIsoDecay10  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 #python plot_13TeV_vbfbined_QCD_fakeSD.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection0Jet   0 none                    tPt30   0
 #python plot_13TeV_vbfbined_QCD_fakeSD.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection1Jet   0 none                    tPt30   0
 #python plot_13TeV_vbfbined_QCD_fakeSD.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection2Jet   0 none                    tPt30   0

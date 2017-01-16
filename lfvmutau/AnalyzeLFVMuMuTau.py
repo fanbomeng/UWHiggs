@@ -369,11 +369,11 @@ class AnalyzeLFVMuMuTau(MegaBase):
     def kinematics(self, row):
         if row.m1Pt < 25:
             return False
-        if abs(row.m1Eta) >= 2.3:
+        if abs(row.m1Eta) >= 2.4:
             return False
         if row.m2Pt < 25:
             return False
-        if abs(row.m2Eta) >= 2.3:
+        if abs(row.m2Eta) >= 2.4:
             return False
         if row.tPt<30 :
             return False

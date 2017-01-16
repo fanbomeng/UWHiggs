@@ -234,8 +234,6 @@ class AnalyzeLFVMuTauPostBDTbtagup(MegaBase):
         self.is_ThreeJet=('W3JetsToLNu' in target or('DY3JetsToLL' in target)or('ZTauTau3JetsToLL' in target))
         self.is_FourJet=('W4JetsToLNu' in target or('DY4JetsToLL' in target)or('ZTauTau4JetsToLL' in target))
         self.is_embedded = ('Embedded' in target)
-        self.is_ZTauTau= ('ZTauTau' in target)
-        self.is_HToTauTau= ('HToTauTau' in target)
         self.is_HToMuTau= ('HToMuTau' in target)
         self.is_mc = not (self.is_data or self.is_embedded)
         self.tree = MuTauTree.MuTauTree(tree)

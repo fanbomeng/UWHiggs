@@ -120,3 +120,5 @@ jet3Eta = ("Jet 3 #eta",10,"ROOT.TLegend(0.23,0.6,0.43,0.9,' ','brNDC')",0,0,Fal
 jet4Eta = ("Jet 4 #eta",10,"ROOT.TLegend(0.23,0.6,0.43,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.23,0.6,0.43,0.9,' ','brNDC')")
 
 jet5Eta = ("Jet 5 #eta",10,"ROOT.TLegend(0.23,0.6,0.43,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.23,0.6,0.43,0.9,' ','brNDC')")
+BDTcuts= ("BDT yield",10,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",0,10,False,0.5,5, "ROOT.TLegend(0.65,0.60,0.93,0.98,' ','brNDC')")
+## order of parameters: xlabel, binwidth, legend, blindlow, blindhigh, include "GeV" on plot, xRangeMax, preselection binwidth

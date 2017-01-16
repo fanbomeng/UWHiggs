@@ -63,3 +63,20 @@ export MEGAPATH=/hdfs/store/user/fmeng/
 export jobid=LFVdata_ExtraG_HTrilep/
 export dryrun=1
 export farmout=1
+
+
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/taroni/
+export jobid=LFVtrileptons_Dec7/
+export dryrun=1
+export farmout=1
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/taroni/
+export jobid=LFVH_Dec21/
+export dryrun=1
+export farmout=1
+
