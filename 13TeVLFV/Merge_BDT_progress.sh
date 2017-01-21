@@ -1,4 +1,4 @@
-hadd LFV_20fb_mutauhad_BDT_progress_withvbfDeta.root \
+hadd LFV_20fb_mutauhad_BDT2_progress_muoneta_NX.root \
 LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/LFV_*.root  \
 LFV_BDT/AnalyzeLFVMuTauPostBDT_progressjesdown/LFV_*.root \
 LFV_BDT/AnalyzeLFVMuTauPostBDT_progressjesup/LFV_*.root \

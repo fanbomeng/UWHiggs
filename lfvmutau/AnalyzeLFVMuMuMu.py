@@ -213,7 +213,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
         weight=1
         if (not(self.is_data)):
            #weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
-           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
+           #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
+           #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
+           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
        # if (not(data)):
 	#   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
       #  if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -459,8 +461,8 @@ class AnalyzeLFVMuMuMu(MegaBase):
             if not self.obj2_id_ICHEP (row):
                 continue
 #            if (self.is_data):
-            if  row.bjetCISVVeto30Medium:
-                   continue
+#            if  row.bjetCISVVeto30Medium:
+#                   continue
             if self.obj2_iso(row) and not self.oppositesign(row):
               self.fill_histos(row,'preselectionSS',False)
 

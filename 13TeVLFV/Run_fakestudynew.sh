@@ -50,10 +50,20 @@ python plot_2016_FakeRatenew.py preselectionDecay1  preselectionVLooseIsoDecay1 
 python plot_2016_FakeRatenew.py preselectionDecay10  preselectionVLooseIsoDecay10  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 
 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay10  preselectionVLooseIsoDecay10  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselection preselectionLooseIso m3Eta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 python plot_2016_FakeRatenewDiboson.py preselection preselectionLooseIso m3Etaabs   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselectionDecay10  preselectionVLooseIsoDecay10  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+
+python plot_2016_FakeRatenewDibosonback.py preselectionDecay0  preselectionVLooseIsoDecay0  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDibosonback.py preselectionDecay1  preselectionVLooseIsoDecay1  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDibosonback.py preselectionDecay10  preselectionVLooseIsoDecay10  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay10  preselectionVLooseIsoDecay10  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 

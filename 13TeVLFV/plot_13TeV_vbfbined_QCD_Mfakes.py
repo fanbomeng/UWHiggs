@@ -72,6 +72,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
 				histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)   
 			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
 				histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				#histo.SetBinError(i,0/nevents*xsec*JSONlumi)
 		else:
                         if histo.GetBinContent(i) < 0:
                                 histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
@@ -143,7 +144,7 @@ RUN_OPTIMIZATION=int(argv[7])
 if RUN_OPTIMIZATION==1:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes1stDown":
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stDown","boost":"boostNotIso1stDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stDown","vbf_vbf":"vbf_vbfNotIso1stDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","preselection2Jet_gg":"notIso2Jet_gg","preselection2Jet_vbf":"notIso2Jet_vbf","gg":"ggNotIso1stDown","boost":"boostNotIso1stDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stDown","vbf_vbf":"vbf_vbfNotIso1stDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes1stUp":
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso1stUp","boost":"boostNotIso1stUp","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso1stUp","vbf_vbf":"vbf_vbfNotIso1stUp"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 elif shift=="Fakes2ndUp":
@@ -151,9 +152,9 @@ elif shift=="Fakes2ndUp":
 elif shift=="Fakes2ndDown":
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso2ndDown","boost":"boostNotIso2ndDown","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso2ndDown","vbf_vbf":"vbf_vbfNotIso2ndDown"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 else:
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-fakeMChannels = {"preselection":"notIsoM","preselectionSS":"notIsoSSM","notIso":"notIsoM","notIsoSS":"notIsoSSM","preselection0Jet":"notIso0JetM","preselection1Jet":"notIso1JetM","preselection2Jet":"notIso2JetM","gg":"ggNotIsoM","boost":"boostNotIsoM","vbf":"vbfNotIsoM","vbf_gg":"vbf_ggNotIsoM","vbf_vbf":"vbf_vbfNotIsoM"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
-fakeMTChannels = {"preselection":"notIsoMT","preselectionSS":"notIsoSSMT","notIso":"notIsoMT","notIsoSS":"notIsoSSMT","preselection0Jet":"notIso0JetMT","preselection1Jet":"notIso1JetMT","preselection2Jet":"notIso2JetMT","gg":"ggNotIsoMT","boost":"boostNotIsoMT","vbf":"vbfNotIsoMT","vbf_gg":"vbf_ggNotIsoMT","vbf_vbf":"vbf_vbfNotIsoMT"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","IsoSS0Jet":"notIsoSS0Jet","IsoSS1Jet":"notIsoSS1Jet","IsoSS2Jet":"notIsoSS2Jet","IsoSS2Jet_gg":"notIsoSS2Jet_gg","IsoSS2Jet_vbf":"notIsoSS2Jet_vbf",'preslectionEnWjets':'notIsoEnWjets','preslectionEnWjets0Jet':'notIsoEnWjets0Jet','preslectionEnWjets1Jet':'notIsoEnWjets1Jet','preslectionEnWjets2Jet':'notIsoEnWjets2Jet','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_gg','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbf',"notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","preselection2Jet_gg":"notIso2Jet_gg","preselection2Jet_vbf":"notIso2Jet_vbf","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+fakeMChannels = {"preselection":"notIsoM","preselectionSS":"notIsoSSM","notIso":"notIsoM","notIsoSS":"notIsoSSM","IsoSS0Jet":"notIsoSS0JetM","IsoSS1Jet":"notIsoSS1JetM","IsoSS2Jet":"notIsoSS2JetM","IsoSS2Jet_gg":"notIsoSS2Jet_ggM","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfM",'preslectionEnWjets':'notIsoEnWjetsM','preslectionEnWjets0Jet':'notIsoEnWjets0JetM','preslectionEnWjets1Jet':'notIsoEnWjets1JetM','preslectionEnWjets2Jet':'notIsoEnWjets2JetM','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggM','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfM',"preselection0Jet":"notIso0JetM","preselection1Jet":"notIso1JetM","preselection2Jet":"notIso2JetM","preselection2Jet_gg":"notIso2Jet_ggM","preselection2Jet_vbf":"notIso2Jet_vbfM","gg":"ggNotIsoM","boost":"boostNotIsoM","vbf":"vbfNotIsoM","vbf_gg":"vbf_ggNotIsoM","vbf_vbf":"vbf_vbfNotIsoM"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
+fakeMTChannels = {"preselection":"notIsoMT","preselectionSS":"notIsoSSMT","notIso":"notIsoMT","notIsoSS":"notIsoSSMT","IsoSS0Jet":"notIsoSS0JetMT","IsoSS1Jet":"notIsoSS1JetMT","IsoSS2Jet":"notIsoSS2JetMT","IsoSS2Jet_gg":"notIsoSS2Jet_ggMT","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfMT",'preslectionEnWjets':'notIsoEnWjetsMT','preslectionEnWjets0Jet':'notIsoEnWjets0JetMT','preslectionEnWjets1Jet':'notIsoEnWjets1JetMT','preslectionEnWjets2Jet':'notIsoEnWjets2JetMT','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggMT','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfMT',"preselection0Jet":"notIso0JetMT","preselection1Jet":"notIso1JetMT","preselection2Jet":"notIso2JetMT","preselection2Jet_gg":"notIso2Jet_ggMT","preselection2Jet_vbf":"notIso2Jet_vbfMT","gg":"ggNotIsoMT","boost":"boostNotIsoMT","vbf":"vbfNotIsoMT","vbf_gg":"vbf_ggNotIsoMT","vbf_vbf":"vbf_vbfNotIsoMT"} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 if RUN_OPTIMIZATION==1: 
    tmpvariable=channel.split("/")[1]
    QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
@@ -195,8 +196,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+blinded = True #not blinded
+#blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -551,16 +552,33 @@ if (fakeRate == True):
   ztautaufakes.Add(ztautau2fakes)
   ztautaufakes.Add(ztautau3fakes)
   ztautaufakes.Add(ztautau4fakes)
-  ztautaufakes.Scale(-1)
+  ztautaufakes.Scale(-1.)
 #  ztautau.Add(ztautaufakes) #avoid double counting
   ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakechannel,var,lumidir,lumi)
 #  ttbarfakes = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakes.Scale(-1)
-#  ttbar.Add(ttbarfakes) #avoid double counting
+  smhvbffakes = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",fakechannel,var,lumidir,lumi)  
+  smhggfakes = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",fakechannel,var,lumidir,lumi)
+  smhvbffakes.Add(smhggfakes)
+  smhvbffakes.Scale(-1)
+  wwfakes = make_histo(savedir,"WW_TuneCUETP8M1_13TeV-pythia8",fakechannel,var,lumidir,lumi)
+  wzfakes = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",fakechannel,var,lumidir,lumi)
+  zzfakes = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",fakechannel,var,lumidir,lumi)
+  wwfakes.Add(wzfakes)
+  wwfakes.Add(zzfakes)
+  wwfakes.Scale(-1)
+  St_tW_antifakes = make_histo(savedir,"ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakechannel,var,lumidir,lumi)
+  St_tW_topfakes = make_histo(savedir,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakechannel,var,lumidir,lumi)
+  St_tW_antifakes.Add(St_tW_topfakes)
+  St_tW_antifakes.Scale(-1)
+  wjets.Add(St_tW_antifakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(wwfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjets.Add(smhvbffakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   wjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   wjets.Add(ztautaufakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   wjets.Add(ttbarfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 #  zjets.Add(zjetsfakes) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+#  ttbar.Add(ttbarfakes) #avoid double counting
 
 
 
@@ -613,10 +631,27 @@ if (fakeRate == True):
   ttbarfakesM = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakeMchannel,var,lumidir,lumi)
 #  ttbarfakesM = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
   ttbarfakesM.Scale(-1)
+  smhvbffakesM = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",fakeMchannel,var,lumidir,lumi)  
+  smhggfakesM = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",fakeMchannel,var,lumidir,lumi)
+  smhvbffakesM.Add(smhggfakesM)
+  smhvbffakesM.Scale(-1)
+  wwfakesM = make_histo(savedir,"WW_TuneCUETP8M1_13TeV-pythia8",fakeMchannel,var,lumidir,lumi)
+  wzfakesM = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",fakeMchannel,var,lumidir,lumi)
+  zzfakesM = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",fakeMchannel,var,lumidir,lumi)
+  wwfakesM.Add(wzfakesM)
+  wwfakesM.Add(zzfakesM)
+  wwfakesM.Scale(-1)
+  St_tW_antifakesM = make_histo(savedir,"ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakeMchannel,var,lumidir,lumi)
+  St_tW_topfakesM = make_histo(savedir,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakeMchannel,var,lumidir,lumi)
+  St_tW_antifakesM.Add(St_tW_topfakesM)
+  St_tW_antifakesM.Scale(-1)
+  wjetsM.Add(St_tW_antifakesM) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsM.Add(wwfakesM) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsM.Add(smhvbffakesM) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 #  ttbar.Add(ttbarfakesM) #avoid double counting
-  wjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
-  wjets.Add(ztautaufakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
-  wjets.Add(ttbarfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsM.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsM.Add(ztautaufakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsM.Add(ttbarfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
 #  zjets.Add(zjetsfakesM) #avoid double counting  say besides the fakesM from DY, and ztautau,ttbar, then the remainning is wjets
   
 
@@ -632,6 +667,16 @@ if (fakeRate == True):
   data2016BfakesMT.Add(data2016DfakesMT)
   data2016BfakesMT.Add(data2016EfakesMT)
   data2016BfakesMT.Add(data2016FfakesMT)
+  
+  faketau=data2016Bfakes.Clone()
+  fakemu=data2016BfakesM.Clone()
+  fakemutau=data2016BfakesMT.Clone()
+  faketau.Rebin(25)
+  fakemu.Rebin(25)
+  fakemutau.Rebin(25)
+#  for ibin in range  (1, faketau.GetXaxis().GetNbins()) :
+#	print 'tau loose: %s, mu loose %s, both loose %s' %(str(faketau.GetBinContent(ibin)), str(fakemu.GetBinContent(ibin)), str(fakemutau.GetBinContent(ibin)))
+	
  # wjets = data2015CfakesMT.Clone()
  # wjets.Add(data2015DfakesMT)
   wjetsMT = data2016BfakesMT.Clone()
@@ -648,7 +693,8 @@ if (fakeRate == True):
   zjetsfakesMT.Add(z1jetsfakesMT) 
   zjetsfakesMT.Add(z2jetsfakesMT) 
   zjetsfakesMT.Add(z3jetsfakesMT) 
-  zjetsfakesMT.Add(z4jetsfakesMT) 
+  zjetsfakesMT.Add(z4jetsfakesMT)
+  zjetsfakesMT.Scale(-1) 
   ztautaufakesMT = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakeMTchannel,var,lumidir,lumi)
 #  do_binbybinQCD(ztautaufakesMT,lowDataBin,highDataBin)
   ztautau1fakesMT = make_histo(savedir,"ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakeMTchannel,var,lumidir,lumi)
@@ -663,13 +709,32 @@ if (fakeRate == True):
   ztautaufakesMT.Add(ztautau2fakesMT)
   ztautaufakesMT.Add(ztautau3fakesMT)
   ztautaufakesMT.Add(ztautau4fakesMT)
+  ztautaufakesMT.Scale(-1) 
 #  ztautau.Add(ztautaufakesMT) #avoid double counting
   ttbarfakesMT = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",fakeMTchannel,var,lumidir,lumi)
+  ttbarfakesMT.Scale(-1) 
+  smhvbffakesMT = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",fakeMTchannel,var,lumidir,lumi)  
+  smhggfakesMT = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",fakeMTchannel,var,lumidir,lumi)
+  smhvbffakesMT.Add(smhggfakesMT)
+  smhvbffakesMT.Scale(-1)
+  wwfakesMT = make_histo(savedir,"WW_TuneCUETP8M1_13TeV-pythia8",fakeMTchannel,var,lumidir,lumi)
+  wzfakesMT = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",fakeMTchannel,var,lumidir,lumi)
+  zzfakesMT = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",fakeMTchannel,var,lumidir,lumi)
+  wwfakesMT.Add(wzfakesMT)
+  wwfakesMT.Add(zzfakesMT)
+  wwfakesMT.Scale(-1)
+  St_tW_antifakesMT = make_histo(savedir,"ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakeMTchannel,var,lumidir,lumi)
+  St_tW_topfakesMT = make_histo(savedir,"ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1",fakeMTchannel,var,lumidir,lumi)
+  St_tW_antifakesMT.Add(St_tW_topfakesMT)
+  St_tW_antifakesMT.Scale(-1)
+  wjetsMT.Add(St_tW_antifakesMT) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsMT.Add(wwfakesMT) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsMT.Add(smhvbffakesMT) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
 #  ttbarfakesMT = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",fakechannel,var,lumidir,lumi)
 #  ttbar.Add(ttbarfakesMT) #avoid double counting
-  wjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
-  wjets.Add(ztautaufakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
-  wjets.Add(ttbarfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsMT.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsMT.Add(ztautaufakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
+  wjetsMT.Add(ttbarfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
 #  zjets.Add(zjetsfakesMT) #avoid double counting  say besides the fakesMT from DY, and ztautau,ttbar, then the remainning is wjets
 else: #if fakeRate==False
   #wjets = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",channel,var,lumidir,lumi)
@@ -834,6 +899,9 @@ if blinded == False:
 if ("collMass" in var or "m_t_Mass" in var):
   binLow = data.FindBin(100)
   binHigh = data.FindBin(150)+1
+if ("BDT" in var):
+  binLow1 = data.FindBin(-0.1)
+  binHigh1 = data.FindBin(1)+1
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 if blinded == True:
@@ -974,6 +1042,9 @@ BLAND=0
 #if "preselection" not in channel:
 if blinded==False and ("collMass" in var or "m_t_Mass" in var):   #Fanbo
     for i in range(binLow,binHigh):
+        data.SetBinContent(i,-100)
+if blinded==False and ('BDT' in var):   #Fanbo
+    for i in range(binLow1,binHigh1):
         data.SetBinContent(i,-100)
 #Recommended by stats committee
 if(poissonErrors==True):
@@ -1185,7 +1256,7 @@ systErrors.SetFillColorAlpha(920+2,0.35)
 systErrors.SetMarkerSize(0)
 systErrors.Draw('E2,sames')
 legend.AddEntry(data, 'Data #mu#tau_{had}')
-legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
+#legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
 legend.AddEntry(smh, 'SM Higgs')
 #legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
 legend.AddEntry(ztautau,'Z->#tau#tau ','f')
@@ -1246,8 +1317,10 @@ mc.Add(zjets)
 mc.Add(ztautau)
 mc.Add(ttbar)
 mc.Add(diboson)
+mc.Add(singlet)
+mc.Add(smh)
 mc.Scale(-1)
-ratio.Add(mc)
+#ratio.Add(mc)
 mc.Scale(-1)
 ratio.Divide(mc)
 ratio.Draw("E1")
@@ -1266,15 +1339,17 @@ ratio.GetXaxis().SetLabelFont(42)
 ratio.GetYaxis().SetNdivisions(505)
 ratio.GetYaxis().SetLabelFont(42)
 ratio.GetYaxis().SetLabelSize(0.1)
-ratio.GetYaxis().SetRangeUser(-1,1)
+#ratio.GetYaxis().SetRangeUser(-1,1)
+ratio.GetYaxis().SetRangeUser(0.6,1.4)
 #ratio.GetYaxis().SetTitle("#frac{Data-MC}{MC}")
-ratio.GetYaxis().SetTitle("#frac{Data-BG}{BG}")
+ratio.GetYaxis().SetTitle("#frac{Obs.}{Exp.}")
 ratio.GetYaxis().CenterTitle(1)
 ratio.GetYaxis().SetTitleOffset(0.4)
 ratio.GetYaxis().SetTitleSize(0.12)
 ratio.SetTitle("")
 
-paveratio = ROOT.TPave(100,-1,150,1,4,"br")
+#paveratio = ROOT.TPave(100,-1,150,1,4,"br")
+paveratio = ROOT.TPave(100,0.6,150,1.4,4,"br")
 #pave.SetFillColor(ROOT.kGray+4)
 pave.SetFillColor(920+4)
 pave.SetBorderSize(0)

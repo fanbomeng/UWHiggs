@@ -18,7 +18,8 @@ import math
 import weightNormal
 from math import sqrt, pi
 import bTagSF
-bTagSF=0
+btagSys=0
+#bTagSF=0
 #data=bool ('true' in os.environ['isRealData'])
 #ZTauTau = bool('true' in os.environ['isZTauTau'])
 #ZeroJet = bool('true' in os.environ['isInclusive'])
@@ -129,6 +130,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
             self.book(names[x], "tPt", "Tau  Pt", 300,0,300)
             self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
+            self.book(names[x], "abstEta", "abs Tau  eta", 100, -2.5, 2.5)
             self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
             self.book(names[x], "tCharge", "Tau  Charge", 5, -2, 2)
 	    self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
@@ -230,7 +232,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
         weight=1.0
         if (not(self.is_data)):
 #	   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
-           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)#*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
      #   if (fakeRate == True):
      #     weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
@@ -259,6 +261,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
         histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
         histos[name+'/tPt'].Fill(row.tPt, weight)
         histos[name+'/tEta'].Fill(row.tEta, weight)
+        histos[name+'/abstEta'].Fill(abs(row.tEta), weight)
         histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_type1,weight)
         histos[name+'/tCharge'].Fill(row.tCharge, weight)
 	histos[name+'/tJetPt'].Fill(row.tJetPt, weight)
@@ -577,8 +580,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
             if not self.kinematics(row): 
                 continue
-            if  row.bjetCISVVeto30Medium:
-                   continue 
+#            if  row.bjetCISVVeto30Medium:
+#                   continue 
             if not self.obj1_iso(row):
                 continue
             if not self.obj1_idICHEP(row):
@@ -591,7 +594,9 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
             if not self.obj2_id (row):
                 continue
-
+            if (self.is_data):
+               if  row.bjetCISVVeto30Medium:
+                   continue
             if self.obj2_iso(row) and not self.oppositesign(row):
               self.fill_histos(row,'preselectionSS',False)
 

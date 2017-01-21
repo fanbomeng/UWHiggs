@@ -80,3 +80,25 @@ export jobid=LFVH_Dec21/
 export dryrun=1
 export farmout=1
 
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/caillol/
+export jobid=SMHTT_data_jan17/
+export dryrun=1
+export farmout=1
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/caillol/
+export jobid=SMHTT_jan11_v2/
+export dryrun=1
+export farmout=1
+
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/caillol/
+export jobid=SMHTT_mc_jan17/
+export dryrun=1
+export farmout=1
+

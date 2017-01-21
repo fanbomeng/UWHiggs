@@ -38,6 +38,8 @@ python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMt
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection0Jet   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection1Jet   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection2Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection2Jet_gg   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection2Jet_vbf   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselectionSS   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf             0 none                             tPt30   0
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  gg              0 none                             tPt30   0
@@ -72,6 +74,21 @@ python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_BDT/AnalyzeLFVMuTauPostBDT/ collMas
 python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_BDT/AnalyzeLFVMuTauPostBDT/ collMass_type1  vbf_vbf          0 none                             tPt0   0
 
 
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   preselectionSS          0 none            tPt0   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS2Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS2Jet_gg   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS2Jet_vbf   0 none                    tPt30   0
+
+
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets          0 none            tPt0   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets2Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets2Jet_gg   0 none              tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preslectionEnWjets2Jet_vbf   0 none          tPt30   0
+python plot_13TeV_vbfbined_QCD_fakeshapeplot.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau_progress/ collMass_type1   preselection0Jet 0 none        tPt0   0
 #python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  IsoSS0Jet   0 none                    tPt30   0
 #python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection0Jet   0 none                    tPt30   0
 #python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mPt              preselection0Jet  0 none                    tPt30   0
@@ -112,4 +129,11 @@ python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_BDT/AnalyzeLFVMuTauPostBDT/ collMas
 
 #python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection0Jet   0 none                    tPt30   0
 #python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection1Jet   0 none                    tPt30   0
-#python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection2Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_Mfakes_vbfbin.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf_vbf         0 none           tPt30   0
+
+
+python plot_13TeV_vbfbined_QCD_Mfakeswjetsvswjets.py WjetsCOMP/AnalyzeLFVMuTauOFNX/ collMass_type1  gg        0 none    tPt0   0   WjetsCOMP/AnalyzeLFVMuTauNFNX/
+python plot_13TeV_vbfbined_QCD_Mfakeswjetsvswjets.py WjetsCOMP/AnalyzeLFVMuTauOFNX/ collMass_type1  boost     0 none    tPt0   0   WjetsCOMP/AnalyzeLFVMuTauNFNX/
+python plot_13TeV_vbfbined_QCD_Mfakeswjetsvswjets.py WjetsCOMP/AnalyzeLFVMuTauOFNX/ collMass_type1  vbf_gg    0 none    tPt0   0   WjetsCOMP/AnalyzeLFVMuTauNFNX/
+python plot_13TeV_vbfbined_QCD_Mfakeswjetsvswjets.py WjetsCOMP/AnalyzeLFVMuTauOFNX/ collMass_type1  vbf_vbf    0 none    tPt0   0  WjetsCOMP/AnalyzeLFVMuTauNFNX/
+#python plot_13TeV_vbfbined_QCD_Mfakes.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection2Jet   0 none                    tPt30   0    
