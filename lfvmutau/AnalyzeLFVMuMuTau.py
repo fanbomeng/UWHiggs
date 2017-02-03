@@ -15,7 +15,7 @@ import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
-import weightNormal
+import weightMuMuTau
 from math import sqrt, pi
 import bTagSF
 btagSys=0
@@ -38,26 +38,31 @@ def deltaPhi(phi1, phi2):
 pu_distributions = glob.glob(os.path.join(
 #    'inputs', os.environ['jobid'], 'data_TauPlusX*pu.root'))
         'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
-pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+#pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+pu_corrector = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributions)
 #print "the path *************"
 #print pu_distributions
-muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
-muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
-muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
+#muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
+muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+#muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
+muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+#muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
+muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
-
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
-  m1iso = muon_pog_TightIso_2016('Tight',row.m1Pt,abs(row.m1Eta))
-  m1_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m1Pt,abs(row.m1Eta))
+  m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
+  m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
   m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
-  m2iso = muon_pog_TightIso_2016('Tight',row.m2Pt,abs(row.m2Eta))
+  m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
 #  m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
 
   #print "pu"
   #print str(pu)
-  return pu*m1id*m1iso*m1_trg*m2id*m2iso#*m2_trg
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m1tracking*m2tracking#*m2_trg
 
 mc_corrector = mc_corrector_2016
 
@@ -81,7 +86,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
 #        WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
         self.weighttarget=target.split(".",1)[0].replace("-","_")
         self.is_data = target.startswith('data_')
-
+        self.is_dataG_H =(bool('Run2016H' in target) or bool('Run2016G' in target))
      #   print "*************"
      #   print self.is_data
         self.ls_Jets=('Jets' in target)
@@ -235,14 +240,14 @@ class AnalyzeLFVMuMuTau(MegaBase):
            weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
      #   if (fakeRate == True):
      #     weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
-        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
+     #   if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
           #weight=weight*0.83
-          weight=weight*0.90
+     #     weight=weight*0.90
 #        if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
 #          weight=weight*getGenMfakeTSF(abs(row.tEta))
-        if self.ls_DY or self.ls_ZTauTau:
-           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
-           weight=weight*wtzpt
+      #  if self.ls_DY or self.ls_ZTauTau:
+      #     wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+      #     weight=weight*wtzpt
 
 
         histos[name+'/weight'].Fill(weight)
@@ -353,7 +358,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
 
     def presel(self, row):
-        if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        if not (row.singleIsoMu24Pass or row.singleIsoTkMu24Pass):
             return False
         return True
 
@@ -471,7 +476,13 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 goodGlobal2=False
          return ((row.m1PFIDLoose and row.m1ValidFraction > 0.49 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.49 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)))
 
- 
+    def obj1_idM(self,row):
+
+        goodglob1=row.m1IsGlobal and row.m1NormalizedChi2 < 3 and row.m1Chi2LocalPosition < 12 and row.m1TrkKink < 20
+        isICHEPMedium1 = row.m1PFIDLoose and row.m1ValidFraction> 0.8 and row.m1SegmentCompatibility >  (0.303 if goodglob1 else 0.451);
+        goodglob2=row.m2IsGlobal and row.m2NormalizedChi2 < 3 and row.m2Chi2LocalPosition < 12 and row.m2TrkKink < 20
+        isICHEPMedium2 = row.m2PFIDLoose and row.m2ValidFraction> 0.8 and row.m2SegmentCompatibility >  (0.303 if goodglob2 else 0.451);
+        return isICHEPMedium1 and isICHEPMedium2 
 #    def obj1_idICHEP(self,row):
 #	 if (row.m1IsGlobal and (row.m1NormalizedChi2 < 3) and (row.m1Chi2LocalPosition < 12) and (row.m1TrkKink < 20)):
 #		goodGlobal1=True
@@ -499,21 +510,21 @@ class AnalyzeLFVMuMuTau(MegaBase):
               print "Error***********************Error***********"
            if self.ls_Wjets:    
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))    
               else:
-                 return 1.0/(eval("weightNormal."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_ZTauTau:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightNormal."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_DY:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightNormal."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
         else:
-              return 1.0/(eval("weightNormal."+self.weighttarget))
+              return 1.0/(eval("weightMuMuTau."+self.weighttarget))
 #    def obj2_id(self, row):
 #	return  row.tAgainstElectronLooseMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding and row.tPVDZ < 0.2 and row.tMuonIdIsoVtxOverlap == 0 and row.tElecOverlap == 0
     def obj2_id(self, row):
@@ -573,10 +584,12 @@ class AnalyzeLFVMuMuTau(MegaBase):
             if sel==True:
                 continue
 
-            if self.is_data and not self.presel(row): #only apply trigger selections for data
+            #if self.is_data and not self.presel(row): #only apply trigger selections for data   
+            #    continue
+            if not self.presel(row): #only apply trigger selections for data   
                 continue
-            if not self.selectZtt(row):
-                continue
+       #     if not self.selectZtt(row):
+       #         continue
 
             if not self.kinematics(row): 
                 continue
@@ -584,9 +597,18 @@ class AnalyzeLFVMuMuTau(MegaBase):
 #                   continue 
             if not self.obj1_iso(row):
                 continue
-            if not self.obj1_idICHEP(row):
-                continue
-
+    #        if not self.obj1_idICHEP(row):
+    #            continue
+            if self.is_dataG_H or (not self.is_data):
+#               print self.target1 
+#               print "the bool valueGH %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idM(row):
+                   continue
+            else:
+#               print self.target1 
+#               print "the bool value %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idICHEP(row):
+                   continue
             if not self.vetos (row):
                 continue
             if not self.m1m2Mass (row):

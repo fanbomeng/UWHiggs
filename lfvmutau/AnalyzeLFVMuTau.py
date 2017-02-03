@@ -20,7 +20,8 @@ import optimizer_new
 #import optimizerdetastudy
 from math import sqrt, pi
 import itertools
-import bTagSF
+#import bTagSF
+import bTagSFrereco
 from RecoilCorrector import RecoilCorrector
 #data=bool ('true' in os.environ['isRealData'])
 #RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
@@ -130,46 +131,28 @@ def getGenMfakeTSF(ABStEta):
 
 
 
-def getFakeRateFactorFANBO(row, fakeset):
-     if fakeset=="def":
-        if  row.tDecayMode==0:
-            fTauIso=0.213588+0.00184983*row.tEta
-        if  row.tDecayMode==1:
-            fTauIso=0.210934+0.00785049*row.tEta
-        if  row.tDecayMode==10:
-            fTauIso=0.181535+0.00197066*row.tEta
-     if fakeset=="1stUp":
-        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
-     if fakeset=="1stDown":
-        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
-     if fakeset=="2ndUp":
-        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
-     if fakeset=="2ndDown":
-        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
 def getFakeRateFactorFANBOPt(row, fakeset):
      if fakeset=="def":
         if  row.tDecayMode==0:
-            fTauIso=0.220418
+            fTauIso=0.22362
         if  row.tDecayMode==1:
-            fTauIso=0.209926
+            fTauIso=0.218989
         if  row.tDecayMode==10:
-            fTauIso=0.181669
+            fTauIso=0.186646
      if fakeset=="1stUp":
         if  row.tDecayMode==0:
-            fTauIso=0.21753+0.00724482
+            fTauIso=0.22362+0.00685
         if  row.tDecayMode==1:
-            fTauIso=0.21068+0.00406504
+            fTauIso=0.218989+0.00392
         if  row.tDecayMode==10:
-            fTauIso=0.18071+0.00448410
+            fTauIso=0.186646+0.00416
      if fakeset=="1stDown":
         if  row.tDecayMode==0:
-            fTauIso=0.21753-0.00724482
+            fTauIso=0.21753-0.00685
         if  row.tDecayMode==1:
-            fTauIso=0.21068-0.00406504
+            fTauIso=0.218989-0.00392
         if  row.tDecayMode==10:
-            fTauIso=0.18071-0.00448410
+            fTauIso=0.186646-0.00416
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
 #def getFakeRateFactorFANBOPt(row, fakeset):
@@ -199,10 +182,10 @@ def getFakeRateFactorFANBOPt(row, fakeset):
 #
 def getFakeRateFactormuon(row, fakeset):   #Ptbined
     if fakeset=="def":
-       if row.mPt<55:
-          fTauIso=0.792721
-       if row.mPt>=55:
-          fTauIso=0.905855
+       if row.mPt<75:
+          fTauIso=0.80905
+       if row.mPt>=75:
+          fTauIso=0.942667
     if fakeset=="1stUp":
        if row.mPt<55:
           fTauIso=0.792721+0.0305471
@@ -215,38 +198,14 @@ def getFakeRateFactormuon(row, fakeset):   #Ptbined
           fTauIso=0.905855-0.0339542
     fakeRateFactor = fTauIso/(1.0-fTauIso)
     return fakeRateFactor
-def getFakeRateFactormuonEta(row, fakeset):   #old
-     if fakeset=="def":
-            #fTauIso=0.78183+0.000617981*row.tEta+0.00568672*row.tEta*row.tEta
-            #fTauIso=0.870968+0.0268453*row.tEta+0.0101171*row.tEta*row.tEta-0.00704735*row.tEta*row.tEta*row.tEta+0.000158901*row.tEta*row.tEta*row.tEta*row.tEta
-       if row.mEta>=-2.5 and row.mEta<-1.5:
-          fTauIso=0.806936
-       if row.mEta>=-1.5 and row.mEta<-0.5:
-          fTauIso=0.788648
-       if row.mEta>=-0.5 and row.mEta<0.5:
-          fTauIso=0.766936
-       if row.mEta>=0.5 and row.mEta<1.5:
-          fTauIso=0.819238
-       if row.mEta>=1.5 and row.mEta<2.5:#and row.mPt<200:
-          fTauIso=0.708806
-     if fakeset=="1stUp":
-        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
-     if fakeset=="1stDown":
-        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
-     if fakeset=="2ndUp":
-        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
-     if fakeset=="2ndDown":
-        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
 
 def getFakeRateFactormuonabsEta(row, fakeset):   #old
      if fakeset=="def":
-          fTauIso=0.8016
+          fTauIso=0.825162
      if fakeset=="1stUp":
-        fTauIso=0.8016+0.0871
+        fTauIso=0.825162+0.013674
      if fakeset=="1stDown":
-        fTauIso=0.8016-0.0871
+        fTauIso=0.825162-0.013674
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
 
@@ -268,31 +227,35 @@ def getFakeRateFactor(row, fakeset):
 ################################################################################
 pu_distributions = glob.glob(os.path.join(
         'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
-pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+#pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+pu_corrector = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributions)
 
 #muon_HTauTau_TriggerIso22_2016B= MuonPOGCorrections.make_muon_HTauTau_TriggerIso22_2016B()
-muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
-muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
+muon_pog_TriggerIso24_2016B= MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
 #muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
 #muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
 #muon_pog_Tracking_2016B = MuonPOGCorrections.mu_trackingEta_2016()
-muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
+muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
+#  if pu>5:
+#     pu=1.0
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
  # m1tracking =muon_pog_Tracking_2016B(row.mPt,row.mEta)
   m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
 #  print m1tracking
-  m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,abs(row.mEta))
-  m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
+  m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt,abs(row.mEta))
+  m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
 #  m1iso =muon_pog_TightIso_2016B('Medium',row.mPt,abs(row.mEta))
-  #print "puC %f----idC %f-----trackingC %f-----trgiso24C %f----isoC %f" %(pu,m1id,m1tracking,m_trgiso22,m1iso) 
+  
 #  print "in the analyzer muon trigger"
  # print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
   #print "pu"
   #print str(pu)
   #return pu*m1id*m1iso*m_trg
+  #print "puC %f----idC %f-----trackingC %f-----trgiso24C %f----isoC %f" %(pu,m1id,m1tracking,m_trgiso22,m1iso)
   return pu*m1id*m1iso*m1tracking*m_trgiso22
 #  return pu*m1id**m1tracking*m_trgiso22
  # return pu*m1id*m1iso
@@ -308,6 +271,7 @@ class AnalyzeLFVMuTau(MegaBase):
         super(AnalyzeLFVMuTau, self).__init__(tree, outfile, **kwargs)
         # Use the cython wrapper
         target = os.path.basename(os.environ['megatarget'])
+        self.target1 = os.path.basename(os.environ['megatarget'])
         self.ls_recoilC=((('HTo' in target) or ('Jets' in target)) and MetCorrection) 
         if self.ls_recoilC and MetCorrection:
            self.Metcorected=RecoilCorrector("TypeIPFMET_2016BCD.root")
@@ -316,6 +280,7 @@ class AnalyzeLFVMuTau(MegaBase):
 #        WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
         self.weighttarget=target.split(".",1)[0].replace("-","_")
         self.is_data = target.startswith('data_')
+        self.is_dataG_H =(bool('Run2016H' in target) or bool('Run2016G' in target))
      #   print "*************"
      #   print self.is_data
         self.ls_Jets=('Jets' in target)
@@ -570,12 +535,12 @@ class AnalyzeLFVMuTau(MegaBase):
           # return getFakeRateFactor(row,fakeset)
         if faketype=="muonfake":
            #return getFakeRateFactormuonEta(row,fakeset)
-           #return getFakeRateFactormuon(row,fakeset)
-           return getFakeRateFactormuonabsEta(row,fakeset)
+           return getFakeRateFactormuon(row,fakeset)
+           #return getFakeRateFactormuonabsEta(row,fakeset)
         if faketype=="mtfake":
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactorFANBO(row,fakeset)
-       #    return getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
-           return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
+           return getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
+           #return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactor(row,fakeset)
        # return getFakeRateFactorAaron(row,fakeset)
 	     
@@ -602,9 +567,10 @@ class AnalyzeLFVMuTau(MegaBase):
         weight=1#bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
         if (not(self.is_data)):
         #some difference from the btag stuff
-	   weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
-#           print "most of the weights********%f"   %(weight)
-	   #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
+	   weight = row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+	   #weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           #print "most of the weights %f"  %(weight) 
+#	   weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 	   #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 #	   weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 
@@ -612,14 +578,14 @@ class AnalyzeLFVMuTau(MegaBase):
         if (fakeRate == True):
 #          print self.fakeRateMethod(row,fakeset)
           weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
-        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
+       # if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
           #weight=weight*0.83
-          weight=weight*0.90
+       #   weight=weight*0.95
         if (self.ls_DY and row.isZmumu  and row.tZTTGenMatching<5):
           weight=weight*getGenMfakeTSF(abs(row.tEta))
-        if self.ls_DY or self.ls_ZTauTau:
-           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
-#           weight=weight*wtzpt
+     #   if self.ls_DY or self.ls_ZTauTau:
+     #      wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+     #      weight=weight*wtzpt
 #        self.pfmetcorr_ex=0.000001
 #        self.pfmetcorr_ey=0.000001
 #          print "Genmother of Tau ID %d and the additional weight passed %f"  %(row.tGenMotherPdgId,getGenMfakeTSF(abs(row.tEta)))
@@ -815,7 +781,8 @@ class AnalyzeLFVMuTau(MegaBase):
 
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
-        if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        #if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        if not (row.singleIsoMu24Pass or row.singleIsoTkMu24Pass):
             return   False
         return True 
 
@@ -966,18 +933,18 @@ class AnalyzeLFVMuTau(MegaBase):
        #         return False
        # if row.mPt < 30:
        # 	return False
-        if row.tMtToPfMet_type1 > 75: #was 35   #newcuts 55
+        if row.tMtToPfMet_type1 > 85: #was 35   #newcuts 55
                 return False
-        if row.jetVeto30<2:  
-            return False
-	if(row.vbfNJets30<2):
-	    return False
-	if(abs(row.vbfDeta)<0.3):   #was 2.5    #newcut 2.0
-	    return False
-     #   if row.vbfMass < 200:    #was 200   newcut 325
+#        if row.jetVeto30<2:  
+#            return False
+#	if(row.vbfNJets30<2):
 #	    return False
-        if row.vbfJetVeto30 > 0:
-            return False
+	if(abs(row.vbfDeta)<3.5):   #was 2.5    #newcut 2.0
+	    return False
+        if row.vbfMass < 550:    #was 200   newcut 325
+	    return False
+        #if row.vbfJetVeto30 > 0:
+        #    return False
   #      if row.bjetCISVVeto30Medium:
   #          return False
         return True
@@ -1054,8 +1021,13 @@ class AnalyzeLFVMuTau(MegaBase):
         isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
     	return isICHEPMedium
     def obj1_id(self,row):
-        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
+        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.2) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
 
+    def obj1_idM(self,row):
+   
+        goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
+        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.8 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+    	return isICHEPMedium
     def obj2_id(self, row):
 	#return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
 	return  row.tAgainstElectronVLooseMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
@@ -1110,13 +1082,15 @@ class AnalyzeLFVMuTau(MegaBase):
                 sel = False      # it will save them all.
             if sel==True:
                 continue
-            if self.is_data: 
-               if not self.presel(row):
+#            if self.is_data: 
+            if not self.presel(row):
                   continue
 #            if not self.selectZmm(row):
 #                continue
             if not self.selectZtt(row):
                 continue
+#            if pu_corrector(row.nTruePU)>10:
+#               print "hight pileupC %f" %(pu_corrector(row.nTruePU))
 #            if not self.selectZeroJet(row):
 #		continue
 #            if not self.selectOneJet(row):
@@ -1133,10 +1107,18 @@ class AnalyzeLFVMuTau(MegaBase):
   #              continue 
             if not self.obj1_isoloose(row):
                 continue
-#            if not self.obj1_id(row):
+#            if not self.obj1_id(row):  
 #                continue
-            if not self.obj1_idICHEP(row):
-                continue
+            if self.is_dataG_H or (not self.is_data):
+#               print self.target1 
+#               print "the bool valueGH %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idM(row):
+                   continue
+            else:
+#               print self.target1 
+#               print "the bool value %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idICHEP(row):
+                   continue
             if not self.vetos (row):
                 continue
 
@@ -1331,7 +1313,7 @@ class AnalyzeLFVMuTau(MegaBase):
    		        tmp=os.path.join("gg",i)
 		        self.fill_histos(row,tmp,False)	
                   if self.gg(row):
-                       # print "the preselection SF Correction %f" %(self.correction(row))
+                     #   print "the preselection SF Correction %f" %(self.correction(row))
                         self.fill_histos(row,'gg',False)
                         if wjets_fakes and row.isWmunu==1:
                            self.fill_histos(row,'Wmunu_gg',False)

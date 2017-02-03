@@ -1,4 +1,4 @@
-hadd LFV_20fb_mutauhad_cutbasedNE_EtaF_NX.root \
+hadd LFV_36fb_mutauhad_cutbasedrebin_check.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/LFV_*.root  \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesdown/LFV_*.root \
 LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaujesup/LFV_*.root \

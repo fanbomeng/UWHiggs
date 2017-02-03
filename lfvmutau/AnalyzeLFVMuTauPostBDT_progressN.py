@@ -22,7 +22,7 @@ from math import sqrt, pi
 import itertools
 from FinalStateAnalysis.StatTools.RooFunctorFromWS import FunctorFromMVA
 import weightNormal
-import bTagSF
+import bTagSFrereco
 #data=bool ('true' in os.environ['isRealData'])
 #RUN_OPTIMIZATION=bool ('true' in os.environ['RUN_OPTIMIZATION'])
 #RUN_OPTIMIZATION=True
@@ -119,25 +119,25 @@ def getFakeRateFactorFANBO(row, fakeset):
 def getFakeRateFactorFANBOPt(row, fakeset):
      if fakeset=="def":
         if  row.tDecayMode==0:
-            fTauIso=0.220418
+            fTauIso=0.22362
         if  row.tDecayMode==1:
             fTauIso=0.209926
         if  row.tDecayMode==10:
-            fTauIso=0.181669
+            fTauIso=0.186646
      if fakeset=="1stUp":
         if  row.tDecayMode==0:
-            fTauIso=0.21753+0.00724482
+            fTauIso=0.22362+0.00685
         if  row.tDecayMode==1:
-            fTauIso=0.21068+0.00406504
+            fTauIso=0.218989+0.00392
         if  row.tDecayMode==10:
-            fTauIso=0.18071+0.00448410
+            fTauIso=0.186646+0.00416
      if fakeset=="1stDown":
         if  row.tDecayMode==0:
-            fTauIso=0.21753-0.00724482
+            fTauIso=0.21753-0.00685
         if  row.tDecayMode==1:
-            fTauIso=0.21068-0.00406504
+            fTauIso=0.218989-0.00392
         if  row.tDecayMode==10:
-            fTauIso=0.18071-0.00448410
+            fTauIso=0.186646-0.00416
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
 #def getFakeRateFactorFANBOPt(row, fakeset):
@@ -184,10 +184,10 @@ def getFakeRateFactormuonEta(row, fakeset):   #old
      return fakeRateFactor
 def getFakeRateFactormuon(row, fakeset):   #Ptbined
     if fakeset=="def":
-       if row.mPt<55:
-          fTauIso=0.792721
-       if row.mPt>=55:
-          fTauIso=0.905855  
+       if row.mPt<75:
+          fTauIso=0.80905
+       if row.mPt>=75:
+          fTauIso=0.942667
     if fakeset=="1stUp":
        if row.mPt<55:
           fTauIso=0.792721+0.0305471
@@ -208,11 +208,11 @@ def getFakeRateFactormuon(row, fakeset):   #Ptbined
     return fakeRateFactor
 def getFakeRateFactormuonabsEta(row, fakeset):   #old
      if fakeset=="def":
-          fTauIso=0.8016
+          fTauIso=0.825162
      if fakeset=="1stUp":
-        fTauIso=0.8016+0.0871
+        fTauIso=0.825162+0.013674
      if fakeset=="1stDown":
-        fTauIso=0.8016-0.0871
+        fTauIso=0.825162-0.013674
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
 
@@ -234,22 +234,29 @@ def getFakeRateFactor(row, fakeset):
 ################################################################################
 pu_distributions = glob.glob(os.path.join(
         'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
-pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+#pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+pu_corrector = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributions)
 
 #muon_HTauTau_TriggerIso22_2016B= MuonPOGCorrections.make_muon_HTauTau_TriggerIso22_2016B()
-muon_pog_TriggerIso22_2016B= MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
-muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
+muon_pog_TriggerIso24_2016B= MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+#muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
 #muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
-muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
-##hererh
+#muon_pog_Tracking_2016B = MuonPOGCorrections.mu_trackingEta_2016()
+muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
-  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
+#  if pu>5:
+#     pu=1.0
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
-#  m1tracking =muon_pog_Tracking_2016B(row.mEta)
-  m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,abs(row.mEta))
-  m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
-  
+ # m1tracking =muon_pog_Tracking_2016B(row.mPt,row.mEta)
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
+#  print m1tracking
+  m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt,abs(row.mEta))
+  m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
+#  m1iso =muon_pog_TightIso_2016B('Medium',row.mPt,abs(row.mEta))
+ 
 #  print "in the analyzer muon trigger"
  # print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
   #print "pu"
@@ -276,6 +283,12 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
         self.weighttarget=target.split(".",1)[0].replace("-","_")
 
         self.is_data = target.startswith('data_')
+        self.is_dataG_H =(bool('Run2016H' in target) or bool('Run2016G' in target))
+
+
+
+
+
         #self.var_d_star =['mPt_','tPt_','mMtToPfMet_type1_','tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','jetVeto30_','vbfMass_','vbfDeta_','deltaeta_m_t_'] 
         #self.var_d_star =['tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','lepton_asymmetry_','deltaeta_m_t_'] 
         self.var_d_star =["mPt_", "tPt_", "tMtToPfMet_type1_", "m_t_DPhi_", "tDPhiToPfMet_type1_", "type1_pfMetEt_", "deltaeta_m_t_", "m_t_collinearmass_"]
@@ -377,12 +390,12 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
            #return getFakeRateFactor(row,fakeset)
         if faketype=="muonfake":
            #return getFakeRateFactormuonEta(row,fakeset)
-           #return getFakeRateFactormuon(row,fakeset)
-           return getFakeRateFactormuonabsEta(row,fakeset)
+           return getFakeRateFactormuon(row,fakeset)
+           #return getFakeRateFactormuonabsEta(row,fakeset)
         if faketype=="mtfake":
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactorFANBO(row,fakeset)
-       #    return getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
-           return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
+           return getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
+       #    return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactor(row,fakeset)
        # return getFakeRateFactorAaron(row,fakeset)
 	     
@@ -407,18 +420,18 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
         histos = self.histograms
         weight=1
         if (not(self.is_data)):
-           #weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
-           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
+           weight = row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+          # weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,fakeset,faketype)
           #print "the with with fakerate %f" %weight
-        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
-          weight=weight*0.90
+#        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
+#          weight=weight*0.90
         if (self.ls_DY and row.isZmumu  and row.tZTTGenMatching<5):
           weight=weight*getGenMfakeTSF(abs(row.tEta))
-        if self.ls_DY or self.ls_ZTauTau:
-           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
-           weight=weight*wtzpt
+#        if self.ls_DY or self.ls_ZTauTau:
+#           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+#           weight=weight*wtzpt
         #  print weight
         histos[name+'/weight'].Fill(weight)
         histos[name+'/GenWeight'].Fill(row.GenWeight)
@@ -490,7 +503,8 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
 #        histos[name+'/vbfNJets30'].Fill(row.vbfNJets30, weight)
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
-        if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        #if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        if not (row.singleIsoMu24Pass or row.singleIsoTkMu24Pass):
             return   False
         return True 
 
@@ -693,13 +707,21 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
     #def obj1_id(self, row):
     #    return bool(row.mPFIDTight)  
  
-    def obj1_id(self,row):
-    	 return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
+#    def obj1_id(self,row):
+#    	 return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
     def obj1_idICHEP(self,row):
 
         goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
         isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
-        return isICHEPMedium
+    	return isICHEPMedium
+    def obj1_id(self,row):
+        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.2) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
+
+    def obj1_idM(self,row):
+   
+        goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
+        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.8 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+    	return isICHEPMedium
     def obj2_id(self, row):
 	#return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
 	return  row.tAgainstElectronVLooseMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
@@ -753,8 +775,8 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
                 sel = False      # it will save them all.
             if sel==True:
                 continue
-            if self.is_data: 
-               if not self.presel(row):
+#            if self.is_data: 
+            if not self.presel(row):
                   continue
             if not self.selectZtt(row):
                 continue
@@ -765,13 +787,18 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
   #              continue 
             if not self.obj1_isoloose(row):
                 continue
-#            if not self.obj1_iso(row):
+#            if not self.obj1_id(row):  
 #                continue
-            if not self.obj1_idICHEP(row):
-                continue
-#            if not self.obj1_id(row):
-#                continue
-
+            if self.is_dataG_H or (not self.is_data):
+#               print self.target1 
+#               print "the bool valueGH %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idM(row):
+                   continue
+            else:
+#               print self.target1 
+#               print "the bool value %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idICHEP(row):
+                   continue
             if not self.vetos (row):
                 continue
 
@@ -779,11 +806,11 @@ class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
 #                continue
             if not self.obj2_Vlooseiso(row):
                 continue
-            if not self.TTbarEnrich(row):
-                continue
-        #    if (self.is_data):
-        #       if  row.bjetCISVVeto30Medium:
-        #           continue
+#            if not self.TTbarEnrich(row):
+#                continue
+            if (self.is_data):
+               if  row.bjetCISVVeto30Medium:
+                   continue
             if not self.obj2_id (row):
                 continue
             if self.ls_recoilC and MetCorrection:

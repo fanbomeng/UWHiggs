@@ -15,7 +15,7 @@ import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
-import weightNormal 
+import weightMuMuTau 
 import bTagSF
 from math import sqrt, pi
 fakeRate=False
@@ -48,26 +48,29 @@ def getGenMfakeTSF(ABStEta):
 pu_distributions = glob.glob(os.path.join(
 #    'inputs', os.environ['jobid'], 'data_TauPlusX*pu.root'))
         'inputs', os.environ['jobid'], 'data_SingleMu*pu.root'))
-pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
-
+#pu_corrector = PileupWeight.PileupWeight('MC_Spring16', *pu_distributions)
+pu_corrector = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributions)
 #muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
-muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
-muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
-muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
-
-def mc_corrector_2016(row):
+#muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
+muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+#muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
+muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+#muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
+muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso_2016ReReco('Medium')
+def mc_corrector_2016T(row):
   pu = pu_corrector(row.nTruePU)
 
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
-  m1iso = muon_pog_TightIso_2016('Tight',row.m1Pt,abs(row.m1Eta))
-  m1_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m1Pt,abs(row.m1Eta))
+  m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
+  m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
   m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
   m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
-  m2iso = muon_pog_TightIso_2016('Tight',row.m2Pt,abs(row.m2Eta))
+  m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
   m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
  # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
   m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
-  m3iso = muon_pog_TightIso_2016('Tight',row.m3Pt,abs(row.m3Eta))
+  m3iso = muon_pog_TightIso_2016(row.m3Pt,abs(row.m3Eta))
   m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
  # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
 
@@ -75,7 +78,27 @@ def mc_corrector_2016(row):
   #print str(pu)
   return pu*m1id*m1iso*m1_trg*m2id*m2iso*m2tracking*m3id*m3iso*m3tracking
 
-mc_corrector = mc_corrector_2016
+def mc_corrector_2016L(row):
+  pu = pu_corrector(row.nTruePU)
+
+  m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
+  m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
+  m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+  m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
+  m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
+ # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
+  m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
+  m3iso = muon_pog_LooseIso_2016(row.m3Pt,abs(row.m3Eta))
+  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
+ # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
+
+  #print "pu"
+  #print str(pu)
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m2tracking*m3id*m3iso*m3tracking
+mc_correctorT = mc_corrector_2016T
+mc_correctorL = mc_corrector_2016L
 
 class AnalyzeLFVMuMuMu(MegaBase):
     tree = 'mmm/final/Ntuple'
@@ -89,6 +112,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
         self.ls_Wjets=("JetsToLNu" in target)
         self.ls_ZTauTau=("ZTauTau" in target)
         self.ls_DY=("DY" in target)
+        self.is_dataG_H =(bool('Run2016H' in target) or bool('Run2016G' in target))
         self.is_data = target.startswith('data_')
         self.is_ZeroJet=(('WJetsToLNu' in target)or('DYJetsToLL' in target)or('ZTauTauJetsToLL' in target))
         self.is_OneJet=('W1JetsToLNu' in target or('DY1JetsToLL' in target)or('ZTauTau1JetsToLL' in target))
@@ -202,8 +226,10 @@ class AnalyzeLFVMuMuMu(MegaBase):
             #self.book(names[x], "vbfNJetsPULoose", "g", 5, -0.5, 4.5)
             #self.book(names[x], "vbfNJetsPUTight", "g", 5, -0.5, 4.5)
 
-    def correction(self,row):
-	return mc_corrector(row)
+    def correctionT(self,row):
+	return mc_correctorT(row)
+    def correctionL(self,row):
+	return mc_correctorL(row)
 	
     def fakeRateMethod(self,row,isoName):
         return getFakeRateFactor(row,isoName)
@@ -215,7 +241,10 @@ class AnalyzeLFVMuMuMu(MegaBase):
            #weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
-           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
+           if "Loose" in name:
+               weight = row.GenWeight * self.correctionL(row)*self.WeightJetbin(row)#*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
+           else:
+               weight = row.GenWeight * self.correctionT(row)*self.WeightJetbin(row)#*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
        # if (not(data)):
 	#   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
       #  if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -312,7 +341,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
 
     def presel(self, row):
-        if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        if not (row.singleIsoMu24Pass or row.singleIsoTkMu24Pass):
             return False
         return True
 
@@ -331,15 +360,15 @@ class AnalyzeLFVMuMuMu(MegaBase):
     def kinematics(self, row):
         if row.m1Pt < 25:
             return False
-        if abs(row.m1Eta) >= 2.3:
+        if abs(row.m1Eta) >= 2.4:
             return False
         if row.m2Pt < 25:
             return False
-        if abs(row.m2Eta) >= 2.3:
+        if abs(row.m2Eta) >= 2.4:
             return False
         if row.m3Pt<25:
             return False
-        if abs(row.m3Eta)>=2.3:
+        if abs(row.m3Eta)>=2.4:
             return False
         return True
 
@@ -355,25 +384,25 @@ class AnalyzeLFVMuMuMu(MegaBase):
               print "Error***********************Error***********"
            if self.ls_Wjets:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightNormal."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_ZTauTau:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightNormal."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_DY:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTau."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightNormal."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTau."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
         else:
-              return 1.0/(eval("weightNormal."+self.weighttarget))
+              return 1.0/(eval("weightMuMuTau."+self.weighttarget))
     #def obj1_id(self, row):
     #    return bool(row.mPFIDTight)  
-    def obj1_id(self,row):
-        return row.m1IsGlobal and row.m1IsPFMuon and (row.m1NormTrkChi2<10) and (row.m1MuonHits > 0) and (row.m1MatchedStations > 1) and (row.m1PVDXY < 0.02) and (row.m1PVDZ < 0.5) and (row.m1PixHits > 0) and (row.m1TkLayersWithMeasurement > 5) and row.m2IsGlobal and row.m2IsPFMuon and (row.m2NormTrkChi2<10) and (row.m2MuonHits > 0) and (row.m2MatchedStations > 1) and (row.m2PVDXY < 0.02) and (row.m2PVDZ < 0.5) and (row.m2PixHits > 0) and (row.m2TkLayersWithMeasurement > 5)
+#    def obj1_id(self,row):
+#        return row.m1IsGlobal and row.m1IsPFMuon and (row.m1NormTrkChi2<10) and (row.m1MuonHits > 0) and (row.m1MatchedStations > 1) and (row.m1PVDXY < 0.02) and (row.m1PVDZ < 0.5) and (row.m1PixHits > 0) and (row.m1TkLayersWithMeasurement > 5) and row.m2IsGlobal and row.m2IsPFMuon and (row.m2NormTrkChi2<10) and (row.m2MuonHits > 0) and (row.m2MatchedStations > 1) and (row.m2PVDXY < 0.02) and (row.m2PVDZ < 0.5) and (row.m2PixHits > 0) and (row.m2TkLayersWithMeasurement > 5)
     def obj1_idICHEP(self,row):
 	 if (row.m1IsGlobal and (row.m1NormalizedChi2 < 3) and (row.m1Chi2LocalPosition < 12) and (row.m1TrkKink < 20)):
 		goodGlobal1=True
@@ -383,8 +412,26 @@ class AnalyzeLFVMuMuMu(MegaBase):
                 goodGlobal2=True
          else:
                 goodGlobal2=False
-    	 return ((row.m1PFIDLoose and row.m1ValidFraction > 0.49 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.49 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)))
+         if (row.m3IsGlobal and (row.m3NormalizedChi2 < 3) and (row.m3Chi2LocalPosition < 12) and (row.m3TrkKink < 20)):
+                goodGlobal3=True
+         else:
+                goodGlobal3=False
+    	 return ((row.m1PFIDLoose and row.m1ValidFraction > 0.49 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.49 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)) and(row.m3PFIDLoose and row.m3ValidFraction > 0.49 and ((goodGlobal3 and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)))
 
+    def obj1_idM(self,row):
+	 if (row.m1IsGlobal and (row.m1NormalizedChi2 < 3) and (row.m1Chi2LocalPosition < 12) and (row.m1TrkKink < 20)):
+		goodGlobal1=True
+	 else:
+		goodGlobal1=False
+         if (row.m2IsGlobal and (row.m2NormalizedChi2 < 3) and (row.m2Chi2LocalPosition < 12) and (row.m2TrkKink < 20)):
+                goodGlobal2=True
+         else:
+                goodGlobal2=False
+         if (row.m3IsGlobal and (row.m3NormalizedChi2 < 3) and (row.m3Chi2LocalPosition < 12) and (row.m3TrkKink < 20)):
+                goodGlobal3=True
+         else:
+                goodGlobal3=False
+    	 return ((row.m1PFIDLoose and row.m1ValidFraction > 0.8 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.8 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)) and(row.m3PFIDLoose and row.m3ValidFraction > 0.8 and ((goodGlobal3 and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)))
 
     def m1m2Mass(self,row):
         if row.m1_m2_Mass < 76:
@@ -392,19 +439,20 @@ class AnalyzeLFVMuMuMu(MegaBase):
         if row.m1_m2_Mass > 106:
            return False
         return True
-    def obj2_id(self,row):
-        return row.m3IsGlobal and row.m3IsPFMuon and (row.m3NormTrkChi2<10) and (row.m3MuonHits > 0) and (row.m3MatchedStations > 1) and (row.m3PVDXY < 0.02) and (row.m3PVDZ < 0.5) and (row.m3PixHits > 0) and (row.m3TkLayersWithMeasurement > 5)
-    def obj2_id_ICHEP(self, row):
-         if (row.m3IsGlobal and (row.m3NormalizedChi2 < 3) and (row.m3Chi2LocalPosition < 12) and (row.m3TrkKink < 20)):
-                goodGlobal=True
-         else:
-                goodGlobal=False
-         return row.m3PFIDLoose and row.m3ValidFraction > 0.49 and ((goodGlobal and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)
+#    def obj2_id(self,row):
+#        return row.m3IsGlobal and row.m3IsPFMuon and (row.m3NormTrkChi2<10) and (row.m3MuonHits > 0) and (row.m3MatchedStations > 1) and (row.m3PVDXY < 0.02) and (row.m3PVDZ < 0.5) and (row.m3PixHits > 0) and (row.m3TkLayersWithMeasurement > 5)
+#    def obj2_id_ICHEP(self, row):
+#         if (row.m3IsGlobal and (row.m3NormalizedChi2 < 3) and (row.m3Chi2LocalPosition < 12) and (row.m3TrkKink < 20)):
+#                goodGlobal3=True
+#         else:
+#                goodGlobal3=False
+#         return row.m3PFIDLoose and row.m3ValidFraction > 0.49 and ((goodGlobal3 and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)
     def vetos(self,row):
-                if row.muVetoPt5IsoIdVtx: return False
-		if row.eVetoMVAIso : return False
-		if row.tauVetoPt20Loose3HitsVtx: return False
-		return True
+                return  (bool (row.muVetoPt5IsoIdVtx<1) and bool (row.eVetoMVAIso<1) and bool (row.tauVetoPt20Loose3HitsVtx<1) )
+#                if row.muVetoPt5IsoIdVtx: return False
+#		if row.eVetoMVAIso : return False
+#		if row.tauVetoPt20Loose3HitsVtx: return False
+#		return True
                 #return  (bool (row.muVetoPt5IsoIdVtx<1) and bool (row.eVetoMVAIso<1) and bool (row.tauVetoPt20Loose3HitsVtx<1) )
 #    def vetos(self,row):
 #		return  ((row.eVetoZTTp001dxyzR0 == 0) and (row.muVetoZTTp001dxyzR0 < 4) and (row.tauVetoPt20Loose3HitsVtx<1) and (row.dimuonVeto==1))
@@ -436,7 +484,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
             if sel==True:
                 continue
 
-            if self.is_data and not self.presel(row): #only apply trigger selections for data
+            if not self.presel(row): #only apply trigger selections for data
                 continue
 #            if not self.selectZtt(row):
 #                continue
@@ -446,9 +494,18 @@ class AnalyzeLFVMuMuMu(MegaBase):
  
             if not self.obj1_iso(row):
                 continue
-            if not self.obj1_idICHEP(row):
-                continue
-
+#            if not self.obj1_idICHEP(row):
+#                continue
+            if self.is_dataG_H or (not self.is_data):
+#              print self.target1 
+#              print "the bool valueGH %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idM(row):
+                   continue
+            else:
+#               print self.target1 
+#               print "the bool value %d" %(self.is_dataG_H or (not self.is_data))
+               if not self.obj1_idICHEP(row):
+                   continue
             #if not self.obj1_id(row):
             #    continue
             if not self.vetos (row):
@@ -458,11 +515,11 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
             #if not self.obj2_id (row):
             #    continue
-            if not self.obj2_id_ICHEP (row):
-                continue
-#            if (self.is_data):
-#            if  row.bjetCISVVeto30Medium:
-#                   continue
+#            if not self.obj2_id_ICHEP (row):
+#                continue
+            #if (self.is_data):
+            #   if  row.bjetCISVVeto30Medium:
+            #       continue
             if self.obj2_iso(row) and not self.oppositesign(row):
               self.fill_histos(row,'preselectionSS',False)
 

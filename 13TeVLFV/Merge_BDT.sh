@@ -1,4 +1,4 @@
-hadd LFV_20fb_mutauhad_1DicBDTmp01NEetaF.root \
+hadd LFV_20fb_mutauhad_1DicBDTmp01.root \
 LFV_BDT/AnalyzeLFVMuTauPostBDT/LFV_*.root  \
 LFV_BDT/AnalyzeLFVMuTauPostBDTjesdown/LFV_*.root \
 LFV_BDT/AnalyzeLFVMuTauPostBDTjesup/LFV_*.root \
