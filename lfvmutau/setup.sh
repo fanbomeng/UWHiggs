@@ -15,14 +15,14 @@
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Dec2_LFV_NoHF_JetEta25_MissingHiggs
 #export jobid=MiniAodV2For25ns_ExtraJets_LFV_Data
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetEtaFix_LFV
-#export datasrc=/hdfs/store/user/caillol/
-export datasrc=/hdfs/store/user/taroni/
+export datasrc=/hdfs/store/user/caillol/
+#export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/truggles/
 #export jobid=LFVdata_oct28/
 #export jobid=SMHTT_oct25/
 #export jobid=LFVtrileptons_Dec7/
-export jobid=LFVH_Dec21/
+export jobid=SMHTT_jan11_v2/
 #export jobid=LFVtrilepton_oct31/
 #export jobid=LFVZTauTauEm/
 #export jobid=LFVdata_ExtraG_Hnew/

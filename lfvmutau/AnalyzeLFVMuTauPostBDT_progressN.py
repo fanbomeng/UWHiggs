@@ -96,24 +96,8 @@ def getGenMfakeTSF(ABStEta):
     if (ABStEta>1.7 and ABStEta<2.3):
        return 1.713
 
-def getFakeRateFactorAaron(row, fakeset):
-     if fakeset=="def":
-        if  row.tDecayMode==0:
-            fTauIso=0.212199-0.00806991*row.tEta+0.00357713*row.tEta*row.tEta+0.00177127*row.tEta*row.tEta*row.tEta+0.000925986*row.tEta*row.tEta*row.tEta*row.tEta
-        if  row.tDecayMode==1:
-            fTauIso=0.205564+0.00703049*row.tEta+0.0253922*row.tEta*row.tEta-0.000989662*row.tEta*row.tEta*row.tEta-0.00489087*row.tEta*row.tEta*row.tEta*row.tEta
-        if  row.tDecayMode==10:
-            fTauIso=0.175233+0.000590049*row.tEta+0.0000504474*row.tEta*row.tEta-0.000365921*row.tEta*row.tEta*row.tEta+0.00201405*row.tEta*row.tEta*row.tEta*row.tEta
-     if fakeset=="1stUp":
-        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
-     if fakeset=="1stDown":
-        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
-     if fakeset=="2ndUp":
-        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
-     if fakeset=="2ndDown":
-        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
+
+
 def getFakeRateFactorFANBO(row, fakeset):
      if fakeset=="def":
         if  row.tDecayMode==0:
@@ -132,26 +116,48 @@ def getFakeRateFactorFANBO(row, fakeset):
         fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
-
-
 def getFakeRateFactorFANBOPt(row, fakeset):
      if fakeset=="def":
         if  row.tDecayMode==0:
-            fTauIso=0.21753
+            fTauIso=0.220418
         if  row.tDecayMode==1:
-            fTauIso=0.21068
+            fTauIso=0.209926
         if  row.tDecayMode==10:
-            fTauIso=0.18071
+            fTauIso=0.181669
      if fakeset=="1stUp":
-        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
+        if  row.tDecayMode==0:
+            fTauIso=0.21753+0.00724482
+        if  row.tDecayMode==1:
+            fTauIso=0.21068+0.00406504
+        if  row.tDecayMode==10:
+            fTauIso=0.18071+0.00448410
      if fakeset=="1stDown":
-        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
-     if fakeset=="2ndUp":
-        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
-     if fakeset=="2ndDown":
-        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
+        if  row.tDecayMode==0:
+            fTauIso=0.21753-0.00724482
+        if  row.tDecayMode==1:
+            fTauIso=0.21068-0.00406504
+        if  row.tDecayMode==10:
+            fTauIso=0.18071-0.00448410
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
+#def getFakeRateFactorFANBOPt(row, fakeset):
+#     if fakeset=="def":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.21753
+#        if  row.tDecayMode==1:
+#            fTauIso=0.21068
+#        if  row.tDecayMode==10:
+#            fTauIso=0.18071
+#     if fakeset=="1stUp":
+#        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
+#     if fakeset=="1stDown":
+#        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
+#     if fakeset=="2ndUp":
+#        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
+#     if fakeset=="2ndDown":
+#        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
+#     fakeRateFactor = fTauIso/(1.0-fTauIso)
+#     return fakeRateFactor
 def getFakeRateFactormuonEta(row, fakeset):   #old
      if fakeset=="def":
             #fTauIso=0.78183+0.000617981*row.tEta+0.00568672*row.tEta*row.tEta
@@ -176,18 +182,37 @@ def getFakeRateFactormuonEta(row, fakeset):   #old
         fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
-
+def getFakeRateFactormuon(row, fakeset):   #Ptbined
+    if fakeset=="def":
+       if row.mPt<55:
+          fTauIso=0.792721
+       if row.mPt>=55:
+          fTauIso=0.905855  
+    if fakeset=="1stUp":
+       if row.mPt<55:
+          fTauIso=0.792721+0.0305471
+       if row.mPt>=55:
+          fTauIso=0.905855+0.0339542
+    if fakeset=="1stDown":
+       if row.mPt<55:
+          fTauIso=0.792721-0.0305471
+       if row.mPt>=55:
+          fTauIso=0.905855-0.0339542
+#       if row.mPt>=55 and row.mPt<75:
+#          fTauIso=0.925926
+#       if row.mPt>=75 and row.mPt<100:
+#          fTauIso=0.959459
+#       if row.mPt>=100 :#and row.mPt<200:
+#          fTauIso=0.97561
+    fakeRateFactor = fTauIso/(1.0-fTauIso)
+    return fakeRateFactor
 def getFakeRateFactormuonabsEta(row, fakeset):   #old
      if fakeset=="def":
           fTauIso=0.8016
      if fakeset=="1stUp":
-        fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
+        fTauIso=0.8016+0.0871
      if fakeset=="1stDown":
-        fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
-     if fakeset=="2ndUp":
-        fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
-     if fakeset=="2ndDown":
-        fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
+        fTauIso=0.8016-0.0871
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
 
@@ -237,12 +262,12 @@ def mc_corrector_2016(row):
 
 mc_corrector = mc_corrector_2016
 
-class AnalyzeLFVMuTauPostBDT(MegaBase):
+class AnalyzeLFVMuTauPostBDT_progressN(MegaBase):
     tree = 'mt/final/Ntuple'
     #tree = 'New_Tree'
 
     def __init__(self, tree, outfile, **kwargs):
-        super(AnalyzeLFVMuTauPostBDT, self).__init__(tree, outfile, **kwargs)
+        super(AnalyzeLFVMuTauPostBDT_progressN, self).__init__(tree, outfile, **kwargs)
         # Use the cython wrapper
         target = os.path.basename(os.environ['megatarget'])
         self.ls_recoilC=((('HTo' in target) or ('Jets' in target)) and MetCorrection)
@@ -252,9 +277,10 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 
         self.is_data = target.startswith('data_')
         #self.var_d_star =['mPt_','tPt_','mMtToPfMet_type1_','tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','jetVeto30_','vbfMass_','vbfDeta_','deltaeta_m_t_'] 
-        self.var_d_star =['tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','lepton_asymmetry_','deltaeta_m_t_'] 
+        #self.var_d_star =['tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','lepton_asymmetry_','deltaeta_m_t_'] 
+        self.var_d_star =["mPt_", "tPt_", "tMtToPfMet_type1_", "m_t_DPhi_", "tDPhiToPfMet_type1_", "type1_pfMetEt_", "deltaeta_m_t_", "m_t_collinearmass_"]
 #        self.var_d_star =['mMtToPfMet_type1_','tMtToPfMet_type1_','m_t_DPhi_','tDPhiToPfMet_type1_','type1_pfMetEt_','jetVeto30_','vbfMass_','vbfDeta_','deltaeta_m_t_'] 
-        self.xml_name = os.path.join(os.getcwd(),"weights/TMVAClassification_BDT.weights.xml")
+        self.xml_name = os.path.join(os.getcwd(),"weightsCollmassworks/TMVAClassification_BDT.weights.xml")
         self.functor = FunctorFromMVA('BDT method',self.xml_name, *self.var_d_star)
         self.ls_Jets=('Jets' in target)
         self.ls_Wjets=("JetsToLNu" in target)
@@ -281,7 +307,8 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 
         self.book('treelev',"counts", "Event counts", 10, 0, 5)
         if fakeset  :
-           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","preslectionSSEnWjets","notIsoEnWjetsSS","gg","boost","vbf","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIso2ndUp","ggNotIso2ndDown","boostNotIso2ndUp","boostNotIso2ndDown","vbfNotIso","vbfNotIsoM","vbfNotIsoMT","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT","notIso2Jet","notIso2JetM","notIso2JetMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIso2ndUp","vbf_ggNotIso2ndDown","vbf_vbfNotIso2ndUp","vbf_vbfNotIso2ndDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
+           #names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","preslectionSSEnWjets","notIsoEnWjetsSS","gg","boost","vbf","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIso2ndUp","ggNotIso2ndDown","boostNotIso2ndUp","boostNotIso2ndDown","vbfNotIso","vbfNotIsoM","vbfNotIsoMT","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT","notIso2Jet","notIso2JetM","notIso2JetMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIso2ndUp","vbf_ggNotIso2ndDown","vbf_vbfNotIso2ndUp","vbf_vbfNotIso2ndDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet","notIsoEnWjets2Jet","notIsoEnWjets2JetM","notIsoEnWjets2JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT"]
+           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionSSEnWjets","notIsoEnWjetsSS","gg","boost","vbf","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIso2ndUp","ggNotIso2ndDown","boostNotIso2ndUp","boostNotIso2ndDown","vbfNotIso","vbfNotIsoM","vbfNotIsoMT","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT","notIso2Jet","notIso2JetM","notIso2JetMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIso2ndUp","vbf_ggNotIso2ndDown","vbf_vbfNotIso2ndUp","vbf_vbfNotIso2ndDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet","notIsoEnWjets2Jet","notIsoEnWjets2JetM","notIsoEnWjets2JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","preslectionEnZtt","notIsoEnZtt","notIsoEnZttM","notIsoEnZttMT","preslectionEnZtt0Jet","notIsoEnZtt0Jet","notIsoEnZtt0JetM","notIsoEnZtt0JetMT","preslectionEnZtt1Jet","notIsoEnZtt1Jet","notIsoEnZtt1JetM","notIsoEnZtt1JetMT","preslectionEnZtt2Jet","notIsoEnZtt2Jet","notIsoEnZtt2JetM","notIsoEnZtt2JetMT","preslectionEnZtt2Jet_gg","notIsoEnZtt2Jet_gg","notIsoEnZtt2Jet_ggM","notIsoEnZtt2Jet_ggMT","preslectionEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbfM","notIsoEnZtt2Jet_vbfMT","preslectionEnZee","notIsoEnZee","notIsoEnZeeM","notIsoEnZeeMT","preslectionEnZee0Jet","notIsoEnZee0Jet","notIsoEnZee0JetM","notIsoEnZee0JetMT","preslectionEnZee1Jet","notIsoEnZee1Jet","notIsoEnZee1JetM","notIsoEnZee1JetMT","preslectionEnZee2Jet","notIsoEnZee2Jet","notIsoEnZee2JetM","notIsoEnZee2JetMT","preslectionEnZee2Jet_gg","notIsoEnZee2Jet_gg","notIsoEnZee2Jet_ggM","notIsoEnZee2Jet_ggMT","preslectionEnZee2Jet_vbf","notIsoEnZee2Jet_vbf","notIsoEnZee2Jet_vbfM","notIsoEnZee2Jet_vbfMT"]
         if (not fakeset) and (not wjets_fakes) :
            names=["gg","boost","vbf","ggNotIso","boostNotIso","vbfNotIso","preselection0Jet", "preselection1Jet", "preselection2Jet","notIso0Jet", "notIso1Jet","notIso2Jet","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS"]
         if wjets_fakes  :
@@ -293,7 +320,8 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             self.book(names[x], "counts", "Event counts", 10, 0, 5)
             self.book(names[x], "GenWeight", "Gen level weight", 200000 ,-1000000, 1000000)
             self.book(names[x], "rho", "Fastjet #rho", 100, 0, 25)
-           # self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
+#            self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
+            self.book(names[x], "BDTcuts", "BDTcuts", 80, -0.5,0.3)
             self.book(names[x], "nvtx", "Number of vertices", 20, -0.5, 100.5)
             self.book(names[x], "prescale", "HLT prescale", 21, -0.5, 20.5)
             self.book(names[x], "tJetPartonFlavour", "tJetPartonFlavour", 30,-7, 23)
@@ -349,9 +377,11 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
            #return getFakeRateFactor(row,fakeset)
         if faketype=="muonfake":
            #return getFakeRateFactormuonEta(row,fakeset)
+           #return getFakeRateFactormuon(row,fakeset)
            return getFakeRateFactormuonabsEta(row,fakeset)
         if faketype=="mtfake":
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactorFANBO(row,fakeset)
+       #    return getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
            return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactor(row,fakeset)
        # return getFakeRateFactorAaron(row,fakeset)
@@ -377,7 +407,8 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
         histos = self.histograms
         weight=1
         if (not(self.is_data)):
-           weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           #weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,fakeset,faketype)
           #print "the with with fakerate %f" %weight
@@ -394,6 +425,7 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 #        histos[name+'/genHTT'].Fill(row.genHTT)
         histos[name+'/rho'].Fill(row.rho, weight)
         histos[name+'/nvtx'].Fill(row.nvtx, weight)
+        histos[name+'/BDTcuts'].Fill(self.MVA0fill, weight)
         histos[name+'/prescale'].Fill(row.doubleMuPrescale, weight)
 #        histos[name+'/singleIsoMu22Pass'].Fill(row.singleIsoMu22Pass,weight)
 #        histos[name+'/singleIsoTkMu22Pass'].Fill(row.singleIsoTkMu22Pass,weight)
@@ -646,6 +678,18 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             return True
         return False
 
+    def ZttEnrich(self,row):
+        if ((row.m_t_Mass>40 and row.m_t_Mass<80) and row.mMtToPfMet_type1<40 and row.m_t_PZetaLess0p85PZetaVis>-25):
+            return True
+        return False
+    def ZeeEnrich(self,row):
+        if ((row.m_t_Mass>86 and row.m_t_Mass<96) and row.mMtToPfMet_type1<40 and row.type1_pfMetEt<25):
+            return True
+        return False
+    def TTbarEnrich(self,row):
+        if ((row.m_t_Mass>60)and row.m_t_PZetaLess0p85PZetaVis<-50):
+            return True
+        return False
     #def obj1_id(self, row):
     #    return bool(row.mPFIDTight)  
  
@@ -735,9 +779,11 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 #                continue
             if not self.obj2_Vlooseiso(row):
                 continue
-            if (self.is_data):
-               if  row.bjetCISVVeto30Medium:
-                   continue
+            if not self.TTbarEnrich(row):
+                continue
+        #    if (self.is_data):
+        #       if  row.bjetCISVVeto30Medium:
+        #           continue
             if not self.obj2_id (row):
                 continue
             if self.ls_recoilC and MetCorrection:
@@ -745,13 +791,14 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             #print "herer1111111111111111"
         #self.variables=["mPt_", "tPt_", "mMtToPfMet_type1_", "tMtToPfMet_type1_", "m_t_DPhi_", "tDPhiToPfMet_type1_", "type1_pfMetEt_", "jetVeto30_", "vbfMass_", "vbfDeta_", "mEta_-tEta_"]
 #            self.var_d_0  ={'mPt_':row.mPt,'tPt_':row.tPt,'mMtToPfMet_type1_':row.mMtToPfMet_type1,'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':row.m_t_DPhi,'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'jetVeto30_':row.jetVeto30,'vbfMass_':-0.1,'vbfDeta_':-0.1,'deltaeta_m_t_':row.mEta-row.tEta} 
-            self.var_d_0  ={'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'lepton_asymmetry_':(row.mPt-row.tPt)/(row.mPt+row.tPt),'deltaeta_m_t_':abs(row.mEta-row.tEta)} 
+            self.var_d_0  ={'mPt_':row.mPt,'tPt_':row.tPt,'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':row.m_t_collinearmass}
             self.var_d_1  =self.var_d_0 
             self.var_d_2  =self.var_d_0
            # self.var_d_2  ={'mPt_':row.mPt,'tPt_':row.tPt,'mMtToPfMet_type1_':row.mMtToPfMet_type1,'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':row.m_t_DPhi,'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'jetVeto30_':row.jetVeto30,'vbfMass_':row.vbfMass/2600.0,'vbfDeta_':row.vbfDeta/10.0,'deltaeta_m_t_':row.mEta-row.tEta} 
             #self.var_d_2  ={'mMtToPfMet_type1_':row.mMtToPfMet_type1,'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':row.m_t_DPhi,'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'jetVeto30_':row.jetVeto30,'vbfMass_':row.vbfMass,'vbfDeta_':row.vbfDeta,'deltaeta_m_t_':row.mEta-row.tEta} 
 #            if row.jetVeto30==0:
             MVA0=self.functor(**self.var_d_0)
+            self.MVA0fill=MVA0
 #            if row.jetVeto30==1:
               # MVA1=ReadBDT(row,self.xml_name,var_d_star,var_d_1)
 #               MVA1=self.functor(**self.var_d_1)
@@ -768,32 +815,33 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                      self.fill_histos(row,'preselectionSS')
                   if row.jetVeto30==0:
                     self.fill_histos(row,'IsoSS0Jet')
-                    if MVA0>-0.01: 
-                       self.fill_histos(row,'ggIsoSS')
+            #        if MVA0>-0.01: 
+                    self.fill_histos(row,'ggIsoSS')
                     if RUN_OPTIMIZATION:
                        for  i in optimizer_new.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                           tmp=os.path.join("ggIsoSS",i)
                           self.fill_histos(row,tmp,False)
                   if row.jetVeto30==1:
                     self.fill_histos(row,'IsoSS1Jet')
-                    if MVA0>-0.01:
-                       self.fill_histos(row,'boostIsoSS')
+             #       if MVA0>-0.01:
+                    self.fill_histos(row,'boostIsoSS')
                     if RUN_OPTIMIZATION:
                        for  i in optimizer_new.compute_regions_1jet(row.tPt, row.mPt,deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                           tmp=os.path.join("boostIsoSS",i)
                           self.fill_histos(row,tmp,False)
                   if row.jetVeto30==2:
                     self.fill_histos(row,'IsoSS2Jet')
-                    if MVA0>-0.01:
-                       self.fill_histos(row,'vbfIsoSS')
-                       if (row.vbfMass>550): 
+              #      if MVA0>-0.01:
+                    self.fill_histos(row,'vbfIsoSS')
+                    #if (row.vbfMass>550 and abs(row.vbfDeta)>3.5): 
+                    if (row.vbfMass>550): 
                           self.fill_histos(row,'vbf_vbfIsoSS')
-                       if RUN_OPTIMIZATION:
+                    if RUN_OPTIMIZATION:
                           for  i in optimizer_new.compute_regions_2jettight(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
                              tmp=os.path.join("vbf_vbfIsoSS",i)
                              self.fill_histos(row,tmp,False)
-                          #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
-                       if not (row.vbfMass>550):
+                    #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                    if not (row.vbfMass>550):
                              self.fill_histos(row,'vbf_ggIsoSS')
                     #      elif row.vbfMass<100:
                     #         self.fill_histos(row,'boostIsoSS')
@@ -825,6 +873,10 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                  self.fill_histos(row,'preselection')
                  if self.WjetsEnrich(row):
                     self.fill_histos(row,'preslectionEnWjets')
+                 if self.ZttEnrich(row):
+                    self.fill_histos(row,'preslectionEnZtt')
+                 if self.ZeeEnrich(row):
+                    self.fill_histos(row,'preslectionEnZee')
 
 
               if wjets_fakes:
@@ -863,28 +915,40 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                      for  i in optimizer_new.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                         tmp=os.path.join("gg",i)
                         self.fill_histos(row,tmp,False)
-                  if MVA0>-0.01:
-                        self.fill_histos(row,'gg',False)
-                        if wjets_fakes and row.isWmunu==1:
-                           self.fill_histos(row,'Wmunu_gg',False)
-                        if wjets_fakes and row.isWtaunu==1:
-                           self.fill_histos(row,'Wtaunu_gg',False)
-                        if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
-                           self.fill_histos(row,'W2jets_gg',False)
+               #   if MVA0>-0.01:
+                  if self.WjetsEnrich(row):
+                     self.fill_histos(row,'preslectionEnWjets0Jet')
+                  if self.ZttEnrich(row):
+                     self.fill_histos(row,'preslectionEnZtt0Jet')
+                  if self.ZeeEnrich(row):
+                     self.fill_histos(row,'preslectionEnZee0Jet')
+                  self.fill_histos(row,'gg',False)
+                  if wjets_fakes and row.isWmunu==1:
+                     self.fill_histos(row,'Wmunu_gg',False)
+                  if wjets_fakes and row.isWtaunu==1:
+                     self.fill_histos(row,'Wtaunu_gg',False)
+                  if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
+                     self.fill_histos(row,'W2jets_gg',False)
 
               if row.jetVeto30==1:
                   if RUN_OPTIMIZATION:
                      for  i in optimizer_new.compute_regions_1jet(row.tPt, row.mPt,deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                         tmp=os.path.join("boost",i)
                         self.fill_histos(row,tmp,False)
-                  if MVA0>-0.01:
-                        self.fill_histos(row,'boost')
-                        if wjets_fakes and row.isWmunu==1:
-                           self.fill_histos(row,'Wmunu_boost')
-                        if wjets_fakes and row.isWtaunu==1:
-                           self.fill_histos(row,'Wtaunu_boost')
-                        if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
-                           self.fill_histos(row,'W2jets_boost')
+                  #if MVA0>-0.01:
+                  if self.WjetsEnrich(row):
+                     self.fill_histos(row,'preslectionEnWjets1Jet')
+                  if self.ZttEnrich(row):
+                     self.fill_histos(row,'preslectionEnZtt1Jet')
+                  if self.ZeeEnrich(row):
+                     self.fill_histos(row,'preslectionEnZee1Jet')
+                  self.fill_histos(row,'boost')
+                  if wjets_fakes and row.isWmunu==1:
+                     self.fill_histos(row,'Wmunu_boost')
+                  if wjets_fakes and row.isWtaunu==1:
+                     self.fill_histos(row,'Wtaunu_boost')
+                  if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
+                     self.fill_histos(row,'W2jets_boost')
               #if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
               if (row.jetVeto30==2) :
 #                  if RUN_OPTIMIZATION:
@@ -893,16 +957,28 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 #                       self.fill_histos(row,tmp,False) 
                   if self.vbf(row):
                         self.fill_histos(row,'vbf')
-                  if MVA0>-0.01:
-                     #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
-                     if not (row.vbfMass>550):
-                        self.fill_histos(row,'vbf_gg')
-                        if wjets_fakes and row.isWmunu==1:
-                           self.fill_histos(row,'Wmunu_vbf_gg')
-                        if wjets_fakes and row.isWtaunu==1:
-                           self.fill_histos(row,'Wtaunu_vbf_gg')
-                        if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
-                           self.fill_histos(row,'W2jets_vbf_gg')
+                  #if MVA0>-0.01:
+                  #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                  if self.WjetsEnrich(row):
+                     self.fill_histos(row,'preslectionEnWjets2Jet')
+                  if self.ZttEnrich(row):
+                     self.fill_histos(row,'preslectionEnZtt2Jet')
+                  if self.ZeeEnrich(row):
+                     self.fill_histos(row,'preslectionEnZee2Jet')
+                  if not (row.vbfMass>550):
+                     if self.WjetsEnrich(row):
+                        self.fill_histos(row,'preslectionEnWjets2Jet_gg')
+                     if self.ZttEnrich(row):
+                        self.fill_histos(row,'preslectionEnZtt2Jet_gg')
+                     if self.ZeeEnrich(row):
+                        self.fill_histos(row,'preslectionEnZee2Jet_gg')
+                     self.fill_histos(row,'vbf_gg')
+                     if wjets_fakes and row.isWmunu==1:
+                        self.fill_histos(row,'Wmunu_vbf_gg')
+                     if wjets_fakes and row.isWtaunu==1:
+                        self.fill_histos(row,'Wtaunu_vbf_gg')
+                     if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
+                        self.fill_histos(row,'W2jets_vbf_gg')
               #       elif row.vbfMass<100:
               #          self.fill_histos(row,'boost')
               #          if wjets_fakes and row.isWmunu==1:
@@ -916,15 +992,22 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                            tmp=os.path.join("vbf_gg",i)
                            self.fill_histos(row,tmp,False)
                   #if self.vbf_vbf(row):
-                  if MVA0>-0.01:
-                     if (row.vbfMass>550):
-                        self.fill_histos(row,'vbf_vbf')
-                        if wjets_fakes and row.isWmunu==1:
-                           self.fill_histos(row,'Wmunu_vbf_vbf')
-                        if wjets_fakes and row.isWtaunu==1:
-                           self.fill_histos(row,'Wtaunu_vbf_vbf')
-                        if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
-                           self.fill_histos(row,'W2jets_vbf_vbf')
+                 # if MVA0>-0.01:
+                  #if (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                  if (row.vbfMass>550):
+                     if self.WjetsEnrich(row):
+                        self.fill_histos(row,'preslectionEnWjets2Jet_vbf')
+                     if self.ZttEnrich(row):
+                        self.fill_histos(row,'preslectionEnZtt2Jet_vbf')
+                     if self.ZeeEnrich(row):
+                        self.fill_histos(row,'preslectionEnZee2Jet_vbf')
+                     self.fill_histos(row,'vbf_vbf')
+                     if wjets_fakes and row.isWmunu==1:
+                        self.fill_histos(row,'Wmunu_vbf_vbf')
+                     if wjets_fakes and row.isWtaunu==1:
+                        self.fill_histos(row,'Wtaunu_vbf_vbf')
+                     if wjets_fakes and (row.isWtaunu==0 and row.isWmunu==0):
+                        self.fill_histos(row,'W2jets_vbf_vbf')
                   if RUN_OPTIMIZATION:
                         for  i in optimizer_new.compute_regions_2jettight(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
                            tmp=os.path.join("vbf_vbf",i)
@@ -935,6 +1018,10 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                     self.fill_histos(row,'notIso',True)
                     if self.WjetsEnrich(row):
                        self.fill_histos(row,'notIsoEnWjets',True)
+                    if self.ZttEnrich(row):
+                       self.fill_histos(row,'notIsoEnZtt',True)
+                    if self.ZeeEnrich(row):
+                       self.fill_histos(row,'notIsoEnZee',True)
 #                 self.fill_histos(row,'notIsoNotWeighted',False)
 
                  if row.jetVeto30==0:
@@ -944,13 +1031,19 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                  if row.jetVeto30==2:
                    self.fill_histos(row,'notIso2Jet',True)
                  if  row.jetVeto30==0:
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
                            self.fill_histos(row,'ggNotIso',True)
+                           if self.WjetsEnrich(row):
+                              self.fill_histos(row,'notIsoEnWjets0Jet',True)
+                           if self.ZttEnrich(row):
+                              self.fill_histos(row,'notIsoEnZtt0Jet',True)
+                           if self.ZeeEnrich(row):
+                              self.fill_histos(row,'notIsoEnZee0Jet',True)
                            if fakeset:
                               self.fill_histos(row,'ggNotIso1stUp',True,'taufake',"1stUp")
                               self.fill_histos(row,'ggNotIso1stDown',True,'taufake',"1stDown")
-                              self.fill_histos(row,'ggNotIso2ndUp',True,'taufake',"2ndUp")
-                              self.fill_histos(row,'ggNotIso2ndDown',True,'taufake',"2ndDown")
+                           #   self.fill_histos(row,'ggNotIso2ndUp',True,'taufake',"2ndUp")
+                           #   self.fill_histos(row,'ggNotIso2ndDown',True,'taufake',"2ndDown")
            #      if self.gg(row):
            #          self.fill_histos(row,'ggNotIso',True)
                  if row.jetVeto30==1:
@@ -958,13 +1051,19 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                   #  #    for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,row.tMtToPfMet_type1):
                   #  #      tmp=os.path.join("boostNotIso",i)
                   #  #       self.fill_histos(row,tmp,True)
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
+                           if self.WjetsEnrich(row):
+                              self.fill_histos(row,'notIsoEnWjets1Jet',True)
+                           if self.ZttEnrich(row):
+                              self.fill_histos(row,'notIsoEnZtt1Jet',True)
+                           if self.ZeeEnrich(row):
+                              self.fill_histos(row,'notIsoEnZee1Jet',True)
                            self.fill_histos(row,'boostNotIso',True)
                            if fakeset:
                               self.fill_histos(row,'boostNotIso1stUp',True,'taufake',"1stUp")
                               self.fill_histos(row,'boostNotIso1stDown',True,'taufake',"1stDown")
-                              self.fill_histos(row,'boostNotIso2ndUp',True,'taufake',"2ndUp")
-                              self.fill_histos(row,'boostNotIso2ndDown',True,'taufake',"2ndDown")
+                           #   self.fill_histos(row,'boostNotIso2ndUp',True,'taufake',"2ndUp")
+                           #   self.fill_histos(row,'boostNotIso2ndDown',True,'taufake',"2ndDown")
          #        if self.boost(row):
          #            self.fill_histos(row,'boostNotIso',True)
                  #if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
@@ -973,18 +1072,30 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             #     #       for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
             #     #          tmp=os.path.join("vbfNotIso",i)
             #     #          self.fill_histos(row,tmp,True)
+                     if self.WjetsEnrich(row):
+                        self.fill_histos(row,'notIsoEnWjets2Jet',True)
+                     if self.ZttEnrich(row):
+                        self.fill_histos(row,'notIsoEnZtt2Jet',True)
+                     if self.ZeeEnrich(row):
+                        self.fill_histos(row,'notIsoEnZee2Jet',True)
                      if self.vbf(row):
                            self.fill_histos(row,'vbfNotIso',True)
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
                         #if row.vbfMass>=100 and row.vbfMass<550:
-                        #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
-                        if not (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_ggNotIso',True)
-                           if fakeset:
-                              self.fill_histos(row,'vbf_ggNotIso1stUp',True,'taufake',"1stUp")
-                              self.fill_histos(row,'vbf_ggNotIso1stDown',True,'taufake',"1stDown")
-                              self.fill_histos(row,'vbf_ggNotIso2ndUp',True,'taufake',"2ndUp")
-                              self.fill_histos(row,'vbf_ggNotIso2ndDown',True,'taufake',"2ndDown")
+                     #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if not (row.vbfMass>550):
+                        if self.WjetsEnrich(row):
+                           self.fill_histos(row,'notIsoEnWjets2Jet_gg',True)
+                        if self.ZttEnrich(row):
+                           self.fill_histos(row,'notIsoEnZtt2Jet_gg',True)
+                        if self.ZeeEnrich(row):
+                           self.fill_histos(row,'notIsoEnZee2Jet_gg',True)
+                        self.fill_histos(row,'vbf_ggNotIso',True)
+                        if fakeset:
+                           self.fill_histos(row,'vbf_ggNotIso1stUp',True,'taufake',"1stUp")
+                           self.fill_histos(row,'vbf_ggNotIso1stDown',True,'taufake',"1stDown")
+                           #self.fill_histos(row,'vbf_ggNotIso2ndUp',True,'taufake',"2ndUp")
+                           #self.fill_histos(row,'vbf_ggNotIso2ndDown',True,'taufake',"2ndDown")
                   #      elif row.vbfMass<100:
                   #         self.fill_histos(row,'boostNotIso',True)
                   #         if fakeset:
@@ -992,35 +1103,79 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                   #            self.fill_histos(row,'boostNotIso1stDown',True,'taufake',"1stDown")
                   #            self.fill_histos(row,'boostNotIso2ndUp',True,'taufake',"2ndUp")
                   #            self.fill_histos(row,'boostNotIso2ndDown',True,'taufake',"2ndDown")
-
-                        if (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_vbfNotIso',True)
-                           if fakeset:
-                              self.fill_histos(row,'vbf_vbfNotIso1stUp',True,'taufake',"1stUp")
-                              self.fill_histos(row,'vbf_vbfNotIso1stDown',True,'taufake',"1stDown")
-                              self.fill_histos(row,'vbf_vbfNotIso2ndUp',True,'taufake',"2ndUp")
-                              self.fill_histos(row,'vbf_vbfNotIso2ndDown',True,'taufake',"2ndDown")
+                     #if  (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if (row.vbfMass>550):
+                        if self.WjetsEnrich(row):
+                           self.fill_histos(row,'notIsoEnWjets2Jet_vbf',True)
+                        if self.ZttEnrich(row):
+                           self.fill_histos(row,'notIsoEnZtt2Jet_vbf',True)
+                        if self.ZeeEnrich(row):
+                           self.fill_histos(row,'notIsoEnZee2Jet_vbf',True)
+                        self.fill_histos(row,'vbf_vbfNotIso',True)
+                        if fakeset:
+                           self.fill_histos(row,'vbf_vbfNotIso1stUp',True,'taufake',"1stUp")
+                           self.fill_histos(row,'vbf_vbfNotIso1stDown',True,'taufake',"1stDown")
+                           #self.fill_histos(row,'vbf_vbfNotIso2ndUp',True,'taufake',"2ndUp")
+                           #self.fill_histos(row,'vbf_vbfNotIso2ndDown',True,'taufake',"2ndDown")
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):
               if not self.obj1_iso(row):
                  if fakeset:
                     self.fill_histos(row,'notIsoMT',True,faketype="mtfake")
-#                    if self.WjetsEnrich(row):
-#                       self.fill_histos(row,'notIsoEnWjetsMT',True,faketype="mtfake")
+                    if self.WjetsEnrich(row):
+                       self.fill_histos(row,'notIsoEnWjetsMT',True,faketype="mtfake")
+                    if self.ZttEnrich(row):
+                       self.fill_histos(row,'notIsoEnZttMT',True,faketype="mtfake")
+                    if self.ZeeEnrich(row):
+                       self.fill_histos(row,'notIsoEnZeeMT',True,faketype="mtfake")
 #                 self.fill_histos(row,'notIsoNotWeighted',False)
 
                  if row.jetVeto30==0:
                    self.fill_histos(row,'notIso0JetMT',True,faketype="mtfake")
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets0JetMT',True,faketype="mtfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt0JetMT',True,faketype="mtfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee0JetMT',True,faketype="mtfake")
                  if row.jetVeto30==1:
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets1JetMT',True,faketype="mtfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt1JetMT',True,faketype="mtfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee1JetMT',True,faketype="mtfake")
                    self.fill_histos(row,'notIso1JetMT',True,faketype="mtfake")
                  if row.jetVeto30==2:
                    self.fill_histos(row,'notIso2JetMT',True,faketype="mtfake")
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets2JetMT',True,faketype="mtfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt2JetMT',True,faketype="mtfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee2JetMT',True,faketype="mtfake")
+                   if((row.vbfMass < 550)):
+#                      self.fill_histos(row,'notIso2Jet_ggMT',True,faketype="mtfake")
+                      if self.WjetsEnrich(row):
+                         self.fill_histos(row,'notIsoEnWjets2Jet_ggMT',True,faketype="mtfake")
+                      if self.ZttEnrich(row):
+                         self.fill_histos(row,'notIsoEnZtt2Jet_ggMT',True,faketype="mtfake")
+                      if self.ZeeEnrich(row):
+                         self.fill_histos(row,'notIsoEnZee2Jet_ggMT',True,faketype="mtfake")
+                   if((row.vbfMass >= 550)):
+#                      self.fill_histos(row,'notIso2Jet_vbfMT',True,faketype="mtfake")
+                      if self.WjetsEnrich(row):
+                         self.fill_histos(row,'notIsoEnWjets2Jet_vbfMT',True,faketype="mtfake")
+                      if self.ZttEnrich(row):
+                         self.fill_histos(row,'notIsoEnZtt2Jet_vbfMT',True,faketype="mtfake")
+                      if self.ZeeEnrich(row):
+                         self.fill_histos(row,'notIsoEnZee2Jet_vbfMT',True,faketype="mtfake")
                  if  row.jetVeto30==0:
                     # #if RUN_OPTIMIZATION:
                        # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
                     # #   for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.mDPhiToPfMet_type1),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                     # #      tmp=os.path.join("ggNotIso",i)
                     # #      self.fill_histos(row,tmp,True)
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
                            self.fill_histos(row,'ggNotIsoMT',True,faketype="mtfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'ggNotIsoMT1stUp',True,"1stUp",faketype="mtfake")
@@ -1032,7 +1187,7 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                   #  #    for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,row.tMtToPfMet_type1):
                   #  #      tmp=os.path.join("boostNotIso",i)
                   #  #       self.fill_histos(row,tmp,True)
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
                            self.fill_histos(row,'boostNotIsoMT',True,faketype="mtfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'boostNotIsoMT1stUp',True,"1stUp",faketype="mtfake")
@@ -1049,11 +1204,11 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             #     #          self.fill_histos(row,tmp,True)
                      if self.vbf(row):
                            self.fill_histos(row,'vbfNotIsoMT',True,faketype="mtfake")
-                     if MVA0>-0.01:
+                  #   if MVA0>-0.01:
                         #if row.vbfMass>=100 and row.vbfMass<550:
-                        #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
-                        if not (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_ggNotIsoMT',True,faketype="mtfake")
+                     #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if not (row.vbfMass>550):
+                        self.fill_histos(row,'vbf_ggNotIsoMT',True,faketype="mtfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'vbf_ggNotIsoMT1stUp',True,"1stUp",faketype="mtfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoMT1stDown',True,"1stDown",faketype="mtfake")
@@ -1066,9 +1221,9 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 #                              self.fill_histos(row,'boostNotIsoMT1stDown',True,"1stDown",faketype="mtfake")
 #                              self.fill_histos(row,'boostNotIsoMT2ndUp',True,"2ndUp",faketype="mtfake")
 #                              self.fill_histos(row,'boostNotIsoMT2ndDown',True,"2ndDown",faketype="mtfake")
-
-                        if (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_vbfNotIsoMT',True,faketype="mtfake")
+                     #if (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if (row.vbfMass>550):
+                        self.fill_histos(row,'vbf_vbfNotIsoMT',True,faketype="mtfake")
             if self.obj2_iso(row) and self.oppositesign(row):
               if not self.obj1_iso(row):
                  if fakeset:
@@ -1079,17 +1234,51 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 
                  if row.jetVeto30==0:
                    self.fill_histos(row,'notIso0JetM',True,faketype="muonfake")
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets0JetM',True,faketype="muonfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt0JetM',True,faketype="muonfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee0JetM',True,faketype="muonfake")
                  if row.jetVeto30==1:
                    self.fill_histos(row,'notIso1JetM',True,faketype="muonfake")
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets1JetM',True,faketype="muonfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt1JetM',True,faketype="muonfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee1JetM',True,faketype="muonfake")
                  if row.jetVeto30==2:
                    self.fill_histos(row,'notIso2JetM',True,faketype="muonfake")
+                   if self.WjetsEnrich(row):
+                      self.fill_histos(row,'notIsoEnWjets2JetM',True,faketype="muonfake")
+                   if self.ZttEnrich(row):
+                      self.fill_histos(row,'notIsoEnZtt2JetM',True,faketype="muonfake")
+                   if self.ZeeEnrich(row):
+                      self.fill_histos(row,'notIsoEnZee2JetM',True,faketype="muonfake")
+                   if((row.vbfMass < 550)):
+#                      self.fill_histos(row,'notIso2Jet_ggM',True,faketype="muonfake")
+                      if self.WjetsEnrich(row):
+                         self.fill_histos(row,'notIsoEnWjets2Jet_ggM',True,faketype="muonfake")
+                      if self.ZttEnrich(row):
+                         self.fill_histos(row,'notIsoEnZtt2Jet_ggM',True,faketype="muonfake")
+                      if self.ZeeEnrich(row):
+                         self.fill_histos(row,'notIsoEnZee2Jet_ggM',True,faketype="muonfake")
+                   if((row.vbfMass >= 550)):
+                   #   self.fill_histos(row,'notIso2Jet_vbfM',True,faketype="muonfake")
+                      if self.WjetsEnrich(row):
+                         self.fill_histos(row,'notIsoEnWjets2Jet_vbfM',True,faketype="muonfake")
+                      if self.ZttEnrich(row):
+                         self.fill_histos(row,'notIsoEnZtt2Jet_vbfM',True,faketype="muonfake")
+                      if self.ZeeEnrich(row):
+                         self.fill_histos(row,'notIsoEnZee2Jet_vbfM',True,faketype="muonfake")
                  if  row.jetVeto30==0:
                     # #if RUN_OPTIMIZATION:
                        # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
                     # #   for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.mDPhiToPfMet_type1),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
                     # #      tmp=os.path.join("ggNotIso",i)
                     # #      self.fill_histos(row,tmp,True)
-                     if MVA0>-0.01:
+                    # if MVA0>-0.01:
                            self.fill_histos(row,'ggNotIsoM',True,faketype="muonfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'ggNotIsoM1stUp',True,"1stUp",faketype="muonfake")
@@ -1103,7 +1292,7 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
                   #  #    for  i in optimizer.compute_regions_1jet(row.tPt, row.mPt,row.tMtToPfMet_type1):
                   #  #      tmp=os.path.join("boostNotIso",i)
                   #  #       self.fill_histos(row,tmp,True)
-                     if MVA0>-0.01:
+                   #  if MVA0>-0.01:
                            self.fill_histos(row,'boostNotIsoM',True,faketype="muonfake")
                  #if (row.jetVeto30>=2 and row.vbfJetVeto30 <= 0) :
                  if (row.jetVeto30==2) :
@@ -1113,11 +1302,11 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
             #     #          self.fill_histos(row,tmp,True)
                      if self.vbf(row):
                            self.fill_histos(row,'vbfNotIsoM',True,faketype="muonfake")
-                     if MVA0>-0.01:
+                    # if MVA0>-0.01:
                         #if row.vbfMass>=100 and row.vbfMass<550:
-                        #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
-                        if not (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_ggNotIsoM',True,faketype="muonfake")
+                     #if not (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if not (row.vbfMass>550):
+                        self.fill_histos(row,'vbf_ggNotIsoM',True,faketype="muonfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'vbf_ggNotIsoM1stUp',True,"1stUp",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoM1stDown',True,"1stDown",faketype="muonfake")
@@ -1130,9 +1319,9 @@ class AnalyzeLFVMuTauPostBDT(MegaBase):
 #                              self.fill_histos(row,'boostNotIsoM1stDown',True,"1stDown",faketype="muonfake")
 #                              self.fill_histos(row,'boostNotIsoM2ndUp',True,"2ndUp",faketype="muonfake")
 #                              self.fill_histos(row,'boostNotIsoM2ndDown',True,"2ndDown",faketype="muonfake")
-
-                        if (row.vbfMass>550):
-                           self.fill_histos(row,'vbf_vbfNotIsoM',True,faketype="muonfake")
+                    # if  (row.vbfMass>550 and abs(row.vbfDeta)>3.5):
+                     if (row.vbfMass>550):
+                        self.fill_histos(row,'vbf_vbfNotIsoM',True,faketype="muonfake")
 #                           if fakeset:
 #                              self.fill_histos(row,'vbf_vbfNotIsoM1stUp',True,"1stUp",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoM1stDown',True,"1stDown",faketype="muonfake")

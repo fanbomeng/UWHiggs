@@ -6,7 +6,7 @@ import math
 import array
 import lfv_vars
 import XSec
-
+import array
 def NoNegBins(histo):    #no negtive bin, if negtive then set Zero
 	for i in range(1,histo.GetNbinsX()+1):
 		if histo.GetBinContent(i) != 0:
@@ -35,13 +35,23 @@ def yieldHisto(histo,xmin,xmax):   # Find the bin number from the range of x axi
 
 def do_binbybinQCD(histo,lowBound,highBound): #fill empty bins and negtive content bins to a scaled number, but detail ?
         for i in range(1,lowBound):
-                if histo.GetBinContent(i) != 0:
-                        lowBound = i
-                        break
+		if fillEmptyBins: #fill empty bins
+#			if histo.GetBinContent(i) <= 0:
+				histo.SetBinContent(i,0.0)   
+			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				histo.SetBinError(i,0.0)
+        #        if histo.GetBinContent(i) != 0:
+        #                lowBound = i
+        #                break
         for i in range(histo.GetNbinsX(),highBound,-1):
-                if histo.GetBinContent(i) != 0:
-                        highBound = i
-                        break
+               # if histo.GetBinContent(i) != 0:
+               #         highBound = i
+               #         break
+		if fillEmptyBins: #fill empty bins
+#			if histo.GetBinContent(i) <= 0:
+				histo.SetBinContent(i,0.0)   
+			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				histo.SetBinError(i,0.0)
         for i in range(lowBound, highBound+1):
                 if fillEmptyBins: #fill empty bins
                         if histo.GetBinContent(i) <= 0:
@@ -58,13 +68,26 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
         nevents = float((f[0]).split(': ',1)[-1])
         xsec = eval("XSec."+file_str.replace("-","_"))
         for i in range(1,lowBound):
-                if histo.GetBinContent(i) != 0:
-                        lowBound = i
-                        break
+#                if histo.GetBinContent(i) != 0:
+#                        lowBound = i
+#                        break
+        #        print "lowBoundtill%f"  %(i) 
+		if fillEmptyBins: #fill empty bins
+#			if histo.GetBinContent(i) <= 0:
+				histo.SetBinContent(i,0.0)   
+			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				histo.SetBinError(i,0.0)
         for i in range(histo.GetNbinsX(),highBound,-1):
-                if histo.GetBinContent(i) != 0:
-                        highBound = i
-                        break
+          #      print "****************"   
+          #      print "highBoundtill%f"  %(i) 
+#                if histo.GetBinContent(i) != 0:
+#                        highBound = i
+#                        break
+		if fillEmptyBins: #fill empty bins
+#			if histo.GetBinContent(i) <= 0:
+				histo.SetBinContent(i,0.0)   
+			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				histo.SetBinError(i,0.0)
 
         for i in range(lowBound, highBound+1):
 		if fillEmptyBins: #fill empty bins
@@ -72,6 +95,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
 				histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)   
 			#	histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
 				histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+				#histo.SetBinError(i,0/nevents*xsec*JSONlumi)
 		else:
                         if histo.GetBinContent(i) < 0:
                                 histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
@@ -117,9 +141,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi =3950.74 
 #JSONlumi =20000.00 
 #JSONlumi =12890.00 
-#JSONlumi = 20076.26 
-#JSONlumi = 16084876 
-JSONlumi = 36588.1373 
+JSONlumi = 20076.26 
 #JSONlumi = 20100.00 
 #JSONlumi = 20000.0 
 #JSONlumi =12878.27 
@@ -248,8 +270,8 @@ else:
 getVarParams = "lfv_vars."+var
 varParams = eval(getVarParams)
 xlabel = varParams[0]
-binwidth = varParams[7]
-
+#binwidth = varParams[7]
+#print "teh bin_width in the lfv.py%f"  %(binwidth)
 # binning for collinear mass
 if "collMass" in var and "vbf" in channel:
 	binwidth =25 
@@ -264,8 +286,16 @@ elif "collMass" in var and "preselection2Jet" in channel:
 elif "collMass" in var and "preselection" in channel:
         binwidth = 5
 elif "BDT" in var and "vbf_vbf"==channel:
-        binwidth = 10
-
+        binwidth =array.array('d',[-1,-0.50,-0.40,-0.30,-0.20,-0.10,0.00,0.10,0.20,0.30,1]) 
+elif "BDT" in var and "vbf_gg"==channel:
+        binwidth =array.array('d',[-1,-0.50,-0.45,-0.40,-0.35,-0.30,-0.25,-0.20,-0.15,-0.10,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30,1]) 
+elif "BDT" in var and "vbf"==channel:
+        binwidth =array.array('d',[-1,-0.50,-0.45,-0.40,-0.35,-0.30,-0.25,-0.20,-0.15,-0.10,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30,1]) 
+elif "BDT" in var and "boost"==channel:
+        binwidth =array.array('d',[-1,-0.50,-0.45,-0.40,-0.35,-0.30,-0.25,-0.20,-0.15,-0.10,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30,1]) 
+elif "BDT" in var and "gg"==channel:
+        binwidth =array.array('d',[-1,-0.50,-0.45,-0.40,-0.35,-0.30,-0.25,-0.20,-0.15,-0.10,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30,1]) 
+#        print "arry********"
 legend = eval(varParams[8])
 isGeV = varParams[5]
 xRange = varParams[6]
@@ -300,25 +330,22 @@ data2016C = make_histo(savedir,"data_SingleMuon_Run2016C", channel,var,lumidir,l
 data2016D = make_histo(savedir,"data_SingleMuon_Run2016D", channel,var,lumidir,lumi,True,)
 data2016E = make_histo(savedir,"data_SingleMuon_Run2016E", channel,var,lumidir,lumi,True,)
 data2016F = make_histo(savedir,"data_SingleMuon_Run2016F", channel,var,lumidir,lumi,True,)
-data2016G = make_histo(savedir,"data_SingleMuon_Run2016G", channel,var,lumidir,lumi,True,)
-data2016H = make_histo(savedir,"data_SingleMuon_Run2016H", channel,var,lumidir,lumi,True,)
 data2016B.Add(data2016C)
 data2016B.Add(data2016D)
 data2016B.Add(data2016E)
 data2016B.Add(data2016F)
-data2016B.Add(data2016G)
-data2016B.Add(data2016H)
 data=data2016B.Clone()
-lowDataBin =1 
-highDataBin = data.GetNbinsX()#-1
-for i in range(1,data.GetNbinsX()+1):
-	if (data.GetBinContent(i) > 0):
-		lowDataBin = i
-		break
-for i in range(data.GetNbinsX(),0,-1):
-	if (data.GetBinContent(i) > 0):
-		highDataBin = i
-		break
+#lowDataBin =1 
+#highDataBin = data.GetNbinsX()#-1
+#for i in range(1,data.GetNbinsX()+1):
+#	if (data.GetBinContent(i) > 0):
+#		lowDataBin = i
+#		break
+#for i in range(data.GetNbinsX(),0,-1):
+#	if (data.GetBinContent(i) > 0):
+#		highDataBin = i
+#		break
+#print "the beginning of the lowDatabin%f and hightdatabin%f, the number of bin%f" %(lowDataBin,highDataBin,data.GetNbinsX())
 zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 #do_binbybinQCD(zjets,lowDataBin,highDataBin)
 z1jets = make_histo(savedir,"DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
@@ -409,14 +436,10 @@ if (QCDflag == True):
   data2016DQCDs = make_histo(savedir,"data_SingleMuon_Run2016D", QCDChannel,var,lumidir,lumi,True,)
   data2016EQCDs = make_histo(savedir,"data_SingleMuon_Run2016E", QCDChannel,var,lumidir,lumi,True,)
   data2016FQCDs = make_histo(savedir,"data_SingleMuon_Run2016F", QCDChannel,var,lumidir,lumi,True,)
-  data2016GQCDs = make_histo(savedir,"data_SingleMuon_Run2016G", QCDChannel,var,lumidir,lumi,True,)
-  data2016HQCDs = make_histo(savedir,"data_SingleMuon_Run2016H", QCDChannel,var,lumidir,lumi,True,)
   data2016BQCDs.Add(data2016CQCDs)
   data2016BQCDs.Add(data2016DQCDs)
   data2016BQCDs.Add(data2016EQCDs)
   data2016BQCDs.Add(data2016FQCDs)
-  data2016BQCDs.Add(data2016GQCDs)
-  data2016BQCDs.Add(data2016HQCDs)
   QCDs = data2016BQCDs.Clone()
   wjetsQCDs = make_histo(savedir,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
   #do_binbybinQCD(wjetsQCDs,lowDataBin,highDataBin)
@@ -525,14 +548,10 @@ if (fakeRate == True):
   data2016Dfakes = make_histo(savedir,"data_SingleMuon_Run2016D", fakechannel,var,lumidir,lumi,True,)
   data2016Efakes = make_histo(savedir,"data_SingleMuon_Run2016E", fakechannel,var,lumidir,lumi,True,)
   data2016Ffakes = make_histo(savedir,"data_SingleMuon_Run2016F", fakechannel,var,lumidir,lumi,True,)
-  data2016Gfakes = make_histo(savedir,"data_SingleMuon_Run2016G", fakechannel,var,lumidir,lumi,True,)
-  data2016Hfakes = make_histo(savedir,"data_SingleMuon_Run2016H", fakechannel,var,lumidir,lumi,True,)
   data2016Bfakes.Add(data2016Cfakes)
   data2016Bfakes.Add(data2016Dfakes)
   data2016Bfakes.Add(data2016Efakes)
   data2016Bfakes.Add(data2016Ffakes)
-  data2016Bfakes.Add(data2016Gfakes)
-  data2016Bfakes.Add(data2016Hfakes)
  # wjets = data2015Cfakes.Clone()
  # wjets.Add(data2015Dfakes)
   wjets = data2016Bfakes.Clone()
@@ -603,14 +622,10 @@ if (fakeRate == True):
   data2016DfakesM = make_histo(savedir,"data_SingleMuon_Run2016D", fakeMchannel,var,lumidir,lumi,True,)
   data2016EfakesM = make_histo(savedir,"data_SingleMuon_Run2016E", fakeMchannel,var,lumidir,lumi,True,)
   data2016FfakesM = make_histo(savedir,"data_SingleMuon_Run2016F", fakeMchannel,var,lumidir,lumi,True,)
-  data2016GfakesM = make_histo(savedir,"data_SingleMuon_Run2016G", fakeMchannel,var,lumidir,lumi,True,)
-  data2016HfakesM = make_histo(savedir,"data_SingleMuon_Run2016H", fakeMchannel,var,lumidir,lumi,True,)
   data2016BfakesM.Add(data2016CfakesM)
   data2016BfakesM.Add(data2016DfakesM)
   data2016BfakesM.Add(data2016EfakesM)
   data2016BfakesM.Add(data2016FfakesM)
-  data2016BfakesM.Add(data2016GfakesM)
-  data2016BfakesM.Add(data2016HfakesM)
  # wjets = data2015CfakesM.Clone()
  # wjets.Add(data2015DfakesM)
   wjetsM = data2016BfakesM.Clone()
@@ -680,14 +695,20 @@ if (fakeRate == True):
   data2016DfakesMT = make_histo(savedir,"data_SingleMuon_Run2016D", fakeMTchannel,var,lumidir,lumi,True,)
   data2016EfakesMT = make_histo(savedir,"data_SingleMuon_Run2016E", fakeMTchannel,var,lumidir,lumi,True,)
   data2016FfakesMT = make_histo(savedir,"data_SingleMuon_Run2016F", fakeMTchannel,var,lumidir,lumi,True,)
-  data2016GfakesMT = make_histo(savedir,"data_SingleMuon_Run2016G", fakeMTchannel,var,lumidir,lumi,True,)
-  data2016HfakesMT = make_histo(savedir,"data_SingleMuon_Run2016H", fakeMTchannel,var,lumidir,lumi,True,)
   data2016BfakesMT.Add(data2016CfakesMT)
   data2016BfakesMT.Add(data2016DfakesMT)
   data2016BfakesMT.Add(data2016EfakesMT)
   data2016BfakesMT.Add(data2016FfakesMT)
-  data2016BfakesMT.Add(data2016GfakesMT)
-  data2016BfakesMT.Add(data2016HfakesMT)
+  
+  faketau=data2016Bfakes.Clone()
+  fakemu=data2016BfakesM.Clone()
+  fakemutau=data2016BfakesMT.Clone()
+  faketau.Rebin(25)
+  fakemu.Rebin(25)
+  fakemutau.Rebin(25)
+#  for ibin in range  (1, faketau.GetXaxis().GetNbins()) :
+#	print 'tau loose: %s, mu loose %s, both loose %s' %(str(faketau.GetBinContent(ibin)), str(fakemu.GetBinContent(ibin)), str(fakemutau.GetBinContent(ibin)))
+	
  # wjets = data2015CfakesMT.Clone()
  # wjets.Add(data2015DfakesMT)
   wjetsMT = data2016BfakesMT.Clone()
@@ -839,7 +860,11 @@ diboson.Add(wz)
 diboson.Add(zz)
 
 #Set bin widths
-data.Rebin(binwidth)
+if 'BDT' in var:
+   data=data.Rebin(len(binwidth)-1,'',binwidth)
+#   print binwidth
+else:
+   data.Rebin(binwidth)
 #if (fakeRate == True):
 if QCDflag==True:
    QCDs.Rebin(binwidth)
@@ -864,29 +889,79 @@ if (not fakeallplot) and fakeRate:
    wjetsMT.Scale(-1)
    wjets.Add(wjetsMT)
    wjets.Add(wjetsM)
-   wjets.Rebin(binwidth)
+   if 'BDT' in var:
+       wjets=wjets.Rebin(len(binwidth)-1,'',binwidth)
+   else:
+       wjets.Rebin(binwidth)
   # wjetsM.Rebin(binwidth)
    #wjetsMT.Rebin(binwidth)
 if (not fakeallplot) and (not fakeRate):
    wjets.Rebin(binwidth)
-zjets.Rebin(binwidth)
+if 'BDT' in var:
+    zjets=zjets.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    zjets.Rebin(binwidth)
 if DY_bin:
    zmmjets.Rebin(binwidth)
    zlljets.Rebin(binwidth)
 
 
-ztautau.Rebin(binwidth)
-ttbar.Rebin(binwidth)
-diboson.Rebin(binwidth)
-ww.Rebin(binwidth)
-wz.Rebin(binwidth)
-zz.Rebin(binwidth)
-singlet.Rebin(binwidth)
-smhgg.Rebin(binwidth)
-gghmutau125.Rebin(binwidth)
-smhvbf.Rebin(binwidth)
-vbfhmutau125.Rebin(binwidth)
+if 'BDT' in var:
+    ztautau=ztautau.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    ztautau.Rebin(binwidth)
+if 'BDT' in var:
+    ttbar=ttbar.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    ttbar.Rebin(binwidth)
+if 'BDT' in var:
+    diboson=diboson.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    diboson.Rebin(binwidth)
+if 'BDT' in var:
+    ww=ww.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    ww.Rebin(binwidth)
+if 'BDT' in var:
+    wz=wz.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    wz.Rebin(binwidth)
+if 'BDT' in var:
+    zz=zz.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    zz.Rebin(binwidth)
+if 'BDT' in var:
+    singlet=singlet.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    singlet.Rebin(binwidth)
+if 'BDT' in var:
+    smhgg=smhgg.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    smhgg.Rebin(binwidth)
+if 'BDT' in var:
+    gghmutau125=gghmutau125.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    gghmutau125.Rebin(binwidth)
+if 'BDT' in var:
+    smhvbf=smhvbf.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    smhvbf.Rebin(binwidth)
+if 'BDT' in var:
+    vbfhmutau125=vbfhmutau125.Rebin(len(binwidth)-1,'',binwidth)
+    print '********************%f'  %(vbfhmutau125.GetNbinsX())
+else:
+    vbfhmutau125.Rebin(binwidth)
 
+lowDataBin =1 
+highDataBin = data.GetNbinsX()#-1
+for i in range(1,data.GetNbinsX()+1):
+	if (data.GetBinContent(i) > 0):
+		lowDataBin = i
+		break
+for i in range(data.GetNbinsX(),0,-1):
+	if (data.GetBinContent(i) > 0):
+		highDataBin = i
+		break
 #options for name of outputfile
 if (fakeRate == True):
   outfile_name = outfile_name+"Fakes"
@@ -1037,7 +1112,10 @@ if fakeRate == False:
 else:
 
 	do_binbybinQCD(wjets,lowDataBin,highDataBin)
+#        print "the highDataBin%f after line 1041" %(highDataBin)
+#print "the highDataBin%f after line 1042" %(highDataBin)
 do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
+#print "the lowDataBin%f and hightDataBin%f" %(lowDataBin,highDataBin)
 do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
 do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)
 do_binbybin(ttbar,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",lowDataBin,highDataBin)
@@ -1129,9 +1207,10 @@ xbinLength = wjets.GetBinWidth(1)
 widthOfBin = xbinLength
 
 if isGeV:
-        ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
+        #ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
+        ylabel = ynormlabel + " Events / " +"bin"
 else:
-        ylabel = ynormlabel  + " Events / " + str(widthOfBin)
+        ylabel = ynormlabel  + " Events / " +'bin'
 
 legend.Draw('sames')
 LFVStack.GetXaxis().SetTitle(xlabel)
@@ -1159,7 +1238,7 @@ if (xRange!=0):
 LFVStack.GetXaxis().SetTitle(xlabel)
 
 xbinLength = wjets.GetBinWidth(1)
-widthOfBin = binwidth*xbinLength
+#widthOfBin = binwidth*xbinLength
 
 size = wjets.GetNbinsX()
 #build tgraph of systematic bands
@@ -1267,7 +1346,7 @@ systErrors.SetFillColorAlpha(920+2,0.35)
 systErrors.SetMarkerSize(0)
 systErrors.Draw('E2,sames')
 legend.AddEntry(data, 'Data #mu#tau_{had}')
-legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
+#legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
 legend.AddEntry(smh, 'SM Higgs')
 #legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
 legend.AddEntry(ztautau,'Z->#tau#tau ','f')
@@ -1366,7 +1445,6 @@ pave.SetFillColor(920+4)
 pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
-
 if (xRange!=0):
         if "BDT" in var:
            ratio.GetXaxis().SetRangeUser(-0.8,xRange)

@@ -814,7 +814,8 @@ class AnalyzeLFVMuTau(MegaBase):
 
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
-        if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        #if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
+        if not (row.singleIsoMu24Pass or row.singleIsoTkMu24Pass):
             return   False
         return True 
 
@@ -1053,7 +1054,7 @@ class AnalyzeLFVMuTau(MegaBase):
         isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
     	return isICHEPMedium
     def obj1_id(self,row):
-        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.02) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
+        return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.2) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
 
     def obj2_id(self, row):
 	#return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
@@ -1132,10 +1133,10 @@ class AnalyzeLFVMuTau(MegaBase):
   #              continue 
             if not self.obj1_isoloose(row):
                 continue
-#            if not self.obj1_id(row):
-#                continue
-            if not self.obj1_idICHEP(row):
+            if not self.obj1_id(row):
                 continue
+#            if not self.obj1_idICHEP(row):
+#                continue
             if not self.vetos (row):
                 continue
 

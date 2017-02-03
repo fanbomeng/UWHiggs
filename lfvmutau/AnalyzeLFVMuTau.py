@@ -287,7 +287,7 @@ def mc_corrector_2016(row):
   m_trgiso22=muon_pog_TriggerIso22_2016B(row.mPt,abs(row.mEta))
   m1iso =muon_pog_TightIso_2016B('Tight',row.mPt,abs(row.mEta))
 #  m1iso =muon_pog_TightIso_2016B('Medium',row.mPt,abs(row.mEta))
-  
+  #print "puC %f----idC %f-----trackingC %f-----trgiso24C %f----isoC %f" %(pu,m1id,m1tracking,m_trgiso22,m1iso) 
 #  print "in the analyzer muon trigger"
  # print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
   #print "pu"
@@ -602,8 +602,9 @@ class AnalyzeLFVMuTau(MegaBase):
         weight=1#bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
         if (not(self.is_data)):
         #some difference from the btag stuff
-#	   weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
-	   weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
+	   weight = row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+#           print "most of the weights********%f"   %(weight)
+	   #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 	   #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 #	   weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)
 
@@ -1143,9 +1144,9 @@ class AnalyzeLFVMuTau(MegaBase):
 #                   continue
             if not self.obj2_Vlooseiso(row):
                 continue
-#            if (self.is_data):
-#               if  row.bjetCISVVeto30Medium:
-#                   continue
+            if (self.is_data):
+               if  row.bjetCISVVeto30Medium:
+                   continue
             if not self.obj2_id (row):
                 continue
             if self.ls_recoilC and MetCorrection: 
@@ -1330,6 +1331,7 @@ class AnalyzeLFVMuTau(MegaBase):
    		        tmp=os.path.join("gg",i)
 		        self.fill_histos(row,tmp,False)	
                   if self.gg(row):
+                       # print "the preselection SF Correction %f" %(self.correction(row))
                         self.fill_histos(row,'gg',False)
                         if wjets_fakes and row.isWmunu==1:
                            self.fill_histos(row,'Wmunu_gg',False)

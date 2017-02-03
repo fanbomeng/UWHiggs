@@ -319,7 +319,7 @@ class AnalyzeLFVMuTauPostBDTbtagup(MegaBase):
             self.book(names[x], "tDecayModeFinding", "tDecayModeFinding", 2,-0.5,1.5)
             self.book(names[x], "tDecayModeFindingNewDMs", "tDecayModeFindingNewDMs", 2,-0.5,1.5)
             self.book(names[x], "tDecayMode", "tDecayMode", 21,-0.5,20.5)
-            self.book(names[x],"collMass_type1","collMass_type1",500,0,500);
+            self.book(names[x],"collMass_type1","collMass_type1",300,0,300);
             self.book(names[x],"fullMT_type1","fullMT_type1",500,0,500);
             self.book(names[x],"fullPT_type1","fullPT_type1",500,0,500);	    
 #    	    self.book(names[x], "LT", "ht", 400, 0, 400)
@@ -805,17 +805,14 @@ class AnalyzeLFVMuTauPostBDTbtagup(MegaBase):
                           self.fill_histos(row,tmp,False)
 #"IsoSS0Jet","IsoSS1Jet","IsoSS2Jet","ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"
             if fakeset:
-             #if self.obj1_iso(row):
-             #  if not self.obj2_iso(row) and not self.oppositesign(row) :#and self.obj2_iso_NT_VLoose(row):
-             #if self.obj1_iso(row):
-             if not self.obj2_iso(row) and not self.oppositesign(row) :#and self.obj2_iso_NT_VLoose(row):
+             if self.obj1_iso(row):
+               if not self.obj2_iso(row) and not self.oppositesign(row) :#and self.obj2_iso_NT_VLoose(row):
                       self.fill_histos(row,'notIsoSS',True)
                       if self.WjetsEnrich(row):
                          self.fill_histos(row,'notIsoEnWjetsSS',True)
 #              self.fill_histos(row,'notIsoNotWeightedSS',False)
-             #if not self.obj1_iso(row):
-             #  if  self.obj2_iso(row) and not self.oppositesign(row) :
-             if not self.obj1_iso(row) and not self.oppositesign(row) :
+             if not self.obj1_iso(row):
+               if  self.obj2_iso(row) and not self.oppositesign(row) :
                       self.fill_histos(row,'notIsoSSM',True,faketype="muonfake")
              if not self.obj1_iso(row):
                if not self.obj2_iso(row) and not self.oppositesign(row) :
@@ -933,8 +930,7 @@ class AnalyzeLFVMuTauPostBDTbtagup(MegaBase):
                            tmp=os.path.join("vbf_vbf",i)
                            self.fill_histos(row,tmp,False)
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):
-              #if self.obj1_iso(row):
-              #if self.obj1_iso(row):
+              if self.obj1_iso(row):
                  if fakeset:
                     self.fill_histos(row,'notIso',True)
                     if self.WjetsEnrich(row):
@@ -1073,9 +1069,8 @@ class AnalyzeLFVMuTauPostBDTbtagup(MegaBase):
 
                         if (row.vbfMass>550):
                            self.fill_histos(row,'vbf_vbfNotIsoMT',True,faketype="mtfake")
-            #if self.obj2_iso(row) and self.oppositesign(row):
-            if not self.obj1_iso(row) and self.oppositesign(row):
-              #if not self.obj1_iso(row):
+            if self.obj2_iso(row) and self.oppositesign(row):
+              if not self.obj1_iso(row):
                  if fakeset:
                     self.fill_histos(row,'notIsoM',True,faketype="muonfake")
 #                    if self.WjetsEnrich(row):

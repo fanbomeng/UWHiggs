@@ -320,7 +320,7 @@ class AnalyzeLFVMuTauPostBDT_progress(MegaBase):
             self.book(names[x], "GenWeight", "Gen level weight", 200000 ,-1000000, 1000000)
             self.book(names[x], "rho", "Fastjet #rho", 100, 0, 25)
 #            self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
-            self.book(names[x], "BDTcuts", "BDTcuts", 100, -1,1)
+            self.book(names[x], "BDTcuts", "BDTcuts", 80, -0.5,0.3)
             self.book(names[x], "nvtx", "Number of vertices", 20, -0.5, 100.5)
             self.book(names[x], "prescale", "HLT prescale", 21, -0.5, 20.5)
             self.book(names[x], "tJetPartonFlavour", "tJetPartonFlavour", 30,-7, 23)

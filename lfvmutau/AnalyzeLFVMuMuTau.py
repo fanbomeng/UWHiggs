@@ -232,7 +232,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
         weight=1.0
         if (not(self.is_data)):
 #	   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
-           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
      #   if (fakeRate == True):
      #     weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
