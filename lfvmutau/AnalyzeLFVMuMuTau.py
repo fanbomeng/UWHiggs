@@ -17,7 +17,7 @@ import ROOT
 import math
 import weightMuMuTau
 from math import sqrt, pi
-import bTagSF
+import bTagSFrereco 
 btagSys=0
 #bTagSF=0
 #data=bool ('true' in os.environ['isRealData'])
@@ -65,6 +65,19 @@ def mc_corrector_2016(row):
   return pu*m1id*m1iso*m1_trg*m2id*m2iso*m1tracking*m2tracking#*m2_trg
 
 mc_corrector = mc_corrector_2016
+
+def getGenMfakeTSF(ABStEta):
+    if (ABStEta>0 and ABStEta<0.4):
+       return 1.425
+    if (ABStEta>0.4 and ABStEta<0.8):
+       return 1.72
+    if (ABStEta>0.8 and ABStEta<1.2):
+       return 1.26
+    if (ABStEta>1.2 and ABStEta<1.7):
+       return 2.59
+    if (ABStEta>1.7 and ABStEta<2.3):
+       return 2.29
+
 
 class AnalyzeLFVMuMuTau(MegaBase):
     tree = 'mmt/final/Ntuple'
@@ -237,12 +250,14 @@ class AnalyzeLFVMuMuTau(MegaBase):
         weight=1.0
         if (not(self.is_data)):
 #	   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
-           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
+           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
      #   if (fakeRate == True):
      #     weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
-     #   if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
-          #weight=weight*0.83
-     #     weight=weight*0.90
+        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
+           if 'loose' in name:
+              weight=weight*0.99
+           else:
+              weight=weight*0.95
 #        if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
 #          weight=weight*getGenMfakeTSF(abs(row.tEta))
       #  if self.ls_DY or self.ls_ZTauTau:
@@ -375,11 +390,11 @@ class AnalyzeLFVMuMuTau(MegaBase):
 #	return True
 
     def kinematics(self, row):
-        if row.m1Pt < 25:
+        if row.m1Pt < 26:
             return False
         if abs(row.m1Eta) >= 2.4:
             return False
-        if row.m2Pt < 25:
+        if row.m2Pt < 26:
             return False
         if abs(row.m2Eta) >= 2.4:
             return False

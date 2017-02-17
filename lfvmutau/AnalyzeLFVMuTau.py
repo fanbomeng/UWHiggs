@@ -117,18 +117,29 @@ def transverseMass(p1,p2):    #one partical to Met possiblely
 
 
 
+#def getGenMfakeTSF(ABStEta):
+#    if (ABStEta>0 and ABStEta<0.4):
+#       return 1.470
+#    if (ABStEta>0.4 and ABStEta<0.8):
+#       return 1.367
+#    if (ABStEta>0.8 and ABStEta<1.2):
+#       return 1.251
+#    if (ABStEta>1.2 and ABStEta<1.7):
+#       return 1.770
+#    if (ABStEta>1.7 and ABStEta<2.3):
+#       return 1.713
+#
 def getGenMfakeTSF(ABStEta):
     if (ABStEta>0 and ABStEta<0.4):
-       return 1.470
+       return 1.425
     if (ABStEta>0.4 and ABStEta<0.8):
-       return 1.367
+       return 1.72
     if (ABStEta>0.8 and ABStEta<1.2):
-       return 1.251
+       return 1.26
     if (ABStEta>1.2 and ABStEta<1.7):
-       return 1.770
+       return 2.59
     if (ABStEta>1.7 and ABStEta<2.3):
-       return 1.713
-
+       return 2.29
 
 
 def getFakeRateFactorFANBOPt(row, fakeset):
@@ -578,9 +589,9 @@ class AnalyzeLFVMuTau(MegaBase):
         if (fakeRate == True):
 #          print self.fakeRateMethod(row,fakeset)
           weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
-       # if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
+        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
           #weight=weight*0.83
-       #   weight=weight*0.95
+          weight=weight*0.95
         if (self.ls_DY and row.isZmumu  and row.tZTTGenMatching<5):
           weight=weight*getGenMfakeTSF(abs(row.tEta))
      #   if self.ls_DY or self.ls_ZTauTau:

@@ -16,13 +16,17 @@
 #export jobid=MiniAodV2For25ns_ExtraJets_LFV_Data
 #export jobid=MiniAodV2For25ns_ExtraJets_JesUes_JetEtaFix_LFV
 export datasrc=/hdfs/store/user/caillol/
+#export datasrc=/hdfs/store/user/truggles/
 #export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/taroni/
 #export datasrc=/hdfs/store/user/truggles/
 #export jobid=LFVdata_oct28/
 #export jobid=SMHTT_oct25/
 #export jobid=LFVtrileptons_Dec7/
-export jobid=SMHTT_jan11_v2/
+#export jobid=LFVH_Dec21/
+#export jobid=SMHTT_data_jan17
+export jobid=SMHTT_reminiaod_feb14/
+#export jobid=SMHTT_mc_jan17/
 #export jobid=LFVtrilepton_oct31/
 #export jobid=LFVZTauTauEm/
 #export jobid=LFVdata_ExtraG_Hnew/
@@ -48,12 +52,12 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 
 #rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo]"
 #rake "meta:getinputs[$jobid, $datasrc,mmm/metaInfo, mmm/summedWeights]"
-#rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
+rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
 #rake "meta:getinputs[$jobid, $datasrc,et/metaInfo, et/summedWeights]"
 #rake "meta:getinputs[$jobid, $datasrc,em/metaInfo, em/summedWeights]"
 ########rake "meta:getinputs[$jobid, $datasrc,mmt/metaInfo, mmt/summedWeights]"
 echo "come here 22222222222222"
 #rake "meta:getmeta[inputs/$jobid, mmm/metaInfo, 13,mmm/summedWeights]"
-rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
+#rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 #########rake "meta:getmeta[inputs/$jobid, mmt/metaInfo, 13,mmt/summedWeights]"
 #rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"echo "come here 33333333333333"

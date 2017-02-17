@@ -12,7 +12,7 @@ set -o errexit
 #export RUN_OPTIMIZATION=true
 export systematic=none
 #export jobid=LFV_8013v1
-export jobid=SMHTT_oct25
+export jobid=SMHTT_jan31
 #export jobid=LFVdata_ExtraG_Hnew
 #export isRealData=true
 export isZTauTau=false
@@ -28,13 +28,13 @@ export isInclusive=false   #ZeroJet
 #export isIncluse=false
 #export fakeset=true   #ZeroJet
 export isRealData=true
-rake analyzeSpring2016WjetsandDataPostBDT
-rake analyzeSpring2016WjetsandDataPostBDTtesup
-rake analyzeSpring2016WjetsandDataPostBDTtesdown
-rake analyzeSpring2016WjetsandDataPostBDTjesup
-rake analyzeSpring2016WjetsandDataPostBDTjesdown
-rake analyzeSpring2016WjetsandDataPostBDTuesup
-rake analyzeSpring2016WjetsandDataPostBDTuesdown
+#rake analyzeSpring2016WjetsandDataPostBDT
+#rake analyzeSpring2016WjetsandDataPostBDTtesup
+#rake analyzeSpring2016WjetsandDataPostBDTtesdown
+#rake analyzeSpring2016WjetsandDataPostBDTjesup
+#rake analyzeSpring2016WjetsandDataPostBDTjesdown
+#rake analyzeSpring2016WjetsandDataPostBDTuesup
+#rake analyzeSpring2016WjetsandDataPostBDTuesdown
 #rake analyzeSpring2016WjetsandDataPostBDTbtagup
 #rake analyzeSpring2016WjetsandDataPostBDTbtagdown
 #rake analyzeSpring2016WjetsandDataprogress
@@ -55,7 +55,7 @@ rake analyzeSpring2016WjetsandDataPostBDTuesdown
 #rake analyzeSpring2016WjetsandDatatrial
 #rake analyzeSpring2016WjetsandDataBDT
 #rake analyzeSpring2016WjetsandDataBDT
-#rake analyzeSpring2016WjetsandDataBDT_data 
+rake analyzeSpring2016WjetsandDataBDT_data 
 export isRealData=false
 export isZTauTau=true
 #rake analyzeSpring2016MC

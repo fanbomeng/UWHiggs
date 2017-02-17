@@ -191,6 +191,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 20076.26 
 #JSONlumi = 16084876 
 #JSONlumi = 36588.1373 
+#JSONlumi =  35800.0000 
 JSONlumi = 36809.8902 
 #JSONlumi = 20100.00 
 #JSONlumi = 20000.0 
@@ -272,8 +273,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-#blinded = True #not blinded
-blinded = False #not blinded
+blinded = True #not blinded
+#blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -332,7 +333,7 @@ if "collMass" in var and channel=='vbf_vbf':
 if "collMass" in var and channel=='vbf_gg':
 	binwidth =25 
 if "collMass" in var and channel=='gg':
-	binwidth =10 
+	binwidth =5 
 if "collMass" in var and channel=='boost':
 	binwidth =10 
 #if "collMass" in var and "vbf" in channel:
@@ -385,6 +386,7 @@ lumi = lumiScale*1000
 if (lumiScale==0):
 	lumi = JSONlumi
 print lumi
+
 data2016B = make_histo(savedir,"data_SingleMuon_Run2016B", channel,var,lumidir,lumi,True,)
 #data2016B.Sumw2()
 data2016C = make_histo(savedir,"data_SingleMuon_Run2016C", channel,var,lumidir,lumi,True,)
@@ -410,6 +412,15 @@ data=data2016B.Clone()
 #	if (data.GetBinContent(i) > 0):
 #		highDataBin = i
 #		break
+channelNoral=channel
+if (not 'Jet' in shift) and not ('none' in shift):
+   channelSys=channel+shift
+if 'Jet' in shift:
+   channelSys=channel+'_'+shift
+if not 'none' in shift:
+   channel=channelSys
+   print "line 422 %s " %channel
+print "line 423 %s " %channel
 zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 #do_binbybinQCD(zjets,lowDataBin,highDataBin)
 z1jets = make_histo(savedir,"DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
@@ -608,9 +619,13 @@ if (QCDflag == True):
   QCDs.Add(dibosonQCDs)
   QCDs.Add(singletQCDs)
 
+#channelNoral=channel
 #apply fake rate method
 if (fakeRate == True):
+  # change back to normal channels whatever
+  channel=channelNoral
   fakechannel = fakeChannels[channel]
+  print "fake channel at line 627 %s" %fakechannel
   #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2016Bfakes = make_histo(savedir,"data_SingleMuon_Run2016B", fakechannel,var,lumidir,lumi,True,)
@@ -629,6 +644,15 @@ if (fakeRate == True):
  # wjets = data2015Cfakes.Clone()
  # wjets.Add(data2015Dfakes)
   wjets = data2016Bfakes.Clone()
+  fakechannelNoral=fakechannel
+  if (not 'Jet' in shift) and not ('none' in shift):
+     fakechannelSys=fakechannel+shift
+  if 'Jet' in shift:
+     fakechannelSys=fakechannel+'_'+shift
+  if not 'none' in shift:
+     fakechannel=fakechannelSys
+     print "line 659 %s " %fakechannel
+  print "line 660 %s " %fakechannel
   zjetsfakes = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakechannel,var,lumidir,lumi)
 #  do_binbybinQCD(zjetsfakes,lowDataBin,highDataBin)
   z1jetsfakes = make_histo(savedir,"DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakechannel,var,lumidir,lumi)
@@ -690,6 +714,7 @@ if (fakeRate == True):
 
 
   fakeMchannel = fakeMChannels[channel]
+  fakeMchannelNoral=fakeMchannel
   #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2016BfakesM = make_histo(savedir,"data_SingleMuon_Run2016B", fakeMchannel,var,lumidir,lumi,True,)
@@ -708,6 +733,15 @@ if (fakeRate == True):
  # wjets = data2015CfakesM.Clone()
  # wjets.Add(data2015DfakesM)
   wjetsM = data2016BfakesM.Clone()
+  print "fakeM line 736 %s" %fakeMchannel
+  if (not 'Jet' in shift) and not ('none' in shift):
+     fakeMchannelSys=fakeMchannel+shift
+  if 'Jet' in shift:
+     fakeMchannelSys=fakeMchannel+'_'+shift
+  if not 'none' in shift:
+     fakeMchannel=fakeMchannelSys
+     print "fakeMchannel line 741 %s " %fakeMchannel
+  print "fakeMchannel line 742 %s " %fakeMchannel
   zjetsfakesM = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",  fakeMchannel,var,lumidir,lumi)
 #  do_binbybinQCD(zjetsfakesM,lowDataBin,highDataBin)
   z1jetsfakesM = make_histo(savedir,"DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakeMchannel,var,lumidir,lumi)
@@ -768,6 +802,7 @@ if (fakeRate == True):
   
 
   fakeMTchannel = fakeMTChannels[channel]
+  fakeMTchannelNoral=fakeMTchannel
   #data2015Cfakes = make_histo(savedir,"data_SingleMuon_Run2015C_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   #data2015Dfakes = make_histo(savedir,"data_SingleMuon_Run2015D_16Dec2015_25ns",fakechannel,var,lumidir,lumi,True)
   data2016BfakesMT = make_histo(savedir,"data_SingleMuon_Run2016B", fakeMTchannel,var,lumidir,lumi,True,)
@@ -786,6 +821,14 @@ if (fakeRate == True):
  # wjets = data2015CfakesMT.Clone()
  # wjets.Add(data2015DfakesMT)
   wjetsMT = data2016BfakesMT.Clone()
+  if (not 'Jet' in shift) and not ('none' in shift):
+     fakeMTchannelSys=fakeMTchannel+shift
+  if 'Jet' in shift:
+     fakeMTchannelSys=fakeMTchannel+'_'+shift
+  if not 'none' in shift:
+     fakeMTchannel=fakeMTchannelSys
+     print "fakeMTchannel line 828 %s " %fakeMTchannel
+  print "fakeMTchannel line 829 %s " %fakeMTchannel
   zjetsfakesMT = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",  fakeMTchannel,var,lumidir,lumi)
 #  do_binbybinQCD(zjetsfakesMT,lowDataBin,highDataBin)
   z1jetsfakesMT = make_histo(savedir,"DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",fakeMTchannel,var,lumidir,lumi)
@@ -913,7 +956,10 @@ else: #if fakeRate==False
      if QCDflag==True:
         QCDs.Scale(1.06)
 #     wjets.Add(QCDs)
-
+if not 'none' in shift:
+   channel=channelSys
+   print "line 965 %s " %channel
+print "line 966 %s " %channel
 vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 
@@ -1058,8 +1104,8 @@ outfile = ROOT.TFile(outfile_name+".root","RECREATE")
 outfile.mkdir(rootdir)
 outfile.cd(rootdir+"/")
 if blinded == False:
-	#if not ("Jes" in savedir or "Ues" in savedir or "Tes" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
-	if not ("Jes" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or "Fakes" in shift or "Btag" in shift):
+	#if not ("Jet" in savedir or "UES" in savedir or "TES" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
+	if not ("Jet" in shift or "UES" in shift or "TES" in shift or "Fakes" in shift or "Fakes" in shift or "MES" in shift):
         	data.Write("data_obs")
 
 if ("collMass" in var or "m_t_Mass" in var):
@@ -1071,7 +1117,7 @@ if ("BDT" in var):
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 if blinded == True:
-        if not ("Jes" in shift or "Btag" in shift or "Ues" in shift or "Tes" in shift or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift):
+        if not ("Jet" in shift or "MES" in shift or "UES" in shift or "TES" in shift or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift):
                 data.Write("data_obs")
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,

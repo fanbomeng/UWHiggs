@@ -16,7 +16,7 @@ import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
 import weightMuMuTau 
-import bTagSF
+import bTagSFrereco
 from math import sqrt, pi
 fakeRate=False
 btagSys=0
@@ -33,15 +33,90 @@ def deltaPhi(phi1, phi2):
       return 2*pi-PHI
 def getGenMfakeTSF(ABStEta):
     if (ABStEta>0 and ABStEta<0.4):
-       return 1.470
+       return 1.425
     if (ABStEta>0.4 and ABStEta<0.8):
-       return 1.367
+       return 1.72
     if (ABStEta>0.8 and ABStEta<1.2):
-       return 1.251
+       return 1.26
     if (ABStEta>1.2 and ABStEta<1.7):
-       return 1.770
+       return 2.59
     if (ABStEta>1.7 and ABStEta<2.3):
-       return 1.713
+       return 2.29
+
+
+def getFakeRateFactorFANBOPt(row, fakeset):
+     if fakeset=="def":
+        if  row.tDecayMode==0:
+            fTauIso=0.22362
+        if  row.tDecayMode==1:
+            fTauIso=0.218989
+        if  row.tDecayMode==10:
+            fTauIso=0.186646
+     if fakeset=="1stUp":
+        if  row.tDecayMode==0:
+            fTauIso=0.22362+0.00685
+        if  row.tDecayMode==1:
+            fTauIso=0.218989+0.00392
+        if  row.tDecayMode==10:
+            fTauIso=0.186646+0.00416
+     if fakeset=="1stDown":
+        if  row.tDecayMode==0:
+            fTauIso=0.21753-0.00685
+        if  row.tDecayMode==1:
+            fTauIso=0.218989-0.00392
+        if  row.tDecayMode==10:
+            fTauIso=0.186646-0.00416
+     fakeRateFactor = fTauIso/(1.0-fTauIso)
+     return fakeRateFactor
+#def getFakeRateFactorFANBOPt(row, fakeset):
+#     if fakeset=="def":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.21753
+#        if  row.tDecayMode==1:
+#            fTauIso=0.21068
+#        if  row.tDecayMode==10:
+#            fTauIso=0.18071
+#     if fakeset=="1stUp":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.21753+0.00921
+#        if  row.tDecayMode==1:
+#            fTauIso=0.21068+0.00515
+#        if  row.tDecayMode==10:
+#            fTauIso=0.18071+0.00549
+#     if fakeset=="1stDown":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.21753-0.00921
+#        if  row.tDecayMode==1:
+#            fTauIso=0.21068-0.00515
+#        if  row.tDecayMode==10:
+#            fTauIso=0.18071-0.00549
+#     fakeRateFactor = fTauIso/(1.0-fTauIso)
+#     return fakeRateFactor
+#
+
+def getFakeRateFactormuonabsEta(row, fakeset):   #old
+     if fakeset=="def":
+          fTauIso=0.825162
+     if fakeset=="1stUp":
+        fTauIso=0.825162+0.013674
+     if fakeset=="1stDown":
+        fTauIso=0.825162-0.013674
+     fakeRateFactor = fTauIso/(1.0-fTauIso)
+     return fakeRateFactor
+
+def getFakeRateFactor(row, fakeset):
+  if fakeset=="def":
+     fTauIso= 0.2089 - 0.00113*(row.tPt-30)
+  if fakeset=="1stUp":
+     fTauIso= 0.212105 - 0.00111905*(row.tPt-30)
+  if fakeset=="1stDown":
+     fTauIso= 0.205715  - 0.00113831*(row.tPt-30)
+  if fakeset=="2ndUp":
+     fTauIso= 0.20891  - 0.00088892*(row.tPt-30)
+  if fakeset=="2ndDown":
+     fTauIso= 0.208909  - 0.00136844*(row.tPt-30)
+  fakeRateFactor = fTauIso/(1.0-fTauIso)
+  return fakeRateFactor
 ################################################################################
 #### MC-DATA and PU corrections ################################################
 ################################################################################
@@ -64,19 +139,19 @@ def mc_corrector_2016T(row):
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
-  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+#  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
   m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
   m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
-  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
+#  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
  # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
   m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
   m3iso = muon_pog_TightIso_2016(row.m3Pt,abs(row.m3Eta))
-  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
+#  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
  # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
 
   #print "pu"
   #print str(pu)
-  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m2tracking*m3id*m3iso*m3tracking
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso
 
 def mc_corrector_2016L(row):
   pu = pu_corrector(row.nTruePU)
@@ -84,19 +159,19 @@ def mc_corrector_2016L(row):
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
-  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+  #m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
   m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
   m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
-  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
+  #m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
  # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
   m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
   m3iso = muon_pog_LooseIso_2016(row.m3Pt,abs(row.m3Eta))
-  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
+  #m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
  # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
 
   #print "pu"
   #print str(pu)
-  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m2tracking*m3id*m3iso*m3tracking
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso
 mc_correctorT = mc_corrector_2016T
 mc_correctorL = mc_corrector_2016L
 
@@ -251,9 +326,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
       #    weight=weight*getGenMfakeTSF(abs(row.tEta))
         if (fakeRate == True):
           weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
-        if self.ls_DY or self.ls_ZTauTau:
-           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
-           weight=weight*wtzpt
+#        if self.ls_DY or self.ls_ZTauTau:
+#           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+#           weight=weight*wtzpt
 
         histos[name+'/weight'].Fill(weight)
         histos[name+'/GenWeight'].Fill(row.GenWeight)
@@ -358,15 +433,15 @@ class AnalyzeLFVMuMuMu(MegaBase):
 #	return True
 
     def kinematics(self, row):
-        if row.m1Pt < 25:
+        if row.m1Pt < 26:
             return False
         if abs(row.m1Eta) >= 2.4:
             return False
-        if row.m2Pt < 25:
+        if row.m2Pt < 26:
             return False
         if abs(row.m2Eta) >= 2.4:
             return False
-        if row.m3Pt<25:
+        if row.m3Pt<26:
             return False
         if abs(row.m3Eta)>=2.4:
             return False

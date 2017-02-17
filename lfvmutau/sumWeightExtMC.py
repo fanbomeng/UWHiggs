@@ -17,7 +17,7 @@ for name in os.listdir(path):
         if os.path.isfile(os.path.join(path, name)):
             if  os.path.isfile(os.path.join(path, name.replace('_ext1', ''))):
                 files.append((name.replace('_ext1', ''), name))
-
+                print  name
 #print files
 
 for names in files:

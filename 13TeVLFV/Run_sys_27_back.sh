@@ -1,0 +1,345 @@
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  gg              0 none                             tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost           0 none                             tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf_gg          0 none                             tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf_vbf          0 none                             tPt0   0
+                                                                                                                                       
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  gg      0  Fakes1stDown                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost   0  Fakes1stDown                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf     0  Fakes1stDown                tPt0   0
+#                                                                                                                                     
+#                                                                                                                                    
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg       0 Fakes1stUp                      tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost    0 Fakes1stUp                      tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf      0 Fakes1stUp                      tPt0   0
+#                                                                                                                                  
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  gg      0  Fakes2ndDown                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost   0  Fakes2ndDown                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf     0  Fakes2ndDown                tPt0   0
+#
+#
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  gg      0  Fakes2ndUp                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost   0  Fakes2ndUp                tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  vbf     0  Fakes2ndUp                tPt0   0
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+
+
+                                                                                                                               
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteScaleUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetAbsoluteStatUp      tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetFlavorQCDUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetFragmentationUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpDataMCUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtBBUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtBBUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtBBUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtBBUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtEC1Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtEC1Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtEC1Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtEC1Up      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtEC2Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtEC2Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtEC2Up      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtEC2Up      tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtHFUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtHFUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtHFUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtHFUp    tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtRefDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtRefDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtRefDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtRefDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetPileUpPtRefUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetPileUpPtRefUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetPileUpPtRefUp    tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetPileUpPtRefUp    tPt0   0
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeBalDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeBalDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeBalDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeBalDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeBalUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeBalUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeBalUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeBalUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeFSRUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJEREC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJEREC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJEREC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJEREC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJEREC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJEREC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJEREC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJEREC1Up  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJEREC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJEREC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJEREC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJEREC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJEREC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJEREC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJEREC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJEREC2Up  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJERHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJERHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJERHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJERHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeJERHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeJERHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeJERHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeJERHFUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtBBDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtBBUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtBBUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtBBUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtBBUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtEC1Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtEC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtEC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtEC1Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtEC1Up  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtEC2Down      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtEC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtEC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtEC2Up  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtEC2Up  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativePtHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativePtHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativePtHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativePtHFUp  tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatECDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatECDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatECDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatECDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatECUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatECUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatECUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatECUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatFSRDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatFSRUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatFSRUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatHFDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetRelativeStatHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetRelativeStatHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetRelativeStatHFUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetRelativeStatHFUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetSinglePionECALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetSinglePionECALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetSinglePionECALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetSinglePionECALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetSinglePionECALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetSinglePionECALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetSinglePionECALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetSinglePionECALUp  tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetSinglePionHCALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetSinglePionHCALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetSinglePionHCALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetSinglePionHCALDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetSinglePionHCALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetSinglePionHCALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetSinglePionHCALUp  tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetSinglePionHCALUp  tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetTimePtEtaDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetTimePtEtaDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetTimePtEtaDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetTimePtEtaDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg      0 CMS_JetTimePtEtaUp tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost   0 CMS_JetTimePtEtaUp tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg  0 CMS_JetTimePtEtaUp tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf 0 CMS_JetTimePtEtaUp tPt0   0
+
+
+                                                                                                                              
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg       0 TESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost    0 TESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg      0 TESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf      0 TESDown                      tPt0   0
+                                                                                                                             
+                                                                                                                            
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg         0 TESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost      0 TESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg        0 TESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf        0 TESUp                          tPt0   0
+                                                                                                                           
+                                                                                                                          
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg       0 UESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost    0 UESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg      0 UESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf      0 UESDown                      tPt0   0
+                                                                                                                         
+                                                                                                                        
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg         0 UESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost      0 UESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg     0 UESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf    0 UESUp                          tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg       0 MESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost    0 MESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg      0 MESDown                      tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf      0 MESDown                      tPt0   0
+                                                                                                                         
+                                                                                                                        
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   gg         0 MESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   boost      0 MESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_gg     0 MESUp                          tPt0   0
+python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1   vbf_vbf    0 MESUp                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagup/ collMass_type1   gg         0 BtagUp                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagup/ collMass_type1   boost      0 BtagUp                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagup/ collMass_type1   vbf        0 BtagUp                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagup/ collMass_type1   vbf_gg     0 BtagUp                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagup/ collMass_type1   vbf_vbf    0 BtagUp                          tPt0   0
+#
+#
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagdown/ collMass_type1   gg         0 Btagdown                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagdown/ collMass_type1   boost      0 Btagdown                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagdown/ collMass_type1   vbf        0 Btagdown                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagdown/ collMass_type1   vbf_gg     0 Btagdown                          tPt0   0
+#python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTaubtagdown/ collMass_type1   vbf_vbf    0 Btagdown                          tPt0   0
