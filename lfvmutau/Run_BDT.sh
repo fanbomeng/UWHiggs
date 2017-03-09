@@ -12,7 +12,7 @@ set -o errexit
 #export RUN_OPTIMIZATION=true
 export systematic=none
 #export jobid=LFV_8013v1
-export jobid=SMHTT_jan31
+export jobid=LFV_reminiaod_feb18
 #export jobid=LFVdata_ExtraG_Hnew
 #export isRealData=true
 export isZTauTau=false

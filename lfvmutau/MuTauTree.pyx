@@ -52,20 +52,50 @@ cdef class MuTauTree:
 
     # Branches and address for all
 
-    cdef TBranch* Ele45L1JetTauSeededGroup_branch
-    cdef float Ele45L1JetTauSeededGroup_value
-
-    cdef TBranch* Ele45L1JetTauSeededPass_branch
-    cdef float Ele45L1JetTauSeededPass_value
-
-    cdef TBranch* Ele45L1JetTauSeededPrescale_branch
-    cdef float Ele45L1JetTauSeededPrescale_value
-
     cdef TBranch* EmbPtWeight_branch
     cdef float EmbPtWeight_value
 
     cdef TBranch* Eta_branch
     cdef float Eta_value
+
+    cdef TBranch* Flag_BadChargedCandidateFilter_branch
+    cdef float Flag_BadChargedCandidateFilter_value
+
+    cdef TBranch* Flag_BadPFMuonFilter_branch
+    cdef float Flag_BadPFMuonFilter_value
+
+    cdef TBranch* Flag_EcalDeadCellTriggerPrimitiveFilter_branch
+    cdef float Flag_EcalDeadCellTriggerPrimitiveFilter_value
+
+    cdef TBranch* Flag_HBHENoiseFilter_branch
+    cdef float Flag_HBHENoiseFilter_value
+
+    cdef TBranch* Flag_HBHENoiseIsoFilter_branch
+    cdef float Flag_HBHENoiseIsoFilter_value
+
+    cdef TBranch* Flag_badCloneMuonFilter_branch
+    cdef float Flag_badCloneMuonFilter_value
+
+    cdef TBranch* Flag_badGlobalMuonFilter_branch
+    cdef float Flag_badGlobalMuonFilter_value
+
+    cdef TBranch* Flag_badMuons_branch
+    cdef float Flag_badMuons_value
+
+    cdef TBranch* Flag_duplicateMuons_branch
+    cdef float Flag_duplicateMuons_value
+
+    cdef TBranch* Flag_eeBadScFilter_branch
+    cdef float Flag_eeBadScFilter_value
+
+    cdef TBranch* Flag_globalTightHalo2016Filter_branch
+    cdef float Flag_globalTightHalo2016Filter_value
+
+    cdef TBranch* Flag_goodVertices_branch
+    cdef float Flag_goodVertices_value
+
+    cdef TBranch* Flag_noBadMuons_branch
+    cdef float Flag_noBadMuons_value
 
     cdef TBranch* GenWeight_branch
     cdef float GenWeight_value
@@ -474,78 +504,6 @@ cdef class MuTauTree:
 
     cdef TBranch* jb2rawf_CSVL_branch
     cdef float jb2rawf_CSVL_value
-
-    cdef TBranch* jet1BJetCISV_branch
-    cdef float jet1BJetCISV_value
-
-    cdef TBranch* jet1Eta_branch
-    cdef float jet1Eta_value
-
-    cdef TBranch* jet1IDLoose_branch
-    cdef float jet1IDLoose_value
-
-    cdef TBranch* jet1IDTight_branch
-    cdef float jet1IDTight_value
-
-    cdef TBranch* jet1IDTightLepVeto_branch
-    cdef float jet1IDTightLepVeto_value
-
-    cdef TBranch* jet1PUMVA_branch
-    cdef float jet1PUMVA_value
-
-    cdef TBranch* jet1Phi_branch
-    cdef float jet1Phi_value
-
-    cdef TBranch* jet1Pt_branch
-    cdef float jet1Pt_value
-
-    cdef TBranch* jet1PtJESClosure_Down_branch
-    cdef float jet1PtJESClosure_Down_value
-
-    cdef TBranch* jet1PtJESClosure_Up_branch
-    cdef float jet1PtJESClosure_Up_value
-
-    cdef TBranch* jet1PtJESTotal_Down_branch
-    cdef float jet1PtJESTotal_Down_value
-
-    cdef TBranch* jet1PtJESTotal_Up_branch
-    cdef float jet1PtJESTotal_Up_value
-
-    cdef TBranch* jet2BJetCISV_branch
-    cdef float jet2BJetCISV_value
-
-    cdef TBranch* jet2Eta_branch
-    cdef float jet2Eta_value
-
-    cdef TBranch* jet2IDLoose_branch
-    cdef float jet2IDLoose_value
-
-    cdef TBranch* jet2IDTight_branch
-    cdef float jet2IDTight_value
-
-    cdef TBranch* jet2IDTightLepVeto_branch
-    cdef float jet2IDTightLepVeto_value
-
-    cdef TBranch* jet2PUMVA_branch
-    cdef float jet2PUMVA_value
-
-    cdef TBranch* jet2Phi_branch
-    cdef float jet2Phi_value
-
-    cdef TBranch* jet2Pt_branch
-    cdef float jet2Pt_value
-
-    cdef TBranch* jet2PtJESClosure_Down_branch
-    cdef float jet2PtJESClosure_Down_value
-
-    cdef TBranch* jet2PtJESClosure_Up_branch
-    cdef float jet2PtJESClosure_Up_value
-
-    cdef TBranch* jet2PtJESTotal_Down_branch
-    cdef float jet2PtJESTotal_Down_value
-
-    cdef TBranch* jet2PtJESTotal_Up_branch
-    cdef float jet2PtJESTotal_Up_value
 
     cdef TBranch* jetVeto20_branch
     cdef float jetVeto20_value
@@ -1060,8 +1018,20 @@ cdef class MuTauTree:
     cdef TBranch* mMatchesMu19Tau20sL1Path_branch
     cdef float mMatchesMu19Tau20sL1Path_value
 
+    cdef TBranch* mMatchesMu21Tau20sL1Filter_branch
+    cdef float mMatchesMu21Tau20sL1Filter_value
+
+    cdef TBranch* mMatchesMu21Tau20sL1Path_branch
+    cdef float mMatchesMu21Tau20sL1Path_value
+
+    cdef TBranch* mMatchesMu23Ele12DZPath_branch
+    cdef float mMatchesMu23Ele12DZPath_value
+
     cdef TBranch* mMatchesMu23Ele12Path_branch
     cdef float mMatchesMu23Ele12Path_value
+
+    cdef TBranch* mMatchesMu8Ele23DZPath_branch
+    cdef float mMatchesMu8Ele23DZPath_value
 
     cdef TBranch* mMatchesMu8Ele23Path_branch
     cdef float mMatchesMu8Ele23Path_value
@@ -1144,8 +1114,14 @@ cdef class MuTauTree:
     cdef TBranch* mMtToPfMet_type1_branch
     cdef float mMtToPfMet_type1_value
 
+    cdef TBranch* mMu23Ele12DZFilter_branch
+    cdef float mMu23Ele12DZFilter_value
+
     cdef TBranch* mMu23Ele12Filter_branch
     cdef float mMu23Ele12Filter_value
+
+    cdef TBranch* mMu8Ele23DZFilter_branch
+    cdef float mMu8Ele23DZFilter_value
 
     cdef TBranch* mMu8Ele23Filter_branch
     cdef float mMu8Ele23Filter_value
@@ -1342,11 +1318,23 @@ cdef class MuTauTree:
     cdef TBranch* m_t_collinearmass_branch
     cdef float m_t_collinearmass_value
 
+    cdef TBranch* m_t_collinearmass_CheckUESDown_branch
+    cdef float m_t_collinearmass_CheckUESDown_value
+
+    cdef TBranch* m_t_collinearmass_CheckUESUp_branch
+    cdef float m_t_collinearmass_CheckUESUp_value
+
     cdef TBranch* m_t_collinearmass_EleEnDown_branch
     cdef float m_t_collinearmass_EleEnDown_value
 
     cdef TBranch* m_t_collinearmass_EleEnUp_branch
     cdef float m_t_collinearmass_EleEnUp_value
+
+    cdef TBranch* m_t_collinearmass_JetCheckTotalDown_branch
+    cdef float m_t_collinearmass_JetCheckTotalDown_value
+
+    cdef TBranch* m_t_collinearmass_JetCheckTotalUp_branch
+    cdef float m_t_collinearmass_JetCheckTotalUp_value
 
     cdef TBranch* m_t_collinearmass_JetEnDown_branch
     cdef float m_t_collinearmass_JetEnDown_value
@@ -1381,14 +1369,26 @@ cdef class MuTauTree:
     cdef TBranch* metcov00_branch
     cdef float metcov00_value
 
+    cdef TBranch* metcov00_DESYlike_branch
+    cdef float metcov00_DESYlike_value
+
     cdef TBranch* metcov01_branch
     cdef float metcov01_value
+
+    cdef TBranch* metcov01_DESYlike_branch
+    cdef float metcov01_DESYlike_value
 
     cdef TBranch* metcov10_branch
     cdef float metcov10_value
 
+    cdef TBranch* metcov10_DESYlike_branch
+    cdef float metcov10_DESYlike_value
+
     cdef TBranch* metcov11_branch
     cdef float metcov11_value
+
+    cdef TBranch* metcov11_DESYlike_branch
+    cdef float metcov11_DESYlike_value
 
     cdef TBranch* muGlbIsoVetoPt10_branch
     cdef float muGlbIsoVetoPt10_value
@@ -1876,6 +1876,15 @@ cdef class MuTauTree:
     cdef TBranch* singleTau140Prescale_branch
     cdef float singleTau140Prescale_value
 
+    cdef TBranch* singleTau140Trk50Group_branch
+    cdef float singleTau140Trk50Group_value
+
+    cdef TBranch* singleTau140Trk50Pass_branch
+    cdef float singleTau140Trk50Pass_value
+
+    cdef TBranch* singleTau140Trk50Prescale_branch
+    cdef float singleTau140Trk50Prescale_value
+
     cdef TBranch* tAbsEta_branch
     cdef float tAbsEta_value
 
@@ -2266,14 +2275,14 @@ cdef class MuTauTree:
     cdef TBranch* tMatchesEle24Tau20Filter_branch
     cdef float tMatchesEle24Tau20Filter_value
 
-    cdef TBranch* tMatchesEle24Tau20L1Filter_branch
-    cdef float tMatchesEle24Tau20L1Filter_value
-
     cdef TBranch* tMatchesEle24Tau20L1Path_branch
     cdef float tMatchesEle24Tau20L1Path_value
 
     cdef TBranch* tMatchesEle24Tau20Path_branch
     cdef float tMatchesEle24Tau20Path_value
+
+    cdef TBranch* tMatchesEle24Tau20sL1Filter_branch
+    cdef float tMatchesEle24Tau20sL1Filter_value
 
     cdef TBranch* tMatchesEle24Tau30Filter_branch
     cdef float tMatchesEle24Tau30Filter_value
@@ -2292,6 +2301,12 @@ cdef class MuTauTree:
 
     cdef TBranch* tMatchesMu19Tau20sL1Path_branch
     cdef float tMatchesMu19Tau20sL1Path_value
+
+    cdef TBranch* tMatchesMu21Tau20sL1Filter_branch
+    cdef float tMatchesMu21Tau20sL1Filter_value
+
+    cdef TBranch* tMatchesMu21Tau20sL1Path_branch
+    cdef float tMatchesMu21Tau20sL1Path_value
 
     cdef TBranch* tMtToPfMet_ElectronEnDown_branch
     cdef float tMtToPfMet_ElectronEnDown_value
@@ -2419,6 +2434,27 @@ cdef class MuTauTree:
     cdef TBranch* tRank_branch
     cdef float tRank_value
 
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTLoose_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTLoose_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTMedium_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTMedium_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTTight_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTTight_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTVLoose_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTVLoose_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTVTight_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTVTight_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTVVTight_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTVVTight_value
+
+    cdef TBranch* tRerunMVArun2v1DBoldDMwLTraw_branch
+    cdef float tRerunMVArun2v1DBoldDMwLTraw_value
+
     cdef TBranch* tVZ_branch
     cdef float tVZ_value
 
@@ -2439,6 +2475,18 @@ cdef class MuTauTree:
 
     cdef TBranch* t_m_collinearmass_branch
     cdef float t_m_collinearmass_value
+
+    cdef TBranch* t_m_collinearmass_CheckUESDown_branch
+    cdef float t_m_collinearmass_CheckUESDown_value
+
+    cdef TBranch* t_m_collinearmass_CheckUESUp_branch
+    cdef float t_m_collinearmass_CheckUESUp_value
+
+    cdef TBranch* t_m_collinearmass_JetCheckTotalDown_branch
+    cdef float t_m_collinearmass_JetCheckTotalDown_value
+
+    cdef TBranch* t_m_collinearmass_JetCheckTotalUp_branch
+    cdef float t_m_collinearmass_JetCheckTotalUp_value
 
     cdef TBranch* t_m_collinearmass_JetEnDown_branch
     cdef float t_m_collinearmass_JetEnDown_value
@@ -2494,17 +2542,191 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMet_shiftedPhi_ElectronEnUp_branch
     cdef float type1_pfMet_shiftedPhi_ElectronEnUp_value
 
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteStatDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetCheckUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetCheckUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetCheckUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetCheckUESUp_value
+
     cdef TBranch* type1_pfMet_shiftedPhi_JetEnDown_branch
     cdef float type1_pfMet_shiftedPhi_JetEnDown_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_JetEnUp_branch
     cdef float type1_pfMet_shiftedPhi_JetEnUp_value
 
+    cdef TBranch* type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetFlavorQCDDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetFlavorQCDUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetFragmentationDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetFragmentationDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetFragmentationUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetFragmentationUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpDataMCDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpDataMCUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtBBDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtBBUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtRefDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetPileUpPtRefUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeBalDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeBalDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeBalUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeBalUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeFSRDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeFSRUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJERHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeJERHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtBBDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtBBUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtEC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtEC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtEC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtEC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativePtHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatECDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatECUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetRelativeStatHFUp_value
+
     cdef TBranch* type1_pfMet_shiftedPhi_JetResDown_branch
     cdef float type1_pfMet_shiftedPhi_JetResDown_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_JetResUp_branch
     cdef float type1_pfMet_shiftedPhi_JetResUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetSinglePionECALDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetSinglePionECALUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetSinglePionHCALDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetSinglePionHCALUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetTimePtEtaDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetTimePtEtaUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetTotalDown_branch
+    cdef float type1_pfMet_shiftedPhi_JetTotalDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_JetTotalUp_branch
+    cdef float type1_pfMet_shiftedPhi_JetTotalUp_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_MuonEnDown_branch
     cdef float type1_pfMet_shiftedPhi_MuonEnDown_value
@@ -2536,17 +2758,191 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMet_shiftedPt_ElectronEnUp_branch
     cdef float type1_pfMet_shiftedPt_ElectronEnUp_value
 
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteScaleDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteScaleUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteStatDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch
+    cdef float type1_pfMet_shiftedPt_JetAbsoluteStatUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetCheckUESDown_branch
+    cdef float type1_pfMet_shiftedPt_JetCheckUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetCheckUESUp_branch
+    cdef float type1_pfMet_shiftedPt_JetCheckUESUp_value
+
     cdef TBranch* type1_pfMet_shiftedPt_JetEnDown_branch
     cdef float type1_pfMet_shiftedPt_JetEnDown_value
 
     cdef TBranch* type1_pfMet_shiftedPt_JetEnUp_branch
     cdef float type1_pfMet_shiftedPt_JetEnUp_value
 
+    cdef TBranch* type1_pfMet_shiftedPt_JetFlavorQCDDown_branch
+    cdef float type1_pfMet_shiftedPt_JetFlavorQCDDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetFlavorQCDUp_branch
+    cdef float type1_pfMet_shiftedPt_JetFlavorQCDUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetFragmentationDown_branch
+    cdef float type1_pfMet_shiftedPt_JetFragmentationDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetFragmentationUp_branch
+    cdef float type1_pfMet_shiftedPt_JetFragmentationUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpDataMCDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpDataMCUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtBBDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtBBUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtEC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtEC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtEC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtEC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtRefDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch
+    cdef float type1_pfMet_shiftedPt_JetPileUpPtRefUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeBalDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeBalDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeBalUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeBalUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeFSRDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeFSRDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeFSRUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeFSRUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJEREC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJEREC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJEREC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJEREC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJERHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeJERHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtBBDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtBBDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtBBUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtBBUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtEC1Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtEC1Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtEC2Down_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtEC2Up_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtHFDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativePtHFUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativePtHFUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatECDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatECDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatECUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatECUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatFSRDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatFSRUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatHFDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch
+    cdef float type1_pfMet_shiftedPt_JetRelativeStatHFUp_value
+
     cdef TBranch* type1_pfMet_shiftedPt_JetResDown_branch
     cdef float type1_pfMet_shiftedPt_JetResDown_value
 
     cdef TBranch* type1_pfMet_shiftedPt_JetResUp_branch
     cdef float type1_pfMet_shiftedPt_JetResUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetSinglePionECALDown_branch
+    cdef float type1_pfMet_shiftedPt_JetSinglePionECALDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetSinglePionECALUp_branch
+    cdef float type1_pfMet_shiftedPt_JetSinglePionECALUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch
+    cdef float type1_pfMet_shiftedPt_JetSinglePionHCALDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch
+    cdef float type1_pfMet_shiftedPt_JetSinglePionHCALUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetTimePtEtaDown_branch
+    cdef float type1_pfMet_shiftedPt_JetTimePtEtaDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetTimePtEtaUp_branch
+    cdef float type1_pfMet_shiftedPt_JetTimePtEtaUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetTotalDown_branch
+    cdef float type1_pfMet_shiftedPt_JetTotalDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_JetTotalUp_branch
+    cdef float type1_pfMet_shiftedPt_JetTotalUp_value
 
     cdef TBranch* type1_pfMet_shiftedPt_MuonEnDown_branch
     cdef float type1_pfMet_shiftedPt_MuonEnDown_value
@@ -2983,33 +3379,6 @@ cdef class MuTauTree:
     cdef setup_branches(self, TTree* the_tree):
         #print "setup"
 
-        #print "making Ele45L1JetTauSeededGroup"
-        self.Ele45L1JetTauSeededGroup_branch = the_tree.GetBranch("Ele45L1JetTauSeededGroup")
-        #if not self.Ele45L1JetTauSeededGroup_branch and "Ele45L1JetTauSeededGroup" not in self.complained:
-        if not self.Ele45L1JetTauSeededGroup_branch and "Ele45L1JetTauSeededGroup":
-            warnings.warn( "MuTauTree: Expected branch Ele45L1JetTauSeededGroup does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("Ele45L1JetTauSeededGroup")
-        else:
-            self.Ele45L1JetTauSeededGroup_branch.SetAddress(<void*>&self.Ele45L1JetTauSeededGroup_value)
-
-        #print "making Ele45L1JetTauSeededPass"
-        self.Ele45L1JetTauSeededPass_branch = the_tree.GetBranch("Ele45L1JetTauSeededPass")
-        #if not self.Ele45L1JetTauSeededPass_branch and "Ele45L1JetTauSeededPass" not in self.complained:
-        if not self.Ele45L1JetTauSeededPass_branch and "Ele45L1JetTauSeededPass":
-            warnings.warn( "MuTauTree: Expected branch Ele45L1JetTauSeededPass does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("Ele45L1JetTauSeededPass")
-        else:
-            self.Ele45L1JetTauSeededPass_branch.SetAddress(<void*>&self.Ele45L1JetTauSeededPass_value)
-
-        #print "making Ele45L1JetTauSeededPrescale"
-        self.Ele45L1JetTauSeededPrescale_branch = the_tree.GetBranch("Ele45L1JetTauSeededPrescale")
-        #if not self.Ele45L1JetTauSeededPrescale_branch and "Ele45L1JetTauSeededPrescale" not in self.complained:
-        if not self.Ele45L1JetTauSeededPrescale_branch and "Ele45L1JetTauSeededPrescale":
-            warnings.warn( "MuTauTree: Expected branch Ele45L1JetTauSeededPrescale does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("Ele45L1JetTauSeededPrescale")
-        else:
-            self.Ele45L1JetTauSeededPrescale_branch.SetAddress(<void*>&self.Ele45L1JetTauSeededPrescale_value)
-
         #print "making EmbPtWeight"
         self.EmbPtWeight_branch = the_tree.GetBranch("EmbPtWeight")
         #if not self.EmbPtWeight_branch and "EmbPtWeight" not in self.complained:
@@ -3027,6 +3396,123 @@ cdef class MuTauTree:
             #self.complained.add("Eta")
         else:
             self.Eta_branch.SetAddress(<void*>&self.Eta_value)
+
+        #print "making Flag_BadChargedCandidateFilter"
+        self.Flag_BadChargedCandidateFilter_branch = the_tree.GetBranch("Flag_BadChargedCandidateFilter")
+        #if not self.Flag_BadChargedCandidateFilter_branch and "Flag_BadChargedCandidateFilter" not in self.complained:
+        if not self.Flag_BadChargedCandidateFilter_branch and "Flag_BadChargedCandidateFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_BadChargedCandidateFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_BadChargedCandidateFilter")
+        else:
+            self.Flag_BadChargedCandidateFilter_branch.SetAddress(<void*>&self.Flag_BadChargedCandidateFilter_value)
+
+        #print "making Flag_BadPFMuonFilter"
+        self.Flag_BadPFMuonFilter_branch = the_tree.GetBranch("Flag_BadPFMuonFilter")
+        #if not self.Flag_BadPFMuonFilter_branch and "Flag_BadPFMuonFilter" not in self.complained:
+        if not self.Flag_BadPFMuonFilter_branch and "Flag_BadPFMuonFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_BadPFMuonFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_BadPFMuonFilter")
+        else:
+            self.Flag_BadPFMuonFilter_branch.SetAddress(<void*>&self.Flag_BadPFMuonFilter_value)
+
+        #print "making Flag_EcalDeadCellTriggerPrimitiveFilter"
+        self.Flag_EcalDeadCellTriggerPrimitiveFilter_branch = the_tree.GetBranch("Flag_EcalDeadCellTriggerPrimitiveFilter")
+        #if not self.Flag_EcalDeadCellTriggerPrimitiveFilter_branch and "Flag_EcalDeadCellTriggerPrimitiveFilter" not in self.complained:
+        if not self.Flag_EcalDeadCellTriggerPrimitiveFilter_branch and "Flag_EcalDeadCellTriggerPrimitiveFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_EcalDeadCellTriggerPrimitiveFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_EcalDeadCellTriggerPrimitiveFilter")
+        else:
+            self.Flag_EcalDeadCellTriggerPrimitiveFilter_branch.SetAddress(<void*>&self.Flag_EcalDeadCellTriggerPrimitiveFilter_value)
+
+        #print "making Flag_HBHENoiseFilter"
+        self.Flag_HBHENoiseFilter_branch = the_tree.GetBranch("Flag_HBHENoiseFilter")
+        #if not self.Flag_HBHENoiseFilter_branch and "Flag_HBHENoiseFilter" not in self.complained:
+        if not self.Flag_HBHENoiseFilter_branch and "Flag_HBHENoiseFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_HBHENoiseFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_HBHENoiseFilter")
+        else:
+            self.Flag_HBHENoiseFilter_branch.SetAddress(<void*>&self.Flag_HBHENoiseFilter_value)
+
+        #print "making Flag_HBHENoiseIsoFilter"
+        self.Flag_HBHENoiseIsoFilter_branch = the_tree.GetBranch("Flag_HBHENoiseIsoFilter")
+        #if not self.Flag_HBHENoiseIsoFilter_branch and "Flag_HBHENoiseIsoFilter" not in self.complained:
+        if not self.Flag_HBHENoiseIsoFilter_branch and "Flag_HBHENoiseIsoFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_HBHENoiseIsoFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_HBHENoiseIsoFilter")
+        else:
+            self.Flag_HBHENoiseIsoFilter_branch.SetAddress(<void*>&self.Flag_HBHENoiseIsoFilter_value)
+
+        #print "making Flag_badCloneMuonFilter"
+        self.Flag_badCloneMuonFilter_branch = the_tree.GetBranch("Flag_badCloneMuonFilter")
+        #if not self.Flag_badCloneMuonFilter_branch and "Flag_badCloneMuonFilter" not in self.complained:
+        if not self.Flag_badCloneMuonFilter_branch and "Flag_badCloneMuonFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_badCloneMuonFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_badCloneMuonFilter")
+        else:
+            self.Flag_badCloneMuonFilter_branch.SetAddress(<void*>&self.Flag_badCloneMuonFilter_value)
+
+        #print "making Flag_badGlobalMuonFilter"
+        self.Flag_badGlobalMuonFilter_branch = the_tree.GetBranch("Flag_badGlobalMuonFilter")
+        #if not self.Flag_badGlobalMuonFilter_branch and "Flag_badGlobalMuonFilter" not in self.complained:
+        if not self.Flag_badGlobalMuonFilter_branch and "Flag_badGlobalMuonFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_badGlobalMuonFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_badGlobalMuonFilter")
+        else:
+            self.Flag_badGlobalMuonFilter_branch.SetAddress(<void*>&self.Flag_badGlobalMuonFilter_value)
+
+        #print "making Flag_badMuons"
+        self.Flag_badMuons_branch = the_tree.GetBranch("Flag_badMuons")
+        #if not self.Flag_badMuons_branch and "Flag_badMuons" not in self.complained:
+        if not self.Flag_badMuons_branch and "Flag_badMuons":
+            warnings.warn( "MuTauTree: Expected branch Flag_badMuons does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_badMuons")
+        else:
+            self.Flag_badMuons_branch.SetAddress(<void*>&self.Flag_badMuons_value)
+
+        #print "making Flag_duplicateMuons"
+        self.Flag_duplicateMuons_branch = the_tree.GetBranch("Flag_duplicateMuons")
+        #if not self.Flag_duplicateMuons_branch and "Flag_duplicateMuons" not in self.complained:
+        if not self.Flag_duplicateMuons_branch and "Flag_duplicateMuons":
+            warnings.warn( "MuTauTree: Expected branch Flag_duplicateMuons does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_duplicateMuons")
+        else:
+            self.Flag_duplicateMuons_branch.SetAddress(<void*>&self.Flag_duplicateMuons_value)
+
+        #print "making Flag_eeBadScFilter"
+        self.Flag_eeBadScFilter_branch = the_tree.GetBranch("Flag_eeBadScFilter")
+        #if not self.Flag_eeBadScFilter_branch and "Flag_eeBadScFilter" not in self.complained:
+        if not self.Flag_eeBadScFilter_branch and "Flag_eeBadScFilter":
+            warnings.warn( "MuTauTree: Expected branch Flag_eeBadScFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_eeBadScFilter")
+        else:
+            self.Flag_eeBadScFilter_branch.SetAddress(<void*>&self.Flag_eeBadScFilter_value)
+
+        #print "making Flag_globalTightHalo2016Filter"
+        self.Flag_globalTightHalo2016Filter_branch = the_tree.GetBranch("Flag_globalTightHalo2016Filter")
+        #if not self.Flag_globalTightHalo2016Filter_branch and "Flag_globalTightHalo2016Filter" not in self.complained:
+        if not self.Flag_globalTightHalo2016Filter_branch and "Flag_globalTightHalo2016Filter":
+            warnings.warn( "MuTauTree: Expected branch Flag_globalTightHalo2016Filter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_globalTightHalo2016Filter")
+        else:
+            self.Flag_globalTightHalo2016Filter_branch.SetAddress(<void*>&self.Flag_globalTightHalo2016Filter_value)
+
+        #print "making Flag_goodVertices"
+        self.Flag_goodVertices_branch = the_tree.GetBranch("Flag_goodVertices")
+        #if not self.Flag_goodVertices_branch and "Flag_goodVertices" not in self.complained:
+        if not self.Flag_goodVertices_branch and "Flag_goodVertices":
+            warnings.warn( "MuTauTree: Expected branch Flag_goodVertices does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_goodVertices")
+        else:
+            self.Flag_goodVertices_branch.SetAddress(<void*>&self.Flag_goodVertices_value)
+
+        #print "making Flag_noBadMuons"
+        self.Flag_noBadMuons_branch = the_tree.GetBranch("Flag_noBadMuons")
+        #if not self.Flag_noBadMuons_branch and "Flag_noBadMuons" not in self.complained:
+        if not self.Flag_noBadMuons_branch and "Flag_noBadMuons":
+            warnings.warn( "MuTauTree: Expected branch Flag_noBadMuons does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("Flag_noBadMuons")
+        else:
+            self.Flag_noBadMuons_branch.SetAddress(<void*>&self.Flag_noBadMuons_value)
 
         #print "making GenWeight"
         self.GenWeight_branch = the_tree.GetBranch("GenWeight")
@@ -4251,222 +4737,6 @@ cdef class MuTauTree:
             #self.complained.add("jb2rawf_CSVL")
         else:
             self.jb2rawf_CSVL_branch.SetAddress(<void*>&self.jb2rawf_CSVL_value)
-
-        #print "making jet1BJetCISV"
-        self.jet1BJetCISV_branch = the_tree.GetBranch("jet1BJetCISV")
-        #if not self.jet1BJetCISV_branch and "jet1BJetCISV" not in self.complained:
-        if not self.jet1BJetCISV_branch and "jet1BJetCISV":
-            warnings.warn( "MuTauTree: Expected branch jet1BJetCISV does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1BJetCISV")
-        else:
-            self.jet1BJetCISV_branch.SetAddress(<void*>&self.jet1BJetCISV_value)
-
-        #print "making jet1Eta"
-        self.jet1Eta_branch = the_tree.GetBranch("jet1Eta")
-        #if not self.jet1Eta_branch and "jet1Eta" not in self.complained:
-        if not self.jet1Eta_branch and "jet1Eta":
-            warnings.warn( "MuTauTree: Expected branch jet1Eta does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1Eta")
-        else:
-            self.jet1Eta_branch.SetAddress(<void*>&self.jet1Eta_value)
-
-        #print "making jet1IDLoose"
-        self.jet1IDLoose_branch = the_tree.GetBranch("jet1IDLoose")
-        #if not self.jet1IDLoose_branch and "jet1IDLoose" not in self.complained:
-        if not self.jet1IDLoose_branch and "jet1IDLoose":
-            warnings.warn( "MuTauTree: Expected branch jet1IDLoose does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1IDLoose")
-        else:
-            self.jet1IDLoose_branch.SetAddress(<void*>&self.jet1IDLoose_value)
-
-        #print "making jet1IDTight"
-        self.jet1IDTight_branch = the_tree.GetBranch("jet1IDTight")
-        #if not self.jet1IDTight_branch and "jet1IDTight" not in self.complained:
-        if not self.jet1IDTight_branch and "jet1IDTight":
-            warnings.warn( "MuTauTree: Expected branch jet1IDTight does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1IDTight")
-        else:
-            self.jet1IDTight_branch.SetAddress(<void*>&self.jet1IDTight_value)
-
-        #print "making jet1IDTightLepVeto"
-        self.jet1IDTightLepVeto_branch = the_tree.GetBranch("jet1IDTightLepVeto")
-        #if not self.jet1IDTightLepVeto_branch and "jet1IDTightLepVeto" not in self.complained:
-        if not self.jet1IDTightLepVeto_branch and "jet1IDTightLepVeto":
-            warnings.warn( "MuTauTree: Expected branch jet1IDTightLepVeto does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1IDTightLepVeto")
-        else:
-            self.jet1IDTightLepVeto_branch.SetAddress(<void*>&self.jet1IDTightLepVeto_value)
-
-        #print "making jet1PUMVA"
-        self.jet1PUMVA_branch = the_tree.GetBranch("jet1PUMVA")
-        #if not self.jet1PUMVA_branch and "jet1PUMVA" not in self.complained:
-        if not self.jet1PUMVA_branch and "jet1PUMVA":
-            warnings.warn( "MuTauTree: Expected branch jet1PUMVA does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1PUMVA")
-        else:
-            self.jet1PUMVA_branch.SetAddress(<void*>&self.jet1PUMVA_value)
-
-        #print "making jet1Phi"
-        self.jet1Phi_branch = the_tree.GetBranch("jet1Phi")
-        #if not self.jet1Phi_branch and "jet1Phi" not in self.complained:
-        if not self.jet1Phi_branch and "jet1Phi":
-            warnings.warn( "MuTauTree: Expected branch jet1Phi does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1Phi")
-        else:
-            self.jet1Phi_branch.SetAddress(<void*>&self.jet1Phi_value)
-
-        #print "making jet1Pt"
-        self.jet1Pt_branch = the_tree.GetBranch("jet1Pt")
-        #if not self.jet1Pt_branch and "jet1Pt" not in self.complained:
-        if not self.jet1Pt_branch and "jet1Pt":
-            warnings.warn( "MuTauTree: Expected branch jet1Pt does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1Pt")
-        else:
-            self.jet1Pt_branch.SetAddress(<void*>&self.jet1Pt_value)
-
-        #print "making jet1PtJESClosure_Down"
-        self.jet1PtJESClosure_Down_branch = the_tree.GetBranch("jet1PtJESClosure_Down")
-        #if not self.jet1PtJESClosure_Down_branch and "jet1PtJESClosure_Down" not in self.complained:
-        if not self.jet1PtJESClosure_Down_branch and "jet1PtJESClosure_Down":
-            warnings.warn( "MuTauTree: Expected branch jet1PtJESClosure_Down does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1PtJESClosure_Down")
-        else:
-            self.jet1PtJESClosure_Down_branch.SetAddress(<void*>&self.jet1PtJESClosure_Down_value)
-
-        #print "making jet1PtJESClosure_Up"
-        self.jet1PtJESClosure_Up_branch = the_tree.GetBranch("jet1PtJESClosure_Up")
-        #if not self.jet1PtJESClosure_Up_branch and "jet1PtJESClosure_Up" not in self.complained:
-        if not self.jet1PtJESClosure_Up_branch and "jet1PtJESClosure_Up":
-            warnings.warn( "MuTauTree: Expected branch jet1PtJESClosure_Up does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1PtJESClosure_Up")
-        else:
-            self.jet1PtJESClosure_Up_branch.SetAddress(<void*>&self.jet1PtJESClosure_Up_value)
-
-        #print "making jet1PtJESTotal_Down"
-        self.jet1PtJESTotal_Down_branch = the_tree.GetBranch("jet1PtJESTotal_Down")
-        #if not self.jet1PtJESTotal_Down_branch and "jet1PtJESTotal_Down" not in self.complained:
-        if not self.jet1PtJESTotal_Down_branch and "jet1PtJESTotal_Down":
-            warnings.warn( "MuTauTree: Expected branch jet1PtJESTotal_Down does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1PtJESTotal_Down")
-        else:
-            self.jet1PtJESTotal_Down_branch.SetAddress(<void*>&self.jet1PtJESTotal_Down_value)
-
-        #print "making jet1PtJESTotal_Up"
-        self.jet1PtJESTotal_Up_branch = the_tree.GetBranch("jet1PtJESTotal_Up")
-        #if not self.jet1PtJESTotal_Up_branch and "jet1PtJESTotal_Up" not in self.complained:
-        if not self.jet1PtJESTotal_Up_branch and "jet1PtJESTotal_Up":
-            warnings.warn( "MuTauTree: Expected branch jet1PtJESTotal_Up does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet1PtJESTotal_Up")
-        else:
-            self.jet1PtJESTotal_Up_branch.SetAddress(<void*>&self.jet1PtJESTotal_Up_value)
-
-        #print "making jet2BJetCISV"
-        self.jet2BJetCISV_branch = the_tree.GetBranch("jet2BJetCISV")
-        #if not self.jet2BJetCISV_branch and "jet2BJetCISV" not in self.complained:
-        if not self.jet2BJetCISV_branch and "jet2BJetCISV":
-            warnings.warn( "MuTauTree: Expected branch jet2BJetCISV does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2BJetCISV")
-        else:
-            self.jet2BJetCISV_branch.SetAddress(<void*>&self.jet2BJetCISV_value)
-
-        #print "making jet2Eta"
-        self.jet2Eta_branch = the_tree.GetBranch("jet2Eta")
-        #if not self.jet2Eta_branch and "jet2Eta" not in self.complained:
-        if not self.jet2Eta_branch and "jet2Eta":
-            warnings.warn( "MuTauTree: Expected branch jet2Eta does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2Eta")
-        else:
-            self.jet2Eta_branch.SetAddress(<void*>&self.jet2Eta_value)
-
-        #print "making jet2IDLoose"
-        self.jet2IDLoose_branch = the_tree.GetBranch("jet2IDLoose")
-        #if not self.jet2IDLoose_branch and "jet2IDLoose" not in self.complained:
-        if not self.jet2IDLoose_branch and "jet2IDLoose":
-            warnings.warn( "MuTauTree: Expected branch jet2IDLoose does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2IDLoose")
-        else:
-            self.jet2IDLoose_branch.SetAddress(<void*>&self.jet2IDLoose_value)
-
-        #print "making jet2IDTight"
-        self.jet2IDTight_branch = the_tree.GetBranch("jet2IDTight")
-        #if not self.jet2IDTight_branch and "jet2IDTight" not in self.complained:
-        if not self.jet2IDTight_branch and "jet2IDTight":
-            warnings.warn( "MuTauTree: Expected branch jet2IDTight does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2IDTight")
-        else:
-            self.jet2IDTight_branch.SetAddress(<void*>&self.jet2IDTight_value)
-
-        #print "making jet2IDTightLepVeto"
-        self.jet2IDTightLepVeto_branch = the_tree.GetBranch("jet2IDTightLepVeto")
-        #if not self.jet2IDTightLepVeto_branch and "jet2IDTightLepVeto" not in self.complained:
-        if not self.jet2IDTightLepVeto_branch and "jet2IDTightLepVeto":
-            warnings.warn( "MuTauTree: Expected branch jet2IDTightLepVeto does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2IDTightLepVeto")
-        else:
-            self.jet2IDTightLepVeto_branch.SetAddress(<void*>&self.jet2IDTightLepVeto_value)
-
-        #print "making jet2PUMVA"
-        self.jet2PUMVA_branch = the_tree.GetBranch("jet2PUMVA")
-        #if not self.jet2PUMVA_branch and "jet2PUMVA" not in self.complained:
-        if not self.jet2PUMVA_branch and "jet2PUMVA":
-            warnings.warn( "MuTauTree: Expected branch jet2PUMVA does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2PUMVA")
-        else:
-            self.jet2PUMVA_branch.SetAddress(<void*>&self.jet2PUMVA_value)
-
-        #print "making jet2Phi"
-        self.jet2Phi_branch = the_tree.GetBranch("jet2Phi")
-        #if not self.jet2Phi_branch and "jet2Phi" not in self.complained:
-        if not self.jet2Phi_branch and "jet2Phi":
-            warnings.warn( "MuTauTree: Expected branch jet2Phi does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2Phi")
-        else:
-            self.jet2Phi_branch.SetAddress(<void*>&self.jet2Phi_value)
-
-        #print "making jet2Pt"
-        self.jet2Pt_branch = the_tree.GetBranch("jet2Pt")
-        #if not self.jet2Pt_branch and "jet2Pt" not in self.complained:
-        if not self.jet2Pt_branch and "jet2Pt":
-            warnings.warn( "MuTauTree: Expected branch jet2Pt does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2Pt")
-        else:
-            self.jet2Pt_branch.SetAddress(<void*>&self.jet2Pt_value)
-
-        #print "making jet2PtJESClosure_Down"
-        self.jet2PtJESClosure_Down_branch = the_tree.GetBranch("jet2PtJESClosure_Down")
-        #if not self.jet2PtJESClosure_Down_branch and "jet2PtJESClosure_Down" not in self.complained:
-        if not self.jet2PtJESClosure_Down_branch and "jet2PtJESClosure_Down":
-            warnings.warn( "MuTauTree: Expected branch jet2PtJESClosure_Down does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2PtJESClosure_Down")
-        else:
-            self.jet2PtJESClosure_Down_branch.SetAddress(<void*>&self.jet2PtJESClosure_Down_value)
-
-        #print "making jet2PtJESClosure_Up"
-        self.jet2PtJESClosure_Up_branch = the_tree.GetBranch("jet2PtJESClosure_Up")
-        #if not self.jet2PtJESClosure_Up_branch and "jet2PtJESClosure_Up" not in self.complained:
-        if not self.jet2PtJESClosure_Up_branch and "jet2PtJESClosure_Up":
-            warnings.warn( "MuTauTree: Expected branch jet2PtJESClosure_Up does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2PtJESClosure_Up")
-        else:
-            self.jet2PtJESClosure_Up_branch.SetAddress(<void*>&self.jet2PtJESClosure_Up_value)
-
-        #print "making jet2PtJESTotal_Down"
-        self.jet2PtJESTotal_Down_branch = the_tree.GetBranch("jet2PtJESTotal_Down")
-        #if not self.jet2PtJESTotal_Down_branch and "jet2PtJESTotal_Down" not in self.complained:
-        if not self.jet2PtJESTotal_Down_branch and "jet2PtJESTotal_Down":
-            warnings.warn( "MuTauTree: Expected branch jet2PtJESTotal_Down does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2PtJESTotal_Down")
-        else:
-            self.jet2PtJESTotal_Down_branch.SetAddress(<void*>&self.jet2PtJESTotal_Down_value)
-
-        #print "making jet2PtJESTotal_Up"
-        self.jet2PtJESTotal_Up_branch = the_tree.GetBranch("jet2PtJESTotal_Up")
-        #if not self.jet2PtJESTotal_Up_branch and "jet2PtJESTotal_Up" not in self.complained:
-        if not self.jet2PtJESTotal_Up_branch and "jet2PtJESTotal_Up":
-            warnings.warn( "MuTauTree: Expected branch jet2PtJESTotal_Up does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("jet2PtJESTotal_Up")
-        else:
-            self.jet2PtJESTotal_Up_branch.SetAddress(<void*>&self.jet2PtJESTotal_Up_value)
 
         #print "making jetVeto20"
         self.jetVeto20_branch = the_tree.GetBranch("jetVeto20")
@@ -6007,6 +6277,33 @@ cdef class MuTauTree:
         else:
             self.mMatchesMu19Tau20sL1Path_branch.SetAddress(<void*>&self.mMatchesMu19Tau20sL1Path_value)
 
+        #print "making mMatchesMu21Tau20sL1Filter"
+        self.mMatchesMu21Tau20sL1Filter_branch = the_tree.GetBranch("mMatchesMu21Tau20sL1Filter")
+        #if not self.mMatchesMu21Tau20sL1Filter_branch and "mMatchesMu21Tau20sL1Filter" not in self.complained:
+        if not self.mMatchesMu21Tau20sL1Filter_branch and "mMatchesMu21Tau20sL1Filter":
+            warnings.warn( "MuTauTree: Expected branch mMatchesMu21Tau20sL1Filter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesMu21Tau20sL1Filter")
+        else:
+            self.mMatchesMu21Tau20sL1Filter_branch.SetAddress(<void*>&self.mMatchesMu21Tau20sL1Filter_value)
+
+        #print "making mMatchesMu21Tau20sL1Path"
+        self.mMatchesMu21Tau20sL1Path_branch = the_tree.GetBranch("mMatchesMu21Tau20sL1Path")
+        #if not self.mMatchesMu21Tau20sL1Path_branch and "mMatchesMu21Tau20sL1Path" not in self.complained:
+        if not self.mMatchesMu21Tau20sL1Path_branch and "mMatchesMu21Tau20sL1Path":
+            warnings.warn( "MuTauTree: Expected branch mMatchesMu21Tau20sL1Path does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesMu21Tau20sL1Path")
+        else:
+            self.mMatchesMu21Tau20sL1Path_branch.SetAddress(<void*>&self.mMatchesMu21Tau20sL1Path_value)
+
+        #print "making mMatchesMu23Ele12DZPath"
+        self.mMatchesMu23Ele12DZPath_branch = the_tree.GetBranch("mMatchesMu23Ele12DZPath")
+        #if not self.mMatchesMu23Ele12DZPath_branch and "mMatchesMu23Ele12DZPath" not in self.complained:
+        if not self.mMatchesMu23Ele12DZPath_branch and "mMatchesMu23Ele12DZPath":
+            warnings.warn( "MuTauTree: Expected branch mMatchesMu23Ele12DZPath does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesMu23Ele12DZPath")
+        else:
+            self.mMatchesMu23Ele12DZPath_branch.SetAddress(<void*>&self.mMatchesMu23Ele12DZPath_value)
+
         #print "making mMatchesMu23Ele12Path"
         self.mMatchesMu23Ele12Path_branch = the_tree.GetBranch("mMatchesMu23Ele12Path")
         #if not self.mMatchesMu23Ele12Path_branch and "mMatchesMu23Ele12Path" not in self.complained:
@@ -6015,6 +6312,15 @@ cdef class MuTauTree:
             #self.complained.add("mMatchesMu23Ele12Path")
         else:
             self.mMatchesMu23Ele12Path_branch.SetAddress(<void*>&self.mMatchesMu23Ele12Path_value)
+
+        #print "making mMatchesMu8Ele23DZPath"
+        self.mMatchesMu8Ele23DZPath_branch = the_tree.GetBranch("mMatchesMu8Ele23DZPath")
+        #if not self.mMatchesMu8Ele23DZPath_branch and "mMatchesMu8Ele23DZPath" not in self.complained:
+        if not self.mMatchesMu8Ele23DZPath_branch and "mMatchesMu8Ele23DZPath":
+            warnings.warn( "MuTauTree: Expected branch mMatchesMu8Ele23DZPath does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesMu8Ele23DZPath")
+        else:
+            self.mMatchesMu8Ele23DZPath_branch.SetAddress(<void*>&self.mMatchesMu8Ele23DZPath_value)
 
         #print "making mMatchesMu8Ele23Path"
         self.mMatchesMu8Ele23Path_branch = the_tree.GetBranch("mMatchesMu8Ele23Path")
@@ -6259,6 +6565,15 @@ cdef class MuTauTree:
         else:
             self.mMtToPfMet_type1_branch.SetAddress(<void*>&self.mMtToPfMet_type1_value)
 
+        #print "making mMu23Ele12DZFilter"
+        self.mMu23Ele12DZFilter_branch = the_tree.GetBranch("mMu23Ele12DZFilter")
+        #if not self.mMu23Ele12DZFilter_branch and "mMu23Ele12DZFilter" not in self.complained:
+        if not self.mMu23Ele12DZFilter_branch and "mMu23Ele12DZFilter":
+            warnings.warn( "MuTauTree: Expected branch mMu23Ele12DZFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMu23Ele12DZFilter")
+        else:
+            self.mMu23Ele12DZFilter_branch.SetAddress(<void*>&self.mMu23Ele12DZFilter_value)
+
         #print "making mMu23Ele12Filter"
         self.mMu23Ele12Filter_branch = the_tree.GetBranch("mMu23Ele12Filter")
         #if not self.mMu23Ele12Filter_branch and "mMu23Ele12Filter" not in self.complained:
@@ -6267,6 +6582,15 @@ cdef class MuTauTree:
             #self.complained.add("mMu23Ele12Filter")
         else:
             self.mMu23Ele12Filter_branch.SetAddress(<void*>&self.mMu23Ele12Filter_value)
+
+        #print "making mMu8Ele23DZFilter"
+        self.mMu8Ele23DZFilter_branch = the_tree.GetBranch("mMu8Ele23DZFilter")
+        #if not self.mMu8Ele23DZFilter_branch and "mMu8Ele23DZFilter" not in self.complained:
+        if not self.mMu8Ele23DZFilter_branch and "mMu8Ele23DZFilter":
+            warnings.warn( "MuTauTree: Expected branch mMu8Ele23DZFilter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMu8Ele23DZFilter")
+        else:
+            self.mMu8Ele23DZFilter_branch.SetAddress(<void*>&self.mMu8Ele23DZFilter_value)
 
         #print "making mMu8Ele23Filter"
         self.mMu8Ele23Filter_branch = the_tree.GetBranch("mMu8Ele23Filter")
@@ -6853,6 +7177,24 @@ cdef class MuTauTree:
         else:
             self.m_t_collinearmass_branch.SetAddress(<void*>&self.m_t_collinearmass_value)
 
+        #print "making m_t_collinearmass_CheckUESDown"
+        self.m_t_collinearmass_CheckUESDown_branch = the_tree.GetBranch("m_t_collinearmass_CheckUESDown")
+        #if not self.m_t_collinearmass_CheckUESDown_branch and "m_t_collinearmass_CheckUESDown" not in self.complained:
+        if not self.m_t_collinearmass_CheckUESDown_branch and "m_t_collinearmass_CheckUESDown":
+            warnings.warn( "MuTauTree: Expected branch m_t_collinearmass_CheckUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("m_t_collinearmass_CheckUESDown")
+        else:
+            self.m_t_collinearmass_CheckUESDown_branch.SetAddress(<void*>&self.m_t_collinearmass_CheckUESDown_value)
+
+        #print "making m_t_collinearmass_CheckUESUp"
+        self.m_t_collinearmass_CheckUESUp_branch = the_tree.GetBranch("m_t_collinearmass_CheckUESUp")
+        #if not self.m_t_collinearmass_CheckUESUp_branch and "m_t_collinearmass_CheckUESUp" not in self.complained:
+        if not self.m_t_collinearmass_CheckUESUp_branch and "m_t_collinearmass_CheckUESUp":
+            warnings.warn( "MuTauTree: Expected branch m_t_collinearmass_CheckUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("m_t_collinearmass_CheckUESUp")
+        else:
+            self.m_t_collinearmass_CheckUESUp_branch.SetAddress(<void*>&self.m_t_collinearmass_CheckUESUp_value)
+
         #print "making m_t_collinearmass_EleEnDown"
         self.m_t_collinearmass_EleEnDown_branch = the_tree.GetBranch("m_t_collinearmass_EleEnDown")
         #if not self.m_t_collinearmass_EleEnDown_branch and "m_t_collinearmass_EleEnDown" not in self.complained:
@@ -6870,6 +7212,24 @@ cdef class MuTauTree:
             #self.complained.add("m_t_collinearmass_EleEnUp")
         else:
             self.m_t_collinearmass_EleEnUp_branch.SetAddress(<void*>&self.m_t_collinearmass_EleEnUp_value)
+
+        #print "making m_t_collinearmass_JetCheckTotalDown"
+        self.m_t_collinearmass_JetCheckTotalDown_branch = the_tree.GetBranch("m_t_collinearmass_JetCheckTotalDown")
+        #if not self.m_t_collinearmass_JetCheckTotalDown_branch and "m_t_collinearmass_JetCheckTotalDown" not in self.complained:
+        if not self.m_t_collinearmass_JetCheckTotalDown_branch and "m_t_collinearmass_JetCheckTotalDown":
+            warnings.warn( "MuTauTree: Expected branch m_t_collinearmass_JetCheckTotalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("m_t_collinearmass_JetCheckTotalDown")
+        else:
+            self.m_t_collinearmass_JetCheckTotalDown_branch.SetAddress(<void*>&self.m_t_collinearmass_JetCheckTotalDown_value)
+
+        #print "making m_t_collinearmass_JetCheckTotalUp"
+        self.m_t_collinearmass_JetCheckTotalUp_branch = the_tree.GetBranch("m_t_collinearmass_JetCheckTotalUp")
+        #if not self.m_t_collinearmass_JetCheckTotalUp_branch and "m_t_collinearmass_JetCheckTotalUp" not in self.complained:
+        if not self.m_t_collinearmass_JetCheckTotalUp_branch and "m_t_collinearmass_JetCheckTotalUp":
+            warnings.warn( "MuTauTree: Expected branch m_t_collinearmass_JetCheckTotalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("m_t_collinearmass_JetCheckTotalUp")
+        else:
+            self.m_t_collinearmass_JetCheckTotalUp_branch.SetAddress(<void*>&self.m_t_collinearmass_JetCheckTotalUp_value)
 
         #print "making m_t_collinearmass_JetEnDown"
         self.m_t_collinearmass_JetEnDown_branch = the_tree.GetBranch("m_t_collinearmass_JetEnDown")
@@ -6970,6 +7330,15 @@ cdef class MuTauTree:
         else:
             self.metcov00_branch.SetAddress(<void*>&self.metcov00_value)
 
+        #print "making metcov00_DESYlike"
+        self.metcov00_DESYlike_branch = the_tree.GetBranch("metcov00_DESYlike")
+        #if not self.metcov00_DESYlike_branch and "metcov00_DESYlike" not in self.complained:
+        if not self.metcov00_DESYlike_branch and "metcov00_DESYlike":
+            warnings.warn( "MuTauTree: Expected branch metcov00_DESYlike does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("metcov00_DESYlike")
+        else:
+            self.metcov00_DESYlike_branch.SetAddress(<void*>&self.metcov00_DESYlike_value)
+
         #print "making metcov01"
         self.metcov01_branch = the_tree.GetBranch("metcov01")
         #if not self.metcov01_branch and "metcov01" not in self.complained:
@@ -6978,6 +7347,15 @@ cdef class MuTauTree:
             #self.complained.add("metcov01")
         else:
             self.metcov01_branch.SetAddress(<void*>&self.metcov01_value)
+
+        #print "making metcov01_DESYlike"
+        self.metcov01_DESYlike_branch = the_tree.GetBranch("metcov01_DESYlike")
+        #if not self.metcov01_DESYlike_branch and "metcov01_DESYlike" not in self.complained:
+        if not self.metcov01_DESYlike_branch and "metcov01_DESYlike":
+            warnings.warn( "MuTauTree: Expected branch metcov01_DESYlike does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("metcov01_DESYlike")
+        else:
+            self.metcov01_DESYlike_branch.SetAddress(<void*>&self.metcov01_DESYlike_value)
 
         #print "making metcov10"
         self.metcov10_branch = the_tree.GetBranch("metcov10")
@@ -6988,6 +7366,15 @@ cdef class MuTauTree:
         else:
             self.metcov10_branch.SetAddress(<void*>&self.metcov10_value)
 
+        #print "making metcov10_DESYlike"
+        self.metcov10_DESYlike_branch = the_tree.GetBranch("metcov10_DESYlike")
+        #if not self.metcov10_DESYlike_branch and "metcov10_DESYlike" not in self.complained:
+        if not self.metcov10_DESYlike_branch and "metcov10_DESYlike":
+            warnings.warn( "MuTauTree: Expected branch metcov10_DESYlike does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("metcov10_DESYlike")
+        else:
+            self.metcov10_DESYlike_branch.SetAddress(<void*>&self.metcov10_DESYlike_value)
+
         #print "making metcov11"
         self.metcov11_branch = the_tree.GetBranch("metcov11")
         #if not self.metcov11_branch and "metcov11" not in self.complained:
@@ -6996,6 +7383,15 @@ cdef class MuTauTree:
             #self.complained.add("metcov11")
         else:
             self.metcov11_branch.SetAddress(<void*>&self.metcov11_value)
+
+        #print "making metcov11_DESYlike"
+        self.metcov11_DESYlike_branch = the_tree.GetBranch("metcov11_DESYlike")
+        #if not self.metcov11_DESYlike_branch and "metcov11_DESYlike" not in self.complained:
+        if not self.metcov11_DESYlike_branch and "metcov11_DESYlike":
+            warnings.warn( "MuTauTree: Expected branch metcov11_DESYlike does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("metcov11_DESYlike")
+        else:
+            self.metcov11_DESYlike_branch.SetAddress(<void*>&self.metcov11_DESYlike_value)
 
         #print "making muGlbIsoVetoPt10"
         self.muGlbIsoVetoPt10_branch = the_tree.GetBranch("muGlbIsoVetoPt10")
@@ -8455,6 +8851,33 @@ cdef class MuTauTree:
         else:
             self.singleTau140Prescale_branch.SetAddress(<void*>&self.singleTau140Prescale_value)
 
+        #print "making singleTau140Trk50Group"
+        self.singleTau140Trk50Group_branch = the_tree.GetBranch("singleTau140Trk50Group")
+        #if not self.singleTau140Trk50Group_branch and "singleTau140Trk50Group" not in self.complained:
+        if not self.singleTau140Trk50Group_branch and "singleTau140Trk50Group":
+            warnings.warn( "MuTauTree: Expected branch singleTau140Trk50Group does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTau140Trk50Group")
+        else:
+            self.singleTau140Trk50Group_branch.SetAddress(<void*>&self.singleTau140Trk50Group_value)
+
+        #print "making singleTau140Trk50Pass"
+        self.singleTau140Trk50Pass_branch = the_tree.GetBranch("singleTau140Trk50Pass")
+        #if not self.singleTau140Trk50Pass_branch and "singleTau140Trk50Pass" not in self.complained:
+        if not self.singleTau140Trk50Pass_branch and "singleTau140Trk50Pass":
+            warnings.warn( "MuTauTree: Expected branch singleTau140Trk50Pass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTau140Trk50Pass")
+        else:
+            self.singleTau140Trk50Pass_branch.SetAddress(<void*>&self.singleTau140Trk50Pass_value)
+
+        #print "making singleTau140Trk50Prescale"
+        self.singleTau140Trk50Prescale_branch = the_tree.GetBranch("singleTau140Trk50Prescale")
+        #if not self.singleTau140Trk50Prescale_branch and "singleTau140Trk50Prescale" not in self.complained:
+        if not self.singleTau140Trk50Prescale_branch and "singleTau140Trk50Prescale":
+            warnings.warn( "MuTauTree: Expected branch singleTau140Trk50Prescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTau140Trk50Prescale")
+        else:
+            self.singleTau140Trk50Prescale_branch.SetAddress(<void*>&self.singleTau140Trk50Prescale_value)
+
         #print "making tAbsEta"
         self.tAbsEta_branch = the_tree.GetBranch("tAbsEta")
         #if not self.tAbsEta_branch and "tAbsEta" not in self.complained:
@@ -9625,15 +10048,6 @@ cdef class MuTauTree:
         else:
             self.tMatchesEle24Tau20Filter_branch.SetAddress(<void*>&self.tMatchesEle24Tau20Filter_value)
 
-        #print "making tMatchesEle24Tau20L1Filter"
-        self.tMatchesEle24Tau20L1Filter_branch = the_tree.GetBranch("tMatchesEle24Tau20L1Filter")
-        #if not self.tMatchesEle24Tau20L1Filter_branch and "tMatchesEle24Tau20L1Filter" not in self.complained:
-        if not self.tMatchesEle24Tau20L1Filter_branch and "tMatchesEle24Tau20L1Filter":
-            warnings.warn( "MuTauTree: Expected branch tMatchesEle24Tau20L1Filter does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("tMatchesEle24Tau20L1Filter")
-        else:
-            self.tMatchesEle24Tau20L1Filter_branch.SetAddress(<void*>&self.tMatchesEle24Tau20L1Filter_value)
-
         #print "making tMatchesEle24Tau20L1Path"
         self.tMatchesEle24Tau20L1Path_branch = the_tree.GetBranch("tMatchesEle24Tau20L1Path")
         #if not self.tMatchesEle24Tau20L1Path_branch and "tMatchesEle24Tau20L1Path" not in self.complained:
@@ -9651,6 +10065,15 @@ cdef class MuTauTree:
             #self.complained.add("tMatchesEle24Tau20Path")
         else:
             self.tMatchesEle24Tau20Path_branch.SetAddress(<void*>&self.tMatchesEle24Tau20Path_value)
+
+        #print "making tMatchesEle24Tau20sL1Filter"
+        self.tMatchesEle24Tau20sL1Filter_branch = the_tree.GetBranch("tMatchesEle24Tau20sL1Filter")
+        #if not self.tMatchesEle24Tau20sL1Filter_branch and "tMatchesEle24Tau20sL1Filter" not in self.complained:
+        if not self.tMatchesEle24Tau20sL1Filter_branch and "tMatchesEle24Tau20sL1Filter":
+            warnings.warn( "MuTauTree: Expected branch tMatchesEle24Tau20sL1Filter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tMatchesEle24Tau20sL1Filter")
+        else:
+            self.tMatchesEle24Tau20sL1Filter_branch.SetAddress(<void*>&self.tMatchesEle24Tau20sL1Filter_value)
 
         #print "making tMatchesEle24Tau30Filter"
         self.tMatchesEle24Tau30Filter_branch = the_tree.GetBranch("tMatchesEle24Tau30Filter")
@@ -9705,6 +10128,24 @@ cdef class MuTauTree:
             #self.complained.add("tMatchesMu19Tau20sL1Path")
         else:
             self.tMatchesMu19Tau20sL1Path_branch.SetAddress(<void*>&self.tMatchesMu19Tau20sL1Path_value)
+
+        #print "making tMatchesMu21Tau20sL1Filter"
+        self.tMatchesMu21Tau20sL1Filter_branch = the_tree.GetBranch("tMatchesMu21Tau20sL1Filter")
+        #if not self.tMatchesMu21Tau20sL1Filter_branch and "tMatchesMu21Tau20sL1Filter" not in self.complained:
+        if not self.tMatchesMu21Tau20sL1Filter_branch and "tMatchesMu21Tau20sL1Filter":
+            warnings.warn( "MuTauTree: Expected branch tMatchesMu21Tau20sL1Filter does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tMatchesMu21Tau20sL1Filter")
+        else:
+            self.tMatchesMu21Tau20sL1Filter_branch.SetAddress(<void*>&self.tMatchesMu21Tau20sL1Filter_value)
+
+        #print "making tMatchesMu21Tau20sL1Path"
+        self.tMatchesMu21Tau20sL1Path_branch = the_tree.GetBranch("tMatchesMu21Tau20sL1Path")
+        #if not self.tMatchesMu21Tau20sL1Path_branch and "tMatchesMu21Tau20sL1Path" not in self.complained:
+        if not self.tMatchesMu21Tau20sL1Path_branch and "tMatchesMu21Tau20sL1Path":
+            warnings.warn( "MuTauTree: Expected branch tMatchesMu21Tau20sL1Path does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tMatchesMu21Tau20sL1Path")
+        else:
+            self.tMatchesMu21Tau20sL1Path_branch.SetAddress(<void*>&self.tMatchesMu21Tau20sL1Path_value)
 
         #print "making tMtToPfMet_ElectronEnDown"
         self.tMtToPfMet_ElectronEnDown_branch = the_tree.GetBranch("tMtToPfMet_ElectronEnDown")
@@ -10084,6 +10525,69 @@ cdef class MuTauTree:
         else:
             self.tRank_branch.SetAddress(<void*>&self.tRank_value)
 
+        #print "making tRerunMVArun2v1DBoldDMwLTLoose"
+        self.tRerunMVArun2v1DBoldDMwLTLoose_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTLoose")
+        #if not self.tRerunMVArun2v1DBoldDMwLTLoose_branch and "tRerunMVArun2v1DBoldDMwLTLoose" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTLoose_branch and "tRerunMVArun2v1DBoldDMwLTLoose":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTLoose does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTLoose")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTLoose_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTLoose_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTMedium"
+        self.tRerunMVArun2v1DBoldDMwLTMedium_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTMedium")
+        #if not self.tRerunMVArun2v1DBoldDMwLTMedium_branch and "tRerunMVArun2v1DBoldDMwLTMedium" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTMedium_branch and "tRerunMVArun2v1DBoldDMwLTMedium":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTMedium does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTMedium")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTMedium_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTMedium_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTTight"
+        self.tRerunMVArun2v1DBoldDMwLTTight_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTTight")
+        #if not self.tRerunMVArun2v1DBoldDMwLTTight_branch and "tRerunMVArun2v1DBoldDMwLTTight" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTTight_branch and "tRerunMVArun2v1DBoldDMwLTTight":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTTight does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTTight")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTTight_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTTight_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTVLoose"
+        self.tRerunMVArun2v1DBoldDMwLTVLoose_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTVLoose")
+        #if not self.tRerunMVArun2v1DBoldDMwLTVLoose_branch and "tRerunMVArun2v1DBoldDMwLTVLoose" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTVLoose_branch and "tRerunMVArun2v1DBoldDMwLTVLoose":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTVLoose does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTVLoose")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTVLoose_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTVLoose_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTVTight"
+        self.tRerunMVArun2v1DBoldDMwLTVTight_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTVTight")
+        #if not self.tRerunMVArun2v1DBoldDMwLTVTight_branch and "tRerunMVArun2v1DBoldDMwLTVTight" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTVTight_branch and "tRerunMVArun2v1DBoldDMwLTVTight":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTVTight does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTVTight")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTVTight_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTVTight_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTVVTight"
+        self.tRerunMVArun2v1DBoldDMwLTVVTight_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTVVTight")
+        #if not self.tRerunMVArun2v1DBoldDMwLTVVTight_branch and "tRerunMVArun2v1DBoldDMwLTVVTight" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTVVTight_branch and "tRerunMVArun2v1DBoldDMwLTVVTight":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTVVTight does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTVVTight")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTVVTight_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTVVTight_value)
+
+        #print "making tRerunMVArun2v1DBoldDMwLTraw"
+        self.tRerunMVArun2v1DBoldDMwLTraw_branch = the_tree.GetBranch("tRerunMVArun2v1DBoldDMwLTraw")
+        #if not self.tRerunMVArun2v1DBoldDMwLTraw_branch and "tRerunMVArun2v1DBoldDMwLTraw" not in self.complained:
+        if not self.tRerunMVArun2v1DBoldDMwLTraw_branch and "tRerunMVArun2v1DBoldDMwLTraw":
+            warnings.warn( "MuTauTree: Expected branch tRerunMVArun2v1DBoldDMwLTraw does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("tRerunMVArun2v1DBoldDMwLTraw")
+        else:
+            self.tRerunMVArun2v1DBoldDMwLTraw_branch.SetAddress(<void*>&self.tRerunMVArun2v1DBoldDMwLTraw_value)
+
         #print "making tVZ"
         self.tVZ_branch = the_tree.GetBranch("tVZ")
         #if not self.tVZ_branch and "tVZ" not in self.complained:
@@ -10146,6 +10650,42 @@ cdef class MuTauTree:
             #self.complained.add("t_m_collinearmass")
         else:
             self.t_m_collinearmass_branch.SetAddress(<void*>&self.t_m_collinearmass_value)
+
+        #print "making t_m_collinearmass_CheckUESDown"
+        self.t_m_collinearmass_CheckUESDown_branch = the_tree.GetBranch("t_m_collinearmass_CheckUESDown")
+        #if not self.t_m_collinearmass_CheckUESDown_branch and "t_m_collinearmass_CheckUESDown" not in self.complained:
+        if not self.t_m_collinearmass_CheckUESDown_branch and "t_m_collinearmass_CheckUESDown":
+            warnings.warn( "MuTauTree: Expected branch t_m_collinearmass_CheckUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("t_m_collinearmass_CheckUESDown")
+        else:
+            self.t_m_collinearmass_CheckUESDown_branch.SetAddress(<void*>&self.t_m_collinearmass_CheckUESDown_value)
+
+        #print "making t_m_collinearmass_CheckUESUp"
+        self.t_m_collinearmass_CheckUESUp_branch = the_tree.GetBranch("t_m_collinearmass_CheckUESUp")
+        #if not self.t_m_collinearmass_CheckUESUp_branch and "t_m_collinearmass_CheckUESUp" not in self.complained:
+        if not self.t_m_collinearmass_CheckUESUp_branch and "t_m_collinearmass_CheckUESUp":
+            warnings.warn( "MuTauTree: Expected branch t_m_collinearmass_CheckUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("t_m_collinearmass_CheckUESUp")
+        else:
+            self.t_m_collinearmass_CheckUESUp_branch.SetAddress(<void*>&self.t_m_collinearmass_CheckUESUp_value)
+
+        #print "making t_m_collinearmass_JetCheckTotalDown"
+        self.t_m_collinearmass_JetCheckTotalDown_branch = the_tree.GetBranch("t_m_collinearmass_JetCheckTotalDown")
+        #if not self.t_m_collinearmass_JetCheckTotalDown_branch and "t_m_collinearmass_JetCheckTotalDown" not in self.complained:
+        if not self.t_m_collinearmass_JetCheckTotalDown_branch and "t_m_collinearmass_JetCheckTotalDown":
+            warnings.warn( "MuTauTree: Expected branch t_m_collinearmass_JetCheckTotalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("t_m_collinearmass_JetCheckTotalDown")
+        else:
+            self.t_m_collinearmass_JetCheckTotalDown_branch.SetAddress(<void*>&self.t_m_collinearmass_JetCheckTotalDown_value)
+
+        #print "making t_m_collinearmass_JetCheckTotalUp"
+        self.t_m_collinearmass_JetCheckTotalUp_branch = the_tree.GetBranch("t_m_collinearmass_JetCheckTotalUp")
+        #if not self.t_m_collinearmass_JetCheckTotalUp_branch and "t_m_collinearmass_JetCheckTotalUp" not in self.complained:
+        if not self.t_m_collinearmass_JetCheckTotalUp_branch and "t_m_collinearmass_JetCheckTotalUp":
+            warnings.warn( "MuTauTree: Expected branch t_m_collinearmass_JetCheckTotalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("t_m_collinearmass_JetCheckTotalUp")
+        else:
+            self.t_m_collinearmass_JetCheckTotalUp_branch.SetAddress(<void*>&self.t_m_collinearmass_JetCheckTotalUp_value)
 
         #print "making t_m_collinearmass_JetEnDown"
         self.t_m_collinearmass_JetEnDown_branch = the_tree.GetBranch("t_m_collinearmass_JetEnDown")
@@ -10309,6 +10849,96 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPhi_ElectronEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_ElectronEnUp_value)
 
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteScaleDown"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteScaleDown")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteScaleDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteScaleDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteScaleDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteScaleDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteScaleUp"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteScaleUp")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteScaleUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteScaleUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteScaleUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteScaleUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteStatDown"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteStatDown")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteStatDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch and "type1_pfMet_shiftedPhi_JetAbsoluteStatDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteStatDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteStatDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetAbsoluteStatUp"
+        self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteStatUp")
+        #if not self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteStatUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch and "type1_pfMet_shiftedPhi_JetAbsoluteStatUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetAbsoluteStatUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteStatUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetCheckUESDown"
+        self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetCheckUESDown")
+        #if not self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch and "type1_pfMet_shiftedPhi_JetCheckUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch and "type1_pfMet_shiftedPhi_JetCheckUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetCheckUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetCheckUESDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetCheckUESDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetCheckUESUp"
+        self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetCheckUESUp")
+        #if not self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch and "type1_pfMet_shiftedPhi_JetCheckUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch and "type1_pfMet_shiftedPhi_JetCheckUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetCheckUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetCheckUESUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetCheckUESUp_value)
+
         #print "making type1_pfMet_shiftedPhi_JetEnDown"
         self.type1_pfMet_shiftedPhi_JetEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetEnDown")
         #if not self.type1_pfMet_shiftedPhi_JetEnDown_branch and "type1_pfMet_shiftedPhi_JetEnDown" not in self.complained:
@@ -10327,6 +10957,366 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPhi_JetEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetEnUp_value)
 
+        #print "making type1_pfMet_shiftedPhi_JetFlavorQCDDown"
+        self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetFlavorQCDDown")
+        #if not self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch and "type1_pfMet_shiftedPhi_JetFlavorQCDDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch and "type1_pfMet_shiftedPhi_JetFlavorQCDDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetFlavorQCDDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetFlavorQCDDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetFlavorQCDUp"
+        self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetFlavorQCDUp")
+        #if not self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch and "type1_pfMet_shiftedPhi_JetFlavorQCDUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch and "type1_pfMet_shiftedPhi_JetFlavorQCDUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetFlavorQCDUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetFlavorQCDUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetFragmentationDown"
+        self.type1_pfMet_shiftedPhi_JetFragmentationDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetFragmentationDown")
+        #if not self.type1_pfMet_shiftedPhi_JetFragmentationDown_branch and "type1_pfMet_shiftedPhi_JetFragmentationDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetFragmentationDown_branch and "type1_pfMet_shiftedPhi_JetFragmentationDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetFragmentationDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetFragmentationDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetFragmentationDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetFragmentationDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetFragmentationUp"
+        self.type1_pfMet_shiftedPhi_JetFragmentationUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetFragmentationUp")
+        #if not self.type1_pfMet_shiftedPhi_JetFragmentationUp_branch and "type1_pfMet_shiftedPhi_JetFragmentationUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetFragmentationUp_branch and "type1_pfMet_shiftedPhi_JetFragmentationUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetFragmentationUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetFragmentationUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetFragmentationUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetFragmentationUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpDataMCDown"
+        self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpDataMCDown")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch and "type1_pfMet_shiftedPhi_JetPileUpDataMCDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch and "type1_pfMet_shiftedPhi_JetPileUpDataMCDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpDataMCDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpDataMCDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpDataMCUp"
+        self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpDataMCUp")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch and "type1_pfMet_shiftedPhi_JetPileUpDataMCUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch and "type1_pfMet_shiftedPhi_JetPileUpDataMCUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpDataMCUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpDataMCUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtBBDown"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtBBDown")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtBBDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtBBDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtBBDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtBBDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtBBUp"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtBBUp")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtBBUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtBBUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtBBUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtBBUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtEC1Down"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtEC1Down")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtEC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtEC1Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtEC1Up"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtEC1Up")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtEC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtEC1Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtEC2Down"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtEC2Down")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtEC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtEC2Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtEC2Up"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtEC2Up")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch and "type1_pfMet_shiftedPhi_JetPileUpPtEC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtEC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtEC2Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtHFDown"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtHFDown")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtHFDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtHFUp"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtHFUp")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtHFUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtRefDown"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtRefDown")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtRefDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch and "type1_pfMet_shiftedPhi_JetPileUpPtRefDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtRefDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtRefDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetPileUpPtRefUp"
+        self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetPileUpPtRefUp")
+        #if not self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtRefUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch and "type1_pfMet_shiftedPhi_JetPileUpPtRefUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetPileUpPtRefUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetPileUpPtRefUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeBalDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeBalDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeBalDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeBalDown_branch and "type1_pfMet_shiftedPhi_JetRelativeBalDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeBalDown_branch and "type1_pfMet_shiftedPhi_JetRelativeBalDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeBalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeBalDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeBalDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeBalDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeBalUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeBalUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeBalUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeBalUp_branch and "type1_pfMet_shiftedPhi_JetRelativeBalUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeBalUp_branch and "type1_pfMet_shiftedPhi_JetRelativeBalUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeBalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeBalUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeBalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeBalUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeFSRDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeFSRDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch and "type1_pfMet_shiftedPhi_JetRelativeFSRDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch and "type1_pfMet_shiftedPhi_JetRelativeFSRDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeFSRDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeFSRDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeFSRUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeFSRUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch and "type1_pfMet_shiftedPhi_JetRelativeFSRUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch and "type1_pfMet_shiftedPhi_JetRelativeFSRUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeFSRUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeFSRUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJEREC1Down"
+        self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJEREC1Down")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJEREC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJEREC1Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJEREC1Up"
+        self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJEREC1Up")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJEREC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJEREC1Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJEREC2Down"
+        self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJEREC2Down")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJEREC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJEREC2Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJEREC2Up"
+        self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJEREC2Up")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch and "type1_pfMet_shiftedPhi_JetRelativeJEREC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJEREC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJEREC2Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJERHFDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJERHFDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativeJERHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativeJERHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJERHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJERHFDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeJERHFUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeJERHFUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativeJERHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativeJERHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeJERHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeJERHFUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtBBDown"
+        self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtBBDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch and "type1_pfMet_shiftedPhi_JetRelativePtBBDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch and "type1_pfMet_shiftedPhi_JetRelativePtBBDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtBBDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtBBDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtBBUp"
+        self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtBBUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch and "type1_pfMet_shiftedPhi_JetRelativePtBBUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch and "type1_pfMet_shiftedPhi_JetRelativePtBBUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtBBUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtBBUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtEC1Down"
+        self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtEC1Down")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtEC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtEC1Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtEC1Up"
+        self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtEC1Up")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtEC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtEC1Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtEC2Down"
+        self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtEC2Down")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtEC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtEC2Down")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtEC2Up"
+        self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtEC2Up")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch and "type1_pfMet_shiftedPhi_JetRelativePtEC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtEC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtEC2Up")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtHFDown"
+        self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtHFDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativePtHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativePtHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtHFDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativePtHFUp"
+        self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativePtHFUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativePtHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativePtHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativePtHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativePtHFUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatECDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatECDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatECDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatECDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatECDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatECDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatECUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatECUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatECUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatECUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatECUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatECUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatFSRDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatFSRDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatFSRDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatFSRDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatFSRDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatFSRDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatFSRUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatFSRUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatFSRUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatFSRUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatFSRUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatFSRUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatHFDown"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatHFDown")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch and "type1_pfMet_shiftedPhi_JetRelativeStatHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatHFDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetRelativeStatHFUp"
+        self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetRelativeStatHFUp")
+        #if not self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch and "type1_pfMet_shiftedPhi_JetRelativeStatHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetRelativeStatHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetRelativeStatHFUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_value)
+
         #print "making type1_pfMet_shiftedPhi_JetResDown"
         self.type1_pfMet_shiftedPhi_JetResDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetResDown")
         #if not self.type1_pfMet_shiftedPhi_JetResDown_branch and "type1_pfMet_shiftedPhi_JetResDown" not in self.complained:
@@ -10344,6 +11334,78 @@ cdef class MuTauTree:
             #self.complained.add("type1_pfMet_shiftedPhi_JetResUp")
         else:
             self.type1_pfMet_shiftedPhi_JetResUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetResUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetSinglePionECALDown"
+        self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetSinglePionECALDown")
+        #if not self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch and "type1_pfMet_shiftedPhi_JetSinglePionECALDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch and "type1_pfMet_shiftedPhi_JetSinglePionECALDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetSinglePionECALDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetSinglePionECALDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetSinglePionECALUp"
+        self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetSinglePionECALUp")
+        #if not self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch and "type1_pfMet_shiftedPhi_JetSinglePionECALUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch and "type1_pfMet_shiftedPhi_JetSinglePionECALUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetSinglePionECALUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetSinglePionECALUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetSinglePionHCALDown"
+        self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetSinglePionHCALDown")
+        #if not self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch and "type1_pfMet_shiftedPhi_JetSinglePionHCALDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch and "type1_pfMet_shiftedPhi_JetSinglePionHCALDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetSinglePionHCALDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetSinglePionHCALDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetSinglePionHCALUp"
+        self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetSinglePionHCALUp")
+        #if not self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch and "type1_pfMet_shiftedPhi_JetSinglePionHCALUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch and "type1_pfMet_shiftedPhi_JetSinglePionHCALUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetSinglePionHCALUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetSinglePionHCALUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetTimePtEtaDown"
+        self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetTimePtEtaDown")
+        #if not self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch and "type1_pfMet_shiftedPhi_JetTimePtEtaDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch and "type1_pfMet_shiftedPhi_JetTimePtEtaDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetTimePtEtaDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetTimePtEtaDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetTimePtEtaUp"
+        self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetTimePtEtaUp")
+        #if not self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch and "type1_pfMet_shiftedPhi_JetTimePtEtaUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch and "type1_pfMet_shiftedPhi_JetTimePtEtaUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetTimePtEtaUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetTimePtEtaUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetTotalDown"
+        self.type1_pfMet_shiftedPhi_JetTotalDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetTotalDown")
+        #if not self.type1_pfMet_shiftedPhi_JetTotalDown_branch and "type1_pfMet_shiftedPhi_JetTotalDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetTotalDown_branch and "type1_pfMet_shiftedPhi_JetTotalDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetTotalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetTotalDown")
+        else:
+            self.type1_pfMet_shiftedPhi_JetTotalDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetTotalDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_JetTotalUp"
+        self.type1_pfMet_shiftedPhi_JetTotalUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetTotalUp")
+        #if not self.type1_pfMet_shiftedPhi_JetTotalUp_branch and "type1_pfMet_shiftedPhi_JetTotalUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_JetTotalUp_branch and "type1_pfMet_shiftedPhi_JetTotalUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetTotalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_JetTotalUp")
+        else:
+            self.type1_pfMet_shiftedPhi_JetTotalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetTotalUp_value)
 
         #print "making type1_pfMet_shiftedPhi_MuonEnDown"
         self.type1_pfMet_shiftedPhi_MuonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_MuonEnDown")
@@ -10435,6 +11497,96 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPt_ElectronEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_ElectronEnUp_value)
 
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown"
+        self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp"
+        self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown"
+        self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp"
+        self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteScaleDown"
+        self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteScaleDown")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteScaleDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteScaleDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteScaleDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteScaleDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteScaleUp"
+        self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteScaleUp")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteScaleUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteScaleUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteScaleUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteScaleUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteStatDown"
+        self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteStatDown")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteStatDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch and "type1_pfMet_shiftedPt_JetAbsoluteStatDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteStatDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteStatDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetAbsoluteStatUp"
+        self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteStatUp")
+        #if not self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteStatUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch and "type1_pfMet_shiftedPt_JetAbsoluteStatUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetAbsoluteStatUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetAbsoluteStatUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetCheckUESDown"
+        self.type1_pfMet_shiftedPt_JetCheckUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetCheckUESDown")
+        #if not self.type1_pfMet_shiftedPt_JetCheckUESDown_branch and "type1_pfMet_shiftedPt_JetCheckUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetCheckUESDown_branch and "type1_pfMet_shiftedPt_JetCheckUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetCheckUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetCheckUESDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetCheckUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetCheckUESDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetCheckUESUp"
+        self.type1_pfMet_shiftedPt_JetCheckUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetCheckUESUp")
+        #if not self.type1_pfMet_shiftedPt_JetCheckUESUp_branch and "type1_pfMet_shiftedPt_JetCheckUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetCheckUESUp_branch and "type1_pfMet_shiftedPt_JetCheckUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetCheckUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetCheckUESUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetCheckUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetCheckUESUp_value)
+
         #print "making type1_pfMet_shiftedPt_JetEnDown"
         self.type1_pfMet_shiftedPt_JetEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetEnDown")
         #if not self.type1_pfMet_shiftedPt_JetEnDown_branch and "type1_pfMet_shiftedPt_JetEnDown" not in self.complained:
@@ -10453,6 +11605,366 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPt_JetEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetEnUp_value)
 
+        #print "making type1_pfMet_shiftedPt_JetFlavorQCDDown"
+        self.type1_pfMet_shiftedPt_JetFlavorQCDDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetFlavorQCDDown")
+        #if not self.type1_pfMet_shiftedPt_JetFlavorQCDDown_branch and "type1_pfMet_shiftedPt_JetFlavorQCDDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetFlavorQCDDown_branch and "type1_pfMet_shiftedPt_JetFlavorQCDDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetFlavorQCDDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetFlavorQCDDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetFlavorQCDDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetFlavorQCDDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetFlavorQCDUp"
+        self.type1_pfMet_shiftedPt_JetFlavorQCDUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetFlavorQCDUp")
+        #if not self.type1_pfMet_shiftedPt_JetFlavorQCDUp_branch and "type1_pfMet_shiftedPt_JetFlavorQCDUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetFlavorQCDUp_branch and "type1_pfMet_shiftedPt_JetFlavorQCDUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetFlavorQCDUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetFlavorQCDUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetFlavorQCDUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetFlavorQCDUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetFragmentationDown"
+        self.type1_pfMet_shiftedPt_JetFragmentationDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetFragmentationDown")
+        #if not self.type1_pfMet_shiftedPt_JetFragmentationDown_branch and "type1_pfMet_shiftedPt_JetFragmentationDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetFragmentationDown_branch and "type1_pfMet_shiftedPt_JetFragmentationDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetFragmentationDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetFragmentationDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetFragmentationDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetFragmentationDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetFragmentationUp"
+        self.type1_pfMet_shiftedPt_JetFragmentationUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetFragmentationUp")
+        #if not self.type1_pfMet_shiftedPt_JetFragmentationUp_branch and "type1_pfMet_shiftedPt_JetFragmentationUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetFragmentationUp_branch and "type1_pfMet_shiftedPt_JetFragmentationUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetFragmentationUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetFragmentationUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetFragmentationUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetFragmentationUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpDataMCDown"
+        self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpDataMCDown")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch and "type1_pfMet_shiftedPt_JetPileUpDataMCDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch and "type1_pfMet_shiftedPt_JetPileUpDataMCDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpDataMCDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpDataMCDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpDataMCUp"
+        self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpDataMCUp")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch and "type1_pfMet_shiftedPt_JetPileUpDataMCUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch and "type1_pfMet_shiftedPt_JetPileUpDataMCUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpDataMCUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpDataMCUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtBBDown"
+        self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtBBDown")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtBBDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtBBDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtBBDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtBBDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtBBUp"
+        self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtBBUp")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtBBUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtBBUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtBBUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtBBUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtEC1Down"
+        self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtEC1Down")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtEC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtEC1Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtEC1Up"
+        self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtEC1Up")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtEC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtEC1Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtEC2Down"
+        self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtEC2Down")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtEC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtEC2Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtEC2Up"
+        self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtEC2Up")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch and "type1_pfMet_shiftedPt_JetPileUpPtEC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtEC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtEC2Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtHFDown"
+        self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtHFDown")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtHFDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtHFUp"
+        self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtHFUp")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtHFUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtRefDown"
+        self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtRefDown")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtRefDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch and "type1_pfMet_shiftedPt_JetPileUpPtRefDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtRefDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtRefDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetPileUpPtRefUp"
+        self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetPileUpPtRefUp")
+        #if not self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtRefUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch and "type1_pfMet_shiftedPt_JetPileUpPtRefUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetPileUpPtRefUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetPileUpPtRefUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeBalDown"
+        self.type1_pfMet_shiftedPt_JetRelativeBalDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeBalDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeBalDown_branch and "type1_pfMet_shiftedPt_JetRelativeBalDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeBalDown_branch and "type1_pfMet_shiftedPt_JetRelativeBalDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeBalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeBalDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeBalDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeBalDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeBalUp"
+        self.type1_pfMet_shiftedPt_JetRelativeBalUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeBalUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeBalUp_branch and "type1_pfMet_shiftedPt_JetRelativeBalUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeBalUp_branch and "type1_pfMet_shiftedPt_JetRelativeBalUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeBalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeBalUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeBalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeBalUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeFSRDown"
+        self.type1_pfMet_shiftedPt_JetRelativeFSRDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeFSRDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeFSRDown_branch and "type1_pfMet_shiftedPt_JetRelativeFSRDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeFSRDown_branch and "type1_pfMet_shiftedPt_JetRelativeFSRDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeFSRDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeFSRDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeFSRDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeFSRDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeFSRUp"
+        self.type1_pfMet_shiftedPt_JetRelativeFSRUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeFSRUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeFSRUp_branch and "type1_pfMet_shiftedPt_JetRelativeFSRUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeFSRUp_branch and "type1_pfMet_shiftedPt_JetRelativeFSRUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeFSRUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeFSRUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeFSRUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeFSRUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJEREC1Down"
+        self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJEREC1Down")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJEREC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJEREC1Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJEREC1Up"
+        self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJEREC1Up")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJEREC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJEREC1Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJEREC2Down"
+        self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJEREC2Down")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJEREC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJEREC2Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJEREC2Up"
+        self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJEREC2Up")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch and "type1_pfMet_shiftedPt_JetRelativeJEREC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJEREC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJEREC2Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJERHFDown"
+        self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJERHFDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch and "type1_pfMet_shiftedPt_JetRelativeJERHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch and "type1_pfMet_shiftedPt_JetRelativeJERHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJERHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJERHFDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeJERHFUp"
+        self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeJERHFUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch and "type1_pfMet_shiftedPt_JetRelativeJERHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch and "type1_pfMet_shiftedPt_JetRelativeJERHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeJERHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeJERHFUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtBBDown"
+        self.type1_pfMet_shiftedPt_JetRelativePtBBDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtBBDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtBBDown_branch and "type1_pfMet_shiftedPt_JetRelativePtBBDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtBBDown_branch and "type1_pfMet_shiftedPt_JetRelativePtBBDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtBBDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtBBDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtBBDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtBBDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtBBUp"
+        self.type1_pfMet_shiftedPt_JetRelativePtBBUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtBBUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtBBUp_branch and "type1_pfMet_shiftedPt_JetRelativePtBBUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtBBUp_branch and "type1_pfMet_shiftedPt_JetRelativePtBBUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtBBUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtBBUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtBBUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtBBUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtEC1Down"
+        self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtEC1Down")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch and "type1_pfMet_shiftedPt_JetRelativePtEC1Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch and "type1_pfMet_shiftedPt_JetRelativePtEC1Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtEC1Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtEC1Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtEC1Up"
+        self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtEC1Up")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch and "type1_pfMet_shiftedPt_JetRelativePtEC1Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch and "type1_pfMet_shiftedPt_JetRelativePtEC1Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtEC1Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtEC1Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtEC2Down"
+        self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtEC2Down")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch and "type1_pfMet_shiftedPt_JetRelativePtEC2Down" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch and "type1_pfMet_shiftedPt_JetRelativePtEC2Down":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtEC2Down does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtEC2Down")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtEC2Up"
+        self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtEC2Up")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch and "type1_pfMet_shiftedPt_JetRelativePtEC2Up" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch and "type1_pfMet_shiftedPt_JetRelativePtEC2Up":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtEC2Up does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtEC2Up")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtHFDown"
+        self.type1_pfMet_shiftedPt_JetRelativePtHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtHFDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtHFDown_branch and "type1_pfMet_shiftedPt_JetRelativePtHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtHFDown_branch and "type1_pfMet_shiftedPt_JetRelativePtHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtHFDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtHFDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativePtHFUp"
+        self.type1_pfMet_shiftedPt_JetRelativePtHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativePtHFUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativePtHFUp_branch and "type1_pfMet_shiftedPt_JetRelativePtHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativePtHFUp_branch and "type1_pfMet_shiftedPt_JetRelativePtHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativePtHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativePtHFUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativePtHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativePtHFUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatECDown"
+        self.type1_pfMet_shiftedPt_JetRelativeStatECDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatECDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatECDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatECDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatECDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatECDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatECDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatECDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatECDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatECDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatECUp"
+        self.type1_pfMet_shiftedPt_JetRelativeStatECUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatECUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatECUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatECUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatECUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatECUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatECUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatECUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatECUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatECUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatFSRDown"
+        self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatFSRDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatFSRDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatFSRDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatFSRDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatFSRDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatFSRUp"
+        self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatFSRUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatFSRUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatFSRUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatFSRUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatFSRUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatHFDown"
+        self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatHFDown")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatHFDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch and "type1_pfMet_shiftedPt_JetRelativeStatHFDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatHFDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatHFDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetRelativeStatHFUp"
+        self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetRelativeStatHFUp")
+        #if not self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatHFUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch and "type1_pfMet_shiftedPt_JetRelativeStatHFUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetRelativeStatHFUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetRelativeStatHFUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_value)
+
         #print "making type1_pfMet_shiftedPt_JetResDown"
         self.type1_pfMet_shiftedPt_JetResDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetResDown")
         #if not self.type1_pfMet_shiftedPt_JetResDown_branch and "type1_pfMet_shiftedPt_JetResDown" not in self.complained:
@@ -10470,6 +11982,78 @@ cdef class MuTauTree:
             #self.complained.add("type1_pfMet_shiftedPt_JetResUp")
         else:
             self.type1_pfMet_shiftedPt_JetResUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetResUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetSinglePionECALDown"
+        self.type1_pfMet_shiftedPt_JetSinglePionECALDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetSinglePionECALDown")
+        #if not self.type1_pfMet_shiftedPt_JetSinglePionECALDown_branch and "type1_pfMet_shiftedPt_JetSinglePionECALDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetSinglePionECALDown_branch and "type1_pfMet_shiftedPt_JetSinglePionECALDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetSinglePionECALDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetSinglePionECALDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetSinglePionECALDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetSinglePionECALDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetSinglePionECALUp"
+        self.type1_pfMet_shiftedPt_JetSinglePionECALUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetSinglePionECALUp")
+        #if not self.type1_pfMet_shiftedPt_JetSinglePionECALUp_branch and "type1_pfMet_shiftedPt_JetSinglePionECALUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetSinglePionECALUp_branch and "type1_pfMet_shiftedPt_JetSinglePionECALUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetSinglePionECALUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetSinglePionECALUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetSinglePionECALUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetSinglePionECALUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetSinglePionHCALDown"
+        self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetSinglePionHCALDown")
+        #if not self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch and "type1_pfMet_shiftedPt_JetSinglePionHCALDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch and "type1_pfMet_shiftedPt_JetSinglePionHCALDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetSinglePionHCALDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetSinglePionHCALDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetSinglePionHCALUp"
+        self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetSinglePionHCALUp")
+        #if not self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch and "type1_pfMet_shiftedPt_JetSinglePionHCALUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch and "type1_pfMet_shiftedPt_JetSinglePionHCALUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetSinglePionHCALUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetSinglePionHCALUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetTimePtEtaDown"
+        self.type1_pfMet_shiftedPt_JetTimePtEtaDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetTimePtEtaDown")
+        #if not self.type1_pfMet_shiftedPt_JetTimePtEtaDown_branch and "type1_pfMet_shiftedPt_JetTimePtEtaDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetTimePtEtaDown_branch and "type1_pfMet_shiftedPt_JetTimePtEtaDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetTimePtEtaDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetTimePtEtaDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetTimePtEtaDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetTimePtEtaDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetTimePtEtaUp"
+        self.type1_pfMet_shiftedPt_JetTimePtEtaUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetTimePtEtaUp")
+        #if not self.type1_pfMet_shiftedPt_JetTimePtEtaUp_branch and "type1_pfMet_shiftedPt_JetTimePtEtaUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetTimePtEtaUp_branch and "type1_pfMet_shiftedPt_JetTimePtEtaUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetTimePtEtaUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetTimePtEtaUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetTimePtEtaUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetTimePtEtaUp_value)
+
+        #print "making type1_pfMet_shiftedPt_JetTotalDown"
+        self.type1_pfMet_shiftedPt_JetTotalDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetTotalDown")
+        #if not self.type1_pfMet_shiftedPt_JetTotalDown_branch and "type1_pfMet_shiftedPt_JetTotalDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetTotalDown_branch and "type1_pfMet_shiftedPt_JetTotalDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetTotalDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetTotalDown")
+        else:
+            self.type1_pfMet_shiftedPt_JetTotalDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetTotalDown_value)
+
+        #print "making type1_pfMet_shiftedPt_JetTotalUp"
+        self.type1_pfMet_shiftedPt_JetTotalUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetTotalUp")
+        #if not self.type1_pfMet_shiftedPt_JetTotalUp_branch and "type1_pfMet_shiftedPt_JetTotalUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_JetTotalUp_branch and "type1_pfMet_shiftedPt_JetTotalUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_JetTotalUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_JetTotalUp")
+        else:
+            self.type1_pfMet_shiftedPt_JetTotalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetTotalUp_value)
 
         #print "making type1_pfMet_shiftedPt_MuonEnDown"
         self.type1_pfMet_shiftedPt_MuonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_MuonEnDown")
@@ -11724,21 +13308,6 @@ cdef class MuTauTree:
 
     # Access to the current branch values
 
-    property Ele45L1JetTauSeededGroup:
-        def __get__(self):
-            self.Ele45L1JetTauSeededGroup_branch.GetEntry(self.localentry, 0)
-            return self.Ele45L1JetTauSeededGroup_value
-
-    property Ele45L1JetTauSeededPass:
-        def __get__(self):
-            self.Ele45L1JetTauSeededPass_branch.GetEntry(self.localentry, 0)
-            return self.Ele45L1JetTauSeededPass_value
-
-    property Ele45L1JetTauSeededPrescale:
-        def __get__(self):
-            self.Ele45L1JetTauSeededPrescale_branch.GetEntry(self.localentry, 0)
-            return self.Ele45L1JetTauSeededPrescale_value
-
     property EmbPtWeight:
         def __get__(self):
             self.EmbPtWeight_branch.GetEntry(self.localentry, 0)
@@ -11748,6 +13317,71 @@ cdef class MuTauTree:
         def __get__(self):
             self.Eta_branch.GetEntry(self.localentry, 0)
             return self.Eta_value
+
+    property Flag_BadChargedCandidateFilter:
+        def __get__(self):
+            self.Flag_BadChargedCandidateFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_BadChargedCandidateFilter_value
+
+    property Flag_BadPFMuonFilter:
+        def __get__(self):
+            self.Flag_BadPFMuonFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_BadPFMuonFilter_value
+
+    property Flag_EcalDeadCellTriggerPrimitiveFilter:
+        def __get__(self):
+            self.Flag_EcalDeadCellTriggerPrimitiveFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_EcalDeadCellTriggerPrimitiveFilter_value
+
+    property Flag_HBHENoiseFilter:
+        def __get__(self):
+            self.Flag_HBHENoiseFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_HBHENoiseFilter_value
+
+    property Flag_HBHENoiseIsoFilter:
+        def __get__(self):
+            self.Flag_HBHENoiseIsoFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_HBHENoiseIsoFilter_value
+
+    property Flag_badCloneMuonFilter:
+        def __get__(self):
+            self.Flag_badCloneMuonFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_badCloneMuonFilter_value
+
+    property Flag_badGlobalMuonFilter:
+        def __get__(self):
+            self.Flag_badGlobalMuonFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_badGlobalMuonFilter_value
+
+    property Flag_badMuons:
+        def __get__(self):
+            self.Flag_badMuons_branch.GetEntry(self.localentry, 0)
+            return self.Flag_badMuons_value
+
+    property Flag_duplicateMuons:
+        def __get__(self):
+            self.Flag_duplicateMuons_branch.GetEntry(self.localentry, 0)
+            return self.Flag_duplicateMuons_value
+
+    property Flag_eeBadScFilter:
+        def __get__(self):
+            self.Flag_eeBadScFilter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_eeBadScFilter_value
+
+    property Flag_globalTightHalo2016Filter:
+        def __get__(self):
+            self.Flag_globalTightHalo2016Filter_branch.GetEntry(self.localentry, 0)
+            return self.Flag_globalTightHalo2016Filter_value
+
+    property Flag_goodVertices:
+        def __get__(self):
+            self.Flag_goodVertices_branch.GetEntry(self.localentry, 0)
+            return self.Flag_goodVertices_value
+
+    property Flag_noBadMuons:
+        def __get__(self):
+            self.Flag_noBadMuons_branch.GetEntry(self.localentry, 0)
+            return self.Flag_noBadMuons_value
 
     property GenWeight:
         def __get__(self):
@@ -12428,126 +14062,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.jb2rawf_CSVL_branch.GetEntry(self.localentry, 0)
             return self.jb2rawf_CSVL_value
-
-    property jet1BJetCISV:
-        def __get__(self):
-            self.jet1BJetCISV_branch.GetEntry(self.localentry, 0)
-            return self.jet1BJetCISV_value
-
-    property jet1Eta:
-        def __get__(self):
-            self.jet1Eta_branch.GetEntry(self.localentry, 0)
-            return self.jet1Eta_value
-
-    property jet1IDLoose:
-        def __get__(self):
-            self.jet1IDLoose_branch.GetEntry(self.localentry, 0)
-            return self.jet1IDLoose_value
-
-    property jet1IDTight:
-        def __get__(self):
-            self.jet1IDTight_branch.GetEntry(self.localentry, 0)
-            return self.jet1IDTight_value
-
-    property jet1IDTightLepVeto:
-        def __get__(self):
-            self.jet1IDTightLepVeto_branch.GetEntry(self.localentry, 0)
-            return self.jet1IDTightLepVeto_value
-
-    property jet1PUMVA:
-        def __get__(self):
-            self.jet1PUMVA_branch.GetEntry(self.localentry, 0)
-            return self.jet1PUMVA_value
-
-    property jet1Phi:
-        def __get__(self):
-            self.jet1Phi_branch.GetEntry(self.localentry, 0)
-            return self.jet1Phi_value
-
-    property jet1Pt:
-        def __get__(self):
-            self.jet1Pt_branch.GetEntry(self.localentry, 0)
-            return self.jet1Pt_value
-
-    property jet1PtJESClosure_Down:
-        def __get__(self):
-            self.jet1PtJESClosure_Down_branch.GetEntry(self.localentry, 0)
-            return self.jet1PtJESClosure_Down_value
-
-    property jet1PtJESClosure_Up:
-        def __get__(self):
-            self.jet1PtJESClosure_Up_branch.GetEntry(self.localentry, 0)
-            return self.jet1PtJESClosure_Up_value
-
-    property jet1PtJESTotal_Down:
-        def __get__(self):
-            self.jet1PtJESTotal_Down_branch.GetEntry(self.localentry, 0)
-            return self.jet1PtJESTotal_Down_value
-
-    property jet1PtJESTotal_Up:
-        def __get__(self):
-            self.jet1PtJESTotal_Up_branch.GetEntry(self.localentry, 0)
-            return self.jet1PtJESTotal_Up_value
-
-    property jet2BJetCISV:
-        def __get__(self):
-            self.jet2BJetCISV_branch.GetEntry(self.localentry, 0)
-            return self.jet2BJetCISV_value
-
-    property jet2Eta:
-        def __get__(self):
-            self.jet2Eta_branch.GetEntry(self.localentry, 0)
-            return self.jet2Eta_value
-
-    property jet2IDLoose:
-        def __get__(self):
-            self.jet2IDLoose_branch.GetEntry(self.localentry, 0)
-            return self.jet2IDLoose_value
-
-    property jet2IDTight:
-        def __get__(self):
-            self.jet2IDTight_branch.GetEntry(self.localentry, 0)
-            return self.jet2IDTight_value
-
-    property jet2IDTightLepVeto:
-        def __get__(self):
-            self.jet2IDTightLepVeto_branch.GetEntry(self.localentry, 0)
-            return self.jet2IDTightLepVeto_value
-
-    property jet2PUMVA:
-        def __get__(self):
-            self.jet2PUMVA_branch.GetEntry(self.localentry, 0)
-            return self.jet2PUMVA_value
-
-    property jet2Phi:
-        def __get__(self):
-            self.jet2Phi_branch.GetEntry(self.localentry, 0)
-            return self.jet2Phi_value
-
-    property jet2Pt:
-        def __get__(self):
-            self.jet2Pt_branch.GetEntry(self.localentry, 0)
-            return self.jet2Pt_value
-
-    property jet2PtJESClosure_Down:
-        def __get__(self):
-            self.jet2PtJESClosure_Down_branch.GetEntry(self.localentry, 0)
-            return self.jet2PtJESClosure_Down_value
-
-    property jet2PtJESClosure_Up:
-        def __get__(self):
-            self.jet2PtJESClosure_Up_branch.GetEntry(self.localentry, 0)
-            return self.jet2PtJESClosure_Up_value
-
-    property jet2PtJESTotal_Down:
-        def __get__(self):
-            self.jet2PtJESTotal_Down_branch.GetEntry(self.localentry, 0)
-            return self.jet2PtJESTotal_Down_value
-
-    property jet2PtJESTotal_Up:
-        def __get__(self):
-            self.jet2PtJESTotal_Up_branch.GetEntry(self.localentry, 0)
-            return self.jet2PtJESTotal_Up_value
 
     property jetVeto20:
         def __get__(self):
@@ -13404,10 +14918,30 @@ cdef class MuTauTree:
             self.mMatchesMu19Tau20sL1Path_branch.GetEntry(self.localentry, 0)
             return self.mMatchesMu19Tau20sL1Path_value
 
+    property mMatchesMu21Tau20sL1Filter:
+        def __get__(self):
+            self.mMatchesMu21Tau20sL1Filter_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesMu21Tau20sL1Filter_value
+
+    property mMatchesMu21Tau20sL1Path:
+        def __get__(self):
+            self.mMatchesMu21Tau20sL1Path_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesMu21Tau20sL1Path_value
+
+    property mMatchesMu23Ele12DZPath:
+        def __get__(self):
+            self.mMatchesMu23Ele12DZPath_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesMu23Ele12DZPath_value
+
     property mMatchesMu23Ele12Path:
         def __get__(self):
             self.mMatchesMu23Ele12Path_branch.GetEntry(self.localentry, 0)
             return self.mMatchesMu23Ele12Path_value
+
+    property mMatchesMu8Ele23DZPath:
+        def __get__(self):
+            self.mMatchesMu8Ele23DZPath_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesMu8Ele23DZPath_value
 
     property mMatchesMu8Ele23Path:
         def __get__(self):
@@ -13544,10 +15078,20 @@ cdef class MuTauTree:
             self.mMtToPfMet_type1_branch.GetEntry(self.localentry, 0)
             return self.mMtToPfMet_type1_value
 
+    property mMu23Ele12DZFilter:
+        def __get__(self):
+            self.mMu23Ele12DZFilter_branch.GetEntry(self.localentry, 0)
+            return self.mMu23Ele12DZFilter_value
+
     property mMu23Ele12Filter:
         def __get__(self):
             self.mMu23Ele12Filter_branch.GetEntry(self.localentry, 0)
             return self.mMu23Ele12Filter_value
+
+    property mMu8Ele23DZFilter:
+        def __get__(self):
+            self.mMu8Ele23DZFilter_branch.GetEntry(self.localentry, 0)
+            return self.mMu8Ele23DZFilter_value
 
     property mMu8Ele23Filter:
         def __get__(self):
@@ -13874,6 +15418,16 @@ cdef class MuTauTree:
             self.m_t_collinearmass_branch.GetEntry(self.localentry, 0)
             return self.m_t_collinearmass_value
 
+    property m_t_collinearmass_CheckUESDown:
+        def __get__(self):
+            self.m_t_collinearmass_CheckUESDown_branch.GetEntry(self.localentry, 0)
+            return self.m_t_collinearmass_CheckUESDown_value
+
+    property m_t_collinearmass_CheckUESUp:
+        def __get__(self):
+            self.m_t_collinearmass_CheckUESUp_branch.GetEntry(self.localentry, 0)
+            return self.m_t_collinearmass_CheckUESUp_value
+
     property m_t_collinearmass_EleEnDown:
         def __get__(self):
             self.m_t_collinearmass_EleEnDown_branch.GetEntry(self.localentry, 0)
@@ -13883,6 +15437,16 @@ cdef class MuTauTree:
         def __get__(self):
             self.m_t_collinearmass_EleEnUp_branch.GetEntry(self.localentry, 0)
             return self.m_t_collinearmass_EleEnUp_value
+
+    property m_t_collinearmass_JetCheckTotalDown:
+        def __get__(self):
+            self.m_t_collinearmass_JetCheckTotalDown_branch.GetEntry(self.localentry, 0)
+            return self.m_t_collinearmass_JetCheckTotalDown_value
+
+    property m_t_collinearmass_JetCheckTotalUp:
+        def __get__(self):
+            self.m_t_collinearmass_JetCheckTotalUp_branch.GetEntry(self.localentry, 0)
+            return self.m_t_collinearmass_JetCheckTotalUp_value
 
     property m_t_collinearmass_JetEnDown:
         def __get__(self):
@@ -13939,20 +15503,40 @@ cdef class MuTauTree:
             self.metcov00_branch.GetEntry(self.localentry, 0)
             return self.metcov00_value
 
+    property metcov00_DESYlike:
+        def __get__(self):
+            self.metcov00_DESYlike_branch.GetEntry(self.localentry, 0)
+            return self.metcov00_DESYlike_value
+
     property metcov01:
         def __get__(self):
             self.metcov01_branch.GetEntry(self.localentry, 0)
             return self.metcov01_value
+
+    property metcov01_DESYlike:
+        def __get__(self):
+            self.metcov01_DESYlike_branch.GetEntry(self.localentry, 0)
+            return self.metcov01_DESYlike_value
 
     property metcov10:
         def __get__(self):
             self.metcov10_branch.GetEntry(self.localentry, 0)
             return self.metcov10_value
 
+    property metcov10_DESYlike:
+        def __get__(self):
+            self.metcov10_DESYlike_branch.GetEntry(self.localentry, 0)
+            return self.metcov10_DESYlike_value
+
     property metcov11:
         def __get__(self):
             self.metcov11_branch.GetEntry(self.localentry, 0)
             return self.metcov11_value
+
+    property metcov11_DESYlike:
+        def __get__(self):
+            self.metcov11_DESYlike_branch.GetEntry(self.localentry, 0)
+            return self.metcov11_DESYlike_value
 
     property muGlbIsoVetoPt10:
         def __get__(self):
@@ -14764,6 +16348,21 @@ cdef class MuTauTree:
             self.singleTau140Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleTau140Prescale_value
 
+    property singleTau140Trk50Group:
+        def __get__(self):
+            self.singleTau140Trk50Group_branch.GetEntry(self.localentry, 0)
+            return self.singleTau140Trk50Group_value
+
+    property singleTau140Trk50Pass:
+        def __get__(self):
+            self.singleTau140Trk50Pass_branch.GetEntry(self.localentry, 0)
+            return self.singleTau140Trk50Pass_value
+
+    property singleTau140Trk50Prescale:
+        def __get__(self):
+            self.singleTau140Trk50Prescale_branch.GetEntry(self.localentry, 0)
+            return self.singleTau140Trk50Prescale_value
+
     property tAbsEta:
         def __get__(self):
             self.tAbsEta_branch.GetEntry(self.localentry, 0)
@@ -15414,11 +17013,6 @@ cdef class MuTauTree:
             self.tMatchesEle24Tau20Filter_branch.GetEntry(self.localentry, 0)
             return self.tMatchesEle24Tau20Filter_value
 
-    property tMatchesEle24Tau20L1Filter:
-        def __get__(self):
-            self.tMatchesEle24Tau20L1Filter_branch.GetEntry(self.localentry, 0)
-            return self.tMatchesEle24Tau20L1Filter_value
-
     property tMatchesEle24Tau20L1Path:
         def __get__(self):
             self.tMatchesEle24Tau20L1Path_branch.GetEntry(self.localentry, 0)
@@ -15428,6 +17022,11 @@ cdef class MuTauTree:
         def __get__(self):
             self.tMatchesEle24Tau20Path_branch.GetEntry(self.localentry, 0)
             return self.tMatchesEle24Tau20Path_value
+
+    property tMatchesEle24Tau20sL1Filter:
+        def __get__(self):
+            self.tMatchesEle24Tau20sL1Filter_branch.GetEntry(self.localentry, 0)
+            return self.tMatchesEle24Tau20sL1Filter_value
 
     property tMatchesEle24Tau30Filter:
         def __get__(self):
@@ -15458,6 +17057,16 @@ cdef class MuTauTree:
         def __get__(self):
             self.tMatchesMu19Tau20sL1Path_branch.GetEntry(self.localentry, 0)
             return self.tMatchesMu19Tau20sL1Path_value
+
+    property tMatchesMu21Tau20sL1Filter:
+        def __get__(self):
+            self.tMatchesMu21Tau20sL1Filter_branch.GetEntry(self.localentry, 0)
+            return self.tMatchesMu21Tau20sL1Filter_value
+
+    property tMatchesMu21Tau20sL1Path:
+        def __get__(self):
+            self.tMatchesMu21Tau20sL1Path_branch.GetEntry(self.localentry, 0)
+            return self.tMatchesMu21Tau20sL1Path_value
 
     property tMtToPfMet_ElectronEnDown:
         def __get__(self):
@@ -15669,6 +17278,41 @@ cdef class MuTauTree:
             self.tRank_branch.GetEntry(self.localentry, 0)
             return self.tRank_value
 
+    property tRerunMVArun2v1DBoldDMwLTLoose:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTLoose_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTLoose_value
+
+    property tRerunMVArun2v1DBoldDMwLTMedium:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTMedium_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTMedium_value
+
+    property tRerunMVArun2v1DBoldDMwLTTight:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTTight_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTTight_value
+
+    property tRerunMVArun2v1DBoldDMwLTVLoose:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTVLoose_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTVLoose_value
+
+    property tRerunMVArun2v1DBoldDMwLTVTight:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTVTight_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTVTight_value
+
+    property tRerunMVArun2v1DBoldDMwLTVVTight:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTVVTight_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTVVTight_value
+
+    property tRerunMVArun2v1DBoldDMwLTraw:
+        def __get__(self):
+            self.tRerunMVArun2v1DBoldDMwLTraw_branch.GetEntry(self.localentry, 0)
+            return self.tRerunMVArun2v1DBoldDMwLTraw_value
+
     property tVZ:
         def __get__(self):
             self.tVZ_branch.GetEntry(self.localentry, 0)
@@ -15703,6 +17347,26 @@ cdef class MuTauTree:
         def __get__(self):
             self.t_m_collinearmass_branch.GetEntry(self.localentry, 0)
             return self.t_m_collinearmass_value
+
+    property t_m_collinearmass_CheckUESDown:
+        def __get__(self):
+            self.t_m_collinearmass_CheckUESDown_branch.GetEntry(self.localentry, 0)
+            return self.t_m_collinearmass_CheckUESDown_value
+
+    property t_m_collinearmass_CheckUESUp:
+        def __get__(self):
+            self.t_m_collinearmass_CheckUESUp_branch.GetEntry(self.localentry, 0)
+            return self.t_m_collinearmass_CheckUESUp_value
+
+    property t_m_collinearmass_JetCheckTotalDown:
+        def __get__(self):
+            self.t_m_collinearmass_JetCheckTotalDown_branch.GetEntry(self.localentry, 0)
+            return self.t_m_collinearmass_JetCheckTotalDown_value
+
+    property t_m_collinearmass_JetCheckTotalUp:
+        def __get__(self):
+            self.t_m_collinearmass_JetCheckTotalUp_branch.GetEntry(self.localentry, 0)
+            return self.t_m_collinearmass_JetCheckTotalUp_value
 
     property t_m_collinearmass_JetEnDown:
         def __get__(self):
@@ -15794,6 +17458,56 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPhi_ElectronEnUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_ElectronEnUp_value
 
+    property type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapUp_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasDown_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteMPFBiasUp_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteScaleDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteScaleDown_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteScaleUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteScaleUp_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteStatDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteStatDown_value
+
+    property type1_pfMet_shiftedPhi_JetAbsoluteStatUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value
+
+    property type1_pfMet_shiftedPhi_JetCheckUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetCheckUESDown_value
+
+    property type1_pfMet_shiftedPhi_JetCheckUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetCheckUESUp_value
+
     property type1_pfMet_shiftedPhi_JetEnDown:
         def __get__(self):
             self.type1_pfMet_shiftedPhi_JetEnDown_branch.GetEntry(self.localentry, 0)
@@ -15804,6 +17518,206 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPhi_JetEnUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_JetEnUp_value
 
+    property type1_pfMet_shiftedPhi_JetFlavorQCDDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetFlavorQCDDown_value
+
+    property type1_pfMet_shiftedPhi_JetFlavorQCDUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetFlavorQCDUp_value
+
+    property type1_pfMet_shiftedPhi_JetFragmentationDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetFragmentationDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetFragmentationDown_value
+
+    property type1_pfMet_shiftedPhi_JetFragmentationUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetFragmentationUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetFragmentationUp_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpDataMCDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpDataMCDown_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpDataMCUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpDataMCUp_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtBBDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtBBDown_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtBBUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtBBUp_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtEC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Down_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtEC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtEC1Up_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtEC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Down_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtEC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtEC2Up_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtHFDown_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtHFUp_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtRefDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtRefDown_value
+
+    property type1_pfMet_shiftedPhi_JetPileUpPtRefUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetPileUpPtRefUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeBalDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeBalDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeBalDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeBalUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeBalUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeBalUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeFSRDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeFSRDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeFSRUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeFSRUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJEREC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Down_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJEREC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJEREC1Up_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJEREC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Down_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJEREC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJEREC2Up_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJERHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJERHFDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeJERHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeJERHFUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtBBDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtBBDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtBBUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtBBUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtEC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtEC1Down_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtEC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtEC1Up_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtEC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtEC2Down_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtEC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtEC2Up_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtHFDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativePtHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativePtHFUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatECDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatECDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatECUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatECUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatFSRDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatFSRDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatFSRUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatFSRUp_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatHFDown_value
+
+    property type1_pfMet_shiftedPhi_JetRelativeStatHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetRelativeStatHFUp_value
+
     property type1_pfMet_shiftedPhi_JetResDown:
         def __get__(self):
             self.type1_pfMet_shiftedPhi_JetResDown_branch.GetEntry(self.localentry, 0)
@@ -15813,6 +17727,46 @@ cdef class MuTauTree:
         def __get__(self):
             self.type1_pfMet_shiftedPhi_JetResUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_JetResUp_value
+
+    property type1_pfMet_shiftedPhi_JetSinglePionECALDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetSinglePionECALDown_value
+
+    property type1_pfMet_shiftedPhi_JetSinglePionECALUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetSinglePionECALUp_value
+
+    property type1_pfMet_shiftedPhi_JetSinglePionHCALDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetSinglePionHCALDown_value
+
+    property type1_pfMet_shiftedPhi_JetSinglePionHCALUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetSinglePionHCALUp_value
+
+    property type1_pfMet_shiftedPhi_JetTimePtEtaDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetTimePtEtaDown_value
+
+    property type1_pfMet_shiftedPhi_JetTimePtEtaUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetTimePtEtaUp_value
+
+    property type1_pfMet_shiftedPhi_JetTotalDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetTotalDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetTotalDown_value
+
+    property type1_pfMet_shiftedPhi_JetTotalUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_JetTotalUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_JetTotalUp_value
 
     property type1_pfMet_shiftedPhi_MuonEnDown:
         def __get__(self):
@@ -15864,6 +17818,56 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPt_ElectronEnUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPt_ElectronEnUp_value
 
+    property type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapUp_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasDown_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteMPFBiasUp_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteScaleDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteScaleDown_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteScaleUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteScaleUp_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteStatDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteStatDown_value
+
+    property type1_pfMet_shiftedPt_JetAbsoluteStatUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetAbsoluteStatUp_value
+
+    property type1_pfMet_shiftedPt_JetCheckUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetCheckUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetCheckUESDown_value
+
+    property type1_pfMet_shiftedPt_JetCheckUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetCheckUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetCheckUESUp_value
+
     property type1_pfMet_shiftedPt_JetEnDown:
         def __get__(self):
             self.type1_pfMet_shiftedPt_JetEnDown_branch.GetEntry(self.localentry, 0)
@@ -15874,6 +17878,206 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPt_JetEnUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPt_JetEnUp_value
 
+    property type1_pfMet_shiftedPt_JetFlavorQCDDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetFlavorQCDDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetFlavorQCDDown_value
+
+    property type1_pfMet_shiftedPt_JetFlavorQCDUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetFlavorQCDUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetFlavorQCDUp_value
+
+    property type1_pfMet_shiftedPt_JetFragmentationDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetFragmentationDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetFragmentationDown_value
+
+    property type1_pfMet_shiftedPt_JetFragmentationUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetFragmentationUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetFragmentationUp_value
+
+    property type1_pfMet_shiftedPt_JetPileUpDataMCDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpDataMCDown_value
+
+    property type1_pfMet_shiftedPt_JetPileUpDataMCUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpDataMCUp_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtBBDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtBBDown_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtBBUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtBBUp_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtEC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtEC1Down_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtEC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtEC1Up_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtEC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtEC2Down_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtEC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtEC2Up_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtHFDown_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtHFUp_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtRefDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtRefDown_value
+
+    property type1_pfMet_shiftedPt_JetPileUpPtRefUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetPileUpPtRefUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeBalDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeBalDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeBalDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeBalUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeBalUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeBalUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeFSRDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeFSRDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeFSRDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeFSRUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeFSRUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeFSRUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJEREC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJEREC1Down_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJEREC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJEREC1Up_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJEREC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJEREC2Down_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJEREC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJEREC2Up_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJERHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJERHFDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeJERHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeJERHFUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtBBDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtBBDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtBBDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtBBUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtBBUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtBBUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtEC1Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtEC1Down_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtEC1Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtEC1Up_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtEC2Down:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtEC2Down_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtEC2Up:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtEC2Up_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtHFDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativePtHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativePtHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativePtHFUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatECDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatECDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatECDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatECUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatECUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatECUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatFSRDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatFSRDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatFSRUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatFSRUp_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatHFDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatHFDown_value
+
+    property type1_pfMet_shiftedPt_JetRelativeStatHFUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetRelativeStatHFUp_value
+
     property type1_pfMet_shiftedPt_JetResDown:
         def __get__(self):
             self.type1_pfMet_shiftedPt_JetResDown_branch.GetEntry(self.localentry, 0)
@@ -15883,6 +18087,46 @@ cdef class MuTauTree:
         def __get__(self):
             self.type1_pfMet_shiftedPt_JetResUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPt_JetResUp_value
+
+    property type1_pfMet_shiftedPt_JetSinglePionECALDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetSinglePionECALDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetSinglePionECALDown_value
+
+    property type1_pfMet_shiftedPt_JetSinglePionECALUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetSinglePionECALUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetSinglePionECALUp_value
+
+    property type1_pfMet_shiftedPt_JetSinglePionHCALDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetSinglePionHCALDown_value
+
+    property type1_pfMet_shiftedPt_JetSinglePionHCALUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetSinglePionHCALUp_value
+
+    property type1_pfMet_shiftedPt_JetTimePtEtaDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetTimePtEtaDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetTimePtEtaDown_value
+
+    property type1_pfMet_shiftedPt_JetTimePtEtaUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetTimePtEtaUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetTimePtEtaUp_value
+
+    property type1_pfMet_shiftedPt_JetTotalDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetTotalDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetTotalDown_value
+
+    property type1_pfMet_shiftedPt_JetTotalUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_JetTotalUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_JetTotalUp_value
 
     property type1_pfMet_shiftedPt_MuonEnDown:
         def __get__(self):

@@ -192,6 +192,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
 #JSONlumi = 16084876 
 #JSONlumi = 36588.1373 
 #JSONlumi =  35800.0000 
+#JSONlumi = 35754.659 #newest
 JSONlumi = 36809.8902 
 #JSONlumi = 20100.00 
 #JSONlumi = 20000.0 
@@ -273,8 +274,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = True #not blinded
-#blinded = False #not blinded
+#blinded = True #not blinded
+blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -1262,9 +1263,9 @@ BLAND=0
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 #if "preselection" not in channel:
-if blinded==False and ("collMass" in var or "m_t_Mass" in var):   #Fanbo
-    for i in range(binLow,binHigh):
-        data.SetBinContent(i,-100)
+#if blinded==False and ("collMass" in var or "m_t_Mass" in var):   #Fanbo
+#    for i in range(binLow,binHigh):
+#        data.SetBinContent(i,-100)
 if blinded==False and ('BDT' in var):   #Fanbo
     for i in range(binLow1,binHigh1):
         data.SetBinContent(i,-100)

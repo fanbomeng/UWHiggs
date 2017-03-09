@@ -12,7 +12,7 @@ set -o errexit
 #export RUN_OPTIMIZATION=true
 export systematic=none
 #export jobid=LFV_8013v1
-export jobid=SMHTT_oct25
+export jobid=LFV_reminiaod_feb18
 #export jobid=LFVdata_ExtraG_Hnew
 #export isRealData=true
 export isZTauTau=false
@@ -28,7 +28,8 @@ export isInclusive=false   #ZeroJet
 #export isIncluse=false
 #export fakeset=true   #ZeroJet
 export isRealData=true
-rake analyzeSpring2016WjetsandDataPostBDT_progressN
+#rake analyzeSpring2016WjetsandDataPostBDT_progress_v2
+rake analyzeSpring2016WjetsandDataPostBDT_progress_v3
 #rake analyzeSpring2016WjetsandDataPostBDT_progress
 #rake analyzeSpring2016WjetsandDataPostBDT_progresstesup
 #rake analyzeSpring2016WjetsandDataPostBDT_progresstesdown

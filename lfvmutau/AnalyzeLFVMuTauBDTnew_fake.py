@@ -68,31 +68,12 @@ def getGenMfakeTSF(ABStEta):
        return 2.29
 
 
-def getFakeRateFactorFANBOPt(row, fakeset):
-     if fakeset=="def":
-        if  row.tDecayMode==0:
-            fTauIso=0.22362
-        if  row.tDecayMode==1:
-            fTauIso=0.218989
-        if  row.tDecayMode==10:
-            fTauIso=0.186646
-     if fakeset=="1stUp":
-        if  row.tDecayMode==0:
-            fTauIso=0.22362+0.00685
-        if  row.tDecayMode==1:
-            fTauIso=0.218989+0.00392
-        if  row.tDecayMode==10:
-            fTauIso=0.186646+0.00416
-     if fakeset=="1stDown":
-        if  row.tDecayMode==0:
-            fTauIso=0.21753-0.00685
-        if  row.tDecayMode==1:
-            fTauIso=0.218989-0.00392
-        if  row.tDecayMode==10:
-            fTauIso=0.186646-0.00416
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
-
+def transverseMass_v2(p1,p2):    #one partical to Met possiblely
+    # pvect[Et,px,py]
+    totalEt2 = p1.Et() + p2.Et()
+    totalPt2 = (p1+ p2).Pt()
+    mt2 = totalEt2*totalEt2 - totalPt2*totalPt2
+    return math.sqrt(abs(mt2))
 ################################################################################
 #### MC-DATA and PU corrections ################################################
 ################################################################################
@@ -113,7 +94,7 @@ def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
   m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
  # m1tracking =muon_pog_Tracking_2016B(row.mPt,row.mEta)
-#  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.mEta))[0]
 #  print m1tracking
   m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt,abs(row.mEta))
   m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
@@ -123,8 +104,8 @@ def mc_corrector_2016(row):
   #print "pu"
   #print str(pu)
   #return pu*m1id*m1iso*m_trg
-  return pu*m1id*m1iso*m_trgiso22
-#  return pu*m1id**m1tracking*m_trgiso22
+  #return pu*m1id*m1iso*m_trgiso22
+  return pu*m1id**m1tracking*m_trgiso22
  # return pu*m1id*m1iso
  # return m1id*m1iso*m_trg
 
@@ -166,7 +147,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
     #       self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
     #       self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
         self.histograms = {}
-        self.branches="mPt_/F:tPt_/F:mEta_/F:tEta_/F:m_t_DPhi_/F:mMtToPfMet_type1_/F:tMtToPfMet_type1_/F:tDPhiToPfMet_type1_/F:mDPhiToPfMet_type1_/F:type1_pfMetEt_/F:jetVeto30_/F:vbfDeta_/F:vbfMass_/F:m_t_collinearmass_/F:weight_/F:deltaeta_m_t_/F:lepton_asymmetry_/F:m_t_PZeta_/F:m_t_PZetaVis_/F"
+        self.branches="mPt_/F:tPt_/F:mEta_/F:tEta_/F:m_t_DPhi_/F:mMtToPfMet_type1_/F:tMtToPfMet_type1_/F:tDPhiToPfMet_type1_/F:mDPhiToPfMet_type1_/F:type1_pfMetEt_/F:jetVeto30_/F:vbfDeta_/F:vbfMass_/F:m_t_collinearmass_/F:weight_/F:deltaeta_m_t_/F:lepton_asymmetry_/F:m_t_PZeta_/F:m_t_PZetaVis_/F:m_t_Mass_/F"
         self.holders = []
         if ("LFV_HToMuTau" in target ):
            self.name="TreeS"
@@ -212,9 +193,93 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
 
     def correction(self,row):
 	return mc_corrector(row)
-	
+
+    def getFakeRateFactorFANBOPt(self,row, fakeset):
+       #  if fakeset=="def":
+       #     if  row.tDecayMode==0:
+       #         fTauIso=0.23879-0.0007289*(self.tau_Pt_C-30)
+       #     if  row.tDecayMode==1:
+       #         fTauIso=0.235664-0.00076628*(self.tau_Pt_C-30)
+       #     if  row.tDecayMode==10:
+       #         fTauIso=0.188160-0.000534633*(self.tau_Pt_C-30)
+         if fakeset=="def":
+            if  row.tDecayMode==0:
+                fTauIso=0.240806-0.000836112*(self.tau_Pt_C-30)
+            elif  row.tDecayMode==1:
+                fTauIso=0.235014-0.000837926*(self.tau_Pt_C-30)
+            elif  row.tDecayMode==10:
+                fTauIso=0.185752-0.000457377*(self.tau_Pt_C-30)
+            else:
+                print "rare decay mode %f" %row.tDecayMode
+                fTauIso=0
+      #   if fakeset=="def":
+      #      if  row.tDecayMode==0:
+      #          fTauIso=0.22362
+      #      if  row.tDecayMode==1:
+      #          fTauIso=0.218989
+      #      if  row.tDecayMode==10:
+      #          fTauIso=0.186646
+         if fakeset=="1stUp":
+            if  row.tDecayMode==0:
+                fTauIso=0.22362+0.00685
+            if  row.tDecayMode==1:
+                fTauIso=0.218989+0.00392
+            if  row.tDecayMode==10:
+                fTauIso=0.186646+0.00416
+         if fakeset=="1stDown":
+            if  row.tDecayMode==0:
+                fTauIso=0.21753-0.00685
+            if  row.tDecayMode==1:
+                fTauIso=0.218989-0.00392
+            if  row.tDecayMode==10:
+                fTauIso=0.186646-0.00416
+         fakeRateFactor = fTauIso/(1.0-fTauIso)
+         return fakeRateFactor
+    def TauESC(self,row):
+        if  row.tDecayMode==0:
+            self.tau_Pt_C=0.982*row.tPt
+            self.MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
+        elif  row.tDecayMode==1:
+            self.tau_Pt_C=1.01*row.tPt
+            self.MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
+        elif  row.tDecayMode==10:
+            self.tau_Pt_C=1.004*row.tPt
+            self.MET_tPtC=row.type1_pfMetEt-0.004*row.tPt	
+        else:
+            self.tau_Pt_C=0
+            self.MET_tPtC=0
+
+    def collMass_type1_v2(self,row,muonlorenz,taulorenz,metpx,metpy):
+            taupx=taulorenz.Px()
+            taupy=taulorenz.Py()
+            taupt=taulorenz.Pt()
+    #        metE = row.type1_pfMetEt
+    #   metPhi = row.type1_pfMetPhi
+    #        metpx = metE*math.cos(metPhi)
+    #        metpy = metE*math.sin(metPhi)
+#            met = math.sqrt(metpx*metpx+metpy*metpy)
+            METproj= abs(metpx*taupx+metpy*taupy)/taupt
+            xth=taupt/(taupt+METproj)
+            den=math.sqrt(xth)
+            mass=(muonlorenz+taulorenz).M()
+            #mass=row.m_t_Mass/den
+            #print mass
+            return (mass/den,mass)
+
+    def VariableCalculateTaucorrection(self,row):
+           taulorenz=ROOT.TLorentzVector()
+           muonlorenz=ROOT.TLorentzVector()
+           metlorenz=ROOT.TLorentzVector()
+           #print 'at line 871 the MES %f ' %self.DoMES
+          # self.tmpHulaJES=(JESShiftedMet,JESShiftedPhi)
+           taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass)
+           muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass)
+           metlorenz.SetPtEtaPhiM(self.MET_tPtC,0,row.type1_pfMetPhi,0)
+           self.collMass_type1_new,self.m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,metlorenz.Px(),metlorenz.Py())
+           self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+
     def fakeRateMethod(self,row,fakeset='def'):
-        return getFakeRateFactorFANBOPt(row,fakeset)
+        return self.getFakeRateFactorFANBOPt(row,fakeset)
 	     
     def filltree(self,row,to_fill,fakeRate=False):
         '''Fills the tree, accepts an iterable or an object 
@@ -247,7 +312,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
                     holder_tuple[1][0] = 0
         else:
             for varname, holder in self.holders:
-              if varname!="weight_" and varname!="deltaeta_m_t_" and varname!="lepton_asymmetry_":
+              if varname!="weight_" and varname!="deltaeta_m_t_" and varname!="lepton_asymmetry_" and varname!='tPt_' and varname!='tMtToPfMet_type1_' and varname!='type1_pfMetEt_' and varname!='m_t_collinearmass_' and varname!='m_t_Mass_':
                 try:
                     holder[0] = abs(getattr(to_fill, varname.rsplit("_",1)[0]))
                 except OverflowError as e:
@@ -267,7 +332,43 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
                     holder[0] = 0 
               elif varname=="lepton_asymmetry_": 
                  try:
-                    holder[0] = (row.mPt-row.tPt)/(row.mPt+row.tPt)
+                    holder[0] = (row.mPt-self.tau_Pt_C)/(row.mPt+self.tau_Pt_C)
+               #     print "comes here"
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+              elif varname=="tPt_": 
+                 try:
+                    holder[0] =self.tau_Pt_C
+               #     print "comes here"
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+              elif varname=="tMtToPfMet_type1_": 
+                 try:
+                    holder[0] =self.tMtToPfMet_type1_new
+                    #print "the tMtToPfMet before %f and after correction %f" %(row.tMtToPfMet_type1,self.tMtToPfMet_type1_new)
+                   
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+              elif varname=="type1_pfMetEt_": 
+                 try:
+                    holder[0] =self.MET_tPtC
+               #     print "comes here"
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+              elif varname=="m_t_collinearmass_": 
+                 try:
+                    holder[0] =self.collMass_type1_new
+               #     print "comes here"
+                 except OverflowError as e:
+                    print "Problem of getting weights, the weight will be set to be 0"
+                    holder[0] = 0 
+              elif varname=="m_t_Mass_": 
+                 try:
+                    holder[0] =self.m_t_Mass_new
                #     print "comes here"
                  except OverflowError as e:
                     print "Problem of getting weights, the weight will be set to be 0"
@@ -334,7 +435,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
             return False
         if abs(row.mEta) >= 2.4:
             return False
-        if row.tPt<30 :
+        if self.tau_Pt_C<30 :
             return False
         if abs(row.tEta)>=2.3:
             return False
@@ -466,7 +567,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
     #    return bool(row.mRelPFIsoDBDefault <0.12)
    
     def obj1_iso(self,row):
-         return bool(row.mRelPFIsoDBDefault <0.15)
+         return bool(row.mRelPFIsoDBDefaultR04 <0.15)
 
   #  def obj2_iso(self, row):
   #      return  row.tByTightCombinedIsolationDeltaBetaCorr3Hits
@@ -483,7 +584,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
 	 return row.tByMediumIsolationMVArun2v1DBoldDMwLT
 
     def obj1_antiiso(self, row):
-        return bool(row.mRelPFIsoDBDefault >0.2) 
+        return bool(row.mRelPFIsoDBDefaultR04 >0.2) 
 
 #    def obj2_looseiso(self, row):
 #        return row.tByLooseCombinedIsolationDeltaBetaCorr3Hits
@@ -512,8 +613,6 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
                 continue
             if not self.selectZtt(row):
                 continue
-            if not self.kinematics(row): 
-                continue
   #          if not self.obj2_Vlooseiso(row):
   #              continue 
             if not self.obj1_iso(row):
@@ -538,12 +637,21 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
             if self.is_data:
                if  row.bjetCISVVeto30Medium:
                    continue
+            normaldecayfanbo=0
+            if ((int(round(row.tDecayMode)))==0) or ((int(round(row.tDecayMode)))==1) or ((int(round(row.tDecayMode)))==10):
+               normaldecayfanbo=1
+            if not normaldecayfanbo:
+               continue
+            self.TauESC(row)
+            if not self.kinematics(row): 
+                continue
             if row.vbfDeta<0 or row.vbfDeta>10 or row.vbfMass>7000 or row.vbfMass<0:
 #                print "vbf variable ************** %f" %row.vbfDeta
                 continue
            # if row.jetVeto30>=2 and   (abs(row.vbfDeta)>3.5 and row.vbfMass > 550):
            #     continue
             #if self.obj2_iso(row) and self.oppositesign(row):  
+            self.VariableCalculateTaucorrection(row)
             if self.is_data:
                #if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):  
                if self.obj2_iso_NT_VLoose(row) and not self.oppositesign(row):  

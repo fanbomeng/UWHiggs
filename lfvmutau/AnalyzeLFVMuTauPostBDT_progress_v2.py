@@ -103,43 +103,53 @@ def transverseMass_v2(p1,p2):    #one partical to Met possiblely
     totalPt2 = (p1+ p2).Pt()
     mt2 = totalEt2*totalEt2 - totalPt2*totalPt2
     return math.sqrt(abs(mt2))
+#def getGenMfakeTSF(ABStEta):  morning
+#    if (ABStEta>0 and ABStEta<0.4):
+#       return 1.37
+#    if (ABStEta>0.4 and ABStEta<0.8):
+#       return 1.2
+#    if (ABStEta>0.8 and ABStEta<1.2):
+#       return 1.14
+#    if (ABStEta>1.2 and ABStEta<1.7):
+#       return 1.0
+#    if (ABStEta>1.7 and ABStEta<2.3):
+#       return 1.8
+
 def getGenMfakeTSF(ABStEta):
     if (ABStEta>0 and ABStEta<0.4):
-       return 1.425
+       return 1.263
     if (ABStEta>0.4 and ABStEta<0.8):
-       return 1.72
+       return 1.364
     if (ABStEta>0.8 and ABStEta<1.2):
-       return 1.26
+       return 0.854
     if (ABStEta>1.2 and ABStEta<1.7):
-       return 2.59
+       return 1.712
     if (ABStEta>1.7 and ABStEta<2.3):
-       return 2.29
-
-
-def getFakeRateFactorFANBOPt(row, fakeset):
-     if fakeset=="def":
-        if  row.tDecayMode==0:
-            fTauIso=0.22362
-        if  row.tDecayMode==1:
-            fTauIso=0.218989
-        if  row.tDecayMode==10:
-            fTauIso=0.186646
-     if fakeset=="1stUp":
-        if  row.tDecayMode==0:
-            fTauIso=0.22362+0.00685
-        if  row.tDecayMode==1:
-            fTauIso=0.218989+0.00392
-        if  row.tDecayMode==10:
-            fTauIso=0.186646+0.00416
-     if fakeset=="1stDown":
-        if  row.tDecayMode==0:
-            fTauIso=0.21753-0.00685
-        if  row.tDecayMode==1:
-            fTauIso=0.218989-0.00392
-        if  row.tDecayMode==10:
-            fTauIso=0.186646-0.00416
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
+       return 2.324
+#def getFakeRateFactorFANBOPt(row, fakeset):
+#     if fakeset=="def":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.22362
+#        if  row.tDecayMode==1:
+#            fTauIso=0.218989
+#        if  row.tDecayMode==10:
+#            fTauIso=0.186646
+#     if fakeset=="1stUp":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.22362+0.00685
+#        if  row.tDecayMode==1:
+#            fTauIso=0.218989+0.00392
+#        if  row.tDecayMode==10:
+#            fTauIso=0.186646+0.00416
+#     if fakeset=="1stDown":
+#        if  row.tDecayMode==0:
+#            fTauIso=0.21753-0.00685
+#        if  row.tDecayMode==1:
+#            fTauIso=0.218989-0.00392
+#        if  row.tDecayMode==10:
+#            fTauIso=0.186646-0.00416
+#     fakeRateFactor = fTauIso/(1.0-fTauIso)
+#     return fakeRateFactor
 
 ################################################################################
 #### MC-DATA and PU corrections ################################################
@@ -193,16 +203,25 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
         self.is_ZMuMu= ('Zmumu' in target)
         self.is_HToTauTau= ('HToTauTau' in target)
         self.is_HToMuTau= ('HToMuTau' in target)
+        self.is_TauTau= ('TauTau' in target)
         self.is_mc = not (self.is_data or self.is_embedded)
         self.tree = MuTauTree.MuTauTree(tree)
         self.out = outfile
         self.histograms = {}
-        self.Sysin=1
-        self.light=1
+        self.Sysin=0
+        self.light=0
         self.DoMES=0
         self.DoTES=0
         self.DoUES=0
         self.DoJES=0
+        self.MVA0fill_new=-100
+        self.MVA0fill=-100
+        self.tau_Pt_C=0.01
+        self.tMtToPfMet_type1_new=0
+        self.MET_tPtC=0
+        self.collMass_type1_new=-10
+        self.tmpHula=(-10,-10,-10,-10,-10,-10)
+        self.tmpHulaJES=(0,-10)
 #        if self.ls_DY or self.ls_ZTauTau:
 #           self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
 #           self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
@@ -210,7 +229,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 
         if not self.light :
            
-           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","gg","boost","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIsoM1stUp","ggNotIsoM1stDown","boostNotIsoM1stUp","boostNotIsoM1stDown","ggNotIsoMT1stUp","ggNotIsoMT1stDown","boostNotIsoMT1stUp","boostNotIsoMT1stDown","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIsoM1stUp","vbf_ggNotIsoM1stDown","vbf_vbfNotIsoM1stUp","vbf_vbfNotIsoM1stDown","vbf_ggNotIsoMT1stUp","vbf_ggNotIsoMT1stDown","vbf_vbfNotIsoMT1stUp","vbf_vbfNotIsoMT1stDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet",'IsoSS2Jet_gg','IsoSS2Jet_vbf',"ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS","preslectionEnZtt","notIsoEnZtt","notIsoEnZttM","notIsoEnZttMT","preslectionEnZtt0Jet","notIsoEnZtt0Jet","notIsoEnZtt0JetM","notIsoEnZtt0JetMT","preslectionEnZtt1Jet","notIsoEnZtt1Jet","notIsoEnZtt1JetM","notIsoEnZtt1JetMT","preslectionEnZtt2Jet_gg","notIsoEnZtt2Jet_gg","notIsoEnZtt2Jet_ggM","notIsoEnZtt2Jet_ggMT","preslectionEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbfM","notIsoEnZtt2Jet_vbfMT","preslectionEnZmm","notIsoEnZmm","notIsoEnZmmM","notIsoEnZmmMT","preslectionEnZmm0Jet","notIsoEnZmm0Jet","notIsoEnZmm0JetM","notIsoEnZmm0JetMT","preslectionEnZmm1Jet","notIsoEnZmm1Jet","notIsoEnZmm1JetM","notIsoEnZmm1JetMT","preslectionEnZmm2Jet_gg","notIsoEnZmm2Jet_gg","notIsoEnZmm2Jet_ggM","notIsoEnZmm2Jet_ggMT","preslectionEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbfM","notIsoEnZmm2Jet_vbfMT"]
+           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","gg","boost","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIsoM1stUp","ggNotIsoM1stDown","boostNotIsoM1stUp","boostNotIsoM1stDown","ggNotIsoMT1stUp","ggNotIsoMT1stDown","boostNotIsoMT1stUp","boostNotIsoMT1stDown","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIsoM1stUp","vbf_ggNotIsoM1stDown","vbf_vbfNotIsoM1stUp","vbf_vbfNotIsoM1stDown","vbf_ggNotIsoMT1stUp","vbf_ggNotIsoMT1stDown","vbf_vbfNotIsoMT1stUp","vbf_vbfNotIsoMT1stDown","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet",'IsoSS2Jet_gg','IsoSS2Jet_vbf',"ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS","preslectionEnZtt","notIsoEnZtt","notIsoEnZttM","notIsoEnZttMT","preslectionEnZtt0Jet","notIsoEnZtt0Jet","notIsoEnZtt0JetM","notIsoEnZtt0JetMT","preslectionEnZtt1Jet","notIsoEnZtt1Jet","notIsoEnZtt1JetM","notIsoEnZtt1JetMT","preslectionEnZtt2Jet_gg","notIsoEnZtt2Jet_gg","notIsoEnZtt2Jet_ggM","notIsoEnZtt2Jet_ggMT","preslectionEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbfM","notIsoEnZtt2Jet_vbfMT","preslectionEnZmm","notIsoEnZmm","notIsoEnZmmM","notIsoEnZmmMT","preslectionEnZmm0Jet","notIsoEnZmm0Jet","notIsoEnZmm0JetM","notIsoEnZmm0JetMT","preslectionEnZmm1Jet","notIsoEnZmm1Jet","notIsoEnZmm1JetM","notIsoEnZmm1JetMT","preslectionEnZmm2Jet_gg","notIsoEnZmm2Jet_gg","notIsoEnZmm2Jet_ggM","notIsoEnZmm2Jet_ggMT","preslectionEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbfM","notIsoEnZmm2Jet_vbfMT","preslectionEnTTbar","notIsoEnTTbar","notIsoEnTTbarM","notIsoEnTTbarMT","preslectionEnTTbar0Jet","notIsoEnTTbar0Jet","notIsoEnTTbar0JetM","notIsoEnTTbar0JetMT","preslectionEnTTbar1Jet","notIsoEnTTbar1Jet","notIsoEnTTbar1JetM","notIsoEnTTbar1JetMT","preslectionEnTTbar2Jet_gg","notIsoEnTTbar2Jet_gg","notIsoEnTTbar2Jet_ggM","notIsoEnTTbar2Jet_ggMT","preslectionEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbfM","notIsoEnTTbar2Jet_vbfMT"]
         else:
            names=["preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","gg","boost","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT"]
        # if (not fakeset) and (not wjets_fakes) :
@@ -254,6 +273,10 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
             #self.book(names[x], "mMtToPfMet_type1", "Muon MT (PF Ty1)", 200, 0, 200)
             self.book(names[x],"collMass_type1","collMass_type1",300,0,300)
             self.book(names[x], "BDTcuts", "BDTcuts", 80, -0.5,0.3)
+            self.book(names[x], "tDPhiToPfMet_type1", "tDPhiToPfMet_type1", 100, 0, 4)
+            self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
+            self.book(names[x], "m_t_DEta", "Muon + Tau DEta", 100, 0,4)
+            self.book(names[x], "m_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
 #            self.book(names[x],"fullMT_type1","fullMT_type1",500,0,500);
 #            self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
 #            self.book(names[x], "singleIsoMu22Pass", "singleIsoMu22Pass", 12 ,-0.1,1.1)
@@ -297,13 +320,9 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                   self.book(names[x], "mEta", "Muon  eta", 100, -2.5, 2.5)
                   self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
                   self.book(names[x], "tPhi", "tPhi", 100 ,-3.4,3.4)
-                  self.book(names[x], "tDPhiToPfMet_type1", "tDPhiToPfMet_type1", 100, 0, 4)
-                  self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
                   self.book(names[x], "m_t_Mass", "Muon + Tau Mass", 200, 0, 200)
             #      self.book(names[x], "m_t_Pt", "Muon + Tau Pt", 200, 0, 200)
                   self.book(names[x], "m_t_DR", "Muon + Tau DR", 100, 0, 10)
-                  self.book(names[x], "m_t_DEta", "Muon + Tau DEta", 100, 0,4)
-                  self.book(names[x], "m_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
                   self.book(names[x], "mDPhiToPfMet_type1", "mDPhiToPfMet_type1", 100, 0, 4)
                   self.book(names[x], "m_t_SS", "Muon + Tau SS", 5, -2, 2)
       	          self.book(names[x], "vbfMass", "", 500,0,5000.0)
@@ -425,7 +444,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 
     def mc_corrector_2016(self,row):
       pu = pu_corrector(row.nTruePU)
-#      m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.mEta)[0]
+      m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.mEta))[0]
+      #print "the m1tracking %f"   %m1tracking
 #      print "Sysin value in the correction %f" %self.Sysin
       if (not self.Sysin) or (self.DoTES) or self.DoUES or self.DoJES:
          m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
@@ -434,54 +454,105 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
          m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
       if self.Sysin and self.DoMES==1:
         # print 'at line 513 the MES comes in as 1'
-         if abs(row.mEta)<=1.2:
-            m1id =muon_pog_PFTight_2016B(row.mPt*1.004,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.004,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*1.004,abs(row.mEta))
-         if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*1.009,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.009,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*1.009,abs(row.mEta))
-         if row.mEta<-2.1 and row.mEta>=-2.4 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*1.027,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.027,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*1.027,abs(row.mEta))
-         if row.mEta>2.1 and row.mEta<=2.4 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*1.017,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.017,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*1.017,abs(row.mEta))
+            m1id =muon_pog_PFTight_2016B(row.mPt*1.002,abs(row.mEta))
+            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.002,abs(row.mEta))
+            m1iso =muon_pog_TightIso_2016B(row.mPt*1.002,abs(row.mEta))
+        # if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*1.009,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.009,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*1.009,abs(row.mEta))
+        # if row.mEta<-2.1 and row.mEta>=-2.4 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*1.027,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.027,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*1.027,abs(row.mEta))
+        # if row.mEta>2.1 and row.mEta<=2.4 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*1.017,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*1.017,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*1.017,abs(row.mEta))
       if self.Sysin and self.DoMES==2:
         # print "at the same time what is the MES=2 enters?"
-         if abs(row.mEta)<=1.2:
-            m1id =muon_pog_PFTight_2016B(row.mPt*0.996,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.996,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*0.996,abs(row.mEta))
-         if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*0.991,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.991,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*0.991,abs(row.mEta))
-         if row.mEta<-2.1 and row.mEta>=-2.4 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*0.973,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.973,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*0.973,abs(row.mEta))
-         if row.mEta>2.1 and row.mEta<=2.4 :
-            m1id =muon_pog_PFTight_2016B(row.mPt*0.983,abs(row.mEta))
-            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.983,abs(row.mEta))
-            m1iso =muon_pog_TightIso_2016B(row.mPt*0.983,abs(row.mEta))
+            m1id =muon_pog_PFTight_2016B(row.mPt*0.998,abs(row.mEta))
+            m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.998,abs(row.mEta))
+            m1iso =muon_pog_TightIso_2016B(row.mPt*0.998,abs(row.mEta))
+        # if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*0.991,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.991,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*0.991,abs(row.mEta))
+        # if row.mEta<-2.1 and row.mEta>=-2.4 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*0.973,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.973,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*0.973,abs(row.mEta))
+        # if row.mEta>2.1 and row.mEta<=2.4 :
+        #    m1id =muon_pog_PFTight_2016B(row.mPt*0.983,abs(row.mEta))
+        #    m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt*0.983,abs(row.mEta))
+        #    m1iso =muon_pog_TightIso_2016B(row.mPt*0.983,abs(row.mEta))
     #  m1iso =muon_pog_TightIso_2016B('Medium',row.mPt,abs(row.mEta))
-      
+      return pu*m1id**m1tracking*m_trgiso22  
     #  print "in the analyzer muon trigger"
      # print "Pt value %f   eta value %f    efficiency %f" %(row.mPt,row.mEta,m_trgiso22)
       #print "pu"
       #print str(pu)
-      #return pu*m1id*m1iso*m_trg
-      #print "puC %f----idC %f-----trackingC %f-----trgiso24C %f----isoC %f" %(pu,m1id,m1tracking,m_trgiso22,m1iso)
-      return pu*m1id*m1iso*m_trgiso22
-    #  return pu*m1id**m1tracking*m_trgiso22
-     # return pu*m1id*m1iso
-     # return m1id*m1iso*m_trg
-    
-    #mc_corrector = mc_corrector_2016
+    def getFakeRateFactorFANBOPt(self,row, fakeset):
+         #if fakeset=="def":
+         #   if  row.tDecayMode==0:
+         #       fTauIso=0.22362
+         #   if  row.tDecayMode==1:
+         #       fTauIso=0.218989
+         #   if  row.tDecayMode==10:
+         #       fTauIso=0.186646
+         if fakeset=="def":
+            if  row.tDecayMode==0:
+                fTauIso=0.240806-0.000836112*(self.tau_Pt_C-30)
+            elif  row.tDecayMode==1:
+                fTauIso=0.235014-0.000837926*(self.tau_Pt_C-30)
+            elif  row.tDecayMode==10:
+                fTauIso=0.185752-0.000457377*(self.tau_Pt_C-30)
+            else:
+                print "rare decay mode %f" %row.tDecayMode
+                fTauIso=0
+         if self.DoTES==1:
+            if  row.tDecayMode==0:
+                fTauIso=0.240806-0.000836112*(self.tau_Pt_C*1.006-30)
+            elif  row.tDecayMode==1:
+                fTauIso=0.235014-0.000837926*(self.tau_Pt_C*1.006-30)
+            elif  row.tDecayMode==10:
+                fTauIso=0.185752-0.000457377*(self.tau_Pt_C*1.006-30)
+            else:
+                print "rare decay mode %f" %row.tDecayMode
+                fTauIso=0
+         if self.DoTES==2:
+            if  row.tDecayMode==0:
+                fTauIso=0.240806-0.000836112*(self.tau_Pt_C*0.994-30)
+            elif  row.tDecayMode==1:
+                fTauIso=0.235014-0.000837926*(self.tau_Pt_C*0.994-30)
+            elif  row.tDecayMode==10:
+                fTauIso=0.185752-0.000457377*(self.tau_Pt_C*0.994-30)
+            else:
+                print "rare decay mode %f" %row.tDecayMode
+                fTauIso=0
+         #if fakeset=="def":
+         #   if  row.tDecayMode==0:
+         #       fTauIso=0.229836
+         #   if  row.tDecayMode==1:
+         #       fTauIso=0.226219
+         #   if  row.tDecayMode==10:
+         #       fTauIso=0.182765
+         if fakeset=="1stUp":
+            if  row.tDecayMode==0:
+                fTauIso=0.22362+0.00685
+            if  row.tDecayMode==1:
+                fTauIso=0.218989+0.00392
+            if  row.tDecayMode==10:
+                fTauIso=0.186646+0.00416
+         if fakeset=="1stDown":
+            if  row.tDecayMode==0:
+                fTauIso=0.21753-0.00685
+            if  row.tDecayMode==1:
+                fTauIso=0.218989-0.00392
+            if  row.tDecayMode==10:
+                fTauIso=0.186646-0.00416
+         fakeRateFactor = fTauIso/(1.0-fTauIso)
+         return fakeRateFactor
     def collMass_type1_v1(self,row,metpx,metpy):
             taupx=row.tPt*math.cos(row.tPhi)
             taupy=row.tPt*math.sin(row.tPhi)
@@ -517,21 +588,44 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 	
     def getFakeRateFactormuon(self,row, fakeset):   #Ptbined
         if fakeset=="def":
-           if row.mPt<75:
-              fTauIso=0.80905
-           if row.mPt>=75:
-              fTauIso=0.942667
-        #print 'the MES at line 575 %f' %self.DoMES
+           if row.mPt<=30:
+              fTauIso=0.624
+           elif row.mPt<=40:
+              fTauIso=0.725
+           elif row.mPt<=50:
+              fTauIso=0.754
+           elif row.mPt<=80:
+              fTauIso=0.808
+           else:
+              fTauIso=0.958
+      #  if fakeset=="def":
+      #     if row.mPt<75:
+      #        fTauIso=0.80905
+      #     if row.mPt>=75:
+      #        fTauIso=0.942667
+      #  #print 'the MES at line 575 %f' %self.DoMES
         if self.DoMES==1:
-           if row.mPt*1.01<75:
-              fTauIso=0.80905
-           if row.mPt*1.01>=75:
-              fTauIso=0.942667
+           if row.mPt*1.002<=30:
+              fTauIso=0.624
+           elif row.mPt*1.002<=40:
+              fTauIso=0.725
+           elif row.mPt*1.002<=50:
+              fTauIso=0.754
+           elif row.mPt*1.002<=80:
+              fTauIso=0.808
+           else:
+              fTauIso=0.958
         if self.DoMES==2:
-           if row.mPt*0.99<75:
-              fTauIso=0.80905
-           if row.mPt*0.99>=75:
-              fTauIso=0.942667
+           if row.mPt*0.998<=30:
+              fTauIso=0.624
+           elif row.mPt*0.998<=40:
+              fTauIso=0.725
+           elif row.mPt*0.998<=50:
+              fTauIso=0.754
+           elif row.mPt*0.998<=80:
+              fTauIso=0.808
+           else:
+              fTauIso=0.958
         if fakeset=="1stUp":
            if row.mPt<55:
               fTauIso=0.792721+0.0305471
@@ -547,7 +641,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
     def fakeRateMethod(self,row,fakeset,faketype):
         if faketype=="taufake":
            #return getFakeRateFactorAaron(row,fakeset)
-           return getFakeRateFactorFANBOPt(row,fakeset)
+           return self.getFakeRateFactorFANBOPt(row,fakeset)
           # return getFakeRateFactor(row,fakeset)
         if faketype=="muonfake":
            #return getFakeRateFactormuonEta(row,fakeset)
@@ -555,7 +649,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
            #return getFakeRateFactormuonabsEta(row,fakeset)
         if faketype=="mtfake":
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactorFANBO(row,fakeset)
-           return self.getFakeRateFactormuon(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
+           return self.getFakeRateFactormuon(row,fakeset)*self.getFakeRateFactorFANBOPt(row,fakeset)
            #return getFakeRateFactormuonabsEta(row,fakeset)*getFakeRateFactorFANBOPt(row,fakeset)
            #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactor(row,fakeset)
        # return getFakeRateFactorAaron(row,fakeset)
@@ -595,7 +689,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
         if (fakeRate == True):
 #          print self.fakeRateMethod(row,fakeset)
           weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
-        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
+        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_TauTau):
           #weight=weight*0.83
           weight=weight*0.95
         if (self.ls_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -624,18 +718,25 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #        histos[name+'/singleIsoTkMu22Pass'].Fill(row.singleIsoTkMu22Pass,weight)
        # histos[name+'/fullMT_type1'].Fill(fullMT(row.mPt,row.tPt, row.mPhi, row.tPhi, row, systematic),weight)
         #print "MES at line 677 %f" %self.DoMES
-        if (not self.Sysin) or self.DoJES:
-           histos[name+'/tPt'].Fill(row.tPt, weight)
+        if (not self.Sysin):
+           histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
            histos[name+'/mPt'].Fill(row.mPt, weight)
          #  if self.ls_recoilC and MetCorrection:
          #     histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1MetC,weight)
          #  else:
-           histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_type1,weight)
+           histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
          #  if self.ls_recoilC and MetCorrection: 
              # histos[name+'/collMass_type1'].Fill(self.collMass_type1MetC,weight)
           # else:
            histos[name+'/BDTcuts'].Fill(self.MVA0fill, weight)
-           histos[name+'/collMass_type1'].Fill(row.m_t_collinearmass,weight)
+       	   histos[name+'/type1_pfMetEt'].Fill(self.MET_tPtC,weight)
+           histos[name+'/m_t_DPhi'].Fill(row.m_t_DPhi,weight)
+           histos[name+'/m_t_DEta'].Fill(abs(row.mEta-row.tEta),weight)
+           histos[name+'/collMass_type1'].Fill(self.collMass_type1_new,weight)
+           if self.ls_recoilC and MetCorrection: 
+   	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(self.TauDphiToMet),weight)
+           else:
+   	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(row.tDPhiToPfMet_type1),weight)
         else:
            if self.DoTES:
               #tmpHula=TESup(row.tPt,row.type1_pfMetEt,row.tPhi,row.type1_pfMetPhi)
@@ -648,7 +749,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
               histos[name+'/collMass_type1'].Fill(self.collMass_type1_new,weight)
               histos[name+'/BDTcuts'].Fill(self.MVA0fill_new, weight)
            if self.DoUES:
-              histos[name+'/tPt'].Fill(row.tPt, weight)
+              histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
               histos[name+'/mPt'].Fill(row.mPt, weight)
               histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
               histos[name+'/collMass_type1'].Fill(self.collMass_type1_new,weight)
@@ -660,8 +761,14 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
               #metlorenz=ROOT.SetPtEtaPhiM(tmpHula[3],0,row.type1_pfMetPhi,0)
               #collMass_type1_new=collMass_type1_v2(muonlorenz,taulorenz,tmpHula[4],tmpHula[5])
               #self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              histos[name+'/tPt'].Fill(row.tPt, weight)
+              histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
               histos[name+'/mPt'].Fill(self.tmpHula[0], weight)
+              histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
+              histos[name+'/collMass_type1'].Fill(self.collMass_type1_new,weight)
+              histos[name+'/BDTcuts'].Fill(self.MVA0fill_new, weight)
+           if self.DoJES:
+              histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
+              histos[name+'/mPt'].Fill(row.mPt, weight)
               histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
               histos[name+'/collMass_type1'].Fill(self.collMass_type1_new,weight)
               histos[name+'/BDTcuts'].Fill(self.MVA0fill_new, weight)
@@ -669,24 +776,17 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
            histos[name+'/nvtx'].Fill(row.nvtx, weight)
            histos[name+'/weight'].Fill(weight)
            histos[name+'/GenWeight'].Fill(row.GenWeight)
-           histos[name+'/mMtToPfMet_type1'].Fill(row.mMtToPfMet_type1,weight)
+#           histos[name+'/mMtToPfMet_type1'].Fill(row.mMtToPfMet_type1,weight)
            histos[name+'/counts'].Fill(1)
            histos[name+'/mEta'].Fill(row.mEta, weight)
            histos[name+'/tEta'].Fill(row.tEta, weight)
            histos[name+'/tPhi'].Fill(row.tPhi, weight)
-       	   histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
            histos[name+'/m_t_Mass'].Fill(row.m_t_Mass,weight)
            histos[name+'/m_t_DR'].Fill(row.m_t_DR,weight)
-           histos[name+'/m_t_DPhi'].Fill(row.m_t_DPhi,weight)
-           histos[name+'/m_t_DEta'].Fill(abs(row.mEta-row.tEta),weight)
            histos[name+'/m_t_SS'].Fill(row.m_t_SS,weight)
    	   histos[name+'/mDPhiToPfMet_type1'].Fill(abs(row.mDPhiToPfMet_type1),weight)
            histos[name+'/vbfMass'].Fill(row.vbfMass, weight)
            histos[name+'/vbfDeta'].Fill(row.vbfDeta, weight)
-           if self.ls_recoilC and MetCorrection: 
-   	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(self.TauDphiToMet),weight)
-           else:
-   	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(row.tDPhiToPfMet_type1),weight)
 ##        histos[name+'/jet1Pt'].Fill(row.jet1Pt, weight)
 ##        histos[name+'/jet2Pt'].Fill(row.jet2Pt, weight)
 ##        histos[name+'/jet3Pt'].Fill(row.jet3Pt, weight)
@@ -821,14 +921,45 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
  #       histos[name+'/vbfNJets30'].Fill(row.vbfNJets30, weight)
         #histos[name+'/vbfNJets30PULoose'].Fill(row.vbfNJets30PULoose, weight)
         #histos[name+'/vbfNJets30PUTight'].Fill(row.vbfNJets30PUTight, weight)
-
+    def TauESC(self,row):
+        if  row.tDecayMode==0:
+            tau_Pt_C=0.982*row.tPt
+            MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
+        elif  row.tDecayMode==1:
+            tau_Pt_C=1.01*row.tPt
+            MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
+        elif  row.tDecayMode==10:
+            tau_Pt_C=1.004*row.tPt
+            MET_tPtC=row.type1_pfMetEt-0.004*row.tPt
+        else:
+            tau_Pt_C=1
+            MET_tPtC=0
+       # print "inside TauESC and then?"
+        return (tau_Pt_C,MET_tPtC)
+    def VariableCalculateTaucorrection(self,row,tmp_tau_Pt_C,tmp_MET_tPtC):
+          # print "inside VariableCalculateTaucorrection00000"
+           taulorenz=ROOT.TLorentzVector()
+           muonlorenz=ROOT.TLorentzVector()             
+           metlorenz=ROOT.TLorentzVector() 
+           #print 'at line 871 the MES %f ' %self.DoMES
+          # self.tmpHulaJES=(JESShiftedMet,JESShiftedPhi)
+           taulorenz.SetPtEtaPhiM(tmp_tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+#           print "taulorenz %f %f %f" %(taulorenz.Pt(),taulorenz.Px(),taulorenz.Py())
+           muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+#           print "muonlorenz %f %f %f" %(muonlorenz.Pt(),muonlorenz.Px(),muonlorenz.Py())
+           metlorenz.SetPtEtaPhiM(tmp_MET_tPtC,0,row.type1_pfMetPhi,0)
+#           print "metlorenz %f %f %f" %(metlorenz.Pt(),metlorenz.Px(),metlorenz.Py())
+           collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,metlorenz.Px(),metlorenz.Py())
+           tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+           #print "the mass and tauMetmass %f     %f"   %(collMass_type1_new,tMtToPfMet_type1_new)
+           return(collMass_type1_new,tMtToPfMet_type1_new)
     def VariableCalculate(self,row):
            taulorenz=ROOT.TLorentzVector()
            muonlorenz=ROOT.TLorentzVector()             
            metlorenz=ROOT.TLorentzVector() 
            #print 'at line 871 the MES %f ' %self.DoMES
            if self.DoTES==1:
-              self.tmpHula=Systematics.TESup(row.tPt,row.type1_pfMetEt,row.tPhi,row.type1_pfMetPhi)
+              self.tmpHula=Systematics.TESup(self.tau_Pt_C,self.MET_tPtC,row.tPhi,row.type1_pfMetPhi)
               taulorenz.SetPtEtaPhiM(self.tmpHula[0],row.tEta,row.tPhi,row.tMass) 
               muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[3],0,row.type1_pfMetPhi,0)
@@ -836,8 +967,9 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
               var_d_0  ={'mPt_':row.mPt,'tPt_':self.tmpHula[0],'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+        #      print "the no shift BDT %f and the TESup %f" %(self.MVA0fill,self.MVA0fill_new)
            if self.DoTES==2:
-              self.tmpHula=Systematics.TESdown(row.tPt,row.type1_pfMetEt,row.tPhi,row.type1_pfMetPhi)
+              self.tmpHula=Systematics.TESdown(self.tau_Pt_C,self.MET_tPtC,row.tPhi,row.type1_pfMetPhi)
               taulorenz.SetPtEtaPhiM(self.tmpHula[0],row.tEta,row.tPhi,row.tMass) 
               muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[3],0,row.type1_pfMetPhi,0)
@@ -845,42 +977,80 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
               var_d_0  ={'mPt_':row.mPt,'tPt_':self.tmpHula[0],'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+         #     print "the no shift BDT %f and the TESdown %f" %(self.MVA0fill,self.MVA0fill_new)
            if self.DoMES==1:
-              self.tmpHula=Systematics.MESup(row.mPt,row.mEta,row.type1_pfMetEt,row.mPhi,row.type1_pfMetPhi)
-              taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
+              self.tmpHula=Systematics.MESup(row.mPt,row.mEta,self.MET_tPtC,row.mPhi,row.type1_pfMetPhi)
+              taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
               muonlorenz.SetPtEtaPhiM(self.tmpHula[0],row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[3],0,row.type1_pfMetPhi,0)
               self.collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,self.tmpHula[4],self.tmpHula[5])
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              var_d_0  ={'mPt_':self.tmpHula[0],'tPt_':row.tPt,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+              var_d_0  ={'mPt_':self.tmpHula[0],'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+          #    print "the no shift BDT %f and the MESup %f" %(self.MVA0fill,self.MVA0fill_new)
            if self.DoMES==2:
-              self.tmpHula=Systematics.MESdown(row.mPt,row.mEta,row.type1_pfMetEt,row.mPhi,row.type1_pfMetPhi)
-              taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
+              self.tmpHula=Systematics.MESdown(row.mPt,row.mEta,self.MET_tPtC,row.mPhi,row.type1_pfMetPhi)
+              taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
               muonlorenz.SetPtEtaPhiM(self.tmpHula[0],row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[3],0,row.type1_pfMetPhi,0)
               self.collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,self.tmpHula[4],self.tmpHula[5])
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              var_d_0  ={'mPt_':self.tmpHula[0],'tPt_':row.tPt,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+              var_d_0  ={'mPt_':self.tmpHula[0],'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[3],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+           #   print "the no shift BDT %f and the MESdown %f" %(self.MVA0fill,self.MVA0fill_new)
            if self.DoUES==1:
-              self.tmpHula=Systematics.UESup(row.type1_pfMet_shiftedPt_UnclusteredEnUp,row.type1_pfMet_shiftedPhi_UnclusteredEnUp)
-              taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
-              #muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+              if  row.tDecayMode==0:
+                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp+0.018*row.tPt
+              if  row.tDecayMode==1:
+                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.01*row.tPt
+              if  row.tDecayMode==10:
+                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.004*row.tPt
+              self.tmpHula=Systematics.UESup(UES_shiftedMetup,row.type1_pfMet_shiftedPhi_UnclusteredEnUp)
+              taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[0],0,self.tmpHula[3],0)
-              self.collMass_type1_new=self.collMass_type1_v1(row,self.tmpHula[1],self.tmpHula[2])
+              self.collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,self.tmpHula[1],self.tmpHula[2])
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              var_d_0  ={'mPt_':row.mPt,'tPt_':row.tPt,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[0],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+              var_d_0  ={'mPt_':row.mPt,'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[0],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+            #  print "the no shift BDT %f and the UESup %f" %(self.MVA0fill,self.MVA0fill_new)
            if self.DoUES==2:
-              self.tmpHula=Systematics.UESdown(row.type1_pfMet_shiftedPt_UnclusteredEnDown,row.type1_pfMet_shiftedPhi_UnclusteredEnDown)
-              taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
-              #muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+              if  row.tDecayMode==0:
+                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown+0.018*row.tPt
+              if  row.tDecayMode==1:
+                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.01*row.tPt
+              if  row.tDecayMode==10:
+                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.004*row.tPt
+              self.tmpHula=Systematics.UESdown(UES_shiftedMetdown,row.type1_pfMet_shiftedPhi_UnclusteredEnDown)
+              taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
               metlorenz.SetPtEtaPhiM(self.tmpHula[0],0,self.tmpHula[3],0)
-              self.collMass_type1_new=self.collMass_type1_v1(row,self.tmpHula[1],self.tmpHula[2])
+              self.collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,self.tmpHula[1],self.tmpHula[2])
               self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              var_d_0  ={'mPt_':row.mPt,'tPt_':row.tPt,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[0],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+              var_d_0  ={'mPt_':row.mPt,'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.tmpHula[0],'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
               self.MVA0fill_new=self.functor(**var_d_0)
+             # print "the no shift BDT %f and the UESdown %f" %(self.MVA0fill,self.MVA0fill_new)
+    def VariableCalculateJES(self,row,JESShiftedMet,JESShiftedPhi):
+           taulorenz=ROOT.TLorentzVector()
+           muonlorenz=ROOT.TLorentzVector()             
+           metlorenz=ROOT.TLorentzVector() 
+
+           if  row.tDecayMode==0:
+               JESShiftedMet_new=JESShiftedMet+0.018*row.tPt
+           if  row.tDecayMode==1:
+               JESShiftedMet_new=JESShiftedMet-0.01*row.tPt
+           if  row.tDecayMode==10:
+               JESShiftedMet_new=JESShiftedMet-0.004*row.tPt
+
+           #print 'at line 871 the MES %f ' %self.DoMES
+           self.tmpHulaJES=(JESShiftedMet_new,JESShiftedPhi)
+           taulorenz.SetPtEtaPhiM(self.tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+           muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+           metlorenz.SetPtEtaPhiM(self.tmpHulaJES[0],0,self.tmpHulaJES[1],0)
+           self.collMass_type1_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,self.tmpHulaJES[0]*math.cos(self.tmpHulaJES[1]),self.tmpHulaJES[0]*math.sin(self.tmpHulaJES[1]))
+           self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+           var_d_0  ={'mPt_':row.mPt,'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':metlorenz.Pt(),'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+           self.MVA0fill_new=self.functor(**var_d_0)
 
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
@@ -945,8 +1115,10 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #	if (self.is_FourJet and row.numGenJets !=4 ):
 #            return False
 #	return True
+
+#look out mMetToPfMet_type1 not complete!!!!!!
     def WjetsEnrich(self,row):
-        if (row.tMtToPfMet_type1>60 and row.mMtToPfMet_type1>80):
+        if (self.tMtToPfMet_type1_new>60 and row.mMtToPfMet_type1>80):
             return True
         return False
     def ZttEnrich(self,row):
@@ -973,31 +1145,31 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
         return True
     def kinematics(self, row):
         if self.DoMES==1  :
-           if abs(row.mEta)<=1.2:
-                 if row.mPt*1.004 < 26:
+        #   if abs(row.mEta)<=1.2:
+                 if row.mPt*1.002 < 26:
                     return False
-           if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
-                 if row.mPt*1.009 < 26:
-                    return False
-           if row.mEta<-2.1 and row.mEta>=-2.4 :
-                 if row.mPt*1.027 < 26:
-                    return False
-           if row.mEta>2.1 and row.mEta<=2.4 :
-                 if row.mPt*1.017 < 26:
-                    return False
+        #   if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
+        #         if row.mPt*1.009 < 26:
+        #            return False
+        #   if row.mEta<-2.1 and row.mEta>=-2.4 :
+        #         if row.mPt*1.027 < 26:
+        #            return False
+        #   if row.mEta>2.1 and row.mEta<=2.4 :
+        #         if row.mPt*1.017 < 26:
+        #            return False
         if self.DoMES==2  :
-           if abs(row.mEta)<=1.2:
-                 if row.mPt*0.996 < 26:
+        #   if abs(row.mEta)<=1.2:
+                 if row.mPt*0.998 < 26:
                     return False
-           if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
-                 if row.mPt*0.991 < 26:
-                    return False
-           if row.mEta<-2.1 and row.mEta>=-2.4 :
-                 if row.mPt*0.973 < 26:
-                    return False
-           if row.mEta>2.1 and row.mEta<=2.4 :
-                 if row.mPt*0.983 < 26:
-                    return False
+        #   if abs(row.mEta)>1.2 and abs(row.mEta)<=2.1 :
+        #         if row.mPt*0.991 < 26:
+        #            return False
+        #   if row.mEta<-2.1 and row.mEta>=-2.4 :
+        #         if row.mPt*0.973 < 26:
+        #            return False
+        #   if row.mEta>2.1 and row.mEta<=2.4 :
+        #         if row.mPt*0.983 < 26:
+        #            return False
         if not self.DoMES:
            if row.mPt< 26:
                return False
@@ -1005,13 +1177,13 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
     #        return False
   
         if self.DoTES==1  :
-           if row.tPt*1.03 < 30:
+           if self.tau_Pt_C*1.006 < 30:
                return False
         if self.DoTES==2  :
-           if row.mPt*0.97 < 30:
+           if self.tau_Pt_C*0.994 < 30:
                return False
         if not self.DoTES:
-           if row.tPt<30 :
+           if self.tau_Pt_C<30 :
                return False
     #    if abs(row.tEta)>=2.3:
     #        return False
@@ -1049,12 +1221,12 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #             return False
 #       else:
        #print 'line 1035 the Sysin %f'  %self.Sysin
-       if  self.Sysin and (not self.DoJES):
-          if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+     #  if  self.Sysin and (not self.DoJES):
+       if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
              return False
-       else:
-          if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
-             return False
+      # else:
+      #    if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
+      #       return False
           
 #####       if abs(row.tDPhiToPfMet_type1)>3.0:
 ####           return False
@@ -1088,12 +1260,12 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #                return False  
 #####          if abs(row.tDPhiToPfMet_type1)>3.0:
 ####              return False
-          if  self.Sysin and (not self.DoJES):
-             if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+       #   if  self.Sysin and (not self.DoJES):
+          if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
                 return False
-          else:
-             if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
-                return False
+        #  else:
+        #     if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
+        #        return False
 #          if self.ls_recoilC and MetCorrection:
 #             if abs(self.TauDphiToMet)>3.0:
 #                return False
@@ -1114,12 +1286,12 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
        # if row.mPt < 30:
        # 	return False
       #  if row.tMtToPfMet_type1 > 85: #was 35   #newcuts 55
-        if  self.Sysin and (not self.DoJES):
-           if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
+        #if  self.Sysin and (not self.DoJES):
+        if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
               return False
-        else:
-           if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
-              return False
+        #else:
+        #   if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
+        #      return False
                  #return False
 #        if row.jetVeto30<2:  
 #            return False
@@ -1148,12 +1320,12 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #        else:
 #            if row.tMtToPfMet_type1 > 105:  #was 50   #newcuts65
 #               return False
-        if  self.Sysin and (not self.DoJES):
-           if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+        #if  self.Sysin and (not self.DoJES):
+        if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
               return False
-        else:
-           if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
-              return False
+        #else:
+        #   if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
+        #      return False
 #        if row.jetVeto30<2:  
 #            return False
 #	if(row.vbfNJets30<2):
@@ -1186,12 +1358,12 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #        else:
 #            if row.tMtToPfMet_type1 > 85:  #was 50   #newcuts65
 #               return False
-        if  self.Sysin and (not self.DoJES):
-           if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
+       # if  self.Sysin and (not self.DoJES):
+        if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
               return False
-        else:
-           if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
-              return False
+        #else:
+        #   if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
+        #      return False
 #        if row.jetVeto30<2:  
 #            return False
 #	if(row.vbfNJets30<2):
@@ -1239,9 +1411,9 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
     #    return bool(row.mRelPFIsoDBDefault <0.12)
    
     def obj1_iso(self,row):
-         return bool(row.mRelPFIsoDBDefault <0.15)
+         return bool(row.mRelPFIsoDBDefaultR04 <0.15)
     def obj1_isoloose(self,row):
-         return bool(row.mRelPFIsoDBDefault <0.25)
+         return bool(row.mRelPFIsoDBDefaultR04 <0.25)
 
   #  def obj2_iso(self, row):
   #      return  row.tByTightCombinedIsolationDeltaBetaCorr3Hits
@@ -1260,7 +1432,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 	 return row.tByMediumIsolationMVArun2v1DBoldDMwLT
 
     def obj1_antiiso(self, row):
-        return bool(row.mRelPFIsoDBDefault >0.2) 
+        return bool(row.mRelPFIsoDBDefaultR04 >0.2) 
 
 #    def obj2_looseiso(self, row):
 #        return row.tByLooseCombinedIsolationDeltaBetaCorr3Hits
@@ -1285,6 +1457,7 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
             if sel==True:
                 continue
 #            if self.is_data: 
+            self.Sysin=0
             if not self.presel(row):
                   continue
 #            if not self.selectZmm(row):
@@ -1340,17 +1513,25 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #            else: 
 #               continue
 #            global Sysin
+            self.SetsysZero(row)
+            #print "one new event*****************************"
+            self.tau_Pt_C,self.MET_tPtC=self.TauESC(row)
+            #print "one new event*****************************1"
+            self.collMass_type1_new,self.tMtToPfMet_type1_new=self.VariableCalculateTaucorrection(row,self.tau_Pt_C,self.MET_tPtC)
+            #print "one new event*****************************2"
             self.Sysin=0
-            self.var_d_0  ={'mPt_':row.mPt,'tPt_':row.tPt,'tMtToPfMet_type1_':row.tMtToPfMet_type1,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':row.type1_pfMetEt,'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':row.m_t_collinearmass}
+            self.var_d_0  ={'mPt_':row.mPt,'tPt_':self.tau_Pt_C,'tMtToPfMet_type1_':self.tMtToPfMet_type1_new,'m_t_DPhi_':abs(row.m_t_DPhi),'tDPhiToPfMet_type1_':row.tDPhiToPfMet_type1,'type1_pfMetEt_':self.MET_tPtC,'deltaeta_m_t_':abs(row.mEta-row.tEta),'m_t_collinearmass_':self.collMass_type1_new}
+            #print "one new event*****************************3"
             MVA0=self.functor(**self.var_d_0)
+            #print "one new event*****************************4"
             self.MVA0fill=MVA0
-#            print "Sysin value at line 13022 %f" %self.Sysin
+            #print 'the BDT output at the most beginning %f and after assginment %f'  %(MVA0,self.MVA0fill)
             if (fakeset or wjets_fakes or tuning) and self.kinematics(row):
              if self.obj1_iso(row):
                if self.obj2_iso(row) and not self.oppositesign(row):
                   if fakeset:
-                     if (not self.light) and self.WjetsEnrich(row):
-                        self.fill_histos(row,'preslectionSSEnWjets')
+               #      if (not self.light) and self.WjetsEnrich(row):
+               #         self.fill_histos(row,'preselectionSSEnWjets')
                      self.fill_histos(row,'preselectionSS')
                   if (not self.light):
                      if row.jetVeto30==0:
@@ -1478,6 +1659,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                           self.fill_histos(row,'preslectionEnZtt')
                        if self.ZmmEnrich(row):
                           self.fill_histos(row,'preslectionEnZmm')
+                       if self.TTbarEnrich(row):
+                          self.fill_histos(row,'preslectionEnTTbar')
 
 
                     if wjets_fakes:
@@ -1490,6 +1673,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'preslectionEnZtt0Jet')
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'preslectionEnZmm0Jet')
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'preslectionEnTTbar0Jet')
                       if wjets_fakes and row.isWmunu==1:
                          self.fill_histos(row,'Wmunu_preselection0Jet')
                       if wjets_fakes and row.isWtaunu==1:
@@ -1505,6 +1690,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'preslectionEnZtt1Jet')
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'preslectionEnZmm1Jet')
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'preslectionEnTTbar1Jet')
                       if wjets_fakes and row.isWmunu==1:
                          self.fill_histos(row,'Wmunu_preselection1Jet')
                       if wjets_fakes and row.isWtaunu==1:
@@ -1529,6 +1716,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                            self.fill_histos(row,'preslectionEnZtt2Jet_gg')
                         if self.ZmmEnrich(row):
                            self.fill_histos(row,'preslectionEnZmm2Jet_gg')
+                        if self.TTbarEnrich(row):
+                           self.fill_histos(row,'preslectionEnTTbar2Jet_gg')
                       if((row.vbfMass >= 550)):
                    #     self.fill_histos(row,'preselection2Jet_vbf')
                         if self.WjetsEnrich(row):
@@ -1537,6 +1726,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                            self.fill_histos(row,'preslectionEnZtt2Jet_vbf')
                         if self.ZmmEnrich(row):
                            self.fill_histos(row,'preslectionEnZmm2Jet_vbf')
+                        if self.TTbarEnrich(row):
+                           self.fill_histos(row,'preslectionEnTTbar2Jet_vbf')
 
              #    if self.gg(row):
              #        self.fill_histos(row,'gg',False)
@@ -1544,8 +1735,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                  if  row.jetVeto30==0:
                      if RUN_OPTIMIZATION:
                         for  i in optimizer_new.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
-   	                   tmp=os.path.join("gg",i)
-	                   self.fill_histos(row,tmp,False)	
+                           tmp=os.path.join("gg",i)
+                           self.fill_histos(row,tmp,False)	
                      #if self.gg(row):
                         #   print "the preselection SF Correction %f" %(self.correction(row))
                            #print 'fill normal gg line 1505' 
@@ -1569,8 +1760,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                  if row.jetVeto30==1:
                      if RUN_OPTIMIZATION:
                         for  i in optimizer_new.compute_regions_1jet(row.tPt, row.mPt,deltaPhi(row.mPhi,row.tPhi),abs(row.tDPhiToPfMet_type1),row.tMtToPfMet_type1):
-	                   tmp=os.path.join("boost",i)
-	                   self.fill_histos(row,tmp,False)	
+                           tmp=os.path.join("boost",i)
+                           self.fill_histos(row,tmp,False)	
                      #if self.boost(row):
                            #print 'fill normal boost line 1528' 
                      self.fill_histos(row,'boost')
@@ -1591,8 +1782,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                  if (row.jetVeto30==2) :
 #                     if RUN_OPTIMIZATION:
 #                        for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
-#	                   tmp=os.path.join("vbf",i)
-#	                   self.fill_histos(row,tmp,False)
+#                          tmp=os.path.join("vbf",i)
+#                          self.fill_histos(row,tmp,False)
                 #     if not self.light:	
                      #   if self.vbf(row):
                 #           self.fill_histos(row,'vbf')
@@ -1653,6 +1844,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                           self.fill_histos(row,'notIsoEnZtt',True)
                        if self.ZmmEnrich(row):
                           self.fill_histos(row,'notIsoEnZmm',True)
+                       if self.TTbarEnrich(row):
+                          self.fill_histos(row,'notIsoEnTTbar',True)
 #                    self.fill_histos(row,'notIsoNotWeighted',False)
 
                     if row.jetVeto30==0:
@@ -1663,6 +1856,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt0Jet',True)
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm0Jet',True)
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar0Jet',True)
                     if row.jetVeto30==1:
                    #   self.fill_histos(row,'notIso1Jet',True)
                       if self.WjetsEnrich(row):
@@ -1671,6 +1866,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt1Jet',True)
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm1Jet',True)
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar1Jet',True)
                     if row.jetVeto30==2:
                    #   self.fill_histos(row,'notIso2Jet',True)
                    #   if self.WjetsEnrich(row):
@@ -1683,6 +1880,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_gg',True)
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_gg',True)
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_gg',True)
                       if((row.vbfMass >= 550)):
                    #      self.fill_histos(row,'notIso2Jet_vbf',True)
                          if self.WjetsEnrich(row):
@@ -1691,6 +1890,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_vbf',True)
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_vbf',True)
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_vbf',True)
                  if  row.jetVeto30==0:
                     # #if RUN_OPTIMIZATION:
                        # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
@@ -1731,10 +1932,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                     #       self.fill_histos(row,'vbfNotIso',True)
                      #if self.vbf_gg(row):
                    #     if row.vbfMass>100: 
-                     self.fill_histos(row,'vbf_ggNotIso',True)
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_ggNotIso1stUp',True,'taufake',"1stUp")
-                        self.fill_histos(row,'vbf_ggNotIso1stDown',True,'taufake',"1stDown")
+                     if((row.vbfMass < 550)):
+                       self.fill_histos(row,'vbf_ggNotIso',True)
+                       if (not self.light) and fakeset:
+                          self.fill_histos(row,'vbf_ggNotIso1stUp',True,'taufake',"1stUp")
+                          self.fill_histos(row,'vbf_ggNotIso1stDown',True,'taufake',"1stDown")
                     #          self.fill_histos(row,'vbf_ggNotIso2ndUp',True,'taufake',"2ndUp")
                     #          self.fill_histos(row,'vbf_ggNotIso2ndDown',True,'taufake',"2ndDown")
                     #    else:
@@ -1746,10 +1948,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                     #          self.fill_histos(row,'boostNotIso2ndDown',True,'taufake',"2ndDown")
 
                      #if self.vbf_vbf(row):
-                     self.fill_histos(row,'vbf_vbfNotIso',True)
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_vbfNotIso1stUp',True,'taufake',"1stUp")
-                        self.fill_histos(row,'vbf_vbfNotIso1stDown',True,'taufake',"1stDown")
+                     if((row.vbfMass >= 550)):
+                       self.fill_histos(row,'vbf_vbfNotIso',True)
+                       if (not self.light) and fakeset:
+                          self.fill_histos(row,'vbf_vbfNotIso1stUp',True,'taufake',"1stUp")
+                          self.fill_histos(row,'vbf_vbfNotIso1stDown',True,'taufake',"1stDown")
                     #          self.fill_histos(row,'vbf_vbfNotIso2ndUp',True,'taufake',"2ndUp")
                     #          self.fill_histos(row,'vbf_vbfNotIso2ndDown',True,'taufake',"2ndDown")
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row) and self.kinematics(row):
@@ -1763,6 +1966,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                           self.fill_histos(row,'notIsoEnZttMT',True,faketype="mtfake")
                        if self.ZmmEnrich(row):
                           self.fill_histos(row,'notIsoEnZmmMT',True,faketype="mtfake")
+                       if self.TTbarEnrich(row):
+                          self.fill_histos(row,'notIsoEnTTbarMT',True,faketype="mtfake")
 #                    self.fill_histos(row,'notIsoNotWeighted',False)
 
                     if row.jetVeto30==0:
@@ -1773,6 +1978,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt0JetMT',True,faketype="mtfake")
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm0JetMT',True,faketype="mtfake")
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar0JetMT',True,faketype="mtfake")
                     if row.jetVeto30==1:
                     #  self.fill_histos(row,'notIso1JetMT',True,faketype="mtfake")
                       if self.WjetsEnrich(row):
@@ -1781,6 +1988,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt1JetMT',True,faketype="mtfake")
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm1JetMT',True,faketype="mtfake")
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar1JetMT',True,faketype="mtfake")
                     if row.jetVeto30==2:
                      # self.fill_histos(row,'notIso2JetMT',True,faketype="mtfake")
                       #if self.WjetsEnrich(row):
@@ -1793,6 +2002,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_ggMT',True,faketype="mtfake")
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_ggMT',True,faketype="mtfake")
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_ggMT',True,faketype="mtfake")
                       if((row.vbfMass >= 550)):
                         # self.fill_histos(row,'notIso2Jet_vbfMT',True,faketype="mtfake")
                          if self.WjetsEnrich(row):
@@ -1801,6 +2012,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_vbfMT',True,faketype="mtfake")
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_vbfMT',True,faketype="mtfake")
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_vbfMT',True,faketype="mtfake")
                  if  row.jetVeto30==0:
                     # #if RUN_OPTIMIZATION:
                        # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
@@ -1845,10 +2058,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                    #        self.fill_histos(row,'vbfNotIsoMT',True,faketype="mtfake")
                      #if self.vbf_gg(row):
                     #    if row.vbfMass>100: 
-                     self.fill_histos(row,'vbf_ggNotIsoMT',True,faketype="mtfake")
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_ggNotIsoMT1stUp',True,'mtfake',"1stUp")
-                        self.fill_histos(row,'vbf_ggNotIsoMT1stDown',True,'mtfake',"1stDown")
+                     if((row.vbfMass < 550)):
+                        self.fill_histos(row,'vbf_ggNotIsoMT',True,faketype="mtfake")
+                        if (not self.light) and fakeset:
+                           self.fill_histos(row,'vbf_ggNotIsoMT1stUp',True,'mtfake',"1stUp")
+                           self.fill_histos(row,'vbf_ggNotIsoMT1stDown',True,'mtfake',"1stDown")
 #                              self.fill_histos(row,'vbf_ggNotIsoMT1stUp',True,"1stUp",faketype="mtfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoMT1stDown',True,"1stDown",faketype="mtfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoMT2ndUp',True,"2ndUp",faketype="mtfake")
@@ -1862,10 +2076,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #                              self.fill_histos(row,'boostNotIsoMT2ndDown',True,"2ndDown",faketype="mtfake")
 
                      #if self.vbf_vbf(row):
-                     self.fill_histos(row,'vbf_vbfNotIsoMT',True,faketype="mtfake")
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_vbfNotIsoMT1stUp',True,'mtfake',"1stUp")
-                        self.fill_histos(row,'vbf_vbfNotIsoMT1stDown',True,'mtfake',"1stDown")
+                     if((row.vbfMass >= 550)):
+                       self.fill_histos(row,'vbf_vbfNotIsoMT',True,faketype="mtfake")
+                       if (not self.light) and fakeset:
+                          self.fill_histos(row,'vbf_vbfNotIsoMT1stUp',True,'mtfake',"1stUp")
+                          self.fill_histos(row,'vbf_vbfNotIsoMT1stDown',True,'mtfake',"1stDown")
 #                              self.fill_histos(row,'vbf_vbfNotIsoMT1stUp',True,"1stUp",faketype="mtfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoMT1stDown',True,"1stDown",faketype="mtfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoMT2ndUp',True,"2ndUp",faketype="mtfake")
@@ -1879,9 +2094,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                        if self.WjetsEnrich(row):
                           self.fill_histos(row,'notIsoEnWjetsM',True,faketype="muonfake")
                        if self.ZttEnrich(row):
-                          self.fill_histos(row,'notIsoEnZttJetM',True,faketype="muonfake")
+                          self.fill_histos(row,'notIsoEnZttM',True,faketype="muonfake")
                        if self.ZmmEnrich(row):
-                          self.fill_histos(row,'notIsoEnZmmJetM',True,faketype="muonfake")
+                          self.fill_histos(row,'notIsoEnZmmM',True,faketype="muonfake")
+                       if self.TTbarEnrich(row):
+                          self.fill_histos(row,'notIsoEnTTbarM',True,faketype="muonfake")
 #                    self.fill_histos(row,'notIsoNotWeighted',False)
 
                     if row.jetVeto30==0:
@@ -1892,6 +2109,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt0JetM',True,faketype="muonfake")
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm0JetM',True,faketype="muonfake")
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar0JetM',True,faketype="muonfake")
                     if row.jetVeto30==1:
                      # self.fill_histos(row,'notIso1JetM',True,faketype="muonfake")
                       if self.WjetsEnrich(row):
@@ -1900,6 +2119,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                          self.fill_histos(row,'notIsoEnZtt1JetM',True,faketype="muonfake")
                       if self.ZmmEnrich(row):
                          self.fill_histos(row,'notIsoEnZmm1JetM',True,faketype="muonfake")
+                      if self.TTbarEnrich(row):
+                         self.fill_histos(row,'notIsoEnTTbar1JetM',True,faketype="muonfake")
                     if row.jetVeto30==2:
                      # self.fill_histos(row,'notIso2JetM',True,faketype="muonfake")
                      # if self.WjetsEnrich(row):
@@ -1912,6 +2133,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_ggM',True,faketype="muonfake")
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_ggM',True,faketype="muonfake")
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_ggM',True,faketype="muonfake")
 
                       if((row.vbfMass >= 550)):
                       #   self.fill_histos(row,'notIso2Jet_vbfM',True,faketype="muonfake")
@@ -1921,6 +2144,8 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                             self.fill_histos(row,'notIsoEnZtt2Jet_vbfM',True,faketype="muonfake")
                          if self.ZmmEnrich(row):
                             self.fill_histos(row,'notIsoEnZmm2Jet_vbfM',True,faketype="muonfake")
+                         if self.TTbarEnrich(row):
+                            self.fill_histos(row,'notIsoEnTTbar2Jet_vbfM',True,faketype="muonfake")
                  if  row.jetVeto30==0:
                     # #if RUN_OPTIMIZATION:
                        # for  i in optimizer.compute_regions_0jet(row.tPt, row.mPt, deltaPhi(row.mPhi,row.tPhi),row.tMtToPfMet_type1):
@@ -1965,10 +2190,11 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                   #         self.fill_histos(row,'vbfNotIsoM',True,faketype="muonfake")
                      #if self.vbf_gg(row):
                     #    if row.vbfMass>100: 
-                     self.fill_histos(row,'vbf_ggNotIsoM',True,faketype="muonfake")
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_ggNotIsoM1stUp',True,'muonfake',"1stUp")
-                        self.fill_histos(row,'vbf_ggNotIsoM1stDown',True,'muonfake',"1stDown")
+                     if((row.vbfMass < 550)):
+                        self.fill_histos(row,'vbf_ggNotIsoM',True,faketype="muonfake")
+                        if (not self.light) and fakeset:
+                           self.fill_histos(row,'vbf_ggNotIsoM1stUp',True,'muonfake',"1stUp")
+                           self.fill_histos(row,'vbf_ggNotIsoM1stDown',True,'muonfake',"1stDown")
 #                              self.fill_histos(row,'vbf_ggNotIsoM1stUp',True,"1stUp",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoM1stDown',True,"1stDown",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_ggNotIsoM2ndUp',True,"2ndUp",faketype="muonfake")
@@ -1982,17 +2208,20 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
 #                              self.fill_histos(row,'boostNotIsoM2ndDown',True,"2ndDown",faketype="muonfake")
 
                      #if self.vbf_vbf(row):
-                     self.fill_histos(row,'vbf_vbfNotIsoM',True,faketype="muonfake")
-                     if (not self.light) and fakeset:
-                        self.fill_histos(row,'vbf_vbfNotIsoM1stUp',True,'muonfake',"1stUp")
-                        self.fill_histos(row,'vbf_vbfNotIsoM1stDown',True,'muonfake',"1stDown")
+                     if((row.vbfMass >= 550)):
+                        self.fill_histos(row,'vbf_vbfNotIsoM',True,faketype="muonfake")
+                        if (not self.light) and fakeset:
+                           self.fill_histos(row,'vbf_vbfNotIsoM1stUp',True,'muonfake',"1stUp")
+                           self.fill_histos(row,'vbf_vbfNotIsoM1stDown',True,'muonfake',"1stDown")
 #                              self.fill_histos(row,'vbf_vbfNotIsoM1stUp',True,"1stUp",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoM1stDown',True,"1stDown",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoM2ndUp',True,"2ndUp",faketype="muonfake")
 #                              self.fill_histos(row,'vbf_vbfNotIsoM2ndDown',True,"2ndDown",faketype="muonfake")
     #        global Sysin
-            self.Sysin=1
+            #print 'the BDT output before SYS!! %f '  %(self.MVA0fill)
+            self.Sysin=0
             if self.Sysin and (not self.is_data) :
+                # print 'line 2196 inside the sys'
                  sysneedI=['MESUp','MESDown','TESUp','TESDown','UESUp','UESDown']
                  basechannelsI=[(0,'gg'),(1,'boost'),(2,'vbf_gg'),(2,'vbf_vbf')]
                  basechannelsII=[(0,'ggNotIso'),(1,'boostNotIso'),(2,'vbf_ggNotIso'),(2,'vbf_vbfNotIso')]
@@ -2003,11 +2232,17 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                      self.SetsysZero(row)
                      if 'Up' in i:
                         tmpname='self.Do'+i.split('Up',1)[0]
+                      #  print "the current tmpname %s" %tmpname
                         exec("%s = %d" % (tmpname,1))                      
                      if 'Down' in i:
                         tmpname='self.Do'+i.split('Down',1)[0]
-                        exec("%s = %d" % (tmpname,2))                   
+                      #  print "the current tmpname %s" %tmpname
+                        exec("%s = %d" % (tmpname,2))                  
+                  #   print "the tmpname value %f and the frist one is actually MESup self.DoMES" %(tmpname,self.DoMES) 
+                     #self.TauESC(row)
                      self.VariableCalculate(row) 
+                     if self.DoMES==1:
+                         print "the no shift BDT %f and the %s   %f" %(self.MVA0fill,i,self.MVA0fill_new)
                      if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
                         for j in basechannelsI: 
                            if  row.jetVeto30==j[0]:
@@ -2036,9 +2271,10 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                            #    if eval(tmpname_2):
                                     self.fill_histos(row,j[1]+i,True,faketype="mtfake")
                      #self.SetsysZero(row)
-                     
+#                 print "start to enter JES******"    
                  for k in baseJESsys:
                      self.SetsysZero(row)
+                     #self.VariableCalculateJES(row)
                      if 'Up' in k:
                         tmpname='self.DoJES'
                         exec("%s = %d" % (tmpname,1))                      
@@ -2046,6 +2282,13 @@ class AnalyzeLFVMuTauPostBDT_progress_v2(MegaBase):
                         tmpname='self.DoJES'
                         exec("%s = %d" % (tmpname,2))                   
                      tmpname_3='row.jetVeto30_'+k.split('_CMS_',1)[1]
+                     tmpname_5='row.type1_pfMet_shiftedPt_'+k.split('_CMS_',1)[1] 
+                     tmpname_6='row.type1_pfMet_shiftedPhi_'+k.split('_CMS_',1)[1] 
+                     #print eval(tmpname_6)
+                     #print row.type1_pfMet_shiftedPhi_JetEnUp
+                     self.VariableCalculateJES(row,eval(tmpname_5),eval(tmpname_6))
+                     if k=='_CMS_JetPileUpPtEC1Down':
+                        print "the no shift BDT %f and the %s   %f" %(self.MVA0fill,k,self.MVA0fill_new)
                      if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
                         for j in basechannelsI: 
                            if  eval(tmpname_3)==j[0]:

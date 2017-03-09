@@ -31,18 +31,18 @@ def deltaPhi(phi1, phi2):
       return PHI
   else:
       return 2*pi-PHI
+
 def getGenMfakeTSF(ABStEta):
     if (ABStEta>0 and ABStEta<0.4):
-       return 1.425
+       return 1.263
     if (ABStEta>0.4 and ABStEta<0.8):
-       return 1.72
+       return 1.364
     if (ABStEta>0.8 and ABStEta<1.2):
-       return 1.26
+       return 0.854
     if (ABStEta>1.2 and ABStEta<1.7):
-       return 2.59
+       return 1.712
     if (ABStEta>1.7 and ABStEta<2.3):
-       return 2.29
-
+       return 2.324
 
 def getFakeRateFactorFANBOPt(row, fakeset):
      if fakeset=="def":
@@ -133,9 +133,12 @@ muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('M
 #muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
 muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
 muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso_2016ReReco('Medium')
+
 def mc_corrector_2016T(row):
   pu = pu_corrector(row.nTruePU)
-
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m3Eta))[0]
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
@@ -151,11 +154,14 @@ def mc_corrector_2016T(row):
 
   #print "pu"
   #print str(pu)
-  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
 
 def mc_corrector_2016L(row):
   pu = pu_corrector(row.nTruePU)
 
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m3Eta))[0]
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
@@ -171,7 +177,7 @@ def mc_corrector_2016L(row):
 
   #print "pu"
   #print str(pu)
-  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
 mc_correctorT = mc_corrector_2016T
 mc_correctorL = mc_corrector_2016L
 
@@ -205,9 +211,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
         self.tree = MuMuMuTree.MuMuMuTree(tree)
         self.out = outfile
         self.histograms = {}
-        if self.ls_DY or self.ls_ZTauTau:
-           self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
-           self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
+       # if self.ls_DY or self.ls_ZTauTau:
+       #    self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
+       #    self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
 
     def begin(self):
 
@@ -308,7 +314,6 @@ class AnalyzeLFVMuMuMu(MegaBase):
 	
     def fakeRateMethod(self,row,isoName):
         return getFakeRateFactor(row,isoName)
-	     
     def fill_histos(self, row,name='gg', fakeRate=False, isoName="old"):
         histos = self.histograms
         weight=1
@@ -317,9 +322,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
            if "Loose" in name:
-               weight = row.GenWeight * self.correctionL(row)*self.WeightJetbin(row)#*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
+               weight = row.GenWeight * self.correctionL(row)*self.WeightJetbin(row)#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
            else:
-               weight = row.GenWeight * self.correctionT(row)*self.WeightJetbin(row)#*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
+               weight = row.GenWeight * self.correctionT(row)*self.WeightJetbin(row)#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
        # if (not(data)):
 	#   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
       #  if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -330,75 +335,75 @@ class AnalyzeLFVMuMuMu(MegaBase):
 #           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
 #           weight=weight*wtzpt
 
-        histos[name+'/weight'].Fill(weight)
-        histos[name+'/GenWeight'].Fill(row.GenWeight)
-        histos[name+'/genHTT'].Fill(row.genHTT)
-        histos[name+'/rho'].Fill(row.rho, weight)
-        histos[name+'/nvtx'].Fill(row.nvtx, weight)
-        histos[name+'/prescale'].Fill(row.doubleMuPrescale, weight)
+  #      histos[name+'/weight'].Fill(weight)
+  #      histos[name+'/GenWeight'].Fill(row.GenWeight)
+  #      histos[name+'/genHTT'].Fill(row.genHTT)
+  #      histos[name+'/rho'].Fill(row.rho, weight)
+  #      histos[name+'/nvtx'].Fill(row.nvtx, weight)
+  #      histos[name+'/prescale'].Fill(row.doubleMuPrescale, weight)
 
-        
-        histos[name+'/m1Pt'].Fill(row.m1Pt, weight)
-        histos[name+'/m1Eta'].Fill(row.m1Eta, weight)
-        histos[name+'/m1Charge'].Fill(row.m1Charge, weight)
-        histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
-        histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
-        histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
+  #      
+  #      histos[name+'/m1Pt'].Fill(row.m1Pt, weight)
+  #      histos[name+'/m1Eta'].Fill(row.m1Eta, weight)
+  #      histos[name+'/m1Charge'].Fill(row.m1Charge, weight)
+  #      histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
+  #      histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
+  #      histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
         histos[name+'/m3Pt'].Fill(row.m3Pt, weight)
         histos[name+'/m3Eta'].Fill(row.m3Eta, weight)
         histos[name+'/m3Etaabs'].Fill(abs(row.m3Eta), weight)
-        histos[name+'/m3Charge'].Fill(row.m3Charge, weight)
+  #      histos[name+'/m3Charge'].Fill(row.m3Charge, weight)
 
 
-	histos[name+'/LT'].Fill(row.LT,weight)
+  #      histos[name+'/LT'].Fill(row.LT,weight)
 
 
-	histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
+  #      histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
 
-        histos[name+'/m1_m3_Mass'].Fill(row.m1_m3_Mass,weight)
-        histos[name+'/m1_m3_Pt'].Fill(row.m1_m3_Pt,weight)
-        histos[name+'/m1_m3_DR'].Fill(row.m1_m3_DR,weight)
-        histos[name+'/m1_m3_DPhi'].Fill(row.m1_m3_DPhi,weight)
-        histos[name+'/m1_m3_SS'].Fill(row.m1_m3_SS,weight)
-        histos[name+'/m2_m3_Mass'].Fill(row.m2_m3_Mass,weight)
-        histos[name+'/m2_m3_Pt'].Fill(row.m2_m3_Pt,weight)
-        histos[name+'/m2_m3_DR'].Fill(row.m2_m3_DR,weight)
-        histos[name+'/m2_m3_DPhi'].Fill(row.m2_m3_DPhi,weight)
-        histos[name+'/m2_m3_SS'].Fill(row.m2_m3_SS,weight)
-        histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
-	#histos[name+'/m_t_ToMETDPhi_Ty1'].Fill(row.m_t_ToMETDPhi_Ty1,weight)
+  #      histos[name+'/m1_m3_Mass'].Fill(row.m1_m3_Mass,weight)
+  #      histos[name+'/m1_m3_Pt'].Fill(row.m1_m3_Pt,weight)
+  #      histos[name+'/m1_m3_DR'].Fill(row.m1_m3_DR,weight)
+  #      histos[name+'/m1_m3_DPhi'].Fill(row.m1_m3_DPhi,weight)
+  #      histos[name+'/m1_m3_SS'].Fill(row.m1_m3_SS,weight)
+  #      histos[name+'/m2_m3_Mass'].Fill(row.m2_m3_Mass,weight)
+  #      histos[name+'/m2_m3_Pt'].Fill(row.m2_m3_Pt,weight)
+  #      histos[name+'/m2_m3_DR'].Fill(row.m2_m3_DR,weight)
+  #      histos[name+'/m2_m3_DPhi'].Fill(row.m2_m3_DPhi,weight)
+  #      histos[name+'/m2_m3_SS'].Fill(row.m2_m3_SS,weight)
+  #      histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
+  #      #histos[name+'/m_t_ToMETDPhi_Ty1'].Fill(row.m_t_ToMETDPhi_Ty1,weight)
 
-        histos[name+'/m1PixHits'].Fill(row.m1PixHits, weight)
-        histos[name+'/m1JetBtag'].Fill(row.m1JetBtag, weight)
-        histos[name+'/m2PixHits'].Fill(row.m2PixHits, weight)
-        histos[name+'/m2JetBtag'].Fill(row.m2JetBtag, weight)
-        histos[name+'/m3PixHits'].Fill(row.m3PixHits, weight)
-        histos[name+'/m3JetBtag'].Fill(row.m3JetBtag, weight)
+  #      histos[name+'/m1PixHits'].Fill(row.m1PixHits, weight)
+  #      histos[name+'/m1JetBtag'].Fill(row.m1JetBtag, weight)
+  #      histos[name+'/m2PixHits'].Fill(row.m2PixHits, weight)
+  #      histos[name+'/m2JetBtag'].Fill(row.m2JetBtag, weight)
+  #      histos[name+'/m3PixHits'].Fill(row.m3PixHits, weight)
+  #      histos[name+'/m3JetBtag'].Fill(row.m3JetBtag, weight)
 
-        histos[name+'/muVetoPt5IsoIdVtx'].Fill(row.muVetoPt5IsoIdVtx, weight)
-        histos[name+'/muVetoPt15IsoIdVtx'].Fill(row.muVetoPt15IsoIdVtx, weight)
-        histos[name+'/tauVetoPt20Loose3HitsVtx'].Fill(row.tauVetoPt20Loose3HitsVtx, weight)
-        histos[name+'/eVetoMVAIso'].Fill(row.eVetoMVAIso, weight)
-        histos[name+'/jetVeto30'].Fill(row.jetVeto30, weight)
+  #      histos[name+'/muVetoPt5IsoIdVtx'].Fill(row.muVetoPt5IsoIdVtx, weight)
+  #      histos[name+'/muVetoPt15IsoIdVtx'].Fill(row.muVetoPt15IsoIdVtx, weight)
+  #      histos[name+'/tauVetoPt20Loose3HitsVtx'].Fill(row.tauVetoPt20Loose3HitsVtx, weight)
+  #      histos[name+'/eVetoMVAIso'].Fill(row.eVetoMVAIso, weight)
+  #      histos[name+'/jetVeto30'].Fill(row.jetVeto30, weight)
 #	histos[name+'/jetVeto30ZTT'].Fill(row.jetVeto30ZTT,weight)
         #histos[name+'/jetVeto30Eta3'].Fill(row.jetVeto30Eta3,weight)
         #histos[name+'/jetVeto30PUCleanedLoose'].Fill(row.jetVeto30PUCleanedLoose, weight)
         #histos[name+'/jetVeto30PUCleanedTight'].Fill(row.jetVeto30PUCleanedTight, weight)
 
-	histos[name+'/m1RelPFIsoDBDefault'].Fill(row.m1RelPFIsoDBDefault, weight)
-        histos[name+'/m2RelPFIsoDBDefault'].Fill(row.m2RelPFIsoDBDefault, weight)
-        histos[name+'/m3RelPFIsoDBDefault'].Fill(row.m3RelPFIsoDBDefault, weight)
-        
-	histos[name+'/m1Phim3Phi'].Fill(deltaPhi(row.m1Phi,row.m3Phi),weight)
-        histos[name+'/m1PhiMETPhiType1'].Fill(deltaPhi(row.m1Phi,row.type1_pfMetPhi),weight)
-        histos[name+'/m2Phim3Phi'].Fill(deltaPhi(row.m2Phi,row.m3Phi),weight)
-        histos[name+'/m2PhiMETPhiType1'].Fill(deltaPhi(row.m2Phi,row.type1_pfMetPhi),weight)
-        histos[name+'/m3PhiMETPhiType1'].Fill(deltaPhi(row.m3Phi,row.type1_pfMetPhi),weight)
-	histos[name+'/vbfJetVeto30'].Fill(row.vbfJetVeto30, weight)
-     	#histos[name+'/vbfJetVeto20'].Fill(row.vbfJetVeto20, weight)
-        #histos[name+'/vbfMVA'].Fill(row.vbfMVA, weight)
-        histos[name+'/vbfMass'].Fill(row.vbfMass, weight)
-        histos[name+'/vbfDeta'].Fill(row.vbfDeta, weight)
+#	histos[name+'/m1RelPFIsoDBDefault'].Fill(row.m1RelPFIsoDBDefault, weight)
+#        histos[name+'/m2RelPFIsoDBDefault'].Fill(row.m2RelPFIsoDBDefault, weight)
+#        histos[name+'/m3RelPFIsoDBDefault'].Fill(row.m3RelPFIsoDBDefault, weight)
+#        
+#	histos[name+'/m1Phim3Phi'].Fill(deltaPhi(row.m1Phi,row.m3Phi),weight)
+#        histos[name+'/m1PhiMETPhiType1'].Fill(deltaPhi(row.m1Phi,row.type1_pfMetPhi),weight)
+#        histos[name+'/m2Phim3Phi'].Fill(deltaPhi(row.m2Phi,row.m3Phi),weight)
+#        histos[name+'/m2PhiMETPhiType1'].Fill(deltaPhi(row.m2Phi,row.type1_pfMetPhi),weight)
+#        histos[name+'/m3PhiMETPhiType1'].Fill(deltaPhi(row.m3Phi,row.type1_pfMetPhi),weight)
+#	histos[name+'/vbfJetVeto30'].Fill(row.vbfJetVeto30, weight)
+#     	#histos[name+'/vbfJetVeto20'].Fill(row.vbfJetVeto20, weight)
+#        #histos[name+'/vbfMVA'].Fill(row.vbfMVA, weight)
+#        histos[name+'/vbfMass'].Fill(row.vbfMass, weight)
+#        histos[name+'/vbfDeta'].Fill(row.vbfDeta, weight)
 #        histos[name+'/vbfMassZTT'].Fill(row.vbfMassZTT, weight)
 #        histos[name+'/vbfDetaZTT'].Fill(row.vbfDetaZTT, weight)
         #histos[name+'/vbfj1eta'].Fill(row.vbfj1eta, weight)
@@ -508,6 +513,12 @@ class AnalyzeLFVMuMuMu(MegaBase):
                 goodGlobal3=False
     	 return ((row.m1PFIDLoose and row.m1ValidFraction > 0.8 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.8 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)) and(row.m3PFIDLoose and row.m3ValidFraction > 0.8 and ((goodGlobal3 and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)))
 
+#    def m1m2Mass(self,row):
+#        if row.m1_m2_Mass < 76:
+#           return False
+#        if row.m1_m2_Mass > 106:
+#           return False
+#        return True
     def m1m2Mass(self,row):
         if row.m1_m2_Mass < 76:
            return False
@@ -535,17 +546,19 @@ class AnalyzeLFVMuMuMu(MegaBase):
     #def obj1_iso(self, row):
     #    return bool(row.mRelPFIsoDBDefault <0.12)
    
-    def obj1_iso(self,row):
-         return bool(row.m1RelPFIsoDBDefault <0.15 and row.m2RelPFIsoDBDefault <0.15)
+    #def obj1_iso(self,row):
+    #     return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
 
+    def obj1_iso(self,row):
+         return bool(row.m1RelPFIsoDBDefaultR04 <0.20 and row.m2RelPFIsoDBDefaultR04 <0.20)
     def obj2_iso(self,row):
-         return bool(row.m3RelPFIsoDBDefault < 0.15)
+         return bool(row.m3RelPFIsoDBDefaultR04 < 0.15)
 
 
     def obj2_looseiso(self,row):
-         return bool(row.m3RelPFIsoDBDefault < 0.25)
+         return bool(row.m3RelPFIsoDBDefaultR04 < 0.25)
     def obj2_vlooseiso(self,row):
-         return bool(row.m3RelPFIsoDBDefault < 1.0)
+         return bool(row.m3RelPFIsoDBDefaultR04 < 1.0)
 
 
 
@@ -592,9 +605,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
             #    continue
 #            if not self.obj2_id_ICHEP (row):
 #                continue
-            #if (self.is_data):
-            #   if  row.bjetCISVVeto30Medium:
-            #       continue
+#            if (self.is_data):
+#               if  row.bjetCISVVeto30Medium:
+#                   continue
             if self.obj2_iso(row) and not self.oppositesign(row):
               self.fill_histos(row,'preselectionSS',False)
 
