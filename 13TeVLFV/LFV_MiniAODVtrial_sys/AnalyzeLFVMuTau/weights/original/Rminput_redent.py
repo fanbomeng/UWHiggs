@@ -16,14 +16,14 @@ with open('samplelist.txt') as f:
             print newline 
             shutil.copy(linesnew,'renamed/'+newline)
 
-         elif "_v6_ext4-v1" in linesnew:
-#            subline=linesnew.split('_v6-v1',1)
-            newline=linesnew.split('_v6_ext4-v1',1)[0]+linesnew.split('_v6_ext4-v1',1)[1]
-            print newline 
-            shutil.copy(linesnew,'renamed/'+newline)
          elif "_v6_ext1-v1" in linesnew:
 #            subline=linesnew.split('_v6-v1',1)
             newline=linesnew.split('_v6_ext1-v1',1)[0]+linesnew.split('_v6_ext1-v1',1)[1]
+            print newline 
+            shutil.copy(linesnew,'renamed/'+newline)
+         elif "_v6_ext4-v1" in linesnew:
+#            subline=linesnew.split('_v6-v1',1)
+            newline=linesnew.split('_v6_ext4-v1',1)[0]+linesnew.split('_v6_ext4-v1',1)[1]
             print newline 
             shutil.copy(linesnew,'renamed/'+newline)
 #         if "_v6_ext2-v1" in linesnew:

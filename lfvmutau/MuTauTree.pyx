@@ -2536,11 +2536,29 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMetPhi_branch
     cdef float type1_pfMetPhi_value
 
-    cdef TBranch* type1_pfMet_shiftedPhi_ElectronEnDown_branch
-    cdef float type1_pfMet_shiftedPhi_ElectronEnDown_value
+    cdef TBranch* type1_pfMet_shiftedPhi_CHARGEDUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_CHARGEDUESDown_value
 
-    cdef TBranch* type1_pfMet_shiftedPhi_ElectronEnUp_branch
-    cdef float type1_pfMet_shiftedPhi_ElectronEnUp_value
+    cdef TBranch* type1_pfMet_shiftedPhi_CHARGEDUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_CHARGEDUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_ECALUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_ECALUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_ECALUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_ECALUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_HCALUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_HCALUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_HCALUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_HCALUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_HFUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_HFUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPhi_HFUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_HFUESUp_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch
     cdef float type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_value
@@ -2565,12 +2583,6 @@ cdef class MuTauTree:
 
     cdef TBranch* type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch
     cdef float type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_JetCheckUESDown_branch
-    cdef float type1_pfMet_shiftedPhi_JetCheckUESDown_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_JetCheckUESUp_branch
-    cdef float type1_pfMet_shiftedPhi_JetCheckUESUp_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_JetEnDown_branch
     cdef float type1_pfMet_shiftedPhi_JetEnDown_value
@@ -2728,23 +2740,11 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMet_shiftedPhi_JetTotalUp_branch
     cdef float type1_pfMet_shiftedPhi_JetTotalUp_value
 
-    cdef TBranch* type1_pfMet_shiftedPhi_MuonEnDown_branch
-    cdef float type1_pfMet_shiftedPhi_MuonEnDown_value
+    cdef TBranch* type1_pfMet_shiftedPhi_RunIUESDown_branch
+    cdef float type1_pfMet_shiftedPhi_RunIUESDown_value
 
-    cdef TBranch* type1_pfMet_shiftedPhi_MuonEnUp_branch
-    cdef float type1_pfMet_shiftedPhi_MuonEnUp_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_PhotonEnDown_branch
-    cdef float type1_pfMet_shiftedPhi_PhotonEnDown_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_PhotonEnUp_branch
-    cdef float type1_pfMet_shiftedPhi_PhotonEnUp_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_TauEnDown_branch
-    cdef float type1_pfMet_shiftedPhi_TauEnDown_value
-
-    cdef TBranch* type1_pfMet_shiftedPhi_TauEnUp_branch
-    cdef float type1_pfMet_shiftedPhi_TauEnUp_value
+    cdef TBranch* type1_pfMet_shiftedPhi_RunIUESUp_branch
+    cdef float type1_pfMet_shiftedPhi_RunIUESUp_value
 
     cdef TBranch* type1_pfMet_shiftedPhi_UnclusteredEnDown_branch
     cdef float type1_pfMet_shiftedPhi_UnclusteredEnDown_value
@@ -2752,11 +2752,29 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMet_shiftedPhi_UnclusteredEnUp_branch
     cdef float type1_pfMet_shiftedPhi_UnclusteredEnUp_value
 
-    cdef TBranch* type1_pfMet_shiftedPt_ElectronEnDown_branch
-    cdef float type1_pfMet_shiftedPt_ElectronEnDown_value
+    cdef TBranch* type1_pfMet_shiftedPt_CHARGEDUESDown_branch
+    cdef float type1_pfMet_shiftedPt_CHARGEDUESDown_value
 
-    cdef TBranch* type1_pfMet_shiftedPt_ElectronEnUp_branch
-    cdef float type1_pfMet_shiftedPt_ElectronEnUp_value
+    cdef TBranch* type1_pfMet_shiftedPt_CHARGEDUESUp_branch
+    cdef float type1_pfMet_shiftedPt_CHARGEDUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_ECALUESDown_branch
+    cdef float type1_pfMet_shiftedPt_ECALUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_ECALUESUp_branch
+    cdef float type1_pfMet_shiftedPt_ECALUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_HCALUESDown_branch
+    cdef float type1_pfMet_shiftedPt_HCALUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_HCALUESUp_branch
+    cdef float type1_pfMet_shiftedPt_HCALUESUp_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_HFUESDown_branch
+    cdef float type1_pfMet_shiftedPt_HFUESDown_value
+
+    cdef TBranch* type1_pfMet_shiftedPt_HFUESUp_branch
+    cdef float type1_pfMet_shiftedPt_HFUESUp_value
 
     cdef TBranch* type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch
     cdef float type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_value
@@ -2944,23 +2962,11 @@ cdef class MuTauTree:
     cdef TBranch* type1_pfMet_shiftedPt_JetTotalUp_branch
     cdef float type1_pfMet_shiftedPt_JetTotalUp_value
 
-    cdef TBranch* type1_pfMet_shiftedPt_MuonEnDown_branch
-    cdef float type1_pfMet_shiftedPt_MuonEnDown_value
+    cdef TBranch* type1_pfMet_shiftedPt_RunIUESDown_branch
+    cdef float type1_pfMet_shiftedPt_RunIUESDown_value
 
-    cdef TBranch* type1_pfMet_shiftedPt_MuonEnUp_branch
-    cdef float type1_pfMet_shiftedPt_MuonEnUp_value
-
-    cdef TBranch* type1_pfMet_shiftedPt_PhotonEnDown_branch
-    cdef float type1_pfMet_shiftedPt_PhotonEnDown_value
-
-    cdef TBranch* type1_pfMet_shiftedPt_PhotonEnUp_branch
-    cdef float type1_pfMet_shiftedPt_PhotonEnUp_value
-
-    cdef TBranch* type1_pfMet_shiftedPt_TauEnDown_branch
-    cdef float type1_pfMet_shiftedPt_TauEnDown_value
-
-    cdef TBranch* type1_pfMet_shiftedPt_TauEnUp_branch
-    cdef float type1_pfMet_shiftedPt_TauEnUp_value
+    cdef TBranch* type1_pfMet_shiftedPt_RunIUESUp_branch
+    cdef float type1_pfMet_shiftedPt_RunIUESUp_value
 
     cdef TBranch* type1_pfMet_shiftedPt_UnclusteredEnDown_branch
     cdef float type1_pfMet_shiftedPt_UnclusteredEnDown_value
@@ -10831,23 +10837,77 @@ cdef class MuTauTree:
         else:
             self.type1_pfMetPhi_branch.SetAddress(<void*>&self.type1_pfMetPhi_value)
 
-        #print "making type1_pfMet_shiftedPhi_ElectronEnDown"
-        self.type1_pfMet_shiftedPhi_ElectronEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_ElectronEnDown")
-        #if not self.type1_pfMet_shiftedPhi_ElectronEnDown_branch and "type1_pfMet_shiftedPhi_ElectronEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_ElectronEnDown_branch and "type1_pfMet_shiftedPhi_ElectronEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_ElectronEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_ElectronEnDown")
+        #print "making type1_pfMet_shiftedPhi_CHARGEDUESDown"
+        self.type1_pfMet_shiftedPhi_CHARGEDUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_CHARGEDUESDown")
+        #if not self.type1_pfMet_shiftedPhi_CHARGEDUESDown_branch and "type1_pfMet_shiftedPhi_CHARGEDUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_CHARGEDUESDown_branch and "type1_pfMet_shiftedPhi_CHARGEDUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_CHARGEDUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_CHARGEDUESDown")
         else:
-            self.type1_pfMet_shiftedPhi_ElectronEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_ElectronEnDown_value)
+            self.type1_pfMet_shiftedPhi_CHARGEDUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_CHARGEDUESDown_value)
 
-        #print "making type1_pfMet_shiftedPhi_ElectronEnUp"
-        self.type1_pfMet_shiftedPhi_ElectronEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_ElectronEnUp")
-        #if not self.type1_pfMet_shiftedPhi_ElectronEnUp_branch and "type1_pfMet_shiftedPhi_ElectronEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_ElectronEnUp_branch and "type1_pfMet_shiftedPhi_ElectronEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_ElectronEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_ElectronEnUp")
+        #print "making type1_pfMet_shiftedPhi_CHARGEDUESUp"
+        self.type1_pfMet_shiftedPhi_CHARGEDUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_CHARGEDUESUp")
+        #if not self.type1_pfMet_shiftedPhi_CHARGEDUESUp_branch and "type1_pfMet_shiftedPhi_CHARGEDUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_CHARGEDUESUp_branch and "type1_pfMet_shiftedPhi_CHARGEDUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_CHARGEDUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_CHARGEDUESUp")
         else:
-            self.type1_pfMet_shiftedPhi_ElectronEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_ElectronEnUp_value)
+            self.type1_pfMet_shiftedPhi_CHARGEDUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_CHARGEDUESUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_ECALUESDown"
+        self.type1_pfMet_shiftedPhi_ECALUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_ECALUESDown")
+        #if not self.type1_pfMet_shiftedPhi_ECALUESDown_branch and "type1_pfMet_shiftedPhi_ECALUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_ECALUESDown_branch and "type1_pfMet_shiftedPhi_ECALUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_ECALUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_ECALUESDown")
+        else:
+            self.type1_pfMet_shiftedPhi_ECALUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_ECALUESDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_ECALUESUp"
+        self.type1_pfMet_shiftedPhi_ECALUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_ECALUESUp")
+        #if not self.type1_pfMet_shiftedPhi_ECALUESUp_branch and "type1_pfMet_shiftedPhi_ECALUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_ECALUESUp_branch and "type1_pfMet_shiftedPhi_ECALUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_ECALUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_ECALUESUp")
+        else:
+            self.type1_pfMet_shiftedPhi_ECALUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_ECALUESUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_HCALUESDown"
+        self.type1_pfMet_shiftedPhi_HCALUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_HCALUESDown")
+        #if not self.type1_pfMet_shiftedPhi_HCALUESDown_branch and "type1_pfMet_shiftedPhi_HCALUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_HCALUESDown_branch and "type1_pfMet_shiftedPhi_HCALUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_HCALUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_HCALUESDown")
+        else:
+            self.type1_pfMet_shiftedPhi_HCALUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_HCALUESDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_HCALUESUp"
+        self.type1_pfMet_shiftedPhi_HCALUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_HCALUESUp")
+        #if not self.type1_pfMet_shiftedPhi_HCALUESUp_branch and "type1_pfMet_shiftedPhi_HCALUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_HCALUESUp_branch and "type1_pfMet_shiftedPhi_HCALUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_HCALUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_HCALUESUp")
+        else:
+            self.type1_pfMet_shiftedPhi_HCALUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_HCALUESUp_value)
+
+        #print "making type1_pfMet_shiftedPhi_HFUESDown"
+        self.type1_pfMet_shiftedPhi_HFUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_HFUESDown")
+        #if not self.type1_pfMet_shiftedPhi_HFUESDown_branch and "type1_pfMet_shiftedPhi_HFUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_HFUESDown_branch and "type1_pfMet_shiftedPhi_HFUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_HFUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_HFUESDown")
+        else:
+            self.type1_pfMet_shiftedPhi_HFUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_HFUESDown_value)
+
+        #print "making type1_pfMet_shiftedPhi_HFUESUp"
+        self.type1_pfMet_shiftedPhi_HFUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_HFUESUp")
+        #if not self.type1_pfMet_shiftedPhi_HFUESUp_branch and "type1_pfMet_shiftedPhi_HFUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_HFUESUp_branch and "type1_pfMet_shiftedPhi_HFUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_HFUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_HFUESUp")
+        else:
+            self.type1_pfMet_shiftedPhi_HFUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_HFUESUp_value)
 
         #print "making type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown"
         self.type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown")
@@ -10920,24 +10980,6 @@ cdef class MuTauTree:
             #self.complained.add("type1_pfMet_shiftedPhi_JetAbsoluteStatUp")
         else:
             self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value)
-
-        #print "making type1_pfMet_shiftedPhi_JetCheckUESDown"
-        self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetCheckUESDown")
-        #if not self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch and "type1_pfMet_shiftedPhi_JetCheckUESDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch and "type1_pfMet_shiftedPhi_JetCheckUESDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetCheckUESDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_JetCheckUESDown")
-        else:
-            self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetCheckUESDown_value)
-
-        #print "making type1_pfMet_shiftedPhi_JetCheckUESUp"
-        self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetCheckUESUp")
-        #if not self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch and "type1_pfMet_shiftedPhi_JetCheckUESUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch and "type1_pfMet_shiftedPhi_JetCheckUESUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_JetCheckUESUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_JetCheckUESUp")
-        else:
-            self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetCheckUESUp_value)
 
         #print "making type1_pfMet_shiftedPhi_JetEnDown"
         self.type1_pfMet_shiftedPhi_JetEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_JetEnDown")
@@ -11407,59 +11449,23 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPhi_JetTotalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_JetTotalUp_value)
 
-        #print "making type1_pfMet_shiftedPhi_MuonEnDown"
-        self.type1_pfMet_shiftedPhi_MuonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_MuonEnDown")
-        #if not self.type1_pfMet_shiftedPhi_MuonEnDown_branch and "type1_pfMet_shiftedPhi_MuonEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_MuonEnDown_branch and "type1_pfMet_shiftedPhi_MuonEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_MuonEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_MuonEnDown")
+        #print "making type1_pfMet_shiftedPhi_RunIUESDown"
+        self.type1_pfMet_shiftedPhi_RunIUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_RunIUESDown")
+        #if not self.type1_pfMet_shiftedPhi_RunIUESDown_branch and "type1_pfMet_shiftedPhi_RunIUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_RunIUESDown_branch and "type1_pfMet_shiftedPhi_RunIUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_RunIUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_RunIUESDown")
         else:
-            self.type1_pfMet_shiftedPhi_MuonEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_MuonEnDown_value)
+            self.type1_pfMet_shiftedPhi_RunIUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_RunIUESDown_value)
 
-        #print "making type1_pfMet_shiftedPhi_MuonEnUp"
-        self.type1_pfMet_shiftedPhi_MuonEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_MuonEnUp")
-        #if not self.type1_pfMet_shiftedPhi_MuonEnUp_branch and "type1_pfMet_shiftedPhi_MuonEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_MuonEnUp_branch and "type1_pfMet_shiftedPhi_MuonEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_MuonEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_MuonEnUp")
+        #print "making type1_pfMet_shiftedPhi_RunIUESUp"
+        self.type1_pfMet_shiftedPhi_RunIUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_RunIUESUp")
+        #if not self.type1_pfMet_shiftedPhi_RunIUESUp_branch and "type1_pfMet_shiftedPhi_RunIUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPhi_RunIUESUp_branch and "type1_pfMet_shiftedPhi_RunIUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_RunIUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPhi_RunIUESUp")
         else:
-            self.type1_pfMet_shiftedPhi_MuonEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_MuonEnUp_value)
-
-        #print "making type1_pfMet_shiftedPhi_PhotonEnDown"
-        self.type1_pfMet_shiftedPhi_PhotonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_PhotonEnDown")
-        #if not self.type1_pfMet_shiftedPhi_PhotonEnDown_branch and "type1_pfMet_shiftedPhi_PhotonEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_PhotonEnDown_branch and "type1_pfMet_shiftedPhi_PhotonEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_PhotonEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_PhotonEnDown")
-        else:
-            self.type1_pfMet_shiftedPhi_PhotonEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_PhotonEnDown_value)
-
-        #print "making type1_pfMet_shiftedPhi_PhotonEnUp"
-        self.type1_pfMet_shiftedPhi_PhotonEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_PhotonEnUp")
-        #if not self.type1_pfMet_shiftedPhi_PhotonEnUp_branch and "type1_pfMet_shiftedPhi_PhotonEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_PhotonEnUp_branch and "type1_pfMet_shiftedPhi_PhotonEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_PhotonEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_PhotonEnUp")
-        else:
-            self.type1_pfMet_shiftedPhi_PhotonEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_PhotonEnUp_value)
-
-        #print "making type1_pfMet_shiftedPhi_TauEnDown"
-        self.type1_pfMet_shiftedPhi_TauEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_TauEnDown")
-        #if not self.type1_pfMet_shiftedPhi_TauEnDown_branch and "type1_pfMet_shiftedPhi_TauEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_TauEnDown_branch and "type1_pfMet_shiftedPhi_TauEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_TauEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_TauEnDown")
-        else:
-            self.type1_pfMet_shiftedPhi_TauEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_TauEnDown_value)
-
-        #print "making type1_pfMet_shiftedPhi_TauEnUp"
-        self.type1_pfMet_shiftedPhi_TauEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_TauEnUp")
-        #if not self.type1_pfMet_shiftedPhi_TauEnUp_branch and "type1_pfMet_shiftedPhi_TauEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPhi_TauEnUp_branch and "type1_pfMet_shiftedPhi_TauEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPhi_TauEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPhi_TauEnUp")
-        else:
-            self.type1_pfMet_shiftedPhi_TauEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_TauEnUp_value)
+            self.type1_pfMet_shiftedPhi_RunIUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_RunIUESUp_value)
 
         #print "making type1_pfMet_shiftedPhi_UnclusteredEnDown"
         self.type1_pfMet_shiftedPhi_UnclusteredEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPhi_UnclusteredEnDown")
@@ -11479,23 +11485,77 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPhi_UnclusteredEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPhi_UnclusteredEnUp_value)
 
-        #print "making type1_pfMet_shiftedPt_ElectronEnDown"
-        self.type1_pfMet_shiftedPt_ElectronEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_ElectronEnDown")
-        #if not self.type1_pfMet_shiftedPt_ElectronEnDown_branch and "type1_pfMet_shiftedPt_ElectronEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_ElectronEnDown_branch and "type1_pfMet_shiftedPt_ElectronEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_ElectronEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_ElectronEnDown")
+        #print "making type1_pfMet_shiftedPt_CHARGEDUESDown"
+        self.type1_pfMet_shiftedPt_CHARGEDUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_CHARGEDUESDown")
+        #if not self.type1_pfMet_shiftedPt_CHARGEDUESDown_branch and "type1_pfMet_shiftedPt_CHARGEDUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_CHARGEDUESDown_branch and "type1_pfMet_shiftedPt_CHARGEDUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_CHARGEDUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_CHARGEDUESDown")
         else:
-            self.type1_pfMet_shiftedPt_ElectronEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_ElectronEnDown_value)
+            self.type1_pfMet_shiftedPt_CHARGEDUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_CHARGEDUESDown_value)
 
-        #print "making type1_pfMet_shiftedPt_ElectronEnUp"
-        self.type1_pfMet_shiftedPt_ElectronEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_ElectronEnUp")
-        #if not self.type1_pfMet_shiftedPt_ElectronEnUp_branch and "type1_pfMet_shiftedPt_ElectronEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_ElectronEnUp_branch and "type1_pfMet_shiftedPt_ElectronEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_ElectronEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_ElectronEnUp")
+        #print "making type1_pfMet_shiftedPt_CHARGEDUESUp"
+        self.type1_pfMet_shiftedPt_CHARGEDUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_CHARGEDUESUp")
+        #if not self.type1_pfMet_shiftedPt_CHARGEDUESUp_branch and "type1_pfMet_shiftedPt_CHARGEDUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_CHARGEDUESUp_branch and "type1_pfMet_shiftedPt_CHARGEDUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_CHARGEDUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_CHARGEDUESUp")
         else:
-            self.type1_pfMet_shiftedPt_ElectronEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_ElectronEnUp_value)
+            self.type1_pfMet_shiftedPt_CHARGEDUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_CHARGEDUESUp_value)
+
+        #print "making type1_pfMet_shiftedPt_ECALUESDown"
+        self.type1_pfMet_shiftedPt_ECALUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_ECALUESDown")
+        #if not self.type1_pfMet_shiftedPt_ECALUESDown_branch and "type1_pfMet_shiftedPt_ECALUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_ECALUESDown_branch and "type1_pfMet_shiftedPt_ECALUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_ECALUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_ECALUESDown")
+        else:
+            self.type1_pfMet_shiftedPt_ECALUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_ECALUESDown_value)
+
+        #print "making type1_pfMet_shiftedPt_ECALUESUp"
+        self.type1_pfMet_shiftedPt_ECALUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_ECALUESUp")
+        #if not self.type1_pfMet_shiftedPt_ECALUESUp_branch and "type1_pfMet_shiftedPt_ECALUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_ECALUESUp_branch and "type1_pfMet_shiftedPt_ECALUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_ECALUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_ECALUESUp")
+        else:
+            self.type1_pfMet_shiftedPt_ECALUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_ECALUESUp_value)
+
+        #print "making type1_pfMet_shiftedPt_HCALUESDown"
+        self.type1_pfMet_shiftedPt_HCALUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_HCALUESDown")
+        #if not self.type1_pfMet_shiftedPt_HCALUESDown_branch and "type1_pfMet_shiftedPt_HCALUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_HCALUESDown_branch and "type1_pfMet_shiftedPt_HCALUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_HCALUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_HCALUESDown")
+        else:
+            self.type1_pfMet_shiftedPt_HCALUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_HCALUESDown_value)
+
+        #print "making type1_pfMet_shiftedPt_HCALUESUp"
+        self.type1_pfMet_shiftedPt_HCALUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_HCALUESUp")
+        #if not self.type1_pfMet_shiftedPt_HCALUESUp_branch and "type1_pfMet_shiftedPt_HCALUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_HCALUESUp_branch and "type1_pfMet_shiftedPt_HCALUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_HCALUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_HCALUESUp")
+        else:
+            self.type1_pfMet_shiftedPt_HCALUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_HCALUESUp_value)
+
+        #print "making type1_pfMet_shiftedPt_HFUESDown"
+        self.type1_pfMet_shiftedPt_HFUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_HFUESDown")
+        #if not self.type1_pfMet_shiftedPt_HFUESDown_branch and "type1_pfMet_shiftedPt_HFUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_HFUESDown_branch and "type1_pfMet_shiftedPt_HFUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_HFUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_HFUESDown")
+        else:
+            self.type1_pfMet_shiftedPt_HFUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_HFUESDown_value)
+
+        #print "making type1_pfMet_shiftedPt_HFUESUp"
+        self.type1_pfMet_shiftedPt_HFUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_HFUESUp")
+        #if not self.type1_pfMet_shiftedPt_HFUESUp_branch and "type1_pfMet_shiftedPt_HFUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_HFUESUp_branch and "type1_pfMet_shiftedPt_HFUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_HFUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_HFUESUp")
+        else:
+            self.type1_pfMet_shiftedPt_HFUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_HFUESUp_value)
 
         #print "making type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown"
         self.type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown")
@@ -12055,59 +12115,23 @@ cdef class MuTauTree:
         else:
             self.type1_pfMet_shiftedPt_JetTotalUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_JetTotalUp_value)
 
-        #print "making type1_pfMet_shiftedPt_MuonEnDown"
-        self.type1_pfMet_shiftedPt_MuonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_MuonEnDown")
-        #if not self.type1_pfMet_shiftedPt_MuonEnDown_branch and "type1_pfMet_shiftedPt_MuonEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_MuonEnDown_branch and "type1_pfMet_shiftedPt_MuonEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_MuonEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_MuonEnDown")
+        #print "making type1_pfMet_shiftedPt_RunIUESDown"
+        self.type1_pfMet_shiftedPt_RunIUESDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_RunIUESDown")
+        #if not self.type1_pfMet_shiftedPt_RunIUESDown_branch and "type1_pfMet_shiftedPt_RunIUESDown" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_RunIUESDown_branch and "type1_pfMet_shiftedPt_RunIUESDown":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_RunIUESDown does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_RunIUESDown")
         else:
-            self.type1_pfMet_shiftedPt_MuonEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_MuonEnDown_value)
+            self.type1_pfMet_shiftedPt_RunIUESDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_RunIUESDown_value)
 
-        #print "making type1_pfMet_shiftedPt_MuonEnUp"
-        self.type1_pfMet_shiftedPt_MuonEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_MuonEnUp")
-        #if not self.type1_pfMet_shiftedPt_MuonEnUp_branch and "type1_pfMet_shiftedPt_MuonEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_MuonEnUp_branch and "type1_pfMet_shiftedPt_MuonEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_MuonEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_MuonEnUp")
+        #print "making type1_pfMet_shiftedPt_RunIUESUp"
+        self.type1_pfMet_shiftedPt_RunIUESUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_RunIUESUp")
+        #if not self.type1_pfMet_shiftedPt_RunIUESUp_branch and "type1_pfMet_shiftedPt_RunIUESUp" not in self.complained:
+        if not self.type1_pfMet_shiftedPt_RunIUESUp_branch and "type1_pfMet_shiftedPt_RunIUESUp":
+            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_RunIUESUp does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("type1_pfMet_shiftedPt_RunIUESUp")
         else:
-            self.type1_pfMet_shiftedPt_MuonEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_MuonEnUp_value)
-
-        #print "making type1_pfMet_shiftedPt_PhotonEnDown"
-        self.type1_pfMet_shiftedPt_PhotonEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_PhotonEnDown")
-        #if not self.type1_pfMet_shiftedPt_PhotonEnDown_branch and "type1_pfMet_shiftedPt_PhotonEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_PhotonEnDown_branch and "type1_pfMet_shiftedPt_PhotonEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_PhotonEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_PhotonEnDown")
-        else:
-            self.type1_pfMet_shiftedPt_PhotonEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_PhotonEnDown_value)
-
-        #print "making type1_pfMet_shiftedPt_PhotonEnUp"
-        self.type1_pfMet_shiftedPt_PhotonEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_PhotonEnUp")
-        #if not self.type1_pfMet_shiftedPt_PhotonEnUp_branch and "type1_pfMet_shiftedPt_PhotonEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_PhotonEnUp_branch and "type1_pfMet_shiftedPt_PhotonEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_PhotonEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_PhotonEnUp")
-        else:
-            self.type1_pfMet_shiftedPt_PhotonEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_PhotonEnUp_value)
-
-        #print "making type1_pfMet_shiftedPt_TauEnDown"
-        self.type1_pfMet_shiftedPt_TauEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_TauEnDown")
-        #if not self.type1_pfMet_shiftedPt_TauEnDown_branch and "type1_pfMet_shiftedPt_TauEnDown" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_TauEnDown_branch and "type1_pfMet_shiftedPt_TauEnDown":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_TauEnDown does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_TauEnDown")
-        else:
-            self.type1_pfMet_shiftedPt_TauEnDown_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_TauEnDown_value)
-
-        #print "making type1_pfMet_shiftedPt_TauEnUp"
-        self.type1_pfMet_shiftedPt_TauEnUp_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_TauEnUp")
-        #if not self.type1_pfMet_shiftedPt_TauEnUp_branch and "type1_pfMet_shiftedPt_TauEnUp" not in self.complained:
-        if not self.type1_pfMet_shiftedPt_TauEnUp_branch and "type1_pfMet_shiftedPt_TauEnUp":
-            warnings.warn( "MuTauTree: Expected branch type1_pfMet_shiftedPt_TauEnUp does not exist!"                " It will crash if you try and use it!",Warning)
-            #self.complained.add("type1_pfMet_shiftedPt_TauEnUp")
-        else:
-            self.type1_pfMet_shiftedPt_TauEnUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_TauEnUp_value)
+            self.type1_pfMet_shiftedPt_RunIUESUp_branch.SetAddress(<void*>&self.type1_pfMet_shiftedPt_RunIUESUp_value)
 
         #print "making type1_pfMet_shiftedPt_UnclusteredEnDown"
         self.type1_pfMet_shiftedPt_UnclusteredEnDown_branch = the_tree.GetBranch("type1_pfMet_shiftedPt_UnclusteredEnDown")
@@ -17448,15 +17472,45 @@ cdef class MuTauTree:
             self.type1_pfMetPhi_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMetPhi_value
 
-    property type1_pfMet_shiftedPhi_ElectronEnDown:
+    property type1_pfMet_shiftedPhi_CHARGEDUESDown:
         def __get__(self):
-            self.type1_pfMet_shiftedPhi_ElectronEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_ElectronEnDown_value
+            self.type1_pfMet_shiftedPhi_CHARGEDUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_CHARGEDUESDown_value
 
-    property type1_pfMet_shiftedPhi_ElectronEnUp:
+    property type1_pfMet_shiftedPhi_CHARGEDUESUp:
         def __get__(self):
-            self.type1_pfMet_shiftedPhi_ElectronEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_ElectronEnUp_value
+            self.type1_pfMet_shiftedPhi_CHARGEDUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_CHARGEDUESUp_value
+
+    property type1_pfMet_shiftedPhi_ECALUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_ECALUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_ECALUESDown_value
+
+    property type1_pfMet_shiftedPhi_ECALUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_ECALUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_ECALUESUp_value
+
+    property type1_pfMet_shiftedPhi_HCALUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_HCALUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_HCALUESDown_value
+
+    property type1_pfMet_shiftedPhi_HCALUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_HCALUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_HCALUESUp_value
+
+    property type1_pfMet_shiftedPhi_HFUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_HFUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_HFUESDown_value
+
+    property type1_pfMet_shiftedPhi_HFUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPhi_HFUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_HFUESUp_value
 
     property type1_pfMet_shiftedPhi_JetAbsoluteFlavMapDown:
         def __get__(self):
@@ -17497,16 +17551,6 @@ cdef class MuTauTree:
         def __get__(self):
             self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_JetAbsoluteStatUp_value
-
-    property type1_pfMet_shiftedPhi_JetCheckUESDown:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_JetCheckUESDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_JetCheckUESDown_value
-
-    property type1_pfMet_shiftedPhi_JetCheckUESUp:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_JetCheckUESUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_JetCheckUESUp_value
 
     property type1_pfMet_shiftedPhi_JetEnDown:
         def __get__(self):
@@ -17768,35 +17812,15 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPhi_JetTotalUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_JetTotalUp_value
 
-    property type1_pfMet_shiftedPhi_MuonEnDown:
+    property type1_pfMet_shiftedPhi_RunIUESDown:
         def __get__(self):
-            self.type1_pfMet_shiftedPhi_MuonEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_MuonEnDown_value
+            self.type1_pfMet_shiftedPhi_RunIUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_RunIUESDown_value
 
-    property type1_pfMet_shiftedPhi_MuonEnUp:
+    property type1_pfMet_shiftedPhi_RunIUESUp:
         def __get__(self):
-            self.type1_pfMet_shiftedPhi_MuonEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_MuonEnUp_value
-
-    property type1_pfMet_shiftedPhi_PhotonEnDown:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_PhotonEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_PhotonEnDown_value
-
-    property type1_pfMet_shiftedPhi_PhotonEnUp:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_PhotonEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_PhotonEnUp_value
-
-    property type1_pfMet_shiftedPhi_TauEnDown:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_TauEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_TauEnDown_value
-
-    property type1_pfMet_shiftedPhi_TauEnUp:
-        def __get__(self):
-            self.type1_pfMet_shiftedPhi_TauEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPhi_TauEnUp_value
+            self.type1_pfMet_shiftedPhi_RunIUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPhi_RunIUESUp_value
 
     property type1_pfMet_shiftedPhi_UnclusteredEnDown:
         def __get__(self):
@@ -17808,15 +17832,45 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPhi_UnclusteredEnUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPhi_UnclusteredEnUp_value
 
-    property type1_pfMet_shiftedPt_ElectronEnDown:
+    property type1_pfMet_shiftedPt_CHARGEDUESDown:
         def __get__(self):
-            self.type1_pfMet_shiftedPt_ElectronEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_ElectronEnDown_value
+            self.type1_pfMet_shiftedPt_CHARGEDUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_CHARGEDUESDown_value
 
-    property type1_pfMet_shiftedPt_ElectronEnUp:
+    property type1_pfMet_shiftedPt_CHARGEDUESUp:
         def __get__(self):
-            self.type1_pfMet_shiftedPt_ElectronEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_ElectronEnUp_value
+            self.type1_pfMet_shiftedPt_CHARGEDUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_CHARGEDUESUp_value
+
+    property type1_pfMet_shiftedPt_ECALUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_ECALUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_ECALUESDown_value
+
+    property type1_pfMet_shiftedPt_ECALUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_ECALUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_ECALUESUp_value
+
+    property type1_pfMet_shiftedPt_HCALUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_HCALUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_HCALUESDown_value
+
+    property type1_pfMet_shiftedPt_HCALUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_HCALUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_HCALUESUp_value
+
+    property type1_pfMet_shiftedPt_HFUESDown:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_HFUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_HFUESDown_value
+
+    property type1_pfMet_shiftedPt_HFUESUp:
+        def __get__(self):
+            self.type1_pfMet_shiftedPt_HFUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_HFUESUp_value
 
     property type1_pfMet_shiftedPt_JetAbsoluteFlavMapDown:
         def __get__(self):
@@ -18128,35 +18182,15 @@ cdef class MuTauTree:
             self.type1_pfMet_shiftedPt_JetTotalUp_branch.GetEntry(self.localentry, 0)
             return self.type1_pfMet_shiftedPt_JetTotalUp_value
 
-    property type1_pfMet_shiftedPt_MuonEnDown:
+    property type1_pfMet_shiftedPt_RunIUESDown:
         def __get__(self):
-            self.type1_pfMet_shiftedPt_MuonEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_MuonEnDown_value
+            self.type1_pfMet_shiftedPt_RunIUESDown_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_RunIUESDown_value
 
-    property type1_pfMet_shiftedPt_MuonEnUp:
+    property type1_pfMet_shiftedPt_RunIUESUp:
         def __get__(self):
-            self.type1_pfMet_shiftedPt_MuonEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_MuonEnUp_value
-
-    property type1_pfMet_shiftedPt_PhotonEnDown:
-        def __get__(self):
-            self.type1_pfMet_shiftedPt_PhotonEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_PhotonEnDown_value
-
-    property type1_pfMet_shiftedPt_PhotonEnUp:
-        def __get__(self):
-            self.type1_pfMet_shiftedPt_PhotonEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_PhotonEnUp_value
-
-    property type1_pfMet_shiftedPt_TauEnDown:
-        def __get__(self):
-            self.type1_pfMet_shiftedPt_TauEnDown_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_TauEnDown_value
-
-    property type1_pfMet_shiftedPt_TauEnUp:
-        def __get__(self):
-            self.type1_pfMet_shiftedPt_TauEnUp_branch.GetEntry(self.localentry, 0)
-            return self.type1_pfMet_shiftedPt_TauEnUp_value
+            self.type1_pfMet_shiftedPt_RunIUESUp_branch.GetEntry(self.localentry, 0)
+            return self.type1_pfMet_shiftedPt_RunIUESUp_value
 
     property type1_pfMet_shiftedPt_UnclusteredEnDown:
         def __get__(self):

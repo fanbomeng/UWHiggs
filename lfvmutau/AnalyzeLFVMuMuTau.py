@@ -68,16 +68,15 @@ mc_corrector = mc_corrector_2016
 
 def getGenMfakeTSF(ABStEta):
     if (ABStEta>0 and ABStEta<0.4):
-       return 1.37
+       return 1.263
     if (ABStEta>0.4 and ABStEta<0.8):
-       return 1.2
+       return 1.364
     if (ABStEta>0.8 and ABStEta<1.2):
-       return 1.14
+       return 0.854
     if (ABStEta>1.2 and ABStEta<1.7):
-       return 1.0
+       return 1.712
     if (ABStEta>1.7 and ABStEta<2.3):
-       return 1.8
-
+       return 2.324
 
 class AnalyzeLFVMuMuTau(MegaBase):
     tree = 'mmt/final/Ntuple'
@@ -157,87 +156,6 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
       #  	       
 
-      #      #self.book(names[x], "tAgainstMuonLoose", "tAgainstMuonLoose", 2,-0.5,1.5)
-      #      self.book(names[x], "tAgainstMuonLoose3", "tAgainstMuonLoose3", 2,-0.5,1.5)
-      #      #self.book(names[x], "tAgainstMuonMedium", "tAgainstMuonMedium", 2,-0.5,1.5)
-      #      #self.book(names[x], "tAgainstMuonTight", "tAgainstMuonTight", 2,-0.5,1.5)
-      #      self.book(names[x], "tAgainstMuonTight3", "tAgainstMuonTight3", 2,-0.5,1.5)
-
-      #      #self.book(names[x], "tAgainstMuonLooseMVA", "tAgainstMuonLooseMVA", 2,-0.5,1.5)
-      #      #self.book(names[x], "tAgainstMuonMediumMVA", "tAgainstMuonMediumMVA", 2,-0.5,1.5)
-      #      #self.book(names[x], "tAgainstMuonTightMVA", "tAgainstMuonTightMVA", 2,-0.5,1.5)
-
-      #      self.book(names[x], "tDecayModeFinding", "tDecayModeFinding", 2,-0.5,1.5)
-      #      self.book(names[x], "tDecayModeFindingNewDMs", "tDecayModeFindingNewDMs", 2,-0.5,1.5)
-      #      self.book(names[x], "tDecayMode", "tDecayMode", 21,-0.5,20.5)
-
-
-      #      self.book(names[x], "tByLooseCombinedIsolationDeltaBetaCorr3Hits", "tByLooseCombinedIsolationDeltaBetaCorr3Hits", 2,-0.5,1.5)
-      #      self.book(names[x], "tByMediumCombinedIsolationDeltaBetaCorr3Hits", "tByMediumCombinedIsolationDeltaBetaCorr3Hits", 2,-0.5,1.5)
-      #      self.book(names[x], "tByTightCombinedIsolationDeltaBetaCorr3Hits", "tByTightCombinedIsolationDeltaBetaCorr3Hits", 2,-0.5,1.5)
-
-      #      self.book(names[x], 'm1PixHits', 'Mu 1 pix hits', 10, -0.5, 9.5)
-      #      self.book(names[x], 'm1JetBtag', 'Mu 1 JetBtag', 100, -5.5, 9.5)
-      #      self.book(names[x], 'm2PixHits', 'Mu 1 pix hits', 10, -0.5, 9.5)
-      #      self.book(names[x], 'm2JetBtag', 'Mu 1 JetBtag', 100, -5.5, 9.5)
-
-      #    
-      #      self.book(names[x], "LT", "ht", 400, 0, 400)
-      #      self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
-    
-      #      self.book(names[x], "m1_t_Mass", "Muon + Tau Mass", 200, 0, 200)
-      #      self.book(names[x], "m1_t_Pt", "Muon + Tau Pt", 200, 0, 200)
-      #      self.book(names[x], "m1_t_DR", "Muon + Tau DR", 100, 0, 10)
-      #      self.book(names[x], "m1_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
-      #      self.book(names[x], "m1_t_SS", "Muon + Tau SS", 5, -2, 2)
-      #      self.book(names[x], "m1_t_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
-      #      self.book(names[x], "m2_t_Mass", "Muon + Tau Mass", 200, 0, 200)
-      #      self.book(names[x], "m2_t_Pt", "Muon + Tau Pt", 200, 0, 200)
-      #      self.book(names[x], "m2_t_DR", "Muon + Tau DR", 100, 0, 10)
-      #      self.book(names[x], "m2_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
-      #      self.book(names[x], "m2_t_SS", "Muon + Tau SS", 5, -2, 2)
-      #      self.book(names[x], "m2_t_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
-      #      self.book(names[x], "m1_m2_Mass", "Dimuon Mass", 200, 0, 200)
-    
-      #      # Vetoes
-      #      self.book(names[x], 'muVetoPt5IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
-      #      self.book(names[x], 'muVetoPt15IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
-      #      self.book(names[x], 'tauVetoPt20Loose3HitsVtx', 'Number of extra taus', 5, -0.5, 4.5)
-      #      self.book(names[x], 'eVetoMVAIso', 'Number of extra CiC tight electrons', 5, -0.5, 4.5)
-   
-      #      #self.book(names[x], 'jetVeto30PUCleanedTight', 'Number of extra jets', 5, -0.5, 4.5)
-      #      #self.book(names[x], 'jetVeto30PUCleanedLoose', 'Number of extra jets', 5, -0.5, 4.5)
-      #      self.book(names[x], 'jetVeto30', 'Number of extra jets', 5, -0.5, 4.5)
-#     #       self.book(names[x], 'jetVeto30Eta3', 'Number of extra jets within |eta| < 3', 5, -0.5, 4.5)
-      #      #Isolation
-      #      self.book(names[x], 'm1RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
-      #      self.book(names[x], 'm2RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
-   
- 
-      #      self.book(names[x], "m1PhiMtPhi", "", 100, 0,4)
-      #      self.book(names[x], "m1PhiMETPhiType1", "", 100, 0,4)
-      #      self.book(names[x], "m2PhiMtPhi", "", 100, 0,4)
-      #      self.book(names[x], "m2PhiMETPhiType1", "", 100, 0,4)
-      #      self.book(names[x], "tPhiMETPhiType1", "", 100, 0,4)
-
-### vb#f ###
-      #      self.book(names[x], "vbfJetVeto30", "central jet veto for vbf", 5, -0.5, 4.5)
-      #      self.book(names[x], "vbfJetVeto20", "", 5, -0.5, 4.5)
-      #      self.book(names[x], "vbfMVA", "", 100, 0,0.5)
-      #      self.book(names[x], "vbfMass", "", 500,0,5000.0)
-      #      self.book(names[x], "vbfDeta", "", 100, -0.5,10.0)
-#     #       self.book(names[x], "vbfMassZTT", "", 500,0,5000.0)
-#     #       self.book(names[x], "vbfDetaZTT", "", 100, -0.5,10.0)
-      #      self.book(names[x], "vbfj1eta","",100,-2.5,2.5)
-      #      self.book(names[x], "vbfj2eta","",100,-2.5,2.5)
-      #      self.book(names[x], "vbfVispt","",100,0,200)
-      #      self.book(names[x], "vbfHrap","",100,0,5.0)
-      #      self.book(names[x], "vbfDijetrap","",100,0,5.0)
-      #      self.book(names[x], "vbfDphihj","",100,0,4)
-      #      self.book(names[x], "vbfDphihjnomet","",100,0,4)
-#            self.book(names[x], "vbfNJets", "g", 5, -0.5, 4.5)
-            #self.book(names[x], "vbfNJetsPULoose", "g", 5, -0.5, 4.5)
-            #self.book(names[x], "vbfNJetsPUTight", "g", 5, -0.5, 4.5)
 
     def correction(self,row):
 	return mc_corrector(row)

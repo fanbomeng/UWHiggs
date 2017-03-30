@@ -236,19 +236,22 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
          fakeRateFactor = fTauIso/(1.0-fTauIso)
          return fakeRateFactor
     def TauESC(self,row):
-        if  row.tDecayMode==0:
-            self.tau_Pt_C=0.982*row.tPt
-            self.MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
-        elif  row.tDecayMode==1:
-            self.tau_Pt_C=1.01*row.tPt
-            self.MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
-        elif  row.tDecayMode==10:
-            self.tau_Pt_C=1.004*row.tPt
-            self.MET_tPtC=row.type1_pfMetEt-0.004*row.tPt	
+        if (not self.is_data):
+           if  row.tDecayMode==0:
+               self.tau_Pt_C=0.982*row.tPt
+               self.MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
+           elif  row.tDecayMode==1:
+               self.tau_Pt_C=1.01*row.tPt
+               self.MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
+           elif  row.tDecayMode==10:
+               self.tau_Pt_C=1.004*row.tPt
+               self.MET_tPtC=row.type1_pfMetEt-0.004*row.tPt	
+           else:
+               self.tau_Pt_C=0
+               self.MET_tPtC=0
         else:
-            self.tau_Pt_C=0
-            self.MET_tPtC=0
-
+               self.tau_Pt_C=row.tPt
+               self.MET_tPtC=row.type1_pfMetEt
     def collMass_type1_v2(self,row,muonlorenz,taulorenz,metpx,metpy):
             taupx=taulorenz.Px()
             taupy=taulorenz.Py()
@@ -654,7 +657,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
             self.VariableCalculateTaucorrection(row)
             if self.is_data:
                #if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):  
-               if self.obj2_iso_NT_VLoose(row) and not self.oppositesign(row):  
+               if self.obj2_iso_NT_VLoose(row) and (not self.oppositesign(row)):  
                     #self.fill_histos(row,'preselection',False)
                     self.filltree(row,row,True)
             if not self.is_data:

@@ -30,8 +30,8 @@ export farmout=1
 
 export dryrun=0
 export farmout=0
-export MEGAPATH=/hdfs/store/user/taroni/
-export jobid=LFVtrileptons_Dec7/
+export MEGAPATH=/hdfs/store/user/ndev/
+export jobid=tesLFV15mar/
 export dryrun=1
 export farmout=1
 
@@ -94,13 +94,6 @@ export jobid=SMHTT_jan31/
 export dryrun=1
 export farmout=1
 
-export dryrun=0
-export farmout=0
-export MEGAPATH=/hdfs/store/user/caillol/
-export jobid=SMHTT_reminiaod_feb14/
-export dryrun=1
-export farmout=1
-
 
 export dryrun=0
 export farmout=0
@@ -109,6 +102,20 @@ export jobid=LFV_reminiaod_feb18/
 export dryrun=1
 export farmout=1
 
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/ndev/
+export jobid=LFV_Mar15_mc/
+export dryrun=1
+export farmout=1
+
+export dryrun=0
+export farmout=0
+export MEGAPATH=/hdfs/store/user/ndev/
+export jobid=LFV_Mar15_data/
+export dryrun=1
+export farmout=1
 
 export dryrun=0
 export farmout=0

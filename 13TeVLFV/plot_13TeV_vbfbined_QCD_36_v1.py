@@ -426,6 +426,8 @@ if 'Jet' in shift:
    channelSys=channel+'_'+shift
    channel=channelSys
 print "line 423 %s " %channel
+if 'TES' in shift:
+  channel=channelNoral
 zjets = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 zjetslow = make_histo(savedir,"DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 #do_binbybinQCD(zjets,lowDataBin,highDataBin)
@@ -491,6 +493,8 @@ if DY_bin:
    zlljets.Add(zlljetsfakes)
   # print "after fakes the zll number %f" %(zlljets.Integral())
 
+if 'TES' in shift:
+  channel=channelSys
 ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 ztautaulow = make_histo(savedir,"ZTauTauJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
 #do_binbybinQCD(ztautau,lowDataBin,highDataBin)

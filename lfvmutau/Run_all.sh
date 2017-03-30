@@ -15,7 +15,8 @@ export systematic=none
 #export jobid=SMHTT_oct25
 #export jobid=SMHTT_jan11_v2
 #export jobid=SMHTT_reminiaod_feb14
-export jobid=LFV_reminiaod_feb18
+#export jobid=LFV_reminiaod_feb18
+export jobid=LFV_Mar15_mc
 #export jobid=LFVdata_ExtraG_Hnew
 #export isRealData=true
 export isZTauTau=false
@@ -33,7 +34,8 @@ export isInclusive=false   #ZeroJet
 export isRealData=true
 #rake analyzeSpring2016WjetsandDataprogress
 #rake  analyzeSpring2016WjetsandDataprogressVIrake analyzeSpring2016WjetsandDataprogressVIS_TT 
-rake   AnalyzeLFVMuTau_progress_TES3_Fakshape
+#rake   AnalyzeLFVMuTau_progress_TES3_Fakshape_v3
+rake AnalyzeLFVMuTau_progress_TES3_Fakshape_v5 
 #rake analyzeSpring2016WjetsandData
 #rake analyzeSpring2016WjetsandDataPostBDT_progress_v2
 #rake analyzeSpring2016WjetsandDataprogress36

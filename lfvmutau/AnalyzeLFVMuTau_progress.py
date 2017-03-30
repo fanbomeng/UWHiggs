@@ -36,8 +36,8 @@ RUN_OPTIMIZATION=False
 #fakeset= False
 btagSys=0
 fakeset= True
-#MetCorrection=True
-MetCorrection=False
+MetCorrection=True
+#MetCorrection=False
 systematic = 'none'
 #wjets_fakes=True
 wjets_fakes=False
@@ -717,6 +717,7 @@ class AnalyzeLFVMuTau_progress(MegaBase):
            else:
               self.tmpMet=self.Metcorected.CorrectByMeanResolution(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),row.type1_pfMetEt*math.sin(row.type1_pfMetPhi),row.genpX,row.genpY,row.vispX,row.vispY,int(round(row.jetVeto30)))#,self.pfmetcorr_ex,self.pfmetcorr_ey)
            #MetPt4=[math.sqrt(self.tmpMet[0]*self.tmpMet[0]+self.tmpMet[1]*self.tmpMet[1]),self.tmpMet[0],self.tmpMet[1],0]
+           print 'Met Before %f and after %f' %(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),self.tmpMet[0])
            MetRecoillorenz=ROOT.TLorentzVector()
            TauRecoillorenz=ROOT.TLorentzVector()
            MetPhi=math.atan2(self.tmpMet[1],self.tmpMet[0])
@@ -787,7 +788,7 @@ class AnalyzeLFVMuTau_progress(MegaBase):
         #   histos[name+'/type1_pfMetEtNormal'].Fill(row.type1_pfMetEt,weight)
            if self.ls_recoilC and MetCorrection:
               histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1MetC,weight)
-              histos[name+'/type1_pfMetEt'].Fill(self.type1_pfMetEtC,weight)
+              #histos[name+'/type1_pfMetEt'].Fill(self.type1_pfMetEtC,weight)
            else:
               histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
         #      histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
@@ -830,7 +831,7 @@ class AnalyzeLFVMuTau_progress(MegaBase):
            histos[name+'/mEta'].Fill(row.mEta, weight)
            histos[name+'/tEta'].Fill(row.tEta, weight)
            histos[name+'/tPhi'].Fill(row.tPhi, weight)
-       	   histos[name+'/type1_pfMetEt'].Fill(self.MET_tPtC,weight)
+       	  # histos[name+'/type1_pfMetEt'].Fill(self.MET_tPtC,weight)
            histos[name+'/m_t_Mass'].Fill(row.m_t_Mass,weight)
            histos[name+'/m_t_DR'].Fill(row.m_t_DR,weight)
            histos[name+'/m_t_DPhi'].Fill(row.m_t_DPhi,weight)

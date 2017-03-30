@@ -174,29 +174,7 @@ def getGenMfakeTSF(ABStEta):
 #     return fakeRateFactor
 #
 
-def getFakeRateFactormuonabsEta(row, fakeset):   #old
-     if fakeset=="def":
-          fTauIso=0.825162
-     if fakeset=="1stUp":
-        fTauIso=0.825162+0.013674
-     if fakeset=="1stDown":
-        fTauIso=0.825162-0.013674
-     fakeRateFactor = fTauIso/(1.0-fTauIso)
-     return fakeRateFactor
 
-def getFakeRateFactor(row, fakeset):
-  if fakeset=="def":
-     fTauIso= 0.2089 - 0.00113*(self.tau_Pt_C-30)
-  if fakeset=="1stUp":
-     fTauIso= 0.212105 - 0.00111905*(self.tau_Pt_C-30)
-  if fakeset=="1stDown":
-     fTauIso= 0.205715  - 0.00113831*(self.tau_Pt_C-30)
-  if fakeset=="2ndUp":
-     fTauIso= 0.20891  - 0.00088892*(self.tau_Pt_C-30)
-  if fakeset=="2ndDown":
-     fTauIso= 0.208909  - 0.00136844*(self.tau_Pt_C-30)
-  fakeRateFactor = fTauIso/(1.0-fTauIso)
-  return fakeRateFactor
 ################################################################################
 #### MC-DATA and PU corrections ################################################
 ################################################################################
@@ -289,7 +267,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
         if self.Sysin and (not self.is_data):
        #    name=[]
            sysneed=['MESUp','MESDown','TES0Up','TES0Down','TES1Up','TES1Down','TES10Up','TES10Down','UESUp','UESDown']
-           basechannels=['gg','boost','vbf_gg','vbf_vbf','ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT','vbf_ggNotIso','vbf_ggNotIsoM','vbf_ggNotIsoMT','vbf_vbfNotIso','vbf_vbfNotIsoM','vbf_vbfNotIsoMT']
+           basechannels=['gg','boost','vbf_gg','vbf_vbf']
            for i in sysneed:
                for j in basechannels:
                    names.append(j+i)                    
@@ -576,32 +554,35 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
                   else:
                       print "rare decay mode %f" %row.tDecayMode
                       fTauIso=0
-               if self.DoFakeshapeDM==2017011:  # 0(DM)   1(first parameter) 1(up)
+               elif self.DoFakeshapeDM==2017011:  # 0(DM)   1(first parameter) 1(up)
                       fTauIso=(0.240806+0.007519)-0.000836112*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017012:  # 0(DM)   1(first parameter) 2(down)
+               elif self.DoFakeshapeDM==2017012:  # 0(DM)   1(first parameter) 2(down)
                       fTauIso=(0.240806-0.007519)-0.000836112*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017021:  # 0(DM)   2(second parameter) 1(up)
+               elif self.DoFakeshapeDM==2017021:  # 0(DM)   2(second parameter) 1(up)
                       fTauIso=(0.240806)-(0.000836112+0.00036459)*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017022:  # 0(DM)   1(second parameter) 2(down)
+               elif self.DoFakeshapeDM==2017022:  # 0(DM)   1(second parameter) 2(down)
                       fTauIso=(0.240806)-(0.000836112-0.00036459)*(self.tau_Pt_C-30)
 
-               if self.DoFakeshapeDM==2017111:  # 1(DM)   1(first parameter) 1(up)
+               elif self.DoFakeshapeDM==2017111:  # 1(DM)   1(first parameter) 1(up)
                       fTauIso=(0.235014+0.00409215)-0.000837926*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017112:  # 1(DM)   1(first parameter) 2(down)
+               elif self.DoFakeshapeDM==2017112:  # 1(DM)   1(first parameter) 2(down)
                       fTauIso=(0.235014-0.00409215)-0.000837926*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017121:  # 1(DM)   2(second parameter) 1(up)
+               elif self.DoFakeshapeDM==2017121:  # 1(DM)   2(second parameter) 1(up)
                       fTauIso=(0.235014)-(0.000837926+0.000187484)*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==2017122:  # 1(DM)   2(second parameter) 2(down)
+               elif self.DoFakeshapeDM==2017122:  # 1(DM)   2(second parameter) 2(down)
                       fTauIso=(0.235014)-(0.000837926-0.000187484)*(self.tau_Pt_C-30)
 
-               if self.DoFakeshapeDM==20171011:  # 10(DM)   1(first parameter) 1(up)
+               elif self.DoFakeshapeDM==20171011:  # 10(DM)   1(first parameter) 1(up)
                       fTauIso=(0.185752+0.00426987)-0.000457377*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==20171012:  # 10(DM)   1(first parameter) 2(down)
+               elif self.DoFakeshapeDM==20171012:  # 10(DM)   1(first parameter) 2(down)
                       fTauIso=(0.185752-0.00426987)-0.000457377*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==20171021:  # 10(DM)   2(second parameter) 1(up)
+               elif self.DoFakeshapeDM==20171021:  # 10(DM)   2(second parameter) 1(up)
                       fTauIso=(0.185752)-(0.000457377+0.00021886)*(self.tau_Pt_C-30)
-               if self.DoFakeshapeDM==20171022:  # 10(DM)   2(second parameter) 2(down)
+               elif self.DoFakeshapeDM==20171022:  # 10(DM)   2(second parameter) 2(down)
                       fTauIso=(0.185752)-(0.000457377-0.00021886)*(self.tau_Pt_C-30)
+               else:
+                    print 'bug in the fake rate ratio!!!!!!!!!!!!!!!!!!!'
+                    print 'the self.DoFakeshapeDM in this bug case is %f' %self.DoFakeshapeDM
         #    if self.DoFakeshapeDM:
 #               print 'the tau fake shape value %f and the ratio value %f' %(self.DoFakeshapeDM,fTauIso)
             if self.DoTES==1:
@@ -1018,7 +999,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
         #histos[name+'/vbfNJets30PULoose'].Fill(row.vbfNJets30PULoose, weight)
         #histos[name+'/vbfNJets30PUTight'].Fill(row.vbfNJets30PUTight, weight)
     def TauESC(self,row):
-        if not self.is_data:
+        if (not self.is_data) and (not self.ls_DY):
            if  row.tDecayMode==0:
                tau_Pt_C=0.982*row.tPt
                MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
@@ -1097,53 +1078,77 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
               tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
               return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaMESDown[0])
            if self.DoUES==1:
-              if  row.tDecayMode==0:
-                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp+0.018*row.tPt
-              if  row.tDecayMode==1:
-                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.01*row.tPt
-              if  row.tDecayMode==10:
-                  UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.004*row.tPt
-              tmpHulaUESUp=Systematics.UESup(UES_shiftedMetup,row.type1_pfMet_shiftedPhi_UnclusteredEnUp)
-              taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
-              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
-              metlorenz.SetPtEtaPhiM(tmpHulaUESUp[0],0,tmpHulaUESUp[3],0)
-              collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESUp[1],tmpHulaUESUp[2])
-              tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+              if not self.ls_DY:
+                 if  row.tDecayMode==0:
+                     UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp+0.018*row.tPt
+                 if  row.tDecayMode==1:
+                     UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.01*row.tPt
+                 if  row.tDecayMode==10:
+                     UES_shiftedMetup=row.type1_pfMet_shiftedPt_UnclusteredEnUp-0.004*row.tPt
+                 tmpHulaUESUp=Systematics.UESup(UES_shiftedMetup,row.type1_pfMet_shiftedPhi_UnclusteredEnUp)
+                 taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+                 muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+                 metlorenz.SetPtEtaPhiM(tmpHulaUESUp[0],0,tmpHulaUESUp[3],0)
+                 collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESUp[1],tmpHulaUESUp[2])
+                 tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+              else:
+                 tmpHulaUESUp=Systematics.UESup(row.type1_pfMet_shiftedPt_UnclusteredEnUp,row.type1_pfMet_shiftedPhi_UnclusteredEnUp)
+                 taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
+                 muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+                 metlorenz.SetPtEtaPhiM(tmpHulaUESUp[0],0,tmpHulaUESUp[3],0)
+                 collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESUp[1],tmpHulaUESUp[2])
+                 tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
               return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaUESUp[0])
            if self.DoUES==2:
-              if  row.tDecayMode==0:
-                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown+0.018*row.tPt
-              if  row.tDecayMode==1:
-                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.01*row.tPt
-              if  row.tDecayMode==10:
-                  UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.004*row.tPt
-              tmpHulaUESDown=Systematics.UESdown(UES_shiftedMetdown,row.type1_pfMet_shiftedPhi_UnclusteredEnDown)
-              taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
-              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
-              metlorenz.SetPtEtaPhiM(tmpHulaUESDown[0],0,tmpHulaUESDown[3],0)
-              collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESDown[1],tmpHulaUESDown[2])
-              tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-              return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaUESDown[0])
+              if not self.ls_DY:
+                 if  row.tDecayMode==0:
+                     UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown+0.018*row.tPt
+                 if  row.tDecayMode==1:
+                     UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.01*row.tPt
+                 if  row.tDecayMode==10:
+                     UES_shiftedMetdown=row.type1_pfMet_shiftedPt_UnclusteredEnDown-0.004*row.tPt
+                 tmpHulaUESDown=Systematics.UESdown(UES_shiftedMetdown,row.type1_pfMet_shiftedPhi_UnclusteredEnDown)
+                 taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+                 muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+                 metlorenz.SetPtEtaPhiM(tmpHulaUESDown[0],0,tmpHulaUESDown[3],0)
+                 collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESDown[1],tmpHulaUESDown[2])
+                 tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+                 return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaUESDown[0])
+              else:
+                 tmpHulaUESDown=Systematics.UESdown(row.type1_pfMet_shiftedPt_UnclusteredEnDown,row.type1_pfMet_shiftedPhi_UnclusteredEnDown)
+                 taulorenz.SetPtEtaPhiM(row.tPt,row.tEta,row.tPhi,row.tMass) 
+                 muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+                 metlorenz.SetPtEtaPhiM(tmpHulaUESDown[0],0,tmpHulaUESDown[3],0)
+                 collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESDown[1],tmpHulaUESDown[2])
+                 tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+                 return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaUESDown[0])
     def VariableCalculateJES(self,row,JESShiftedMet,JESShiftedPhi,tau_Pt_C):
            taulorenz=ROOT.TLorentzVector()
            muonlorenz=ROOT.TLorentzVector()             
            metlorenz=ROOT.TLorentzVector() 
+           if not self.ls_DY:
+              if  row.tDecayMode==0:
+                  JESShiftedMet_new=JESShiftedMet+0.018*row.tPt
+              if  row.tDecayMode==1:
+                  JESShiftedMet_new=JESShiftedMet-0.01*row.tPt
+              if  row.tDecayMode==10:
+                  JESShiftedMet_new=JESShiftedMet-0.004*row.tPt
 
-           if  row.tDecayMode==0:
-               JESShiftedMet_new=JESShiftedMet+0.018*row.tPt
-           if  row.tDecayMode==1:
-               JESShiftedMet_new=JESShiftedMet-0.01*row.tPt
-           if  row.tDecayMode==10:
-               JESShiftedMet_new=JESShiftedMet-0.004*row.tPt
-
-           #print 'at line 871 the MES %f ' %self.DoMES
-           tmpHulaJES=(JESShiftedMet_new,JESShiftedPhi)
-           taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
-           muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
-           metlorenz.SetPtEtaPhiM(tmpHulaJES[0],0,tmpHulaJES[1],0)
-           collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaJES[0]*math.cos(tmpHulaJES[1]),tmpHulaJES[0]*math.sin(tmpHulaJES[1]))
-           tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
-           return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new)
+              #print 'at line 871 the MES %f ' %self.DoMES
+              tmpHulaJES=(JESShiftedMet_new,JESShiftedPhi)
+              taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+              metlorenz.SetPtEtaPhiM(tmpHulaJES[0],0,tmpHulaJES[1],0)
+              collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaJES[0]*math.cos(tmpHulaJES[1]),tmpHulaJES[0]*math.sin(tmpHulaJES[1]))
+              tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+           else:
+              tmpHulaJES=(JESShiftedMet,JESShiftedPhi)
+              taulorenz.SetPtEtaPhiM(tau_Pt_C,row.tEta,row.tPhi,row.tMass) 
+              muonlorenz.SetPtEtaPhiM(row.mPt,row.mEta,row.mPhi,row.mMass) 
+              metlorenz.SetPtEtaPhiM(tmpHulaJES[0],0,tmpHulaJES[1],0)
+              collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaJES[0]*math.cos(tmpHulaJES[1]),tmpHulaJES[0]*math.sin(tmpHulaJES[1]))
+              tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
+           return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new) 
     def presel(self, row):
        # if not (row.singleIsoMu20Pass or row.singleIsoTkMu20Pass):
         #if not (row.singleIsoMu22Pass or row.singleIsoTkMu22Pass):
@@ -2223,34 +2228,6 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
                                if eval(tmpname_2):
                                     self.fill_histos(row,j[1]+i,False)
                        #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
-                        for j in basechannelsII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+i,True)
-                       #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if self.obj2_iso(row) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+i,True,faketype="muonfake")
-                       #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIIII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+i,True,faketype="mtfake")
-                     #self.SetsysZero(row)
-              #   print "Current DM %s and real value %f" %(DMinstring,row.tDecayMode)
-              #   print 'the TES names'
-              #   print sysneedTES
-                    
-
-
- 
                  for k in baseJESsys:
                      self.SetsysZero(row)
                      if 'Up' in k:
@@ -2282,94 +2259,28 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape(MegaBase):
                                else:
                                    if  eval(tmpname_2):
                                        self.fill_histos(row,j[1]+k,False)
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
-                        for j in basechannelsII: 
-                           if  eval(tmpname_3)==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if ('vbf_gg' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)<550:
-                                      self.fill_histos(row,j[1]+k,True)
-                               elif ('vbf_vbf' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)>=550:
-                                      self.fill_histos(row,j[1]+k,True)
-                               else:
-                                   if  eval(tmpname_2):
-                                       self.fill_histos(row,j[1]+k,True)
-                     if self.obj2_iso(row) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIII: 
-                           if  eval(tmpname_3)==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if ('vbf_gg' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)<550:
-                                      self.fill_histos(row,j[1]+k,True,faketype="muonfake")
-                               elif ('vbf_vbf' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)>=550:
-                                      self.fill_histos(row,j[1]+k,True,faketype="muonfake")
-                               else:
-                                   if  eval(tmpname_2):
-                                       self.fill_histos(row,j[1]+k,True,faketype="muonfake")
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIIII: 
-                           if  eval(tmpname_3)==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if ('vbf_gg' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)<550:
-                                      self.fill_histos(row,j[1]+k,True,faketype="mtfake")
-                               elif ('vbf_vbf' in j[1]):
-                                   tmpname_4='row.vbfMass_'+k.split('_CMS_',1)[1]
-                                   if eval(tmpname_2) and eval(tmpname_4)>=550:
-                                      self.fill_histos(row,j[1]+k,True,faketype="mtfake")
-                               else:
-                                   if  eval(tmpname_2):
-                                       self.fill_histos(row,j[1]+k,True,faketype="mtfake")
-
-                 for L in sysneedTES:
-                     self.SetsysZero(row)
-                     tmpname='self.DoTES'
-                     if 'Up' in L and (L.split('Up',1)[0]).split('TES',1)[1]==DMinstring:
-                        exec("%s = %d" % (tmpname,1))                   
-                      #  cheksiski=True
-                        #exec("%s = %d" % ((tmpname,(M.split('Up',1)[0]).split('TES',1)[1]))                   
-                     elif 'Down' in L and (L.split('Down',1)[0]).split('TES',1)[1]==DMinstring:
-                        exec("%s = %d" % (tmpname,2))                   
-                      #  cheksiski=True
-                     else:
-                      #  cheksiski=False
-                        exec("%s = %d" % (tmpname,3))                   
-                     self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.MorTPtshifted=self.VariableCalculate(row,self.tau_Pt_C,self.MET_tPtC)
-                     if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
-                        for j in basechannelsI: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+L,False)
-                       #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
-                        for j in basechannelsII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+L,True)
-                       #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if self.obj2_iso(row) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+L,True,faketype="muonfake")
-                       #             print 'at line 1892 the name of the folder %s' %tmpname_2
-                     if (not self.obj2_iso(row)) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
-                        for j in basechannelsIIII: 
-                           if  row.jetVeto30==j[0]:
-                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
-                               if eval(tmpname_2):
-                                    self.fill_histos(row,j[1]+L,True,faketype="mtfake")
-                     #self.SetsysZero(row)
+                 if not self.ls_DY:
+                    for L in sysneedTES:
+                        self.SetsysZero(row)
+                        tmpname='self.DoTES'
+                        if 'Up' in L and (L.split('Up',1)[0]).split('TES',1)[1]==DMinstring:
+                           exec("%s = %d" % (tmpname,1))                   
+                         #  cheksiski=True
+                           #exec("%s = %d" % ((tmpname,(M.split('Up',1)[0]).split('TES',1)[1]))                   
+                        elif 'Down' in L and (L.split('Down',1)[0]).split('TES',1)[1]==DMinstring:
+                           exec("%s = %d" % (tmpname,2))                   
+                         #  cheksiski=True
+                        else:
+                         #  cheksiski=False
+                           exec("%s = %d" % (tmpname,3))                   
+                        self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.MorTPtshifted=self.VariableCalculate(row,self.tau_Pt_C,self.MET_tPtC)
+                        if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
+                           for j in basechannelsI: 
+                              if  row.jetVeto30==j[0]:
+                                  tmpname_2='self.'+j[1]+'(row)'
+                                  if eval(tmpname_2):
+                                       self.fill_histos(row,j[1]+L,False)
+                          #             print 'at line 1892 the name of the folder %s' %tmpname_2
             self.SetsysZero(row)
             sel=True
 

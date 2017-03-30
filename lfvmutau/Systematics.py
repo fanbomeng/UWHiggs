@@ -8,11 +8,11 @@
 #mymet.SetPtEtaPhiM(met,0,metphi,0);
 import math
 def TESup(mytau,mymet,mytauphi,mymetphi):
-    mytau=1.006*mytau
+    mytau=1.012*mytau
     tauex=mytau*math.cos(mytauphi)
     tauey=mytau*math.sin(mytauphi)
-    mex = mymet*math.cos(mymetphi)-0.006*(tauex/1.006)
-    mey = mymet*math.sin(mymetphi)-0.006*(tauey/1.006)
+    mex = mymet*math.cos(mymetphi)-0.012*(tauex/1.012)
+    mey = mymet*math.sin(mymetphi)-0.012*(tauey/1.012)
     return (mytau,tauex,tauey,abs(math.sqrt(mex*mex+mey*mey)),mex,mey)
 #if (TESup){
 #    mytau=1.03*mytau;
@@ -21,11 +21,25 @@ def TESup(mytau,mymet,mytauphi,mymetphi):
 #    mymet.SetPxPyPzE(mex,mey,0,sqrt(mex*mex+mey*mey));
 #}
 def TESdown(mytau,mymet,mytauphi,mymetphi):
-    mytau=0.994*mytau
+    mytau=0.988*mytau
     tauex=mytau*math.cos(mytauphi)
     tauey=mytau*math.sin(mytauphi)
-    mex = mymet*math.cos(mymetphi)+0.006*(tauex/0.994)
-    mey = mymet*math.sin(mymetphi)+0.006*(tauey/0.994)
+    mex = mymet*math.cos(mymetphi)+0.012*(tauex/0.988)
+    mey = mymet*math.sin(mymetphi)+0.012*(tauey/0.988)
+    return (mytau,tauex,tauey,abs(math.sqrt(mex*mex+mey*mey)),mex,mey)
+def MFTup(mytau,mymet,mytauphi,mymetphi):
+    mytau=1.015*mytau
+    tauex=mytau*math.cos(mytauphi)
+    tauey=mytau*math.sin(mytauphi)
+    mex = mymet*math.cos(mymetphi)-0.015*(tauex/1.015)
+    mey = mymet*math.sin(mymetphi)-0.015*(tauey/1.015)
+    return (mytau,tauex,tauey,abs(math.sqrt(mex*mex+mey*mey)),mex,mey)
+def MFTdown(mytau,mymet,mytauphi,mymetphi):
+    mytau=0.985*mytau
+    tauex=mytau*math.cos(mytauphi)
+    tauey=mytau*math.sin(mytauphi)
+    mex = mymet*math.cos(mymetphi)+0.015*(tauex/0.985)
+    mey = mymet*math.sin(mymetphi)+0.015*(tauey/0.985)
     return (mytau,tauex,tauey,abs(math.sqrt(mex*mex+mey*mey)),mex,mey)
 #else if (TESdown){
 #    mytau=0.97*mytau;
