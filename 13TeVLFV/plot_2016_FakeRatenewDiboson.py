@@ -165,12 +165,18 @@ print "the number of Tight data %f"   %(dataTight.Integral())
 #xBins = array.array('d',[26,100,200])
 #xBins = array.array('d',[35,45,55,75,100,200])
 #xBins = array.array('d',[26,30,40,55,75,200])
-xBins = array.array('d',[26,30,40,50,80,300])  # from the plots Tau
+#xBins = array.array('d',[26,30,40,50,80,300])  # from the plots Tau
+xBins = array.array('d',[26,30,40,60,100])  # from the plots Tau
 #xBins1 = array.array('d',[30,40,60,80,100,120,140,160,180,200,300])  # from the plots Tau
 #xBins1 = array.array('d',[30,34,38,42,46,50,54,60,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,150])  # from the plots Tau
 xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,90,100,110,130,150])  # from the plots Tau
+if 'EE' in channelTight:
+  xBins1 = array.array('d',[30,35,40,50,60,70,90,110,150]) 
+if 'VBF' in channelTight:
+   xBins1=array.array('d',[30,40,60,90,200])
+  #xBins1 = array.array('d',[30,35,40,50,60,70,150]) 
 #xBins = array.array('d',[26,30,50,75,100,300])
 #xBins = array.array('d',[30,50,65,85,100,200])
 
@@ -245,9 +251,9 @@ dataTight.SetBinContent(dataTight.GetXaxis().GetNbins()+1,0)
 fakeRateData=ROOT.TEfficiency(dataTight,dataLoose);
 
 #print 'bin in tight and loose', dataTight.GetXaxis().GetNbins(), dataLoose.GetXaxis().GetNbins()
-for ibin in range(0,dataTight.GetXaxis().GetNbins()+2):
+for ibin in range(0,dataTight.GetXaxis().GetNbins()+1):
         if dataLoose.GetBinContent(ibin):
-   	   print 'bin content tight and loose ratio', dataTight.GetBinContent(ibin), dataLoose.GetBinContent(ibin),(dataTight.GetBinContent(ibin)/dataLoose.GetBinContent(ibin))
+   	   print 'bin content tight and loose bin center, ratio', dataTight.GetBinContent(ibin), dataLoose.GetBinContent(ibin),dataLoose.GetBinCenter(ibin),(dataTight.GetBinContent(ibin)/dataLoose.GetBinContent(ibin))
 #if (('Pt' in var)or ('Eta' in var)):
 #     for i in range(0,fakeRateData.GetNbinsX()+1):
 #         print "%d bin; center %f;   content %f;  error %f " %(i,fakeRateData.GetBinCenter(i),fakeRateData.GetBinContent(i),fakeRateData.GetBinError(i)) 
@@ -264,15 +270,23 @@ fakeRate1=fakeRate.GetPaintedGraph().Clone()
 fakeRateData.Paint('ap')
 fakeRateData1=fakeRateData.GetPaintedGraph().Clone()
 #print "***********the number of Tight dataaaaaaaaaaaaaaaaaaa %f"   %(fakeRateData1.Integral())
-if 'Eta' in var:
-   fakeRate1.GetXaxis().SetRangeUser(0,2.5)
-   fakeRateData1.GetXaxis().SetRangeUser(0,2.5)
+if 'tEta' in var:
+   fakeRate1.GetXaxis().SetRangeUser(0,2.3)
+   fakeRateData1.GetXaxis().SetRangeUser(0,2.3)
+if 'm3Etaabs' in var:
+   fakeRate1.GetXaxis().SetRangeUser(0,2.4)
+   fakeRateData1.GetXaxis().SetRangeUser(0,2.4)
 if 'm3Pt' in var:
+   #fakeRate1.GetXaxis().SetRangeUser(26,300)
+   #fakeRateData1.GetXaxis().SetRangeUser(26,300)
    fakeRate1.GetXaxis().SetRangeUser(26,300)
    fakeRateData1.GetXaxis().SetRangeUser(26,300)
 if 'tPt' in var:
    fakeRate1.GetXaxis().SetRangeUser(30,150)
    fakeRateData1.GetXaxis().SetRangeUser(30,150)
+   if 'VBF' in channelTight:
+      fakeRate1.GetXaxis().SetRangeUser(30,150)
+      fakeRateData1.GetXaxis().SetRangeUser(30,150)
 fakeRate1.Draw('ap')
 #fakeRate1.GetXaxis().SetTitle('|#eta|')
 #fakeRate1.GetYaxis().SetTitle('#mu fakerate')
@@ -336,14 +350,14 @@ latex.SetTextFont(61)
 latex.SetTextSize(0.04)
 
 
-if ("Eta" in var):
-    if ("tEta" in var):
+#if ("Eta" in var):
+#    if ("tEta" in var):
         #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",-2.5,2.5)
         #fakeFit = ROOT.TF1("adsf","[0]+[1]*x",-2.3,2.3)
-        fakeFit = ROOT.TF1("adsf","[0]",0,2.5)
+#        fakeFit = ROOT.TF1("adsf","[0]",0,2.5)
   #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
-        fakeRateData1.Fit(fakeFit,"R")
-        fakeFit.Draw("same")
+#        fakeRateData1.Fit(fakeFit,"R")
+#        fakeFit.Draw("same")
 #    if ("m3" in var):
         #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",-2.5,2.5)
 #        fakeFit = ROOT.TF1("adsf","[0]",0,2.5)
@@ -372,13 +386,16 @@ if ("m3Pt" in var):
 if ("tPt" in var):
 #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",40,200)
   #fakeFit = ROOT.TF1("adsf","pol1",30,200)
-  fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,150)
+  if not 'VBF' in channelTight:
+     fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,150)
+  #fakeFit = ROOT.TF1("adsf","[0]",30,150)
 #  fakeFit = ROOT.TF1("adsf","[0]",30,55)
 #  fakeFit1 = ROOT.TF1("adsf","[0]",55,200)
   #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
-  fakeRateData1.Fit(fakeFit,"R")
+     fakeRateData1.Fit(fakeFit,"R")
  # fakeRateData1.Fit(fakeFit1,"R")
  # fakeRateData.Draw("sames")
-  fakeFit.Draw("sames")
+  if not 'VBF' in channelTight:
+     fakeFit.Draw("sames")
  #fakeFit1.Draw("sames")
 canvas.SaveAs(savedir+"/"+channelTight+"_"+channelLoose+"_"+var+"_fakeRate.pdf")

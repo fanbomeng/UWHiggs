@@ -94,8 +94,6 @@ class AnalyzeLFVMuMuTau(MegaBase):
         target = os.path.basename(os.environ['megatarget'])
         #self.Metcorected=RecoilCorrector("TypeIPFMET_2016BCD.root")
 
-#        print "the target is ***********    %s"    %target
-#        WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root
         self.weighttarget=target.split(".",1)[0].replace("-","_")
         self.is_data = target.startswith('data_')
         self.is_dataG_H =(bool('Run2016H' in target) or bool('Run2016G' in target))
@@ -123,8 +121,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
 
     def begin(self):
-
-        names=["preselectionSS", "preselectionDecay0","preselectionLooseIsoDecay0", "preselectionVLooseIsoDecay0","preselectionVTightIsoDecay0","preselectionMediumIsoDecay0", "preselection0JetDecay0", "preselection1JetDecay0", "preselection2JetDecay0","preselectionDecay1","preselectionLooseIsoDecay1", "preselectionVLooseIsoDecay1","preselectionVTightIsoDecay1","preselectionMediumIsoDecay1", "preselection0JetDecay1", "preselection1JetDecay1", "preselection2JetDecay1","preselectionDecay10","preselectionLooseIsoDecay10", "preselectionVLooseIsoDecay10","preselectionVTightIsoDecay10","preselectionMediumIsoDecay10", "preselection0JetDecay10", "preselection1JetDecay10", "preselection2JetDecay10"]
+        #names=["preselectionSS", "preselectionDecay0","preselectionLooseIsoDecay0", "preselectionVLooseIsoDecay0","preselectionVTightIsoDecay0","preselectionMediumIsoDecay0", "preselection0JetDecay0", "preselection1JetDecay0", "preselection2JetDecay0","preselectionDecay1","preselectionLooseIsoDecay1", "preselectionVLooseIsoDecay1","preselectionVTightIsoDecay1","preselectionMediumIsoDecay1", "preselection0JetDecay1", "preselection1JetDecay1", "preselection2JetDecay1","preselectionDecay10","preselectionLooseIsoDecay10", "preselectionVLooseIsoDecay10","preselectionVTightIsoDecay10","preselectionMediumIsoDecay10", "preselection0JetDecay10", "preselection1JetDecay10", "preselection2JetDecay10"]
+        names=['preselection','preselectionEB','preselectionEE','preselectionVLooseIso','preselectionVLooseIsoEB','preselectionVLooseIsoEE',"preselectionDecay0","preselectionVLooseIsoDecay0","preselectionDecay1","preselectionVLooseIsoDecay1","preselectionDecay10","preselectionVLooseIsoDecay10","preselectionDecay0EB","preselectionVLooseIsoDecay0EB","preselectionDecay1EB","preselectionVLooseIsoDecay1EB","preselectionDecay10EB","preselectionVLooseIsoDecay10EB","preselectionDecay0EE","preselectionVLooseIsoDecay0EE","preselectionDecay1EE","preselectionVLooseIsoDecay1EE","preselectionDecay10EE","preselectionVLooseIsoDecay10EE",'preselection2_jetVBF0p2','preselectionVLooseIso2_jetVBF0p2','preselection2_jetEB','preselection2_jetEE','preselectionVLooseIso2_jetEB','preselectionVLooseIso2_jetEE','preselection2_jetVBF','preselectionVLooseIso2_jetVBF','preselection0JetEB','preselection0JetEE','preselection0JetVLooseIsoEB','preselection0JetVLooseIsoEE','preselection1JetEB','preselection1JetEE','preselection1JetVLooseIsoEB','preselection1JetVLooseIsoEE','preselection2Jet_ggEB','preselection2Jet_ggEE','preselection2Jet_ggVLooseIsoEB','preselection2Jet_ggVLooseIsoEE','preselection2Jet_VBFEB','preselection2Jet_VBFEE','preselection2Jet_VBFVLooseIsoEB','preselection2Jet_VBFVLooseIsoEE']
         namesize = len(names)
 	for x in range(0,namesize):
 
@@ -148,6 +146,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
             self.book(names[x], "tPt", "Tau  Pt", 300,0,300)
             self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
             self.book(names[x], "abstEta", "abs Tau  eta", 100, 0, 2.5)
+            self.book2(names[x], "tEta_tPt", "tEta_tPt", 100,-2.5,2.5,300, 0,300)
+            self.book(names[x], "tDecayMode", "tDecayMode", 12,0,12)
       #      self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
       #      self.book(names[x], "tCharge", "Tau  Charge", 5, -2, 2)
       #      self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
@@ -162,25 +162,48 @@ class AnalyzeLFVMuMuTau(MegaBase):
 	
     def fakeRateMethod(self,row,isoName):
         return getFakeRateFactor(row,isoName)
+
     def TauESC(self,row):
-        if  row.tDecayMode==0:
-            self.tau_Pt_C=0.982*row.tPt 
-        if  row.tDecayMode==1:
-            self.tau_Pt_C=1.01*row.tPt 
-        if  row.tDecayMode==10:
-            self.tau_Pt_C=1.004*row.tPt
-    #    print "tauDecayMode %f" %row.tDecayMode 
-     #   print "2the new TauPt values*****************%f" %self.tau_Pt_C
+        if (not self.is_data) and (not self.ls_DY) and row.tZTTGenMatching==5:
+#           print 'enter Tau ESC when require the ZTTGenMatching!!!!!!!!!!!!!!!!!!!!!'
+           if  row.tDecayMode==0:
+               tau_Pt_C=0.982*row.tPt
+               MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
+           elif  row.tDecayMode==1:
+               tau_Pt_C=1.01*row.tPt
+               MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
+           elif  row.tDecayMode==10:
+               tau_Pt_C=1.004*row.tPt
+               MET_tPtC=row.type1_pfMetEt-0.004*row.tPt
+           else:
+               tau_Pt_C=1
+               MET_tPtC=0
+       #    print "inside TauESC and then?"
+           return (tau_Pt_C,MET_tPtC)
+        elif self.ls_DY and row.isZmumu  and row.tZTTGenMatching<5 and row.tDecayMode==1:
+               tau_Pt_C=1.015*row.tPt
+               MET_tPtC=row.type1_pfMetEt-0.015*row.tPt
+               return (tau_Pt_C,MET_tPtC)
+        else:
+           return (row.tPt,row.type1_pfMetEt)
+
     def fill_histos(self, row,name='gg', fakeRate=False, isoName="old"):
         histos = self.histograms
         weight=1.0
         if (not(self.is_data)):
 #	   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
-           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
+           btagweights=1
+           if row.bjetCISVVeto30Medium==1:
+              btagweights=bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0) if (row.jb1pt>-990 and row.jb1hadronflavor>-990) else 0
+           if row.bjetCISVVeto30Medium==2:
+              btagweights=bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0) if (row.jb1pt>-990 and row.jb1hadronflavor>-990 and row.jb2pt>-990 and row.jb2hadronflavor>-990) else 0
+           if row.bjetCISVVeto30Medium>2:
+              btagweights=0
+           weight = row.GenWeight*self.WeightJetbin(row)* self.correction(row)*btagweights#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
      #   if (fakeRate == True):
      #     weight=weight*self.fakeRateMethod(row,isoName) #apply fakerate method for given isolation definition
-        if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_embedded):
-           if 'loose' in name:
+        if ((self.ls_DY and row.isZtautau) or self.is_HToTauTau or self.is_HToMuTau):
+           if 'Loose' in name:
               weight=weight*0.99
            else:
               weight=weight*0.95
@@ -209,6 +232,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
         histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
         histos[name+'/tEta'].Fill(row.tEta, weight)
         histos[name+'/abstEta'].Fill(abs(row.tEta), weight)
+        histos[name+'/tEta_tPt'].Fill(abs(row.tEta),self.tau_Pt_C, weight)
+        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
       #  histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_type1,weight)
       #  histos[name+'/tCharge'].Fill(row.tCharge, weight)
       #  histos[name+'/tJetPt'].Fill(row.tJetPt, weight)
@@ -229,7 +254,6 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
       #  histos[name+'/tDecayModeFinding'].Fill(row.tDecayModeFinding,weight)
       #  histos[name+'/tDecayModeFindingNewDMs'].Fill(row.tDecayModeFindingNewDMs,weight)
-      #  histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
 
       #  histos[name+'/tByLooseCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByLooseCombinedIsolationDeltaBetaCorr3Hits,weight)
       #  histos[name+'/tByMediumCombinedIsolationDeltaBetaCorr3Hits'].Fill(row.tByMediumCombinedIsolationDeltaBetaCorr3Hits,weight)
@@ -487,7 +511,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 return  (bool (row.muVetoPt5IsoIdVtx<1) and bool (row.eVetoMVAIso<1) and bool (row.tauVetoPt20Loose3HitsVtx<1) )
     #def obj1_iso(self, row):
     #    return bool(row.mRelPFIsoDBDefault <0.12)
-   
+    def tauinEB(self,row):
+        return bool(abs(row.tEta)<1.479)   
     def obj1_iso(self,row):
          return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
 
@@ -542,7 +567,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
        #         continue
             if not self.obj2_id (row):
                 continue
-            self.TauESC(row)
+            self.tau_Pt_C,self.Met_C_new=self.TauESC(row)
             if not self.kinematics(row): 
                 continue
 #            print "the new TauPt values*****************%f" %self.tau_Pt_C
@@ -570,13 +595,80 @@ class AnalyzeLFVMuMuTau(MegaBase):
             if (self.is_data):
                if  row.bjetCISVVeto30Medium:
                    continue
-            if self.obj2_iso(row) and not self.oppositesign(row):
-              self.fill_histos(row,'preselectionSS',False)
+            if self.obj2_iso(row) and self.oppositesign(row):
+                self.fill_histos(row,'preselection',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionEB',False)
+                else:
+                    self.fill_histos(row,'preselectionEE',False)
+                if row.jetVeto30==0:
+                   if self.tauinEB(row): 
+                      self.fill_histos(row,'preselection0JetEB',False)
+                   else:
+                      self.fill_histos(row,'preselection0JetEE',False)
+                if row.jetVeto30==1:
+                   if self.tauinEB(row): 
+                      self.fill_histos(row,'preselection1JetEB',False)
+                   else:
+                      self.fill_histos(row,'preselection1JetEE',False)
+                if row.jetVeto30==2:
+                   if self.tauinEB(row):
+                      self.fill_histos(row,'preselection2_jetEB',False)
+                   else:
+                      self.fill_histos(row,'preselection2_jetEE',False)
+                   if row.vbfMass <550:
+                      if self.tauinEB(row): 
+                         self.fill_histos(row,'preselection2Jet_ggEB',False)
+                      else:
+                         self.fill_histos(row,'preselection2Jet_ggEE',False)
+                   else:
+                      if self.tauinEB(row): 
+                         self.fill_histos(row,'preselection2Jet_VBFEB',False)
+                      else:
+                         self.fill_histos(row,'preselection2Jet_VBFEE',False)
+                    
+
+            if self.obj2_vlooseiso(row) and self.oppositesign(row):
+                self.fill_histos(row,'preselectionVLooseIso',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionVLooseIsoEB',False)
+                else:
+                    self.fill_histos(row,'preselectionVLooseIsoEE',False)
+                if row.jetVeto30==0:
+                   if self.tauinEB(row): 
+                      self.fill_histos(row,'preselection0JetVLooseIsoEB',False)
+                   else:
+                      self.fill_histos(row,'preselection0JetVLooseIsoEE',False)
+                if row.jetVeto30==1:
+                   if self.tauinEB(row): 
+                      self.fill_histos(row,'preselection1JetVLooseIsoEB',False)
+                   else:
+                      self.fill_histos(row,'preselection1JetVLooseIsoEE',False)
+                if row.jetVeto30==2:
+                   if self.tauinEB(row): 
+                         self.fill_histos(row,'preselectionVLooseIso2_jetEB',False)
+                   else:
+                         self.fill_histos(row,'preselectionVLooseIso2_jetEE',False)
+                   if row.vbfMass <550:
+                      if self.tauinEB(row): 
+                         self.fill_histos(row,'preselection2Jet_ggVLooseIsoEB',False)
+                      else:
+                         self.fill_histos(row,'preselection2Jet_ggVLooseIsoEE',False)
+                   else:
+                      if self.tauinEB(row): 
+                         self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEB',False)
+                      else:
+                         self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEE',False)
+
 
             if self.DecayMode0(row):           
               if self.obj2_iso(row) and self.oppositesign(row):  
  
                 self.fill_histos(row,'preselectionDecay0',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionDecay0EB',False)
+                else:
+                    self.fill_histos(row,'preselectionDecay0EE',False)
               #  if row.jetVeto30==0:
               #    self.fill_histos(row,'preselection0JetDecay0',False)
               #  if row.jetVeto30==1:
@@ -592,6 +684,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
  
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay0',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionVLooseIsoDecay0EB',False)
+                else:
+                    self.fill_histos(row,'preselectionVLooseIsoDecay0EE',False)
  
             #  if self.obj2_vtightiso(row) and self.oppositesign(row):
             #    self.fill_histos(row,'preselectionVTightIsoDecay0',False)
@@ -600,6 +696,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
               if self.obj2_iso(row) and self.oppositesign(row):
 
                 self.fill_histos(row,'preselectionDecay1',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionDecay1EB',False)
+                else:
+                    self.fill_histos(row,'preselectionDecay1EE',False)
              #   if row.jetVeto30==0:
              #     self.fill_histos(row,'preselection0JetDecay1',False)
              #   if row.jetVeto30==1:
@@ -615,6 +715,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay1',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionVLooseIsoDecay1EB',False)
+                else:
+                    self.fill_histos(row,'preselectionVLooseIsoDecay1EE',False)
 
            #   if self.obj2_vtightiso(row) and self.oppositesign(row):
            #     self.fill_histos(row,'preselectionVTightIsoDecay1',False)
@@ -623,6 +727,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
               if self.obj2_iso(row) and self.oppositesign(row):
 
                 self.fill_histos(row,'preselectionDecay10',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionDecay10EB',False)
+                else:
+                    self.fill_histos(row,'preselectionDecay10EE',False)
             #    if row.jetVeto30==0:
             #      self.fill_histos(row,'preselection0JetDecay10',False)
             #    if row.jetVeto30==1:
@@ -638,6 +746,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay10',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionVLooseIsoDecay10EB',False)
+                else:
+                    self.fill_histos(row,'preselectionVLooseIsoDecay10EE',False)
 
            #   if self.obj2_vtightiso(row) and self.oppositesign(row):
            #     self.fill_histos(row,'preselectionVTightIsoDecay10',False)

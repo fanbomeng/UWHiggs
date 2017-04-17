@@ -30,8 +30,8 @@ export isInclusive=false   #ZeroJet
 #export fakeset=true   #ZeroJet
 export isRealData=true
 #rake analyzeSpring2016WjetsandDataprogress
-#rake analyzeSpring2016fakeSDT36
-rake analyzeSpring2016fakeSDM36 
+rake analyzeSpring2016fakeSDT36
+#rake analyzeSpring2016fakeSDM36 
 #rake analyzeSpring2016fakeSDM
 ###rake AnalyzeLFVMuTau_progressbeforMtcorrection
 ###rake analyzeSpring2016WjetsandDataprogress

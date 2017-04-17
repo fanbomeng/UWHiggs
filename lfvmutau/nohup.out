@@ -1,0 +1,177 @@
+mkdir -p `dirname results/LFV_Mar15_mc/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.root`
+(in /afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau)
+warning: Insecure world writable dir /afs/hep.wisc.edu/cms/fmeng in PATH, mode 040777
+time mega AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py inputs/LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.txt results/LFV_Mar15_mc/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.root --workers 2 --chain 10
+#using farmout:0
+#dry run:0
+['tPt30', 'mPt25', 'DeltaPhi0.20', 'tmetdeltaPhi3.00', 'tMtToPfMet_type195']
+Running optimization: True
+scaling data
+scaling data
+scaling data
+Processed 0/876 files. ETA:  --:--:--|                                        |ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-02CE4513-A3BE-E611-9AB3-70106F4A91C8.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-04687F3B-AABE-E611-953C-0025905A6080.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-046D1425-9ABE-E611-9EDA-0CC47AC08BD4.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-04881B83-97BE-E611-B446-002590491B22.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-04E65B67-A6BE-E611-A160-0090FAA576C0.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-000937CB-A2BE-E611-8C70-B083FEC76567.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-04E807A8-9EBE-E611-ABE7-FA163EC9F0BF.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-06093C28-A4BE-E611-A50F-70106F4A9378.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-06107827-9EBE-E611-809B-FA163E67A3D7.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-062E2B3D-A8BE-E611-870D-FA163E1B885B.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-0652F143-A8BE-E611-9998-0025907859C4.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-0017F0EF-98BE-E611-91CD-001E677924C6.root does not exist
+[ERROR/MegaWorker-2] Caught exception in worker, killing merger
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-0078D69B-AFBE-E611-8798-0CC47A4C8E2A.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-00AA6B9A-99BE-E611-9A13-001E67E6F7BA.root does not exist
+Process MegaWorker-2:
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-00AE3DB8-AFBE-E611-97A2-0025905A60DE.root does not exist
+    self.run()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaWorker.py", line 75, in run
+    result = processor.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/ChainProcessor.py", line 35, in process
+    self.selector.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py", line 2183, in process
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-00D26799-99BE-E611-9E8B-001E67E6F4FE.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-00DDAE90-9BBE-E611-9137-0CC47A13CB62.root does not exist
+    sel=True
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-024ECD2C-9BBE-E611-8331-02163E017668.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-02A9137F-98BE-E611-B078-002590DE6E64.root does not exist
+ERROR:ROOT.TFile.TFile] file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-02B670A1-A7BE-E611-B43C-0030485FC27D.root does not exist
+[ERROR/MegaWorker-1] Caught exception in worker, killing merger
+    raise exception
+ROOTError: level=3000, loc='TFile::TFile', msg='file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-02CE4513-A3BE-E611-9AB3-70106F4A91C8.root does not exist'
+Process MegaWorker-1:
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaWorker.py", line 75, in run
+    result = processor.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/ChainProcessor.py", line 35, in process
+    self.selector.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py", line 2183, in process
+    sel=True
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=3000, loc='TFile::TFile', msg='file LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_v6-v1/make_ntuples_cfg-000937CB-A2BE-E611-8C70-B083FEC76567.root does not exist'
+[ERROR/MainProcess] Working 0 exited with code: 1
+ERROR:ROOT.TUnixSystem.DispatchSignals] write on a pipe with no one to read it
+[ERROR/MainProcess] Working 1 exited with code: 1
+[ERROR/MainProcess] A worker died.  Terminating merger and exiting
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 774, in __bootstrap
+ERROR:stack]   self.__bootstrap_inner()
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+ERROR:stack]   self.run()
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 754, in run
+ERROR:stack]   self.__target(*self.__args, **self.__kwargs)
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/queues.py", line 268, in _feed
+ERROR:stack]   send(obj)
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/queues.py", line 268, in _feed
+    send(obj)
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=4000, loc='TUnixSystem::DispatchSignals', msg='write on a pipe with no one to read it'
+5.06user 4.90system 0:22.68elapsed 43%CPU (0avgtext+0avgdata 1908300maxresident)k
+389408inputs+664outputs (1727major+987986minor)pagefaults 0swaps
+rake aborted!
+Command failed with status (2): [time mega AnalyzeLFVMuTau_progress_TES3_Fa...]
+
+(See full trace by running task with --trace)
+mkdir -p `dirname results/LFV_Mar15_mc/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.root`
+(in /afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau)
+warning: Insecure world writable dir /afs/hep.wisc.edu/cms/fmeng in PATH, mode 040777
+time mega AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py inputs/LFV_Mar15_mc/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.txt results/LFV_Mar15_mc/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8.root --workers 2 --chain 10
+#using farmout:0
+#dry run:0
+['tPt30', 'mPt25', 'DeltaPhi0.20', 'tmetdeltaPhi3.00', 'tMtToPfMet_type195']
+Running optimization: True
+scaling data
+scaling data
+scaling data
+Processed 0/876 files. ETA:  --:--:--|                                        |ERROR:ROOT.RootX11IOErrorHandler] fatal X11 error (connection to server lost?!)
+
+**** Save data and exit application ****
+
+Processed 10/876 files. ETA:  2 days, 13:25:07|                               |[TFile::Cp] Total 16.80 MB	|>...................ERROR:ROOT.RootX11IOErrorHandler] fatal X11 error (connection to server lost?!)
+
+**** Save data and exit application ****
+
+Process MegaMerger-3:
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaMerger.py", line 114, in run
+    self.merge_into_output(files_to_merge)
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaMerger.py", line 61, in merge_into_output
+    result = merger.Merge()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=3000, loc='RootX11IOErrorHandler', msg='fatal X11 error (connection to server lost?!)'
+ERROR:ROOT.TFile.WriteBuffer] error writing all requested bytes to file /tmp/7bc67a297cc4839e31c5f5ce4b9d5a12.root, wrote 272 of 386
+CRITICAL:ROOT.TFile.WriteBuffer] error writing to file /tmp/7bc67a297cc4839e31c5f5ce4b9d5a12.root (-1) (No space left on device)
+[ERROR/MegaWorker-2] Caught exception in worker, killing merger
+Process MegaWorker-2:
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaWorker.py", line 75, in run
+    result = processor.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/ChainProcessor.py", line 36, in process
+    self.selector.finish()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py", line 2186, in finish
+    self.write_histos()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaBase.py", line 111, in write_histos
+    self.output.Write()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaBase.py", line 111, in write_histos
+    self.output.Write()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=3000, loc='TFile::WriteBuffer', msg='error writing all requested bytes to file /tmp/7bc67a297cc4839e31c5f5ce4b9d5a12.root, wrote 272 of 386'
+ERROR:ROOT.TFile.WriteBuffer] error writing all requested bytes to file /tmp/427183cdc3353ed00442ddcb55b4dcac.root, wrote 8909 of 10816
+CRITICAL:ROOT.TFile.WriteBuffer] error writing to file /tmp/427183cdc3353ed00442ddcb55b4dcac.root (-1) (No space left on device)
+[ERROR/MegaWorker-1] Caught exception in worker, killing merger
+Process MegaWorker-1:
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaWorker.py", line 75, in run
+    result = processor.process()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/ChainProcessor.py", line 36, in process
+    self.selector.finish()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/UWHiggs/lfvmutau/AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2.py", line 2186, in finish
+    self.write_histos()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaBase.py", line 111, in write_histos
+    self.output.Write()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/python/FinalStateAnalysis/PlotTools/MegaBase.py", line 111, in write_histos
+    self.output.Write()
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=3000, loc='TFile::WriteBuffer', msg='error writing all requested bytes to file /tmp/427183cdc3353ed00442ddcb55b4dcac.root, wrote 8909 of 10816'
+ERROR:ROOT.TUnixSystem.DispatchSignals] write on a pipe with no one to read it
+[ERROR/MainProcess] Working 0 exited with code: 1
+[ERROR/MainProcess] Working 1 exited with code: 1
+[ERROR/MainProcess] A worker died.  Terminating merger and exiting
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 774, in __bootstrap
+ERROR:stack]   self.__bootstrap_inner()
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+ERROR:stack]   self.run()
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/threading.py", line 754, in run
+ERROR:stack]   self.__target(*self.__args, **self.__kwargs)
+ERROR:stack] File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/queues.py", line 268, in _feed
+ERROR:stack]   send(obj)
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/python/2.7.11-ikhhed2/lib/python2.7/multiprocessing/queues.py", line 268, in _feed
+    send(obj)
+  File "/afs/hep.wisc.edu/cms/fmeng/Fanbo/CMSSW_8_0_26/src/FinalStateAnalysis/recipe/external/src/rootpy/rootpy/logger/magic.py", line 247, in intercept_next_line
+    raise exception
+ROOTError: level=4000, loc='TUnixSystem::DispatchSignals', msg='write on a pipe with no one to read it'
+57298.60user 167.79system 10:15:35elapsed 155%CPU (0avgtext+0avgdata 1983960maxresident)k
+442096inputs+2639168outputs (1999major+5048278minor)pagefaults 0swaps
+rake aborted!
+Command failed with status (2): [time mega AnalyzeLFVMuTau_progress_TES3_Fa...]
+
+(See full trace by running task with --trace)

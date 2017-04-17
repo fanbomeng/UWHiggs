@@ -1,3 +1,75 @@
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetFlavorQCDDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetFlavorQCDUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetFlavorQCDUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetFragmentationDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetFragmentationUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetFragmentationUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetPileUpDataMCDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetPileUpDataMCUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetPileUpDataMCUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteFlavMapDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteFlavMapUp      tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteMPFBiasDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteMPFBiasUp      tPt0   0
+
+
+                                                                                                                               
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteScaleDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteScaleUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteScaleUp      tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteStatDown      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetAbsoluteStatUp      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_vbf 0 CMS_JetAbsoluteStatUp      tPt0   0
+
+
 python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   gg      0 CMS_JetRelativeJEREC1Down      tPt0   0
 python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   boost   0 CMS_JetRelativeJEREC1Down      tPt0   0
 python plot_13TeV_vbfbined_QCD_36_v2.py LFV_BDT/AnalyzeLFVMuTauPostBDT_progress/ BDTcuts   vbf_gg  0 CMS_JetRelativeJEREC1Down      tPt0   0

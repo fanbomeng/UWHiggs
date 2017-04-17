@@ -202,56 +202,64 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
        #         fTauIso=0.235664-0.00076628*(self.tau_Pt_C-30)
        #     if  row.tDecayMode==10:
        #         fTauIso=0.188160-0.000534633*(self.tau_Pt_C-30)
+
          if fakeset=="def":
-            if  row.tDecayMode==0:
-                fTauIso=0.240806-0.000836112*(self.tau_Pt_C-30)
-            elif  row.tDecayMode==1:
-                fTauIso=0.235014-0.000837926*(self.tau_Pt_C-30)
-            elif  row.tDecayMode==10:
-                fTauIso=0.185752-0.000457377*(self.tau_Pt_C-30)
-            else:
-                print "rare decay mode %f" %row.tDecayMode
-                fTauIso=0
-      #   if fakeset=="def":
-      #      if  row.tDecayMode==0:
-      #          fTauIso=0.22362
-      #      if  row.tDecayMode==1:
-      #          fTauIso=0.218989
-      #      if  row.tDecayMode==10:
-      #          fTauIso=0.186646
-         if fakeset=="1stUp":
-            if  row.tDecayMode==0:
-                fTauIso=0.22362+0.00685
-            if  row.tDecayMode==1:
-                fTauIso=0.218989+0.00392
-            if  row.tDecayMode==10:
-                fTauIso=0.186646+0.00416
-         if fakeset=="1stDown":
-            if  row.tDecayMode==0:
-                fTauIso=0.21753-0.00685
-            if  row.tDecayMode==1:
-                fTauIso=0.218989-0.00392
-            if  row.tDecayMode==10:
-                fTauIso=0.186646-0.00416
+               if abs(row.tEta)<1.479:
+                  if  row.tDecayMode==0:
+                      fTauIso=0.218512-0.000337089*(self.tau_Pt_C-30)
+                  elif  row.tDecayMode==1:
+                      fTauIso=0.230227-0.000786509*(self.tau_Pt_C-30)
+                  elif  row.tDecayMode==10:
+                      fTauIso=0.172631-0.0000840138*(self.tau_Pt_C-30)
+                  else:
+                      print "rare decay mode %f" %row.tDecayMode
+                      fTauIso=0
+               else:
+                  if  row.tDecayMode==0:
+                      fTauIso=0.270796-0.000821388*(self.tau_Pt_C-30)
+                  elif  row.tDecayMode==1:
+                      fTauIso=0.244202-0.000882359*(self.tau_Pt_C-30)
+                  elif  row.tDecayMode==10:
+                      fTauIso=0.214062-0.000896065*(self.tau_Pt_C-30)
+                  else:
+                      print "rare decay mode %f" %row.tDecayMode
+                      fTauIso=0
          fakeRateFactor = fTauIso/(1.0-fTauIso)
          return fakeRateFactor
+    def getFakeRateFactormuon(self,row, fakeset):   #Ptbined
+        if fakeset=="def":
+           if row.mPt<=30:
+              fTauIso=0.611
+           elif row.mPt<=40:
+              fTauIso=0.724
+           elif row.mPt<=50:
+              fTauIso=0.746
+           elif row.mPt<=60:
+              fTauIso=0.796
+           elif row.mPt<=80:
+              fTauIso=0.816
+           else:
+              fTauIso=0.950
+        fakeRateFactor = fTauIso/(1.0-fTauIso)
+        return fakeRateFactor
     def TauESC(self,row):
         if (not self.is_data):
            if  row.tDecayMode==0:
-               self.tau_Pt_C=0.982*row.tPt
-               self.MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
+               tau_Pt_C=0.982*row.tPt
+               MET_tPtC=row.type1_pfMetEt+0.018*row.tPt
            elif  row.tDecayMode==1:
-               self.tau_Pt_C=1.01*row.tPt
-               self.MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
+               tau_Pt_C=1.01*row.tPt
+               MET_tPtC=row.type1_pfMetEt-0.01*row.tPt
            elif  row.tDecayMode==10:
-               self.tau_Pt_C=1.004*row.tPt
-               self.MET_tPtC=row.type1_pfMetEt-0.004*row.tPt	
+               tau_Pt_C=1.004*row.tPt
+               MET_tPtC=row.type1_pfMetEt-0.004*row.tPt	
            else:
-               self.tau_Pt_C=0
-               self.MET_tPtC=0
+               tau_Pt_C=0
+               MET_tPtC=0
         else:
-               self.tau_Pt_C=row.tPt
-               self.MET_tPtC=row.type1_pfMetEt
+               tau_Pt_C=row.tPt
+               MET_tPtC=row.type1_pfMetEt
+        return (tau_Pt_C,MET_tPtC)
     def collMass_type1_v2(self,row,muonlorenz,taulorenz,metpx,metpy):
             taupx=taulorenz.Px()
             taupy=taulorenz.Py()
@@ -281,10 +289,21 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
            self.collMass_type1_new,self.m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,metlorenz.Px(),metlorenz.Py())
            self.tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
 
-    def fakeRateMethod(self,row,fakeset='def'):
-        return self.getFakeRateFactorFANBOPt(row,fakeset)
-	     
-    def filltree(self,row,to_fill,fakeRate=False):
+#    def fakeRateMethod(self,row,fakeset='def'):
+#        return self.getFakeRateFactorFANBOPt(row,fakeset)
+    def fakeRateMethod(self,row,fakeset,faketype):
+        if faketype=="taufake":
+           #return getFakeRateFactorAaron(row,fakeset)
+           return self.getFakeRateFactorFANBOPt(row,fakeset)
+          # return getFakeRateFactor(row,fakeset)
+        if faketype=="muonfake":
+           #return getFakeRateFactormuonEta(row,fakeset)
+           return self.getFakeRateFactormuon(row,fakeset)
+           #return getFakeRateFactormuonabsEta(row,fakeset)
+        if faketype=="mtfake":
+           #return getFakeRateFactormuonEta(row,fakeset)*getFakeRateFactorFANBO(row,fakeset)
+           return self.getFakeRateFactormuon(row,fakeset)*self.getFakeRateFactorFANBOPt(row,fakeset)	     
+    def filltree(self,row,to_fill,fakeRate=False,faketype="taufake",fakeset="def"):
         '''Fills the tree, accepts an iterable or an object 
         with attributes as the branch names'''
       #  self.filename
@@ -293,7 +312,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
            weight = row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
 #           weight =weight*row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0) #apply gen and pu reweighting to MC
         if (fakeRate == True):
-           weight=weight*self.fakeRateMethod(row,fakeset='def') #apply fakerate method for given isolation definition
+           weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau):
            weight=weight*0.95
         if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -571,6 +590,8 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
    
     def obj1_iso(self,row):
          return bool(row.mRelPFIsoDBDefaultR04 <0.15)
+    def obj1_isoloose(self,row):
+         return bool(row.mRelPFIsoDBDefaultR04 <0.25)
 
   #  def obj2_iso(self, row):
   #      return  row.tByTightCombinedIsolationDeltaBetaCorr3Hits
@@ -618,7 +639,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
                 continue
   #          if not self.obj2_Vlooseiso(row):
   #              continue 
-            if not self.obj1_iso(row):
+            if not self.obj1_isoloose(row):
                 continue
             #if not self.obj1_id(row):
             #    continue
@@ -645,7 +666,7 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
                normaldecayfanbo=1
             if not normaldecayfanbo:
                continue
-            self.TauESC(row)
+            self.tau_Pt_C,self.MET_tPtC=self.TauESC(row)
             if not self.kinematics(row): 
                 continue
             if row.vbfDeta<0 or row.vbfDeta>10 or row.vbfMass>7000 or row.vbfMass<0:
@@ -657,11 +678,16 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
             self.VariableCalculateTaucorrection(row)
             if self.is_data:
                #if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row):  
-               if self.obj2_iso_NT_VLoose(row) and (not self.oppositesign(row)):  
+               if self.obj2_iso_NT_VLoose(row) and self.obj1_iso(row) and (not self.oppositesign(row)):  
                     #self.fill_histos(row,'preselection',False)
                     self.filltree(row,row,True)
+          #     if (not self.obj1_iso(row)) and self.obj2_iso(row) and (not self.oppositesign(row)):  
+          #        if (not (self.obj2_iso_NT_VLoose(row) and (not self.obj1_iso(row)))):  
+                    #self.fill_histos(row,'preselection',False)
+          #          print "anything in ????????????????????????????/"
+          #          self.filltree(row,row,True,faketype="muonfake")
             if not self.is_data:
-               if self.obj2_iso(row) and self.oppositesign(row):  
+               if self.obj2_iso(row) and  self.obj1_iso(row)  and self.oppositesign(row):  
                     #self.fill_histos(row,'preselection',False)
                     self.filltree(row,row,False)
             sel=True

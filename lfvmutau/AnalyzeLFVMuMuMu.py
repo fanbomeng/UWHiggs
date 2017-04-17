@@ -68,31 +68,6 @@ def getFakeRateFactorFANBOPt(row, fakeset):
             fTauIso=0.186646-0.00416
      fakeRateFactor = fTauIso/(1.0-fTauIso)
      return fakeRateFactor
-#def getFakeRateFactorFANBOPt(row, fakeset):
-#     if fakeset=="def":
-#        if  row.tDecayMode==0:
-#            fTauIso=0.21753
-#        if  row.tDecayMode==1:
-#            fTauIso=0.21068
-#        if  row.tDecayMode==10:
-#            fTauIso=0.18071
-#     if fakeset=="1stUp":
-#        if  row.tDecayMode==0:
-#            fTauIso=0.21753+0.00921
-#        if  row.tDecayMode==1:
-#            fTauIso=0.21068+0.00515
-#        if  row.tDecayMode==10:
-#            fTauIso=0.18071+0.00549
-#     if fakeset=="1stDown":
-#        if  row.tDecayMode==0:
-#            fTauIso=0.21753-0.00921
-#        if  row.tDecayMode==1:
-#            fTauIso=0.21068-0.00515
-#        if  row.tDecayMode==10:
-#            fTauIso=0.18071-0.00549
-#     fakeRateFactor = fTauIso/(1.0-fTauIso)
-#     return fakeRateFactor
-#
 
 def getFakeRateFactormuonabsEta(row, fakeset):   #old
      if fakeset=="def":
@@ -217,92 +192,92 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
     def begin(self):
 
-        names=["preselectionSS", "preselection","preselectionLooseIso","preselectionVLooseIso"]
+        names=["preselection","preselectionLooseIso","preselectionVLooseIso","preselectionlargerange","preselectionLooseIsolargerange","preselectionVLooseIsolargerange","preselectionlargerange0p2iso","preselectionLooseIsolargerange0p2iso","preselectionVLooseIsolargerange0p2iso","preselection0p2iso","preselectionLooseIso0p2iso","preselectionVLooseIso0p2iso"]
         namesize = len(names)
 	for x in range(0,namesize):
 
 
-            self.book(names[x], "weight", "Event weight", 100, 0, 5)
-            self.book(names[x], "GenWeight", "Gen level weight", 200000 ,-1000000, 1000000)
-            self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
- 
-            self.book(names[x], "rho", "Fastjet #rho", 100, 0, 25)
-            self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
-            self.book(names[x], "prescale", "HLT prescale", 21, -0.5, 20.5)
-
-            self.book(names[x], "m1Pt", "Muon  Pt", 300,0,300)
-            self.book(names[x], "m1Eta", "Muon  eta", 100, -2.5, 2.5)
-            self.book(names[x], "m1Charge", "Muon Charge", 5, -2, 2)
-            self.book(names[x], "m2Pt", "Muon  Pt", 300,0,300)
-            self.book(names[x], "m2Eta", "Muon  eta", 100, -2.5, 2.5)
-            self.book(names[x], "m2Charge", "Muon Charge", 5, -2, 2)
+#            self.book(names[x], "weight", "Event weight", 100, 0, 5)
+#            self.book(names[x], "GenWeight", "Gen level weight", 200000 ,-1000000, 1000000)
+#            self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
+# 
+#            self.book(names[x], "rho", "Fastjet #rho", 100, 0, 25)
+#            self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
+#            self.book(names[x], "prescale", "HLT prescale", 21, -0.5, 20.5)
+#
+#            self.book(names[x], "m1Pt", "Muon  Pt", 300,0,300)
+#            self.book(names[x], "m1Eta", "Muon  eta", 100, -2.5, 2.5)
+#            self.book(names[x], "m1Charge", "Muon Charge", 5, -2, 2)
+#            self.book(names[x], "m2Pt", "Muon  Pt", 300,0,300)
+#            self.book(names[x], "m2Eta", "Muon  eta", 100, -2.5, 2.5)
+#            self.book(names[x], "m2Charge", "Muon Charge", 5, -2, 2)
             self.book(names[x], "m3Pt", "Muon  Pt", 300,0,300)
             self.book(names[x], "m3Eta", "Muon  eta", 100, -2.5, 2.5)
             self.book(names[x], "m3Etaabs", "Muon  eta", 50,0, 2.5)
-            self.book(names[x], "m3Charge", "Muon Charge", 5, -2, 2)
-
-
-            self.book(names[x], 'm1PixHits', 'Mu 1 pix hits', 10, -0.5, 9.5)
-            self.book(names[x], 'm1JetBtag', 'Mu 1 JetBtag', 100, -5.5, 9.5)
-            self.book(names[x], 'm2PixHits', 'Mu 2 pix hits', 10, -0.5, 9.5)
-            self.book(names[x], 'm2JetBtag', 'Mu 2 JetBtag', 100, -5.5, 9.5)
-            self.book(names[x], 'm3PixHits', 'Mu 3 pix hits', 10, -0.5, 9.5)
-            self.book(names[x], 'm3JetBtag', 'Mu 3 JetBtag', 100, -5.5, 9.5)
-
-    	  
-    	    self.book(names[x], "LT", "ht", 400, 0, 400)
-            self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
-    
-            self.book(names[x], "m1_m3_Mass", "Muon + Muon3 Mass", 200, 0, 200)
-            self.book(names[x], "m1_m3_Pt", "Muon + Muon3 Pt", 200, 0, 200)
-            self.book(names[x], "m1_m3_DR", "Muon + Muon3 DR", 100, 0, 10)
-            self.book(names[x], "m1_m3_DPhi", "Muon + Muon3 DPhi", 100, 0, 4)
-            self.book(names[x], "m1_m3_SS", "Muon + Muon3 SS", 5, -2, 2)
-            self.book(names[x], "m1_m3_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
-            self.book(names[x], "m2_m3_Mass", "Muon + Muon3 Mass", 200, 0, 200)
-            self.book(names[x], "m2_m3_Pt", "Muon + Muon3 Pt", 200, 0, 200)
-            self.book(names[x], "m2_m3_DR", "Muon + Muon3 DR", 100, 0, 10)
-            self.book(names[x], "m2_m3_DPhi", "Muon + Muon3 DPhi", 100, 0, 4)
-            self.book(names[x], "m2_m3_SS", "Muon + Muon3 SS", 5, -2, 2)
-            self.book(names[x], "m2_m3_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
-            self.book(names[x], "m1_m2_Mass", "Dimuon Mass", 200, 0, 200)
-    
-            # Vetoes
-            self.book(names[x], 'muVetoPt5IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
-	    self.book(names[x], 'muVetoPt15IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
-            self.book(names[x], 'tauVetoPt20Loose3HitsVtx', 'Number of extra taus', 5, -0.5, 4.5)
-            self.book(names[x], 'eVetoMVAIso', 'Number of extra CiC tight electrons', 5, -0.5, 4.5)
-   
-            self.book(names[x], 'jetVeto30', 'Number of extra jets', 5, -0.5, 4.5)	
-#            self.book(names[x], 'jetVeto30ZTT', 'Number of extra jets', 5, -0.5, 4.5)
-#            self.book(names[x], 'jetVeto30Eta3', 'Number of extra jets within |eta| < 3', 5, -0.5, 4.5)
-	    #Isolation
-	    self.book(names[x], 'm1RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
-            self.book(names[x], 'm2RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
-            self.book(names[x], 'm3RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
-   
- 
-            self.book(names[x], "m1Phim3Phi", "", 100, 0,4)
-            self.book(names[x], "m2Phim3Phi", "", 100, 0,4)
-            self.book(names[x], "m1PhiMETPhiType1", "", 100, 0,4)
-            self.book(names[x], "m2PhiMETPhiType1", "", 100, 0,4)
-            self.book(names[x], "m3PhiMETPhiType1", "", 100, 0,4)
-
-### vbf ###
-            self.book(names[x], "vbfJetVeto30", "central jet veto for vbf", 5, -0.5, 4.5)
-	    self.book(names[x], "vbfJetVeto20", "", 5, -0.5, 4.5)
-	    self.book(names[x], "vbfMVA", "", 100, 0,0.5)
-	    self.book(names[x], "vbfMass", "", 500,0,5000.0)
-	    self.book(names[x], "vbfDeta", "", 100, -0.5,10.0)
-#            self.book(names[x], "vbfMassZTT", "", 500,0,5000.0)
-#            self.book(names[x], "vbfDetaZTT", "", 100, -0.5,10.0)
-            self.book(names[x], "vbfj1eta","",100,-2.5,2.5)
-	    self.book(names[x], "vbfj2eta","",100,-2.5,2.5)
-	    self.book(names[x], "vbfVispt","",100,0,200)
-	    self.book(names[x], "vbfHrap","",100,0,5.0)
-	    self.book(names[x], "vbfDijetrap","",100,0,5.0)
-	    self.book(names[x], "vbfDphihj","",100,0,4)
-#            self.book(names[x], "vbfDphihjnomet","",100,0,4)
+#            self.book(names[x], "m3Charge", "Muon Charge", 5, -2, 2)
+#
+#
+#            self.book(names[x], 'm1PixHits', 'Mu 1 pix hits', 10, -0.5, 9.5)
+#            self.book(names[x], 'm1JetBtag', 'Mu 1 JetBtag', 100, -5.5, 9.5)
+#            self.book(names[x], 'm2PixHits', 'Mu 2 pix hits', 10, -0.5, 9.5)
+#            self.book(names[x], 'm2JetBtag', 'Mu 2 JetBtag', 100, -5.5, 9.5)
+#            self.book(names[x], 'm3PixHits', 'Mu 3 pix hits', 10, -0.5, 9.5)
+#            self.book(names[x], 'm3JetBtag', 'Mu 3 JetBtag', 100, -5.5, 9.5)
+#
+#    	  
+#    	    self.book(names[x], "LT", "ht", 400, 0, 400)
+#            self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
+#    
+#            self.book(names[x], "m1_m3_Mass", "Muon + Muon3 Mass", 200, 0, 200)
+#            self.book(names[x], "m1_m3_Pt", "Muon + Muon3 Pt", 200, 0, 200)
+#            self.book(names[x], "m1_m3_DR", "Muon + Muon3 DR", 100, 0, 10)
+#            self.book(names[x], "m1_m3_DPhi", "Muon + Muon3 DPhi", 100, 0, 4)
+#            self.book(names[x], "m1_m3_SS", "Muon + Muon3 SS", 5, -2, 2)
+#            self.book(names[x], "m1_m3_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
+#            self.book(names[x], "m2_m3_Mass", "Muon + Muon3 Mass", 200, 0, 200)
+#            self.book(names[x], "m2_m3_Pt", "Muon + Muon3 Pt", 200, 0, 200)
+#            self.book(names[x], "m2_m3_DR", "Muon + Muon3 DR", 100, 0, 10)
+#            self.book(names[x], "m2_m3_DPhi", "Muon + Muon3 DPhi", 100, 0, 4)
+#            self.book(names[x], "m2_m3_SS", "Muon + Muon3 SS", 5, -2, 2)
+#            self.book(names[x], "m2_m3_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
+#            self.book(names[x], "m1_m2_Mass", "Dimuon Mass", 200, 0, 200)
+#    
+#            # Vetoes
+#            self.book(names[x], 'muVetoPt5IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
+#	    self.book(names[x], 'muVetoPt15IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
+#            self.book(names[x], 'tauVetoPt20Loose3HitsVtx', 'Number of extra taus', 5, -0.5, 4.5)
+#            self.book(names[x], 'eVetoMVAIso', 'Number of extra CiC tight electrons', 5, -0.5, 4.5)
+#   
+#            self.book(names[x], 'jetVeto30', 'Number of extra jets', 5, -0.5, 4.5)	
+##            self.book(names[x], 'jetVeto30ZTT', 'Number of extra jets', 5, -0.5, 4.5)
+##            self.book(names[x], 'jetVeto30Eta3', 'Number of extra jets within |eta| < 3', 5, -0.5, 4.5)
+#	    #Isolation
+#	    self.book(names[x], 'm1RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
+#            self.book(names[x], 'm2RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
+#            self.book(names[x], 'm3RelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
+#   
+# 
+#            self.book(names[x], "m1Phim3Phi", "", 100, 0,4)
+#            self.book(names[x], "m2Phim3Phi", "", 100, 0,4)
+#            self.book(names[x], "m1PhiMETPhiType1", "", 100, 0,4)
+#            self.book(names[x], "m2PhiMETPhiType1", "", 100, 0,4)
+#            self.book(names[x], "m3PhiMETPhiType1", "", 100, 0,4)
+#
+#### vbf ###
+#            self.book(names[x], "vbfJetVeto30", "central jet veto for vbf", 5, -0.5, 4.5)
+#	    self.book(names[x], "vbfJetVeto20", "", 5, -0.5, 4.5)
+#	    self.book(names[x], "vbfMVA", "", 100, 0,0.5)
+#	    self.book(names[x], "vbfMass", "", 500,0,5000.0)
+#	    self.book(names[x], "vbfDeta", "", 100, -0.5,10.0)
+##            self.book(names[x], "vbfMassZTT", "", 500,0,5000.0)
+##            self.book(names[x], "vbfDetaZTT", "", 100, -0.5,10.0)
+#            self.book(names[x], "vbfj1eta","",100,-2.5,2.5)
+#	    self.book(names[x], "vbfj2eta","",100,-2.5,2.5)
+#	    self.book(names[x], "vbfVispt","",100,0,200)
+#	    self.book(names[x], "vbfHrap","",100,0,5.0)
+#	    self.book(names[x], "vbfDijetrap","",100,0,5.0)
+#	    self.book(names[x], "vbfDphihj","",100,0,4)
+##            self.book(names[x], "vbfDphihjnomet","",100,0,4)
 #            self.book(names[x], "vbfNJets", "g", 5, -0.5, 4.5)
             #self.book(names[x], "vbfNJetsPULoose", "g", 5, -0.5, 4.5)
             #self.book(names[x], "vbfNJetsPUTight", "g", 5, -0.5, 4.5)
@@ -322,9 +297,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
            #weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)#*self.WeightJetbin(row)
            if "Loose" in name:
-               weight = row.GenWeight * self.correctionL(row)*self.WeightJetbin(row)#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
+               weight = row.GenWeight * self.correctionL(row)*self.WeightJetbin(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
            else:
-               weight = row.GenWeight * self.correctionT(row)*self.WeightJetbin(row)#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
+               weight = row.GenWeight * self.correctionT(row)*self.WeightJetbin(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
        # if (not(data)):
 	#   weight = row.GenWeight * self.correction(row) #apply gen and pu reweighting to MC
       #  if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
@@ -513,16 +488,16 @@ class AnalyzeLFVMuMuMu(MegaBase):
                 goodGlobal3=False
     	 return ((row.m1PFIDLoose and row.m1ValidFraction > 0.8 and ((goodGlobal1 and row.m1SegmentCompatibility > 0.303) or row.m1SegmentCompatibility > 0.451)) and (row.m2PFIDLoose and row.m2ValidFraction > 0.8 and ((goodGlobal2 and row.m2SegmentCompatibility > 0.303) or row.m2SegmentCompatibility > 0.451)) and(row.m3PFIDLoose and row.m3ValidFraction > 0.8 and ((goodGlobal3 and row.m3SegmentCompatibility > 0.303) or row.m3SegmentCompatibility > 0.451)))
 
-#    def m1m2Mass(self,row):
-#        if row.m1_m2_Mass < 76:
-#           return False
-#        if row.m1_m2_Mass > 106:
-#           return False
-#        return True
     def m1m2Mass(self,row):
         if row.m1_m2_Mass < 76:
            return False
         if row.m1_m2_Mass > 106:
+           return False
+        return True
+    def m1m2Masslarge(self,row):
+        if row.m1_m2_Mass < 71:
+           return False
+        if row.m1_m2_Mass > 111:
            return False
         return True
 #    def obj2_id(self,row):
@@ -546,10 +521,10 @@ class AnalyzeLFVMuMuMu(MegaBase):
     #def obj1_iso(self, row):
     #    return bool(row.mRelPFIsoDBDefault <0.12)
    
-    #def obj1_iso(self,row):
-    #     return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
-
     def obj1_iso(self,row):
+         return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
+
+    def obj1_isolarge(self,row):
          return bool(row.m1RelPFIsoDBDefaultR04 <0.20 and row.m2RelPFIsoDBDefaultR04 <0.20)
     def obj2_iso(self,row):
          return bool(row.m3RelPFIsoDBDefaultR04 < 0.15)
@@ -580,7 +555,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
             if not self.kinematics(row): 
                 continue
  
-            if not self.obj1_iso(row):
+            #if not self.obj1_iso(row):
+            #    continue
+            if not self.obj1_isolarge(row):
                 continue
 #            if not self.obj1_idICHEP(row):
 #                continue
@@ -596,20 +573,59 @@ class AnalyzeLFVMuMuMu(MegaBase):
                    continue
             #if not self.obj1_id(row):
             #    continue
-            if not self.vetos (row):
+            if not self.vetos(row):
                 continue
-            if not self.m1m2Mass (row):
+            #if not self.m1m2Mass (row):
+            #    continue
+            if not self.m1m2Masslarge(row):
                 continue
 
             #if not self.obj2_id (row):
             #    continue
 #            if not self.obj2_id_ICHEP (row):
 #                continue
-#            if (self.is_data):
-#               if  row.bjetCISVVeto30Medium:
-#                   continue
-            if self.obj2_iso(row) and not self.oppositesign(row):
-              self.fill_histos(row,'preselectionSS',False)
+            if (self.is_data):
+               if  row.bjetCISVVeto30Medium:
+                   continue
+
+            if self.obj2_iso(row) and self.oppositesign(row):  
+ 
+              self.fill_histos(row,'preselectionlargerange0p2iso',False)
+ 
+            if self.obj2_looseiso(row) and self.oppositesign(row):
+              self.fill_histos(row,'preselectionLooseIsolargerange0p2iso',False)
+
+            if self.obj2_vlooseiso(row) and self.oppositesign(row):
+              self.fill_histos(row,'preselectionVLooseIsolargerange0p2iso',False)
+            
+           
+
+            if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row):  
+ 
+              self.fill_histos(row,'preselectionlargerange',False)
+ 
+            if self.obj2_looseiso(row) and self.oppositesign(row) and self.obj1_iso(row):
+              self.fill_histos(row,'preselectionLooseIsolargerange',False)
+
+            if self.obj2_vlooseiso(row) and self.oppositesign(row) and self.obj1_iso(row):
+              self.fill_histos(row,'preselectionVLooseIsolargerange',False)
+
+
+            if not self.m1m2Mass(row):
+               continue 
+
+            if self.obj2_iso(row) and self.oppositesign(row):  
+ 
+              self.fill_histos(row,'preselection0p2iso',False)
+ 
+            if self.obj2_looseiso(row) and self.oppositesign(row):
+              self.fill_histos(row,'preselectionLooseIso0p2iso',False)
+
+            if self.obj2_vlooseiso(row) and self.oppositesign(row):
+              self.fill_histos(row,'preselectionVLooseIso0p2iso',False)
+            
+            if not self.obj1_iso(row):
+               continue 
 
             if self.obj2_iso(row) and self.oppositesign(row):  
  
@@ -620,8 +636,6 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
             if self.obj2_vlooseiso(row) and self.oppositesign(row):
               self.fill_histos(row,'preselectionVLooseIso',False)
-        
-
 
 
             sel=True
