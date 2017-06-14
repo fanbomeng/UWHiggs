@@ -138,12 +138,12 @@ muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
 muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
 
 
-class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
+class AnalyzeLFVMuTau_progress_TES3_Fakshape_v11(MegaBase):
     tree = 'mt/final/Ntuple'
     #tree = 'New_Tree'
 
     def __init__(self, tree, outfile, **kwargs):
-        super(AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2, self).__init__(tree, outfile, **kwargs)
+        super(AnalyzeLFVMuTau_progress_TES3_Fakshape_v11, self).__init__(tree, outfile, **kwargs)
         # Use the cython wrapper
         target = os.path.basename(os.environ['megatarget'])
         self.target1 = os.path.basename(os.environ['megatarget'])
@@ -177,8 +177,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
         self.tree = MuTauTree.MuTauTree(tree)
         self.out = outfile
         self.histograms = {}
-        self.Sysin=0
-        self.light=0
+        self.Sysin=1
+        self.light=1
         self.DoPileup=0
         self.DoMES=0
         self.DoTES=0
@@ -262,10 +262,6 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
             #self.book(names[x], "type1_pfMetEtNormal", "Type1 MET", 200, 0, 200)
             self.book(names[x],"collMass_type1","collMass_type1",300,0,300);
             self.book(names[x], "m_t_Mass", "Muon + Tau Mass", 200, 0, 200)
-            self.book(names[x], "vbfj1eta", "vbf1jeta", 200,-5,5)
-            self.book(names[x], "vbfj1pt", "vbf1jpt", 300,0,300)
-            self.book(names[x], "vbfj2pt", "vbf2jpt", 300,0,300)
-            self.book(names[x], "vbfj2eta", "vbf2jeta", 200,-5,5)
 #            self.book(names[x],"fullMT_type1","fullMT_type1",500,0,500);
 #            self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
 #            self.book(names[x], "singleIsoMu22Pass", "singleIsoMu22Pass", 12 ,-0.1,1.1)
@@ -592,40 +588,29 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
               fTauIso=0.611
            elif row.mPt<=40:
               fTauIso=0.724
-           elif row.mPt<=50:
-              fTauIso=0.746
            elif row.mPt<=60:
-              fTauIso=0.796
-           elif row.mPt<=80:
-              fTauIso=0.816
+              fTauIso=0.758
            else:
-              fTauIso=0.950
+              fTauIso=0.876
         if self.DoMES==1:
            if row.mPt*1.002<=30:
               fTauIso=0.611
            elif row.mPt*1.002<=40:
               fTauIso=0.724
-           elif row.mPt*1.002<=50:
-              fTauIso=0.746
            elif row.mPt*1.002<=60:
-              fTauIso=0.796
-           elif row.mPt*1.002<=80:
-              fTauIso=0.816
+              fTauIso=0.758
            else:
-              fTauIso=0.950
+              fTauIso=0.876
+
         elif self.DoMES==2:
            if row.mPt*0.998<=30:
               fTauIso=0.611
            elif row.mPt*0.998<=40:
               fTauIso=0.724
-           elif row.mPt*0.998<=50:
-              fTauIso=0.746
            elif row.mPt*0.998<=60:
-              fTauIso=0.796
-           elif row.mPt*0.998<=80:
-              fTauIso=0.816
+              fTauIso=0.758
            else:
-              fTauIso=0.950
+              fTauIso=0.876
         fakeRateFactor = fTauIso/(1.0-fTauIso)
         return fakeRateFactor
     def fakeRateMethod(self,row,fakeset,faketype):
@@ -709,10 +694,6 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
            histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
            histos[name+'/mPt'].Fill(row.mPt, weight)
            histos[name+'/m_t_Mass'].Fill(self.m_t_Mass_new,weight)
-           histos[name+'/vbfj1eta'].Fill(row.vbfj1eta,weight)
-           histos[name+'/vbfj2eta'].Fill(row.vbfj2eta,weight)
-           histos[name+'/vbfj1pt'].Fill(row.vbfj1pt,weight)
-           histos[name+'/vbfj2pt'].Fill(row.vbfj2pt,weight)
 #           print "fill histogram? %f" %row.mPt
         #   histos[name+'/type1_pfMetEtNormal'].Fill(row.type1_pfMetEt,weight)
            if self.ls_recoilC and MetCorrection:
@@ -1977,7 +1958,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
                            self.fill_histos(row,'vbf_vbfNotIsoM',True,faketype="muonfake")
     #        global Sysin
 #            print 'the def tPt %f  and M_coll value %f'  %(self.tau_Pt_C,self.collMass_type1_new)   
-            self.Sysin=0
+            self.Sysin=1
             if self.Sysin:
                  sysneedI=['MES_13TeVUp','MES_13TeVDown']
                  sysneedTES=['scale_t_1prong_13TeVUp','scale_t_1prong_13TeVDown','scale_t_1prong1pizero_13TeVUp','scale_t_1prong1pizero_13TeVDown','scale_t_3prong_13TeVUp','scale_t_3prong_13TeVDown']

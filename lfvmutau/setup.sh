@@ -4,8 +4,8 @@
 #export datasrc=/hdfs/store/user/fmeng/
 #export hdfs=/hdfs/store/user/caillol/
 #export datasrc=/hdfs/store/user/ndev
-#export datasrc=/hdfs/store/user/cepeda/
-export datasrc=/hdfs/store/user/ndev/
+export datasrc=/hdfs/store/user/taroni/
+#export datasrc=/hdfs/store/user/ndev/
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_V1_October10
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Nov3
 #export jobid=MiniAODSIMv2-Spring15-25ns_LFV_October13
@@ -24,8 +24,8 @@ export datasrc=/hdfs/store/user/ndev/
 #export jobid=SMHTT_oct25/
 #export jobid=LFVtrileptons_Dec7/
 #export jobid=LFVH_Dec21/
-#export jobid=LFV_feb18_mc/
-export jobid=LFV_Mar15_mc/
+export jobid=LFV_200GeV_30May/
+#export jobid=LFV_Mar15_mc/
 #export jobid=SMHTT_reminiaod_feb14/
 #export jobid=SMHTT_mc_jan17/
 #export jobid=LFVtrilepton_oct31/
@@ -44,7 +44,7 @@ echo $afile
 ## Build the cython wrappers
 #rake "make_wrapper[$afile, mmm/final/Ntuple, MuMuMuTree]"
 #rake "make_wrapper[$afile, mmt/final/Ntuple, MuMuTauTree]"
-rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
+#rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
 #rake "make_wrapper[$afile, em/final/Ntuple, MuMuTauTree]"
 echo "come here 1111111111111111"
 ls *pyx | sed "s|pyx|so|" | xargs rake 

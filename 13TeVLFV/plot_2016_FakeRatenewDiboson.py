@@ -171,7 +171,7 @@ xBins = array.array('d',[26,30,40,60,100])  # from the plots Tau
 #xBins1 = array.array('d',[30,34,38,42,46,50,54,60,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,150])  # from the plots Tau
-xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,90,100,110,130,150])  # from the plots Tau
+xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,90,100,110,130,150,200,300])  # from the plots Tau
 if 'EE' in channelTight:
   xBins1 = array.array('d',[30,35,40,50,60,70,90,110,150]) 
 if 'VBF' in channelTight:
@@ -282,8 +282,8 @@ if 'm3Pt' in var:
    fakeRate1.GetXaxis().SetRangeUser(26,300)
    fakeRateData1.GetXaxis().SetRangeUser(26,300)
 if 'tPt' in var:
-   fakeRate1.GetXaxis().SetRangeUser(30,150)
-   fakeRateData1.GetXaxis().SetRangeUser(30,150)
+   fakeRate1.GetXaxis().SetRangeUser(30,300)
+   fakeRateData1.GetXaxis().SetRangeUser(30,300)
    if 'VBF' in channelTight:
       fakeRate1.GetXaxis().SetRangeUser(30,150)
       fakeRateData1.GetXaxis().SetRangeUser(30,150)
@@ -387,7 +387,7 @@ if ("tPt" in var):
 #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",40,200)
   #fakeFit = ROOT.TF1("adsf","pol1",30,200)
   if not 'VBF' in channelTight:
-     fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,150)
+     fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,300)
   #fakeFit = ROOT.TF1("adsf","[0]",30,150)
 #  fakeFit = ROOT.TF1("adsf","[0]",30,55)
 #  fakeFit1 = ROOT.TF1("adsf","[0]",55,200)

@@ -4,7 +4,7 @@ import ROOT
 import sys
 import math
 import array
-import lfv_vars
+import lfv_varsnew
 import XSec
 clearnoverflow=1
 moveoverflow=0
@@ -96,9 +96,9 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
            for i in range(lowBound, highBound+1):
                    if fillEmptyBins: #fill empty bins
                            if histo.GetBinContent(i) <= 0:
-                                   histo.SetBinContent(i,0.001/nevents*xsec*lumi)
+                                   histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
                            #       histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
-                                   histo.SetBinError(i,1.8/nevents*xsec*lumi)
+                                   histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                    else:
                            if histo.GetBinContent(i) < 0:
                                    histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
@@ -154,16 +154,25 @@ JSONlumi = 35861.6952851 #newest
 #JSONlumi =12878.27 
 #JSONlumi =15000.0 
 #JSONlumi =218.042 
-ROOT.gROOT.LoadMacro("tdrstyle.C")
+#ROOT.gROOT.LoadMacro("tdrstyle.C")
 #ROOT.gROOT.LoadMacro("Rtypes.h")
-ROOT.setTDRStyle()
+#ROOT.setTDRStyle()
 
 ROOT.gROOT.LoadMacro("CMS_lumi.C")
 print "test"
 
-ROOT.gROOT.SetStyle("Plain")
-ROOT.gROOT.SetBatch(True)
+ROOT.gStyle.SetFrameLineWidth(3)
+ROOT.gStyle.SetLineWidth(3)
 ROOT.gStyle.SetOptStat(0)
+ROOT.gROOT.SetBatch(True)
+
+
+#ROOT.gROOT.SetStyle("Plain")
+#ROOT.gROOT.SetBatch(True)
+#ROOT.gStyle.SetFrameLineWidth(3)
+#ROOT.gStyle.SetLineWidth(3)
+#ROOT.gStyle.SetOptStat(0)
+#ROOT.gROOT.SetBatch(True)
 savedir=argv[1]
 var=argv[2]
 channel=argv[3]
@@ -179,9 +188,9 @@ RUN_OPTIMIZATION=int(argv[7])
 if RUN_OPTIMIZATION==1:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 else:
-   fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","IsoSS0Jet":"notIsoSS0Jet","IsoSS1Jet":"notIsoSS1Jet","IsoSS2Jet":"notIsoSS2Jet","IsoSS2Jet_gg":"notIsoSS2Jet_gg","IsoSS2Jet_vbf":"notIsoSS2Jet_vbf",'preslectionEnWjets':'notIsoEnWjets','preslectionEnWjets0Jet':'notIsoEnWjets0Jet','preslectionEnWjets1Jet':'notIsoEnWjets1Jet','preslectionEnWjets2Jet':'notIsoEnWjets2Jet','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_gg','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbf','preslectionEnZtt':'notIsoEnZtt','preslectionEnZtt0Jet':'notIsoEnZtt0Jet','preslectionEnZtt1Jet':'notIsoEnZtt1Jet','preslectionEnZtt2Jet':'notIsoEnZtt2Jet','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_gg','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbf','preslectionEnZmm':'notIsoEnZmm','preslectionEnZmm0Jet':'notIsoEnZmm0Jet','preslectionEnZmm1Jet':'notIsoEnZmm1Jet','preslectionEnZmm2Jet':'notIsoEnZmm2Jet','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_gg','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbf',"notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","preselection2Jet_gg":"notIso2Jet_gg","preselection2Jet_vbf":"notIso2Jet_vbf","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso",'preslectionEnTTbar':'notIsoEnTTbar','preslectionEnTTbar0Jet':'notIsoEnTTbar0Jet','preslectionEnTTbar1Jet':'notIsoEnTTbar1Jet','preslectionEnTTbar2Jet':'notIsoEnTTbar2Jet','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_gg','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbf'}
-fakeMChannels = {"preselection":"notIsoM","preselectionSS":"notIsoSSM","notIso":"notIsoM","notIsoSS":"notIsoSSM","IsoSS0Jet":"notIsoSS0JetM","IsoSS1Jet":"notIsoSS1JetM","IsoSS2Jet":"notIsoSS2JetM","IsoSS2Jet_gg":"notIsoSS2Jet_ggM","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfM",'preslectionEnWjets':'notIsoEnWjetsM','preslectionEnWjets0Jet':'notIsoEnWjets0JetM','preslectionEnWjets1Jet':'notIsoEnWjets1JetM','preslectionEnWjets2Jet':'notIsoEnWjets2JetM','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggM','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfM','preslectionEnZtt':'notIsoEnZttM','preslectionEnZtt0Jet':'notIsoEnZtt0JetM','preslectionEnZtt1Jet':'notIsoEnZtt1JetM','preslectionEnZtt2Jet':'notIsoEnZtt2JetM','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_ggM','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbfM','preslectionEnZmm':'notIsoEnZmmM','preslectionEnZmm0Jet':'notIsoEnZmm0JetM','preslectionEnZmm1Jet':'notIsoEnZmm1JetM','preslectionEnZmm2Jet':'notIsoEnZmm2JetM','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_ggM','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbfM',"preselection0Jet":"notIso0JetM","preselection1Jet":"notIso1JetM","preselection2Jet":"notIso2JetM","preselection2Jet_gg":"notIso2Jet_ggM","preselection2Jet_vbf":"notIso2Jet_vbfM","gg":"ggNotIsoM","boost":"boostNotIsoM","vbf":"vbfNotIsoM","vbf_gg":"vbf_ggNotIsoM","vbf_vbf":"vbf_vbfNotIsoM",'preslectionEnTTbar':'notIsoEnTTbarM','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetM','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetM','preslectionEnTTbar2Jet':'notIsoEnTTbar2JetM','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_ggM','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbfM'} 
-fakeMTChannels = {"preselection":"notIsoMT","preselectionSS":"notIsoSSMT","notIso":"notIsoMT","notIsoSS":"notIsoSSMT","IsoSS0Jet":"notIsoSS0JetMT","IsoSS1Jet":"notIsoSS1JetMT","IsoSS2Jet":"notIsoSS2JetMT","IsoSS2Jet_gg":"notIsoSS2Jet_ggMT","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfMT",'preslectionEnWjets':'notIsoEnWjetsMT','preslectionEnWjets0Jet':'notIsoEnWjets0JetMT','preslectionEnWjets1Jet':'notIsoEnWjets1JetMT','preslectionEnWjets2Jet':'notIsoEnWjets2JetMT','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggMT','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfMT','preslectionEnZtt':'notIsoEnZttMT','preslectionEnZtt0Jet':'notIsoEnZtt0JetMT','preslectionEnZtt1Jet':'notIsoEnZtt1JetMT','preslectionEnZtt2Jet':'notIsoEnZtt2JetMT','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_ggMT','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbfMT','preslectionEnZmm':'notIsoEnZmmMT','preslectionEnZmm0Jet':'notIsoEnZmm0JetMT','preslectionEnZmm1Jet':'notIsoEnZmm1JetMT','preslectionEnZmm2Jet':'notIsoEnZmm2JetMT','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_ggMT','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbfMT',"preselection0Jet":"notIso0JetMT","preselection1Jet":"notIso1JetMT","preselection2Jet":"notIso2JetMT","preselection2Jet_gg":"notIso2Jet_ggMT","preselection2Jet_vbf":"notIso2Jet_vbfMT","gg":"ggNotIsoMT","boost":"boostNotIsoMT","vbf":"vbfNotIsoMT","vbf_gg":"vbf_ggNotIsoMT","vbf_vbf":"vbf_vbfNotIsoMT",'preslectionEnTTbar':'notIsoEnTTbarMT','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetMT','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetMT','preslectionEnTTbar2Jet':'notIsoEnTTbar2JetMT','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_ggMT','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbfMT'} 
+   fakeChannels = {"preselection":"notIso","preselectionEnWjets01":"notIsoEnWjets01","preselectionSS":"notIsoSS","IsoSS0Jet":"notIsoSS0Jet","IsoSS1Jet":"notIsoSS1Jet","IsoSS2Jet":"notIsoSS2Jet","IsoSS2Jet_gg":"notIsoSS2Jet_gg","IsoSS2Jet_vbf":"notIsoSS2Jet_vbf",'preslectionEnWjets':'notIsoEnWjets','preslectionEnWjets0Jet':'notIsoEnWjets0Jet','preslectionEnWjets1Jet':'notIsoEnWjets1Jet','preslectionEnWjets2Jet':'notIsoEnWjets2Jet','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_gg','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbf','preslectionEnZtt':'notIsoEnZtt','preslectionEnZtt0Jet':'notIsoEnZtt0Jet','preslectionEnZtt1Jet':'notIsoEnZtt1Jet','preslectionEnZtt2Jet':'notIsoEnZtt2Jet','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_gg','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbf','preslectionEnZmm':'notIsoEnZmm','preslectionEnZmm0Jet':'notIsoEnZmm0Jet','preslectionEnZmm1Jet':'notIsoEnZmm1Jet','preslectionEnZmm2Jet':'notIsoEnZmm2Jet','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_gg','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbf',"notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","preselection2Jet_gg":"notIso2Jet_gg","preselection2Jet_vbf":"notIso2Jet_vbf","gg":"ggNotIso","boost":"boostNotIso","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso",'preslectionEnTTbar':'notIsoEnTTbar','preslectionEnTTbar0Jet':'notIsoEnTTbar0Jet','preslectionEnTTbar1Jet':'notIsoEnTTbar1Jet','preslectionEnTTbar2Jet':'notIsoEnTTbar2Jet','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_gg','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbf'}
+fakeMChannels = {"preselection":"notIsoM","preselectionEnWjets01":"notIsoEnWjets01M","preselectionSS":"notIsoSSM","notIso":"notIsoM","notIsoSS":"notIsoSSM","IsoSS0Jet":"notIsoSS0JetM","IsoSS1Jet":"notIsoSS1JetM","IsoSS2Jet":"notIsoSS2JetM","IsoSS2Jet_gg":"notIsoSS2Jet_ggM","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfM",'preslectionEnWjets':'notIsoEnWjetsM','preslectionEnWjets0Jet':'notIsoEnWjets0JetM','preslectionEnWjets1Jet':'notIsoEnWjets1JetM','preslectionEnWjets2Jet':'notIsoEnWjets2JetM','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggM','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfM','preslectionEnZtt':'notIsoEnZttM','preslectionEnZtt0Jet':'notIsoEnZtt0JetM','preslectionEnZtt1Jet':'notIsoEnZtt1JetM','preslectionEnZtt2Jet':'notIsoEnZtt2JetM','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_ggM','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbfM','preslectionEnZmm':'notIsoEnZmmM','preslectionEnZmm0Jet':'notIsoEnZmm0JetM','preslectionEnZmm1Jet':'notIsoEnZmm1JetM','preslectionEnZmm2Jet':'notIsoEnZmm2JetM','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_ggM','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbfM',"preselection0Jet":"notIso0JetM","preselection1Jet":"notIso1JetM","preselection2Jet":"notIso2JetM","preselection2Jet_gg":"notIso2Jet_ggM","preselection2Jet_vbf":"notIso2Jet_vbfM","gg":"ggNotIsoM","boost":"boostNotIsoM","vbf":"vbfNotIsoM","vbf_gg":"vbf_ggNotIsoM","vbf_vbf":"vbf_vbfNotIsoM",'preslectionEnTTbar':'notIsoEnTTbarM','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetM','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetM','preslectionEnTTbar2Jet':'notIsoEnTTbar2JetM','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_ggM','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbfM'} 
+fakeMTChannels = {"preselection":"notIsoMT","preselectionEnWjets01":"notIsoEnWjets01MT","preselectionSS":"notIsoSSMT","notIso":"notIsoMT","notIsoSS":"notIsoSSMT","IsoSS0Jet":"notIsoSS0JetMT","IsoSS1Jet":"notIsoSS1JetMT","IsoSS2Jet":"notIsoSS2JetMT","IsoSS2Jet_gg":"notIsoSS2Jet_ggMT","IsoSS2Jet_vbf":"notIsoSS2Jet_vbfMT",'preslectionEnWjets':'notIsoEnWjetsMT','preslectionEnWjets0Jet':'notIsoEnWjets0JetMT','preslectionEnWjets1Jet':'notIsoEnWjets1JetMT','preslectionEnWjets2Jet':'notIsoEnWjets2JetMT','preslectionEnWjets2Jet_gg':'notIsoEnWjets2Jet_ggMT','preslectionEnWjets2Jet_vbf':'notIsoEnWjets2Jet_vbfMT','preslectionEnZtt':'notIsoEnZttMT','preslectionEnZtt0Jet':'notIsoEnZtt0JetMT','preslectionEnZtt1Jet':'notIsoEnZtt1JetMT','preslectionEnZtt2Jet':'notIsoEnZtt2JetMT','preslectionEnZtt2Jet_gg':'notIsoEnZtt2Jet_ggMT','preslectionEnZtt2Jet_vbf':'notIsoEnZtt2Jet_vbfMT','preslectionEnZmm':'notIsoEnZmmMT','preslectionEnZmm0Jet':'notIsoEnZmm0JetMT','preslectionEnZmm1Jet':'notIsoEnZmm1JetMT','preslectionEnZmm2Jet':'notIsoEnZmm2JetMT','preslectionEnZmm2Jet_gg':'notIsoEnZmm2Jet_ggMT','preslectionEnZmm2Jet_vbf':'notIsoEnZmm2Jet_vbfMT',"preselection0Jet":"notIso0JetMT","preselection1Jet":"notIso1JetMT","preselection2Jet":"notIso2JetMT","preselection2Jet_gg":"notIso2Jet_ggMT","preselection2Jet_vbf":"notIso2Jet_vbfMT","gg":"ggNotIsoMT","boost":"boostNotIsoMT","vbf":"vbfNotIsoMT","vbf_gg":"vbf_ggNotIsoMT","vbf_vbf":"vbf_vbfNotIsoMT",'preslectionEnTTbar':'notIsoEnTTbarMT','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetMT','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetMT','preslectionEnTTbar2Jet':'notIsoEnTTbar2JetMT','preslectionEnTTbar2Jet_gg':'notIsoEnTTbar2Jet_ggMT','preslectionEnTTbar2Jet_vbf':'notIsoEnTTbar2Jet_vbfMT'} 
 if RUN_OPTIMIZATION==1: 
    tmpvariable=channel.split("/")[1]
    QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
@@ -228,8 +237,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = True #not blinded
-#blinded = False #not blinded
+#blinded = True #not blinded
+blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -268,8 +277,22 @@ if channeltmp=="boost":
 if channeltmp=="gg":
 	rootdir = "mutauh_0Jet"
 
-canvas = ROOT.TCanvas("canvas","canvas",800,800)
+canvas = ROOT.TCanvas("canvas","canvas",0,0,800,800)
 canvas.cd()
+canvas.SetFillColor(0)
+canvas.SetBorderMode(0)
+canvas.SetBorderSize(10)
+canvas.SetTickx(1)
+canvas.SetTicky(1)
+canvas.SetLeftMargin(0.16)
+canvas.SetRightMargin(0.05)
+canvas.SetTopMargin(0.10)
+canvas.SetBottomMargin(0.10)
+canvas.SetFrameFillStyle(0)
+canvas.SetFrameLineStyle(0)
+canvas.SetFrameLineWidth(3)
+canvas.SetFrameBorderMode(0)
+canvas.SetFrameBorderSize(10)
 #canvas.SetLogy()
 if shape_norm == False:
         ynormlabel = " "
@@ -277,7 +300,7 @@ else:
         ynormlabel = "Normalized to 1 "
 
 # Get parameters unique to each variable
-getVarParams = "lfv_vars."+var
+getVarParams = "lfv_varsnew."+var
 varParams = eval(getVarParams)
 xlabel = varParams[0]
 binwidth = varParams[7]
@@ -300,7 +323,7 @@ elif ("collMass" in var or 'm_t_Mass' in var) and "preselection1Jet" in channel:
 elif ("collMass" in var or 'm_t_Mass' in var) and "preselection2Jet" in channel:
         binwidth = 25
 elif ("collMass" in var or 'm_t_Mass' in var) and "preselection" in channel:
-        binwidth = 5
+        binwidth = 10
 #elif "BDT" in var and ("vbf_vbf"==channel or '2Jet_vbf' in channel):
 #        binwidth =array.array('d',[-0.5,-0.42,-0.34,-0.28,-0.24,-0.20,-0.16,-0.12,-0.08,-0.04,0.0,0.04,0.08,0.12,0.16,0.20,0.24,0.30])
 #elif "BDT" in var and ("vbf_gg"==channel or '2Jet' in channel):
@@ -332,24 +355,55 @@ legend = eval(varParams[8])
 isGeV = varParams[5]
 xRange = varParams[6]
 
-p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
-p_lfv.SetLeftMargin(0.2147651)
-p_lfv.SetRightMargin(0.06543624)
-p_lfv.SetTopMargin(0.04895105)
-p_lfv.SetBottomMargin(0.305)
-p_lfv.Draw()
-p_ratio = ROOT.TPad('p_ratio','p_ratio',0,0,1,0.295)
-p_ratio.SetLeftMargin(0.2147651)
-p_ratio.SetRightMargin(0.06543624)
-p_ratio.SetTopMargin(0.04895105)
-p_ratio.SetBottomMargin(0.295)
-p_ratio.SetGridy()
-p_ratio.Draw()
-p_lfv.cd()
+
+#p_lfv = ROOT.TPad("p_lfv","p_lfv",0,0,1,1)
+#p_lfv.SetFillColor(0)
+#p_lfv.SetBorderMode(0)
+#p_lfv.SetBorderSize(10)
+#p_lfv.SetTickx(1)
+#p_lfv.SetTicky(1)
+#p_lfv.SetLeftMargin(0.14)
+#p_lfv.SetRightMargin(0.05)
+#p_lfv.SetTopMargin(0.122)
+#p_lfv.SetBottomMargin(0.026)
+#p_lfv.SetFrameFillStyle(0)
+#p_lfv.SetFrameLineStyle(0)
+#p_lfv.SetFrameLineWidth(3)
+#p_lfv.SetFrameBorderMode(0)
+#p_lfv.SetFrameBorderSize(10)
+#p_lfv.RedrawAxis()
+#p_lfv.Draw()
+
+
+#p_ratio = ROOT.TPad("p_ratio","p_ratio",0,0,1,0.35);
+#p_ratio.SetTopMargin(0.05);
+#p_ratio.SetBottomMargin(0.35);
+#p_ratio.SetLeftMargin(0.14);
+#p_ratio.SetRightMargin(0.05);
+#p_ratio.SetTickx(1)
+#p_ratio.SetTicky(1)
+#p_ratio.SetFrameLineWidth(3)
+##p_ratio.SetGridx()
+#p_ratio.SetGridy()
+#p_ratio.Draw()
+#p_lfv.cd()
+#p_lfv = ROOT.TPad('p_lfv','p_lfv',0,0,1,1)
+#p_lfv.SetLeftMargin(0.2147651)
+#p_lfv.SetRightMargin(0.06543624)
+#p_lfv.SetTopMargin(0.04895105)
+#p_lfv.SetBottomMargin(0.305)
+#p_lfv.Draw()
+#p_ratio = ROOT.TPad('p_ratio','p_ratio',0,0,1,0.295)
+#p_ratio.SetLeftMargin(0.2147651)
+#p_ratio.SetRightMargin(0.06543624)
+#p_ratio.SetTopMargin(0.04895105)
+#p_ratio.SetBottomMargin(0.295)
+#p_ratio.SetGridy()
+#p_ratio.Draw()
+#p_lfv.cd()
 #p_lfv.SetLogy()
 lumidir = savedir+"weights/"
-#lumiScale = float(argv[4]) #lumi to scale to
-lumiScale = 100 #lumi to scale to
+lumiScale = float(argv[4]) #lumi to scale to
 lumi = lumiScale*1000
 if (lumiScale==0):
 	lumi = JSONlumi
@@ -381,6 +435,8 @@ data=data2016B.Clone()
 #		highDataBin = i
 #		break
 channelNoral=channel
+if ('preslectionEnZmm' in channelNoral) and ('BDTcuts' in var):
+  legend=ROOT.TLegend(0.56, 0.55, 0.93, 0.90,' ','brNDC')
 if ('13TeV' in shift) and not ('none' in shift) and not ('TauFakeRate' in shift):
    channelSys=channel+shift
    channel=channelSys
@@ -440,7 +496,6 @@ smhvbf.Add(smtthtt)
 #wz = make_histo(savedir,"WZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
 #zz = make_histo(savedir,"ZZ_TuneCUETP8M1_13TeV-pythia8",channel,var,lumidir,lumi)
 #ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
-print 'channel here %s'  %channel
 ttbar = make_histo(savedir,"TT_TuneCUETP8M2T4_13TeV-powheg-pythia8",channel,var,lumidir,lumi)
 #do_binbybinQCD(ttbar,lowDataBin,highDataBin)
 #ttbar = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",channel,var,lumidir,lumi)
@@ -1242,10 +1297,10 @@ outfile = ROOT.TFile(outfile_name+".root","RECREATE")
 
 outfile.mkdir(rootdir)
 outfile.cd(rootdir+"/")
-if blinded == False:
+#if blinded == False:
 	#if not ("Jet" in savedir or "UES" in savedir or "TES" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
-	if not ("Jet" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift or "Fakes" in shift or "Fakes" in shift or "MES" in shift):
-        	data.Write("data_obs")
+#	if not ("Jet" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift or "Fakes" in shift or "Fakes" in shift or "MES" in shift):
+#        	data.Write("data_obs")
 
 if ("collMass" in var or "m_t_Mass" in var or 'type1_pfMetEtNormal' in var or 'type1_pfMetEt' in var):
   #binLow = data.FindBin(100)
@@ -1257,11 +1312,11 @@ if ("BDT" in var):
   binHigh1 = data.FindBin(0.3)+1
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
-if blinded == True:
+#if blinded == True:
         #if not ("Jet" in shift or "MES" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift  or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift or 'Pileup' in shift):
         #        data.Write("data_obs")
-        if 'none' in shift:
-                data.Write("data_obs")
+#        if 'none' in shift:
+#                data.Write("data_obs")
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,
 #              kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
@@ -1274,11 +1329,6 @@ data.SetLineColor(1)
 #gghmutau125.SetLineColor(ROOT.EColor.kRed)
 gghmutau125.SetLineColor(632)
 gghmutau125.SetLineWidth(3)
-smhgg.SetLineWidth(3)
-#smhgg.SetLineColor(ROOT.EColor.kMagenta)
-#smhgg.SetFillColor(ROOT.EColor.kMagenta)
-smhgg.SetLineColor(616)
-smhgg.SetFillColor(616)
 #vbfhmutau125.SetLineColor(ROOT.EColor.kBlue)
 vbfhmutau125.SetLineColor(600)
 vbfhmutau125.SetLineWidth(3)
@@ -1287,8 +1337,13 @@ smhvbf.SetLineWidth(3)
 #smhvbf.SetFillColor(ROOT.EColor.kMagenta)
 smhvbf.SetLineColor(616)
 smhvbf.SetFillColor(616)
+smhgg.SetLineWidth(1)
+smhgg.SetLineColor(1)
+smhgg.SetMarkerSize(0)
+#smhgg.SetFillColor(880-1)
+smhgg.SetFillColor(616+2)
 wjets.SetFillColor(616-10)
-wjets.SetLineColor(616+4)
+wjets.SetLineColor(1)
 wjets.SetLineWidth(1)
 wjets.SetMarkerSize(0)
 if (QCDflag == True):
@@ -1332,25 +1387,28 @@ if DY_bin:
 #ztautau.SetFillColor(ROOT.EColor.kOrange-4)
 #ztautau.SetLineColor(ROOT.EColor.kOrange+4)
 ztautau.SetFillColor(800-4)
-ztautau.SetLineColor(800+4)
+ztautau.SetLineColor(1)
 ztautau.SetLineWidth(1)
 ztautau.SetMarkerSize(0)
 #zjets.SetFillColor(ROOT.EColor.kAzure+3)
 #zjets.SetLineColor(ROOT.EColor.kAzure+3)
-zjets.SetFillColor(860+3)
-zjets.SetLineColor(860+3)
+#zjets should be kAzure+4?
+zjets.SetFillColor(860+5)
+zjets.SetLineColor(1)
 zjets.SetLineWidth(1)
 zjets.SetMarkerSize(0)
 #ttbar.SetFillColor(ROOT.EColor.kGreen+3)
 #ttbar.SetLineColor(ROOT.EColor.kBlack)
-ttbar.SetFillColor(416+3)
+#TTbar new kblue -6
+ttbar.SetFillColor(600-8)
 ttbar.SetLineColor(1)
 ttbar.SetLineWidth(1)
 ttbar.SetMarkerSize(0)
 #diboson.SetFillColor(ROOT.EColor.kRed+2)
 #diboson.SetLineColor(ROOT.EColor.kRed+4)
-diboson.SetFillColor(632+2)
-diboson.SetLineColor(632+4)
+#new diboson kXyan-7
+diboson.SetFillColor(432-6)
+diboson.SetLineColor(1)
 diboson.SetLineWidth(1)
 diboson.SetMarkerSize(0)
 #singlet.SetFillColor(ROOT.EColor.kGreen+4)
@@ -1413,11 +1471,22 @@ BLAND=0
 #    for i in range(binLow1,binHigh1):
 #        data.SetBinContent(i,-100)
 #Recommended by stats committee
+ttbarP_t=ttbar.Clone()
+ttbarP_t.Add(singlet)
+ttbarP_t.SetFillColor(600-8)
+ttbarP_t.SetLineColor(1)
+ttbarP_t.SetLineWidth(1)
+ttbarP_t.SetMarkerSize(0)
 if(poissonErrors==True):
 	set_poissonerrors(data)
 
 smh = smhgg.Clone()
 smh.Add(smhvbf)
+smh.SetLineWidth(1)
+smh.SetLineColor(1)
+smh.SetMarkerSize(0)
+#smh.SetFillColor(616+1)
+smh.SetFillColor(ROOT.TColor.GetColor("#c243cd"))
 LFVStack = ROOT.THStack("stack","")
 if wjets_fakes==False:
    LFVStack.Add(wjets)
@@ -1430,17 +1499,19 @@ if (fakeRate ==False and wjets_fakes==True):
    LFVStack.Add(wjetsWmunu)
    LFVStack.Add(wjetsWtaunu)
    LFVStack.Add(wjetsW2jets)
+LFVStack.Add(smh)
 LFVStack.Add(diboson)
-LFVStack.Add(ttbar)
-LFVStack.Add(singlet)
+#LFVStack.Add(ttbar)
+LFVStack.Add(ttbarP_t)
+#LFVStack.Add(singlet)
 if not  DY_bin:
    LFVStack.Add(zjets)
 else:
    LFVStack.Add(zlljets)
    LFVStack.Add(zmmjets)
 LFVStack.Add(ztautau)
-LFVStack.Add(smh)
 binContent_2 = (LFVStack.GetStack().Last())
+#LFVStack.GetStack().Last().GetXaxis().SetLabelSize(0.)
 #print 'total background nubmers are %f' %(binContent_2.Integral())
 if blinded==False and (not "preselectionSS" in channel) : 
    for ibin in range(1,wjets.GetNbinsX()):
@@ -1448,10 +1519,10 @@ if blinded==False and (not "preselectionSS" in channel) :
        Lfvh = vbfhmutau125.Clone()
        Lfvh.Add(gghmutau125)
        #Lfvh.Scale(0.01)
-       if binContent!=0:
+#       if binContent!=0:
      #print Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))
-         if Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))>=1.1:
-            data.SetBinContent(ibin,-100)
+#         if Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))>=1.1:
+#            data.SetBinContent(ibin,-100)
 #if (QCDflag == True):
 #   backgroundIntegral =QCDs.GetBinContent(7)+ wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
 #else:
@@ -1472,43 +1543,79 @@ maxLFVStack = LFVStack.GetMaximum()
 maxData=data.GetMaximum()
 maxHist = max(maxLFVStack,maxData)
 
-LFVStack.SetMaximum(maxHist*1.20)
+LFVStack.SetMaximum(maxData*1.25)
+if ('preslectionEnZmm' in channelNoral) and ('BDTcuts' in var): 
+   LFVStack.SetMaximum(maxData*2)
+if ('preselection' in channelNoral) and ('tDPhiToPfMet_type1' in var): 
+   LFVStack.SetMaximum(maxData*1.5)
 LFVStack.Draw('hist')
+data.Draw("sames,E0")
 #if drawdata:
 #   if blinded==False :
      #if ("preselection" in channel) or (("preselection" not in channel) and ("collMass" in var or "m_t_Mass" in var or 'BDTcuts' in var)):
 #       data.Draw("sames,E0")
 #   else:
-data.Draw("sames,E0")
-lfvh = vbfhmutau125.Clone()
-lfvh.Add(gghmutau125)
+lfvh = gghmutau125.Clone()
+lfvh.Add(vbfhmutau125)
+lfvh.Scale(0.2)
+lfvh.SetLineWidth(5)
 vbfhmutau125.Scale(0.2)
 gghmutau125.Scale(0.2)
+lfvh.Draw('hsames')
+#vbfhmutau125.Draw("hsames")
+#gghmutau125.Draw("hsames")
 
-vbfhmutau125.Draw("hsames")
-gghmutau125.Draw("hsames")
+#legend.SetFillColor(0)
+#legend.SetBorderSize(0)
+#legend.SetFillStyle(0)
+#legend.SetBorderSize(0)
+#legend.SetTextFont(62)
 
+
+legend.SetLineWidth(0)
+legend.SetLineStyle(0)
+legend.SetFillStyle(0)
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
-legend.SetFillStyle(0)
-
+legend.SetTextFont(62)
 xbinLength = wjets.GetBinWidth(1)
 widthOfBin = xbinLength
 
 if isGeV and ("collMass_type1" in var or 'm_t_Mass' in var):
-        ylabel = ynormlabel + " Events / " + str(int(widthOfBin)) + " GeV"
+        ylabel = ynormlabel + " Events/bin"
 else:
-        ylabel = ynormlabel  + " Events"
+        ylabel = ynormlabel  + " Events/bin"
 
 legend.Draw('sames')
 LFVStack.GetXaxis().SetTitle(xlabel)
-LFVStack.GetXaxis().SetNdivisions(510)
-LFVStack.GetXaxis().SetLabelSize(0.035)
+LFVStack.GetXaxis().SetNdivisions(505)
+LFVStack.GetXaxis().SetLabelSize(0.04)
+LFVStack.GetXaxis().SetTitleSize(0.04)
+LFVStack.GetXaxis().SetNdivisions(505)
+#LFVStack.GetYaxis().SetTitle(ylabel)
+#LFVStack.GetYaxis().SetTitleOffset(1.40)
+#LFVStack.GetYaxis().SetLabelSize(0.035)
+
+
+
 LFVStack.GetYaxis().SetTitle(ylabel)
-LFVStack.GetYaxis().SetTitleOffset(1.40)
-LFVStack.GetYaxis().SetLabelSize(0.035)
-
-
+LFVStack.GetYaxis().SetLabelFont(42)
+LFVStack.GetYaxis().SetLabelOffset(0.01)
+LFVStack.GetYaxis().SetLabelSize(0.04)
+LFVStack.GetYaxis().SetTitleSize(0.04)
+LFVStack.GetYaxis().SetTitleOffset(2.0)#0.96)
+LFVStack.GetYaxis().SetTitleFont(42)
+#LFVStack.GetYaxis().SetNdivisions(505)
+#LFVStack.GetYaxis().SetTitleSize(0.05)
+categ1  = ROOT.TPaveText(0.18, 0.655, 0.45, 0.655+0.155, "NDC")
+categ1.SetBorderSize(   0 )
+categ1.SetFillStyle(    0 )
+categ1.SetTextAlign(   12 )
+categ1.SetTextSize ( 0.04 )
+categ1.SetTextColor(    1 )
+categ1.SetTextFont (   42 )
+categ1.AddText("#mu#tau_{h}")
+categ1.Draw("same")
 
 pave = ROOT.TPave(100,0,150,maxHist*1.25,4,"br")
 #pave.SetFillColor(ROOT.kGray+4)
@@ -1527,6 +1634,8 @@ if (xRange!=0):
         if ("BDT" in var) and "Zmm" in channel:
        	   LFVStack.GetXaxis().SetRangeUser(-0.3,0.2)
 
+if ('tDPhiToPfMet_type1' in var) or ('m_t_DPhi' in var):
+    LFVStack.GetXaxis().SetRangeUser(0,3.2)
 LFVStack.GetXaxis().SetTitle(xlabel)
 
 xbinLength = wjets.GetBinWidth(1)
@@ -1619,46 +1728,148 @@ eylUncertVec = ROOT.TVectorF(len(eylUncert),eylUncert)
 eyhUncertVec = ROOT.TVectorF(len(eyhUncert),eyhUncert)
 systErrors = ROOT.TGraphAsymmErrors(xUncertVec,yUncertVec,exlUncertVec,exhUncertVec,eylUncertVec,eyhUncertVec)
 
-xUncertVecRatio = ROOT.TVectorF(len(xUncertRatio),xUncertRatio)
-yUncertVecRatio = ROOT.TVectorF(len(yUncertRatio),yUncertRatio)
-exlUncertVecRatio = ROOT.TVectorF(len(exlUncertRatio),exlUncertRatio)
-exhUncertVecRatio = ROOT.TVectorF(len(exhUncertRatio),exhUncertRatio)
-eylUncertVecRatio = ROOT.TVectorF(len(eylUncertRatio),eylUncertRatio)
-eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
-systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
+#xUncertVecRatio = ROOT.TVectorF(len(xUncertRatio),xUncertRatio)
+#yUncertVecRatio = ROOT.TVectorF(len(yUncertRatio),yUncertRatio)
+#exlUncertVecRatio = ROOT.TVectorF(len(exlUncertRatio),exlUncertRatio)
+#exhUncertVecRatio = ROOT.TVectorF(len(exhUncertRatio),exhUncertRatio)
+#eylUncertVecRatio = ROOT.TVectorF(len(eylUncertRatio),eylUncertRatio)
+#eyhUncertVecRatio = ROOT.TVectorF(len(eyhUncertRatio),eyhUncertRatio)
+#systErrorsRatio = ROOT.TGraphAsymmErrors(xUncertVecRatio,yUncertVecRatio,exlUncertVecRatio,exhUncertVecRatio,eylUncertVecRatio,eyhUncertVecRatio)
 
 latex = ROOT.TLatex()
 latex.SetNDC()
-latex.SetTextSize(0.03)
-latex.SetTextAlign(31)
+#latex.SetTextSize(0.03)
+#latex.SetTextAlign(31)
 print lumi
-latexStr = "%.2f fb^{-1} (13 TeV)"%(lumi/1000)
 
-latex.DrawLatex(0.9,0.96,latexStr)
-latex.SetTextAlign(11)
-latex.SetTextFont(61)
-latex.SetTextSize(0.04)
-latex.DrawLatex(0.25,0.92,"CMS")
-latex.SetTextFont(52)
-latex.SetTextSize(0.027)
-latex.DrawLatex(0.25,0.87,"Preliminary")
+def add_lumi():
+    lowX=0.65
+    lowY=0.835
+    lumi  = ROOT.TPaveText(lowX, lowY+0.06, lowX+0.30, lowY+0.16, "NDC")
+    lumi.SetBorderSize(   0 )
+    lumi.SetFillStyle(    0 )
+    lumi.SetTextAlign(   12 )
+    lumi.SetTextColor(    1 )
+    lumi.SetTextSize(0.04)
+    lumi.SetTextFont (   42 )
+    lumi.AddText("35.9 fb^{-1} (13 TeV)")
+    return lumi
+
+l1=add_lumi()
+l1.Draw("same")
+
+def add_CMS():
+    lowX=0.18
+    lowY=0.745
+    lumi  = ROOT.TPaveText(lowX, lowY+0.06, lowX+0.15, lowY+0.16, "NDC")
+    lumi.SetTextFont(61)
+    lumi.SetTextSize(0.05)
+    lumi.SetBorderSize(   0 )
+    lumi.SetFillStyle(    0 )
+    lumi.SetTextAlign(   12 )
+    lumi.SetTextColor(    1 )
+    lumi.AddText("CMS")
+    return lumi
+
+
+l2=add_CMS()
+l2.Draw("same")
+#latexStr = "2016, %.2f fb^{-1} (13 TeV)"%(lumi/1000)
+#latex.DrawLatex(0.95,0.915,latexStr)
+#latex.SetTextAlign(12)
+#latex.SetTextFont(61)
+#latex.SetTextSize(0.08)
+#latex.DrawLatex(0.17,0.785,"CMS")
+
+def add_Preliminary():
+    lowX=0.18
+    lowY=0.695
+    lumi  = ROOT.TPaveText(lowX, lowY+0.06, lowX+0.15, lowY+0.16, "NDC")
+    lumi.SetTextFont(52)
+    lumi.SetTextSize(0.04)
+    lumi.SetBorderSize(   0 )
+    lumi.SetFillStyle(    0 )
+    lumi.SetTextAlign(   12 )
+    lumi.SetTextColor(    1 )
+    lumi.AddText("Preliminary")
+    return lumi
+
+l3=add_Preliminary()
+l3.Draw("same")
+
+
+def add_prefit():
+    lowX=0.18
+    lowY=0.675
+    lumi  = ROOT.TPaveText(lowX, lowY+0.06, lowX+0.15, lowY+0.16, "NDC")
+    lumi.SetTextFont(52)
+    lumi.SetTextSize(0.04)
+    lumi.SetBorderSize(   0 )
+    lumi.SetFillStyle(    0 )
+    lumi.SetTextAlign(   12 )
+    lumi.SetTextColor(    1 )
+    lumi.AddText("Prefit")
+    return lumi
+#categ1  = ROOT.TPaveText(0.18, 0.655, 0.45, 0.655+0.155, "NDC")
+l4=add_prefit()
+#l4.Draw("same")
+
+categ  = ROOT.TPaveText(0.17, 0.655, 0.45, 0.655+0.155, "NDC")
+categ.SetBorderSize(   0 )
+categ.SetFillStyle(    0 )
+categ.SetTextAlign(   12 )
+categ.SetTextSize ( 0.06 )
+categ.SetTextColor(    1 )
+categ.SetTextFont (   42 )
+
+
+#categ  = ROOT.TPaveText(0.16, 0.625, 0.44, 0.625+0.155, "NDC")
+#categ.SetBorderSize(   0 )
+#categ.SetFillStyle(    0 )
+#categ.SetTextAlign(   12 )
+#categ.SetTextSize ( 0.06 )
+#categ.SetTextColor(    1 )
+#categ.SetTextFont (   42 )
+if channeltmp=="vbf_gg" or '2Jet_gg' in channel:
+    categ.AddText("#mu#tau_{h}, 2 jets gg-enriched")
+if channeltmp=="vbf_vbf" or '2Jet_vbf' in channel:
+    categ.AddText("#mu#tau_{h}, 2 jets VBF-enriched")
+if channeltmp=="boost" or '1Jet' in channel:
+    categ.AddText("#mu#tau_{h}, 1 jet")
+if channeltmp=="gg" or '0Jet' in channel:
+    categ.AddText("#mu#tau_{h}, 0 jet")
+categ.Draw("same")
 #systErrors.SetFillColorAlpha(ROOT.EColor.kGray+2,0.35)
+systErrors.SetLineWidth(1)
 systErrors.SetFillColorAlpha(920+2,0.35)
+systErrors.SetFillStyle(3001)
 systErrors.SetMarkerSize(0)
 systErrors.Draw('E2,sames')
-legend.AddEntry(data, 'Data #mu#tau_{had}')
-legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
-legend.AddEntry(smh, 'SM Higgs')
-#legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
-legend.AddEntry(ztautau,'Z->#tau#tau ','f')
+legend.AddEntry(data, 'Observed','elp')
+legend.AddEntry(ztautau,'Z#rightarrow#tau#tau','f')
 if not  DY_bin:
-   legend.AddEntry(zjets,'Z->l^{+}l^{-}','f')
+   legend.AddEntry(zjets,'Z#rightarrowee/#mu#mu','f')
 else:
    legend.AddEntry(zlljets,'Z->e^{+}e^{-}','f')
    legend.AddEntry(zmmjets,'Z->#mu^{+}#mu^{-}','f')
-legend.AddEntry(ttbar,'t#bar{t}')
-legend.AddEntry(singlet,'Single Top')
-legend.AddEntry(diboson,'VV',"f")
+legend.AddEntry(ttbar,'t#bar{t},t+jets','f')
+legend.AddEntry(diboson,'Diboson',"f")
+if fakeRate ==True :
+   if fakeallplot:   
+      legend.AddEntry(wjets,'TauFakes (jet #rightarrow #tau)','f')
+      legend.AddEntry(wjetsM,'MuonFakes (jet #rightarrow #mu)','f')
+#      legend.AddEntry(wjetsMT,'M&T Fakes (jet #rightarrow #mu or #tau)','f')
+   else:
+      #legend.AddEntry(wjets,'Fakes (jet #rightarrow #mu #tau)','f')
+      legend.AddEntry(wjets,'Reducible','f')
+if fakeRate ==False and wjets_fakes==False :
+   legend.AddEntry(wjets,'Wjets','f')
+#legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
+legend.AddEntry(smh,"SM H#rightarrow#tau#tau",'f')
+legend.AddEntry(lfvh,'H #rightarrow #mu#tau (B=20%)')
+legend.AddEntry(systErrors,'Bkg.unc','f')
+#legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
+#legend.AddEntry(singlet,'Single Top')
 if (QCDflag == True):
 #   legend.AddEntry(wjets,'Wjets','f')
    legend.AddEntry(QCDs,'QCDs','f')
@@ -1667,82 +1878,108 @@ if (fakeRate ==False and wjets_fakes==True):
    legend.AddEntry(wjetsWtaunu,'Wtaunu','f')
    legend.AddEntry(wjetsW2jets,'W2jets','f')
 
-if fakeRate ==True :
-   if fakeallplot:   
-      legend.AddEntry(wjets,'TauFakes (jet #rightarrow #tau)','f')
-      legend.AddEntry(wjetsM,'MuonFakes (jet #rightarrow #mu)','f')
-#      legend.AddEntry(wjetsMT,'M&T Fakes (jet #rightarrow #mu or #tau)','f')
-   else:
-      #legend.AddEntry(wjets,'Fakes (jet #rightarrow #mu #tau)','f')
-      legend.AddEntry(wjets,'Fakes (jet #rightarrow #tau)','f')
-if fakeRate ==False and wjets_fakes==False :
-   legend.AddEntry(wjets,'Wjets','f')
-legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
-legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
-
+#legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
+legend.SetNColumns(2)
 #fill output root file
 if fakeRate == True:
         if fakeallplot:
            wjets.Add(wjetsM)
 #           wjets.Add(wjetsMT)
-           wjets.Write("wjets"+shiftStr)
-        else:
+#           wjets.Write("wjets"+shiftStr)
+#        else:
         #   wjets.Add(wjetsM)
-           wjets.Write("Fakes"+shiftStr)
+#           wjets.Write("Fakes"+shiftStr)
 else:
   print "******************************   qcd???????????"
   if QCDflag==True:
      wjets.Add(QCDs)
 #     do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-     wjets.Write("wjets"+shiftStr)
-  else:
-     wjets.Write("Fakes"+shiftStr)
-zjets.Write("Zothers"+shiftStr)
+#     wjets.Write("wjets"+shiftStr)
+#  else:
+#     wjets.Write("Fakes"+shiftStr)
+#zjets.Write("Zothers"+shiftStr)
 
-p_ratio.cd()
-ROOT.gROOT.LoadMacro("tdrstyle.C")
-ROOT.setTDRStyle()
-ratio = data.Clone()
-mc = wjets.Clone()
-mc.Add(zjets)
-mc.Add(ztautau)
-mc.Add(ttbar)
-mc.Add(diboson)
-mc.Add(singlet)
-mc.Add(smh)
-mc.Scale(-1)
-#ratio.Add(mc)
-mc.Scale(-1)
-if drawdata:
-   ratio.Divide(mc)
-else:
-   ratio.Divide(mc*100000)
+#p_ratio.cd()
+#ROOT.gROOT.LoadMacro("tdrstyle.C")
+#ROOT.setTDRStyle()
+#ratio = data.Clone()
+#mc = wjets.Clone()
+#mc.Add(zjets)
+#mc.Add(ztautau)
+#mc.Add(ttbar)
+#mc.Add(diboson)
+#mc.Add(singlet)
+#mc.Add(smh)
+#mc.Scale(-1)
+##ratio.Add(mc)
+#mc.Scale(-1)
 #if drawdata:
-ratio.Draw("E1")
+#   ratio.Divide(mc)
+#else:
+#   ratio.Divide(mc*100000)
+#if drawdata:
+#ratio.Draw("E")
 #systErrorsRatio.SetFillColorAlpha(ROOT.EColor.kGray+2,0.35)
-systErrorsRatio.SetFillColorAlpha(920+2,0.35)
-systErrorsRatio.SetMarkerSize(0)
-systErrorsRatio.Draw('E2,sames')
-if ("mMt" in var):
-	ratio.GetXaxis().SetRangeUser(0,200)
-ratio.GetXaxis().SetTitle(xlabel)
-ratio.GetXaxis().SetTitleSize(0.12)
-ratio.GetXaxis().SetNdivisions(510)
-ratio.GetXaxis().SetTitleOffset(1.1)
-ratio.GetXaxis().SetLabelSize(0.12)
-ratio.GetXaxis().SetLabelFont(42)
-ratio.GetYaxis().SetNdivisions(505)
-ratio.GetYaxis().SetLabelFont(42)
-ratio.GetYaxis().SetLabelSize(0.1)
-#ratio.GetYaxis().SetRangeUser(-1,1)
-ratio.GetYaxis().SetRangeUser(0.6,1.4)
-#ratio.GetYaxis().SetTitle("#frac{Data-MC}{MC}")
-ratio.GetYaxis().SetTitle("#frac{Obs.}{Exp.}")
-ratio.GetYaxis().CenterTitle(1)
-ratio.GetYaxis().SetTitleOffset(0.4)
-ratio.GetYaxis().SetTitleSize(0.12)
-ratio.SetTitle("")
+#systErrorsRatio.SetFillColorAlpha(920+2,0.35)
+#systErrorsRatio.SetMarkerSize(0)
+#systErrorsRatio.SetMarkerStyle(20)
 
+
+#adapt=ROOT.gROOT.GetColor(12)
+#new_idx=ROOT.gROOT.GetListOfColors().GetSize() + 1
+#systErrorsRatio.SetMarkerSize(0)
+##systErrorsRatio.SetFillColor(new_idx)
+#systErrorsRatio.SetFillColorAlpha(920+3,0.35)
+#systErrorsRatio.SetFillStyle(3001)
+#systErrorsRatio.SetLineWidth(1)
+
+#systErrorsRatio.Draw('"e0p,sames"')
+#systErrorsRatio.Draw('E2,sames')
+#if ("mMt" in var):
+#	ratio.GetXaxis().SetRangeUser(0,200)
+#ratio.GetXaxis().SetTitle(xlabel)
+#ratio.GetXaxis().SetTitleSize(0.12)
+#ratio.GetXaxis().SetNdivisions(510)
+#ratio.GetXaxis().SetTitleOffset(1.1)
+#ratio.GetXaxis().SetLabelSize(0.08)
+#ratio.GetXaxis().SetLabelFont(42)
+
+
+#ratio.GetXaxis().SetTitle(xlabel)
+#ratio.GetXaxis().SetLabelSize(0.08)
+#ratio.GetXaxis().SetNdivisions(505)
+#ratio.GetXaxis().SetTitleSize(0.15)
+#ratio.GetXaxis().SetTitleOffset(1.04)
+#ratio.GetXaxis().SetLabelSize(0.11)
+#ratio.GetXaxis().SetTitleFont(42)
+
+
+#ratio.GetYaxis().SetLabelSize(0.08)
+#ratio.GetYaxis().SetTitle("Obs./Exp.")
+#ratio.GetYaxis().SetNdivisions(5)
+#ratio.GetYaxis().SetTitleSize(0.15)
+#ratio.GetYaxis().SetTitleOffset(0.40)
+#ratio.GetYaxis().SetLabelSize(0.11)
+#ratio.GetYaxis().SetTitleFont(42)
+#ratio.GetYaxis().SetRangeUser(0.25,1.75)
+
+
+#ratio.GetYaxis().SetNdivisions(505)
+#ratio.GetYaxis().SetLabelFont(42)
+#ratio.GetYaxis().SetLabelSize(0.08)
+#ratio.GetYaxis().SetRangeUser(-1,1)
+#ratio.GetYaxis().SetRangeUser(0.6,1.4)
+#ratio.GetYaxis().SetTitle("#frac{Data-MC}{MC}")
+#ratio.GetYaxis().SetTitle("Obs./Exp.")
+#ratio.GetYaxis().CenterTitle(1)
+#ratio.GetYaxis().SetTitleOffset(0.4)
+#ratio.GetYaxis().SetTitleSize(0.08)
+#ratio.SetTitle("")
+#canvas.cd()
+#p_lfv.RedrawAxis()
+#p_lfv.Draw()
+#ROOT.gPad.RedrawAxis()
+#canvas.Modified()
 #paveratio = ROOT.TPave(100,-1,150,1,4,"br")
 paveratio = ROOT.TPave(100,0.6,150,1.4,4,"br")
 #pave.SetFillColor(ROOT.kGray+4)
@@ -1750,87 +1987,83 @@ pave.SetFillColor(920+4)
 pave.SetBorderSize(0)
 if blinded==True and ("collMass" in var or "m_t_Mass" in var):
 	pave.Draw("sameshist")
-if (xRange!=0):
-   ratio.GetXaxis().SetRangeUser(0,xRange) 
-if (xRange!=0):
-        if "BDT" in var:
-           ratio.GetXaxis().SetRangeUser(-0.5,xRange)
-        if ("BDT" in var) and "Zmm" in channel:
-           ratio.GetXaxis().SetRangeUser(-0.3,0.2) 
+#if (xRange!=0):
+#   ratio.GetXaxis().SetRangeUser(0,xRange) 
+#if (xRange!=0):
+#        if "BDT" in var:
+#           ratio.GetXaxis().SetRangeUser(-0.5,xRange)
+#        if ("BDT" in var) and "Zmm" in channel:
+#           ratio.GetXaxis().SetRangeUser(-0.3,0.2) 
           
 canvas.SaveAs(outfile_name+".png")
 canvas.SaveAs(outfile_name+".pdf")
-numberWjets=wjets.Integral()
-numberzjets=zjets.Integral()
-BLAND=0
-#fill output root file
-#if fakeRate == True:
-#        wjets.Write("wjets"+shiftStr)
-#else:
-#  if QCDflag==True:
-#     wjets.Add(QCDs)
-#     do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-#     wjets.Write("wjets"+shiftStr)
-#  else:
-#     wjets.Write("wjets"+shiftStr)
-ztautau.Write("ZTauTau"+shiftStr)
-ttbar.Write("TT"+shiftStr)
-vbfhmutau125.Scale(0.05)
-gghmutau125.Scale(0.05)
-
-#vbfhmutau125.Scale(0.3)
-#gghmutau125.Scale(0.3)
-
-vbfhmutau125.Write("LFVVBF125"+shiftStr)
-gghmutau125.Write("LFVGG125"+shiftStr)
-smhvbf.Write("qqH_htt"+shiftStr)
-smhgg.Write("ggH_htt"+shiftStr)
-print "Single Top Yield: " + str(singlet.Integral())
-diboson.Write("Diboson"+shiftStr)
-singlet.Write("T"+shiftStr)
-full_bckg = wjets.Clone()
-full_bckg.Add(zjets)
-full_bckg.Add(ztautau)
-full_bckg.Add(ttbar)
-full_bckg.Add(diboson)
-full_bckg.Add(smhvbf)
-full_bckg.Add(smhgg)
-full_bckg.Add(singlet)
-#print "After Bin by Bin"
-#for i in range(1,ztautau.GetNbinsX()+1):
-#print "Ztautau Bin content=%f; Bin error=%f" %(ztautau.GetBinContent(4),ztautau.GetBinError(4))
-#print "Zjets Bin content=%f; Bin error=%f" %(zjets.GetBinContent(4),zjets.GetBinError(4))
-#print "diboson Bin content=%f; Bin error=%f" %(diboson.GetBinContent(4),diboson.GetBinError(4))
-#print "ttbar Bin content=%f; Bin error=%f" %(ttbar.GetBinContent(4),ttbar.GetBinError(4))
-#print "smhgg Bin content=%f; Bin error=%f" %(smhgg.GetBinContent(4),smhgg.GetBinError(4))
-#print "smhvbf Bin content=%f; Bin error=%f" %(smhvbf.GetBinContent(4),smhvbf.GetBinError(4))
-#print "SingleT Bin content=%f; Bin error=%f" %(singlet.GetBinContent(4),singlet.GetBinError(4))
-#    print "Bin content=%f; Bin error=%f" %(ztautau.GetBinContent(i),ztautau.GetBinError(i))
-#print total yields
-if wjets_fakes:
-     print "wjetsWmunu: " + str(wjetsWmunu.Integral())
-     print "wjetsWtaunu:" + str(wjetsWtaunu.Integral())
-     print "wjetsW2jets:" + str(wjetsW2jets.Integral())
-     print "ratio wjetsWmuno %f   wtaunu %f  w2jets %f" %(wjetsWmunu.Integral()/numberWjets,wjetsWtaunu.Integral()/numberWjets,wjetsW2jets.Integral()/numberWjets)
-
-if DY_bin: 
-     print "DY_zmumu: " + str(zmmjets.Integral())
-     print "DY_zll: " + str(zlljets.Integral())
-    # print "ratio zmumu %f   zll %f " %(zmmjets.Integral()/numberzjets,zlljets.Integral()/numberzjets)
-     print "ratio zmumu %f   zll %f " %(zmmjets.Integral()/(zmmjets.Integral()+zlljets.Integral()),zlljets.Integral()/(zmmjets.Integral()+zlljets.Integral()))
-if fakeallplot:
-     #print "fakes component pure Tau %f ;   pure Muon %f  ;  Tau and Muon %f" %(numberWjets-wjetsM.Integral()-wjetsMT.Integral(),wjetsM.Integral(),wjetsMT.Integral())
-#     print "fakes component Tau %f ;   pure Muon %f  ;  Tau and Muon %f" %(numberWjets-wjetsM.Integral(),wjetsM.Integral(),wjetsMT.Integral())
-     #print "fakes component pure TauR %f ;   pure MuonR %f  ;  (Tau and Muon)R %f" %((numberWjets-wjetsM.Integral()-wjetsMT.Integral())/numberWjets,wjetsM.Integral()/numberWjets,wjetsMT.Integral()/numberWjets)
-     print "fakes component pure TauR %f ;   pure MuonR %f  ;  (Tau and Muon)R %f" %((numberWjets-wjetsM.Integral())/numberWjets,wjetsM.Integral()/numberWjets,wjetsMT.Integral()/numberWjets)
-print "Fakes Yield: " + str(wjets.Integral())
-print "DY Yield:" +str(zjets.Integral())
-print "ZTauTau Yield: " +str(ztautau.Integral())
-print "ttbar Yield: " + str(ttbar.Integral())
-print "DiBoson Yield: " + str(diboson.Integral())
-print "SMHVBF Yield: " + str(smhvbf.Integral())
-print "SMHGG Yield: " + str(smhgg.Integral())
-print "LFVVBF Yield scale 20 times: " +str(vbfhmutau125.Integral()*20)
-print "LFVGG Yield scale 20 times: " +str(gghmutau125.Integral()*20)
-print "Data Yield: " +str(data.Integral())
-outfile.Write()
+#numberWjets=wjets.Integral()
+#numberzjets=zjets.Integral()
+#BLAND=0
+##fill output root file
+##if fakeRate == True:
+##        wjets.Write("wjets"+shiftStr)
+##else:
+##  if QCDflag==True:
+##     wjets.Add(QCDs)
+##     do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
+##     wjets.Write("wjets"+shiftStr)
+##  else:
+##     wjets.Write("wjets"+shiftStr)
+##ztautau.Write("ZTauTau"+shiftStr)
+##ttbar.Write("TT"+shiftStr)
+#vbfhmutau125.Scale(0.05)
+#gghmutau125.Scale(0.05)
+##vbfhmutau125.Write("LFVVBF125"+shiftStr)
+##gghmutau125.Write("LFVGG125"+shiftStr)
+##smhvbf.Write("qqH_htt"+shiftStr)
+##smhgg.Write("ggH_htt"+shiftStr)
+#print "Single Top Yield: " + str(singlet.Integral())
+##diboson.Write("Diboson"+shiftStr)
+##singlet.Write("T"+shiftStr)
+#full_bckg = wjets.Clone()
+#full_bckg.Add(zjets)
+#full_bckg.Add(ztautau)
+#full_bckg.Add(ttbar)
+#full_bckg.Add(diboson)
+#full_bckg.Add(smhvbf)
+#full_bckg.Add(smhgg)
+#full_bckg.Add(singlet)
+##print "After Bin by Bin"
+##for i in range(1,ztautau.GetNbinsX()+1):
+##print "Ztautau Bin content=%f; Bin error=%f" %(ztautau.GetBinContent(4),ztautau.GetBinError(4))
+##print "Zjets Bin content=%f; Bin error=%f" %(zjets.GetBinContent(4),zjets.GetBinError(4))
+##print "diboson Bin content=%f; Bin error=%f" %(diboson.GetBinContent(4),diboson.GetBinError(4))
+##print "ttbar Bin content=%f; Bin error=%f" %(ttbar.GetBinContent(4),ttbar.GetBinError(4))
+##print "smhgg Bin content=%f; Bin error=%f" %(smhgg.GetBinContent(4),smhgg.GetBinError(4))
+##print "smhvbf Bin content=%f; Bin error=%f" %(smhvbf.GetBinContent(4),smhvbf.GetBinError(4))
+##print "SingleT Bin content=%f; Bin error=%f" %(singlet.GetBinContent(4),singlet.GetBinError(4))
+##    print "Bin content=%f; Bin error=%f" %(ztautau.GetBinContent(i),ztautau.GetBinError(i))
+##print total yields
+#if wjets_fakes:
+#     print "wjetsWmunu: " + str(wjetsWmunu.Integral())
+#     print "wjetsWtaunu:" + str(wjetsWtaunu.Integral())
+#     print "wjetsW2jets:" + str(wjetsW2jets.Integral())
+#     print "ratio wjetsWmuno %f   wtaunu %f  w2jets %f" %(wjetsWmunu.Integral()/numberWjets,wjetsWtaunu.Integral()/numberWjets,wjetsW2jets.Integral()/numberWjets)
+#
+#if DY_bin: 
+#     print "DY_zmumu: " + str(zmmjets.Integral())
+#     print "DY_zll: " + str(zlljets.Integral())
+#    # print "ratio zmumu %f   zll %f " %(zmmjets.Integral()/numberzjets,zlljets.Integral()/numberzjets)
+#     print "ratio zmumu %f   zll %f " %(zmmjets.Integral()/(zmmjets.Integral()+zlljets.Integral()),zlljets.Integral()/(zmmjets.Integral()+zlljets.Integral()))
+#if fakeallplot:
+#     #print "fakes component pure Tau %f ;   pure Muon %f  ;  Tau and Muon %f" %(numberWjets-wjetsM.Integral()-wjetsMT.Integral(),wjetsM.Integral(),wjetsMT.Integral())
+##     print "fakes component Tau %f ;   pure Muon %f  ;  Tau and Muon %f" %(numberWjets-wjetsM.Integral(),wjetsM.Integral(),wjetsMT.Integral())
+#     #print "fakes component pure TauR %f ;   pure MuonR %f  ;  (Tau and Muon)R %f" %((numberWjets-wjetsM.Integral()-wjetsMT.Integral())/numberWjets,wjetsM.Integral()/numberWjets,wjetsMT.Integral()/numberWjets)
+#     print "fakes component pure TauR %f ;   pure MuonR %f  ;  (Tau and Muon)R %f" %((numberWjets-wjetsM.Integral())/numberWjets,wjetsM.Integral()/numberWjets,wjetsMT.Integral()/numberWjets)
+#print "Fakes Yield: " + str(wjets.Integral())
+#print "DY Yield:" +str(zjets.Integral())
+#print "ZTauTau Yield: " +str(ztautau.Integral())
+#print "ttbar Yield: " + str(ttbar.Integral())
+#print "DiBoson Yield: " + str(diboson.Integral())
+#print "SMHVBF Yield: " + str(smhvbf.Integral())
+#print "SMHGG Yield: " + str(smhgg.Integral())
+#print "LFVVBF Yield scale 20 times: " +str(vbfhmutau125.Integral()*20)
+#print "LFVGG Yield scale 20 times: " +str(gghmutau125.Integral()*20)
+#print "Data Yield: " +str(data.Integral())
+##outfile.Write()

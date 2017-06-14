@@ -228,8 +228,8 @@ rootdir = "mutau" #directory in datacard file
 #rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau" #directory in datacard file
 
 ##########OPTIONS#########################
-blinded = True #not blinded
-#blinded = False #not blinded
+#blinded = True #not blinded
+blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 #fakeRate = False #apply fake rate method
 fakeRate = True #apply fake rate method
@@ -348,8 +348,8 @@ p_ratio.Draw()
 p_lfv.cd()
 #p_lfv.SetLogy()
 lumidir = savedir+"weights/"
-#lumiScale = float(argv[4]) #lumi to scale to
-lumiScale = 100 #lumi to scale to
+lumiScale = float(argv[4]) #lumi to scale to
+#lumiScale = 250 #lumi to scale to
 lumi = lumiScale*1000
 if (lumiScale==0):
 	lumi = JSONlumi
@@ -1777,10 +1777,6 @@ ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)
 vbfhmutau125.Scale(0.05)
 gghmutau125.Scale(0.05)
-
-#vbfhmutau125.Scale(0.3)
-#gghmutau125.Scale(0.3)
-
 vbfhmutau125.Write("LFVVBF125"+shiftStr)
 gghmutau125.Write("LFVGG125"+shiftStr)
 smhvbf.Write("qqH_htt"+shiftStr)

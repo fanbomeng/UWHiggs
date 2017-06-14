@@ -96,9 +96,9 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
            for i in range(lowBound, highBound+1):
                    if fillEmptyBins: #fill empty bins
                            if histo.GetBinContent(i) <= 0:
-                                   histo.SetBinContent(i,0.001/nevents*xsec*lumi)
+                                   histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
                            #       histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
-                                   histo.SetBinError(i,1.8/nevents*xsec*lumi)
+                                   histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                    else:
                            if histo.GetBinContent(i) < 0:
                                    histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
@@ -348,8 +348,7 @@ p_ratio.Draw()
 p_lfv.cd()
 #p_lfv.SetLogy()
 lumidir = savedir+"weights/"
-#lumiScale = float(argv[4]) #lumi to scale to
-lumiScale = 100 #lumi to scale to
+lumiScale = float(argv[4]) #lumi to scale to
 lumi = lumiScale*1000
 if (lumiScale==0):
 	lumi = JSONlumi
@@ -381,7 +380,7 @@ data=data2016B.Clone()
 #		highDataBin = i
 #		break
 channelNoral=channel
-if ('13TeV' in shift) and not ('none' in shift) and not ('TauFakeRate' in shift):
+if (('13TeV' in shift) and not ('none' in shift) and not ('TauFakeRate' in shift)) or ('btagSys' in shift):
    channelSys=channel+shift
    channel=channelSys
 #if 'CMS' in shift:
@@ -1777,10 +1776,6 @@ ztautau.Write("ZTauTau"+shiftStr)
 ttbar.Write("TT"+shiftStr)
 vbfhmutau125.Scale(0.05)
 gghmutau125.Scale(0.05)
-
-#vbfhmutau125.Scale(0.3)
-#gghmutau125.Scale(0.3)
-
 vbfhmutau125.Write("LFVVBF125"+shiftStr)
 gghmutau125.Write("LFVGG125"+shiftStr)
 smhvbf.Write("qqH_htt"+shiftStr)

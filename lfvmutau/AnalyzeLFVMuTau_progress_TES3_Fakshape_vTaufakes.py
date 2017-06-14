@@ -618,10 +618,14 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vTaufakes(MegaBase):
               fTauIso=0.611
            elif row.mPt<=40:
               fTauIso=0.724
+           elif row.mPt<=50:
+              fTauIso=0.746
            elif row.mPt<=60:
-              fTauIso=0.758
+              fTauIso=0.796
+           elif row.mPt<=80:
+              fTauIso=0.816
            else:
-              fTauIso=0.876
+              fTauIso=0.950
         if self.DoMES==1:
            if row.mPt*1.002<=30:
               fTauIso=0.611

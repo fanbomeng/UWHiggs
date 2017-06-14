@@ -10,7 +10,7 @@ import MuTauTree
 from FinalStateAnalysis.PlotTools.MegaBase import MegaBase
 import glob
 import os
-import weightNormal
+import weightNormal_MORE_S 
 import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 #import FinalStateAnalysis.TagAndProbe.H2TauCorrections as H2TauCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
@@ -34,6 +34,8 @@ RUN_OPTIMIZATION=False
 #systematic = os.environ['systematic']
 #fakeset= bool('true' in os.environ['fakeset'])
 #fakeset= False
+
+#canceled the T_Mt cuts in the selection level 
 btagSys=0
 fakeset= True
 #MetCorrection=True
@@ -138,12 +140,12 @@ muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
 muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
 
 
-class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
+class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
     tree = 'mt/final/Ntuple'
     #tree = 'New_Tree'
 
     def __init__(self, tree, outfile, **kwargs):
-        super(AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2, self).__init__(tree, outfile, **kwargs)
+        super(AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS, self).__init__(tree, outfile, **kwargs)
         # Use the cython wrapper
         target = os.path.basename(os.environ['megatarget'])
         self.target1 = os.path.basename(os.environ['megatarget'])
@@ -205,7 +207,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
            
            #names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","notIsoSS0Jet","notIsoSS0JetM","notIsoSS0JetMT","notIsoSS1Jet","notIsoSS1JetM","notIsoSS1JetMT","notIsoSS2Jet","notIsoSS2JetM","notIsoSS2JetMT","notIsoSS2Jet_gg","notIsoSS2Jet_ggM","notIsoSS2Jet_ggMT","notIsoSS2Jet_vbf","notIsoSS2Jet_vbfM","notIsoSS2Jet_vbfMT","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet","notIsoEnWjets2Jet","notIsoEnWjets2JetM","notIsoEnWjets2JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","preslectionSSEnWjets","notIsoEnWjetsSS","gg","boost","vbf","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","vbfNotIso","vbfNotIsoM","vbfNotIsoMT","preselection0Jet", "preselection1Jet", "preselection2Jet",'preselection2Jet_gg','preselection2Jet_vbf',"notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT","notIso2Jet","notIso2JetM","notIso2JetMT","notIso2Jet_gg","notIso2Jet_ggM","notIso2Jet_ggMT","notIso2Jet_vbf","notIso2Jet_vbfM","notIso2Jet_vbfMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","IsoSS0Jet","IsoSS1Jet","IsoSS2Jet",'IsoSS2Jet_gg','IsoSS2Jet_vbf',"ggIsoSS","boostIsoSS","vbfIsoSS","vbf_ggIsoSS","vbf_vbfIsoSS"]
 
-           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","gg","boost","ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","ggNotIso1stUp","ggNotIso1stDown","boostNotIso1stUp","boostNotIso1stDown","ggNotIsoM1stUp","ggNotIsoM1stDown","boostNotIsoM1stUp","boostNotIsoM1stDown","ggNotIsoMT1stUp","ggNotIsoMT1stDown","boostNotIsoMT1stUp","boostNotIsoMT1stDown","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","vbf_ggNotIso1stUp","vbf_ggNotIso1stDown","vbf_vbfNotIso1stUp","vbf_vbfNotIso1stDown","vbf_ggNotIsoM1stUp","vbf_ggNotIsoM1stDown","vbf_vbfNotIsoM1stUp","vbf_vbfNotIsoM1stDown","vbf_ggNotIsoMT1stUp","vbf_ggNotIsoMT1stDown","vbf_vbfNotIsoMT1stUp","vbf_vbfNotIsoMT1stDown","IsoSS0Jet","IsoSS1Jet",'IsoSS2Jet_gg','IsoSS2Jet_vbf',"notIsoSS0Jet","notIsoSS0JetM","notIsoSS0JetMT","notIsoSS1Jet","notIsoSS1JetM","notIsoSS1JetMT","notIsoSS2Jet_gg","notIsoSS2Jet_ggM","notIsoSS2Jet_ggMT","notIsoSS2Jet_vbf","notIsoSS2Jet_vbfM","notIsoSS2Jet_vbfMT","preslectionEnZtt","notIsoEnZtt","notIsoEnZttM","notIsoEnZttMT","preslectionEnZtt0Jet","notIsoEnZtt0Jet","notIsoEnZtt0JetM","notIsoEnZtt0JetMT","preslectionEnZtt1Jet","notIsoEnZtt1Jet","notIsoEnZtt1JetM","notIsoEnZtt1JetMT","preslectionEnZtt2Jet_gg","notIsoEnZtt2Jet_gg","notIsoEnZtt2Jet_ggM","notIsoEnZtt2Jet_ggMT","preslectionEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbfM","notIsoEnZtt2Jet_vbfMT","preslectionEnZmm","notIsoEnZmm","notIsoEnZmmM","notIsoEnZmmMT","preslectionEnZmm0Jet","notIsoEnZmm0Jet","notIsoEnZmm0JetM","notIsoEnZmm0JetMT","preslectionEnZmm1Jet","notIsoEnZmm1Jet","notIsoEnZmm1JetM","notIsoEnZmm1JetMT","preslectionEnZmm2Jet_gg","notIsoEnZmm2Jet_gg","notIsoEnZmm2Jet_ggM","notIsoEnZmm2Jet_ggMT","preslectionEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbfM","notIsoEnZmm2Jet_vbfMT","preslectionEnTTbar","notIsoEnTTbar","notIsoEnTTbarM","notIsoEnTTbarMT","preslectionEnTTbar0Jet","notIsoEnTTbar0Jet","notIsoEnTTbar0JetM","notIsoEnTTbar0JetMT","preslectionEnTTbar1Jet","notIsoEnTTbar1Jet","notIsoEnTTbar1JetM","notIsoEnTTbar1JetMT","preslectionEnTTbar2Jet_gg","notIsoEnTTbar2Jet_gg","notIsoEnTTbar2Jet_ggM","notIsoEnTTbar2Jet_ggMT","preslectionEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbfM","notIsoEnTTbar2Jet_vbfMT","preselection0Jet", "preselection1Jet",'preselection2Jet_gg','preselection2Jet_vbf',"notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT"]
+           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preslectionEnWjets","notIsoEnWjets","notIsoEnWjetsM","notIsoEnWjetsMT","preslectionEnWjets0Jet","notIsoEnWjets0Jet","notIsoEnWjets0JetM","notIsoEnWjets0JetMT","preslectionEnWjets1Jet","notIsoEnWjets1Jet","notIsoEnWjets1JetM","notIsoEnWjets1JetMT","preslectionEnWjets2Jet_gg","notIsoEnWjets2Jet_gg","notIsoEnWjets2Jet_ggM","notIsoEnWjets2Jet_ggMT","preslectionEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbf","notIsoEnWjets2Jet_vbfM","notIsoEnWjets2Jet_vbfMT","gg","boost",'vbf',"ggNotIso","ggNotIsoM","ggNotIsoMT","boostNotIso","boostNotIsoM","boostNotIsoMT","vbfNotIso","vbfNotIsoM","vbfNotIsoMT","vbf_gg","vbf_vbf","vbf_ggNotIso","vbf_ggNotIsoM","vbf_ggNotIsoMT","vbf_vbfNotIso","vbf_vbfNotIsoM","vbf_vbfNotIsoMT","IsoSS0Jet","IsoSS1Jet",'IsoSS2Jet_gg','IsoSS2Jet_vbf',"notIsoSS0Jet","notIsoSS0JetM","notIsoSS0JetMT","notIsoSS1Jet","notIsoSS1JetM","notIsoSS1JetMT","notIsoSS2Jet_gg","notIsoSS2Jet_ggM","notIsoSS2Jet_ggMT","notIsoSS2Jet_vbf","notIsoSS2Jet_vbfM","notIsoSS2Jet_vbfMT","preslectionEnZtt","notIsoEnZtt","notIsoEnZttM","notIsoEnZttMT","preslectionEnZtt0Jet","notIsoEnZtt0Jet","notIsoEnZtt0JetM","notIsoEnZtt0JetMT","preslectionEnZtt1Jet","notIsoEnZtt1Jet","notIsoEnZtt1JetM","notIsoEnZtt1JetMT","preslectionEnZtt2Jet_gg","notIsoEnZtt2Jet_gg","notIsoEnZtt2Jet_ggM","notIsoEnZtt2Jet_ggMT","preslectionEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbf","notIsoEnZtt2Jet_vbfM","notIsoEnZtt2Jet_vbfMT","preslectionEnZmm","notIsoEnZmm","notIsoEnZmmM","notIsoEnZmmMT","preslectionEnZmm0Jet","notIsoEnZmm0Jet","notIsoEnZmm0JetM","notIsoEnZmm0JetMT","preslectionEnZmm1Jet","notIsoEnZmm1Jet","notIsoEnZmm1JetM","notIsoEnZmm1JetMT","preslectionEnZmm2Jet_gg","notIsoEnZmm2Jet_gg","notIsoEnZmm2Jet_ggM","notIsoEnZmm2Jet_ggMT","preslectionEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbf","notIsoEnZmm2Jet_vbfM","notIsoEnZmm2Jet_vbfMT","preslectionEnTTbar","notIsoEnTTbar","notIsoEnTTbarM","notIsoEnTTbarMT","preslectionEnTTbar0Jet","notIsoEnTTbar0Jet","notIsoEnTTbar0JetM","notIsoEnTTbar0JetMT","preslectionEnTTbar1Jet","notIsoEnTTbar1Jet","notIsoEnTTbar1JetM","notIsoEnTTbar1JetMT","preslectionEnTTbar2Jet_gg","notIsoEnTTbar2Jet_gg","notIsoEnTTbar2Jet_ggM","notIsoEnTTbar2Jet_ggMT","preslectionEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbf","notIsoEnTTbar2Jet_vbfM","notIsoEnTTbar2Jet_vbfMT","preselection0Jet", "preselection1Jet",'preselection2Jet_gg','preselection2Jet_vbf',"notIso0Jet","notIso0JetM","notIso0JetMT","notIso1Jet","notIso1JetM","notIso1JetMT"]
            names2=["notIso2Jet_gg","notIso2Jet_ggM","notIso2Jet_ggMT","notIso2Jet_vbf","notIso2Jet_vbfM","notIso2Jet_vbfMT"]
            names=names+names2
         else:
@@ -255,17 +257,14 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 	for x in range(0,namesize):
 
 
-            self.book(names[x], "mPt", "Muon  Pt", 300,0,300)
-            self.book(names[x], "tPt", "Tau  Pt", 300,0,300)
-            self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
+            self.book(names[x], "mPt", "Muon  Pt", 1400,0,1400)
+            self.book(names[x], "tPt", "Tau  Pt", 1400,0,1400)
+            self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 1400, 0, 1400)
             #self.book(names[x], "mMtToPfMet_type1", "Muon MT (PF Ty1)", 200, 0, 200)
             #self.book(names[x], "type1_pfMetEtNormal", "Type1 MET", 200, 0, 200)
-            self.book(names[x],"collMass_type1","collMass_type1",300,0,300);
+            #self.book(names[x],"collMass_type1","collMass_type1",300,0,300);
+            self.book(names[x],"collMass_type1","collMass_type1",1400,0,1400);
             self.book(names[x], "m_t_Mass", "Muon + Tau Mass", 200, 0, 200)
-            self.book(names[x], "vbfj1eta", "vbf1jeta", 200,-5,5)
-            self.book(names[x], "vbfj1pt", "vbf1jpt", 300,0,300)
-            self.book(names[x], "vbfj2pt", "vbf2jpt", 300,0,300)
-            self.book(names[x], "vbfj2eta", "vbf2jeta", 200,-5,5)
 #            self.book(names[x],"fullMT_type1","fullMT_type1",500,0,500);
 #            self.book(names[x], "genHTT", "genHTT", 1000 ,0,1000)
 #            self.book(names[x], "singleIsoMu22Pass", "singleIsoMu22Pass", 12 ,-0.1,1.1)
@@ -286,15 +285,16 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
                   self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
                   self.book(names[x], "tPhi", "tPhi", 100 ,-3.4,3.4)
                   self.book(names[x], "tDPhiToPfMet_type1", "tDPhiToPfMet_type1", 100, 0, 4)
-                  self.book(names[x], "type1_pfMetEt", "Type1 MET", 200, 0, 200)
+                  self.book(names[x], "type1_pfMetEt", "Type1 MET", 1400, 0, 1400)
             #      self.book(names[x], "m_t_Pt", "Muon + Tau Pt", 200, 0, 200)
                   self.book(names[x], "m_t_DR", "Muon + Tau DR", 100, 0, 10)
                   self.book(names[x], "m_t_DEta", "Muon + Tau DEta", 100, 0,4)
                   self.book(names[x], "m_t_DPhi", "Muon + Tau DPhi", 100, 0, 4)
                   self.book(names[x], "mDPhiToPfMet_type1", "mDPhiToPfMet_type1", 100, 0, 4)
                   self.book(names[x], "m_t_SS", "Muon + Tau SS", 5, -2, 2)
-      	          self.book(names[x], "vbfMass", "", 500,0,5000.0)
+      	          self.book(names[x], "vbfMass", "", 1400,0,1400.0)
       	          self.book(names[x], "vbfDeta", "", 100, -0.5,10.0)
+  	          self.book(names[x], 'mRelPFIsoDBDefaultR04' ,'Muon Isolation', 100, 0.0,1.0)
 #            self.book(names[x], "mCharge", "Muon Charge", 5, -2, 2)
 
 ###            self.book(names[x], "tPtavColMass", "Tau  Pt av Mass", 150,0,1.5)
@@ -334,7 +334,6 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #            self.book(names[x], 'jetVeto30', 'Number of extra jets', 5, -0.5, 4.5)	
 #            self.book(names[x], 'jetVeto30Eta3', 'Number of extra jets within |eta| < 3', 5, -0.5, 4.5)
 	    #Isolation
-#	    self.book(names[x], 'mRelPFIsoDBDefault' ,'Muon Isolation', 100, 0.0,1.0)
    
  
        #     self.book(names[x], "mPhiMtPhi", "", 100, 0,4)
@@ -709,10 +708,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
            histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
            histos[name+'/mPt'].Fill(row.mPt, weight)
            histos[name+'/m_t_Mass'].Fill(self.m_t_Mass_new,weight)
-           histos[name+'/vbfj1eta'].Fill(row.vbfj1eta,weight)
-           histos[name+'/vbfj2eta'].Fill(row.vbfj2eta,weight)
-           histos[name+'/vbfj1pt'].Fill(row.vbfj1pt,weight)
-           histos[name+'/vbfj2pt'].Fill(row.vbfj2pt,weight)
+           histos[name+'/mRelPFIsoDBDefaultR04'].Fill(row.mRelPFIsoDBDefaultR04,weight)
 #           print "fill histogram? %f" %row.mPt
         #   histos[name+'/type1_pfMetEtNormal'].Fill(row.type1_pfMetEt,weight)
            if self.ls_recoilC and MetCorrection:
@@ -958,21 +954,21 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
               print "Error***********************Error***********"
            if self.ls_Wjets:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
+                 return  1.0/(eval("weightNormal_MORE_S."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
               else:
-                 return 1.0/(eval("weightNormal."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightNormal_MORE_S."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_ZTauTau:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
+                 return  1.0/(eval("weightNormal_MORE_S."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
               else: 
-                 return 1.0/(eval("weightNormal."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightNormal_MORE_S."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_DY:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightNormal."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
+                 return  1.0/(eval("weightNormal_MORE_S."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8")) 
               else: 
-                 return 1.0/(eval("weightNormal."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightNormal_MORE_S."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
         else:
-              return 1.0/(eval("weightNormal."+self.weighttarget))
+              return 1.0/(eval("weightNormal_MORE_S."+self.weighttarget))
     def WjetsEnrich(self,row):
         if (self.tMtToPfMet_type1_new>60 and self.mMtToPfMet_type1_new>80):
             return True
@@ -1082,8 +1078,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #             return False
        #print 'line 1035 the Sysin %f'  %self.Sysin
      #  if  self.Sysin:
-       if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
-             return False
+  #     if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+  #           return False
        #else:
        #   if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
        #      return False
@@ -1121,8 +1117,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #####          if abs(row.tDPhiToPfMet_type1)>3.0:
 ####              return False
         #  if  self.Sysin:
-          if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
-                return False
+  #        if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+  #              return False
           #else:
           #   if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
           #      return False
@@ -1147,8 +1143,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
        # 	return False
       #  if row.tMtToPfMet_type1 > 85: #was 35   #newcuts 55
         #if  self.Sysin:
-        if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
-              return False
+  #      if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
+  #            return False
         #else:
         #   if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
         #      return False
@@ -1157,9 +1153,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #            return False
 #	if(row.vbfNJets30<2):
 #	    return False
-	if(abs(row.vbfDeta)<3.5):   #was 2.5    #newcut 2.0
-	    return False
-        if row.vbfMass < 550:    #was 200   newcut 325
+#	if(abs(row.vbfDeta)<3.5):   #was 2.5    #newcut 2.0
+#	    return False
+        if row.vbfMass < 350:    #was 200   newcut 325
 	    return False
         #if row.vbfJetVeto30 > 0:
         #    return False
@@ -1181,8 +1177,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #            if row.tMtToPfMet_type1 > 105:  #was 50   #newcuts65
 #               return False
         #if  self.Sysin:
-        if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
-              return False
+  #      if self.tMtToPfMet_type1_new > 105:  #was 50   #newcuts65
+  #            return False
         #else:
         #   if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
         #      return False
@@ -1220,8 +1216,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #               return False
         #if  self.Sysin:
            #if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
-        if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
-              return False
+  #      if self.tMtToPfMet_type1_new > 85:  #was 50   #newcuts65
+  #            return False
         #else:
            #if row.tMtToPfMet_type1> 85:  #was 50   #newcuts65
         #   if row.tMtToPfMet_type1> 105:  #was 50   #newcuts65
@@ -1632,9 +1628,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
 #                        for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
 #	                   tmp=os.path.join("vbf",i)
 #	                   self.fill_histos(row,tmp,False)
-                    # if not self.light:	
-                    #    if self.vbf(row):
-                    #       self.fill_histos(row,'vbf')
+                     if not self.light:	
+                        if self.vbf(row):
+                           self.fill_histos(row,'vbf')
                      if self.vbf_gg(row):
                       #  if row.vbfMass>100:
                            #print 'fill normal vbf_gg line 1552' 
@@ -1768,9 +1764,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
             #     #       for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
             #     #          tmp=os.path.join("vbfNotIso",i)
             #     #          self.fill_histos(row,tmp,True)
-                    # if not self.light:
-                     #   if self.vbf(row):
-                    #       self.fill_histos(row,'vbfNotIso',True)
+                    if not self.light:
+                        if self.vbf(row):
+                           self.fill_histos(row,'vbfNotIso',True)
                     if self.vbf_gg(row):
                    #     if row.vbfMass>100: 
                            self.fill_histos(row,'vbf_ggNotIso',True)
@@ -1869,9 +1865,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
             #     #       for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
             #     #          tmp=os.path.join("vbfNotIso",i)
             #     #          self.fill_histos(row,tmp,True)
-                 #    if not self.light:
-                  #      if self.vbf(row):
-                  #         self.fill_histos(row,'vbfNotIsoMT',True,faketype="mtfake")
+                     if not self.light:
+                        if self.vbf(row):
+                           self.fill_histos(row,'vbfNotIsoMT',True,faketype="mtfake")
                      if self.vbf_gg(row):
                     #    if row.vbfMass>100: 
                            self.fill_histos(row,'vbf_ggNotIsoMT',True,faketype="mtfake")
@@ -1966,9 +1962,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10_2(MegaBase):
             #     #       for  i in optimizer.compute_regions_2jet(row.tPt, row.mPt,row.tMtToPfMet_type1,row.vbfMass,row.vbfDeta):
             #     #          tmp=os.path.join("vbfNotIso",i)
             #     #          self.fill_histos(row,tmp,True)
-         #            if not self.light:
-         #               if self.vbf(row):
-         #                  self.fill_histos(row,'vbfNotIsoM',True,faketype="muonfake")
+                     if not self.light:
+                        if self.vbf(row):
+                           self.fill_histos(row,'vbfNotIsoM',True,faketype="muonfake")
                      if self.vbf_gg(row):
                     #    if row.vbfMass>100: 
                            self.fill_histos(row,'vbf_ggNotIsoM',True,faketype="muonfake")
