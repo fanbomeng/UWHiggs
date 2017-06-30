@@ -473,3 +473,28 @@ python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ m
 python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mEta  IsoSS2Jet_gg          0 none       tPt0   0
 python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mEta  IsoSS2Jet_vbf          0 none       tPt0   0
 #python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ mMtToPfMet_type1  preselection2Jet   0 none                    tPt30   0    
+
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1eta   vbf_vbf      0 none       tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2eta   vbf_vbf      0 none       tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1pt   vbf_vbf      0 none       tPt0   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2pt   vbf_vbf      0 none       tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1eta  preslectionEnZtt0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1eta  preslectionEnZtt1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1eta  preslectionEnZtt2Jet_gg   0 none              tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1eta  preslectionEnZtt2Jet_vbf   0 none          tPt30   0
+
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2eta  preslectionEnZtt0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2eta  preslectionEnZtt1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2eta  preslectionEnZtt2Jet_gg   0 none              tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2eta  preslectionEnZtt2Jet_vbf   0 none          tPt30   0
+
+
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1pt  preslectionEnZtt0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1pt  preslectionEnZtt1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1pt  preslectionEnZtt2Jet_gg   0 none              tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj1pt  preslectionEnZtt2Jet_vbf   0 none          tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2pt  preslectionEnZtt0Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2pt  preslectionEnZtt1Jet   0 none                    tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2pt  preslectionEnZtt2Jet_gg   0 none              tPt30   0
+python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ vbfj2pt  preslectionEnZtt2Jet_vbf   0 none          tPt30   0

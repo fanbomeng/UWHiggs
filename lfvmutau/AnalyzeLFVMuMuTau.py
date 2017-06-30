@@ -15,7 +15,8 @@ import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
-import weightMuMuTau
+#import weightMuMuTau
+import weightMuMuTauNew
 from math import sqrt, pi
 import bTagSFrereco 
 btagSys=0
@@ -51,8 +52,8 @@ muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTk
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
-  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
-  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+#  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+#  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
@@ -122,7 +123,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
     def begin(self):
         #names=["preselectionSS", "preselectionDecay0","preselectionLooseIsoDecay0", "preselectionVLooseIsoDecay0","preselectionVTightIsoDecay0","preselectionMediumIsoDecay0", "preselection0JetDecay0", "preselection1JetDecay0", "preselection2JetDecay0","preselectionDecay1","preselectionLooseIsoDecay1", "preselectionVLooseIsoDecay1","preselectionVTightIsoDecay1","preselectionMediumIsoDecay1", "preselection0JetDecay1", "preselection1JetDecay1", "preselection2JetDecay1","preselectionDecay10","preselectionLooseIsoDecay10", "preselectionVLooseIsoDecay10","preselectionVTightIsoDecay10","preselectionMediumIsoDecay10", "preselection0JetDecay10", "preselection1JetDecay10", "preselection2JetDecay10"]
-        names=['preselection','preselectionEB','preselectionEE','preselectionVLooseIso','preselectionVLooseIsoEB','preselectionVLooseIsoEE',"preselectionDecay0","preselectionVLooseIsoDecay0","preselectionDecay1","preselectionVLooseIsoDecay1","preselectionDecay10","preselectionVLooseIsoDecay10","preselectionDecay0EB","preselectionVLooseIsoDecay0EB","preselectionDecay1EB","preselectionVLooseIsoDecay1EB","preselectionDecay10EB","preselectionVLooseIsoDecay10EB","preselectionDecay0EE","preselectionVLooseIsoDecay0EE","preselectionDecay1EE","preselectionVLooseIsoDecay1EE","preselectionDecay10EE","preselectionVLooseIsoDecay10EE",'preselection2_jetVBF0p2','preselectionVLooseIso2_jetVBF0p2','preselection2_jetEB','preselection2_jetEE','preselectionVLooseIso2_jetEB','preselectionVLooseIso2_jetEE','preselection2_jetVBF','preselectionVLooseIso2_jetVBF','preselection0JetEB','preselection0JetEE','preselection0JetVLooseIsoEB','preselection0JetVLooseIsoEE','preselection1JetEB','preselection1JetEE','preselection1JetVLooseIsoEB','preselection1JetVLooseIsoEE','preselection2Jet_ggEB','preselection2Jet_ggEE','preselection2Jet_ggVLooseIsoEB','preselection2Jet_ggVLooseIsoEE','preselection2Jet_VBFEB','preselection2Jet_VBFEE','preselection2Jet_VBFVLooseIsoEB','preselection2Jet_VBFVLooseIsoEE']
+        names=['preselection','preselectionEB','preselectionEE','preselectionSS','preselectionEBSS','preselectionEESS','preselectionVLooseIsoSS','preselectionVLooseIsoEBSS','preselectionVLooseIsoEESS','preselectionVLooseIso','preselectionVLooseIsoEB','preselectionVLooseIsoEE',"preselectionDecay0","preselectionVLooseIsoDecay0","preselectionDecay1","preselectionVLooseIsoDecay1","preselectionDecay10","preselectionVLooseIsoDecay10","preselectionDecay0EB","preselectionVLooseIsoDecay0EB","preselectionDecay1EB","preselectionVLooseIsoDecay1EB","preselectionDecay10EB","preselectionVLooseIsoDecay10EB","preselectionDecay0EE","preselectionVLooseIsoDecay0EE","preselectionDecay1EE","preselectionVLooseIsoDecay1EE","preselectionDecay10EE","preselectionVLooseIsoDecay10EE",'preselection2_jetVBF0p2','preselectionVLooseIso2_jetVBF0p2','preselection2_jetEB','preselection2_jetEE','preselectionVLooseIso2_jetEB','preselectionVLooseIso2_jetEE','preselection2_jetVBF','preselectionVLooseIso2_jetVBF','preselection0JetEB','preselection0JetEE','preselection0JetVLooseIsoEB','preselection0JetVLooseIsoEE','preselection1JetEB','preselection1JetEE','preselection1JetVLooseIsoEB','preselection1JetVLooseIsoEE','preselection2Jet_ggEB','preselection2Jet_ggEE','preselection2Jet_ggVLooseIsoEB','preselection2Jet_ggVLooseIsoEE','preselection2Jet_VBFEB','preselection2Jet_VBFEE','preselection2Jet_VBFVLooseIsoEB','preselection2Jet_VBFVLooseIsoEE']
         namesize = len(names)
 	for x in range(0,namesize):
 
@@ -135,19 +136,21 @@ class AnalyzeLFVMuMuTau(MegaBase):
       #      self.book(names[x], "nvtx", "Number of vertices", 100, -0.5, 100.5)
       #      self.book(names[x], "prescale", "HLT prescale", 21, -0.5, 20.5)
 
-      #      self.book(names[x], "m1Pt", "Muon  Pt", 300,0,300)
-      #      self.book(names[x], "m1Eta", "Muon  eta", 100, -2.5, 2.5)
-      #      self.book(names[x], "m1Charge", "Muon Charge", 5, -2, 2)
-      #      self.book(names[x], "m2Pt", "Muon  Pt", 300,0,300)
-      #      self.book(names[x], "m2Eta", "Muon  eta", 100, -2.5, 2.5)
-      #      self.book(names[x], "m2Charge", "Muon Charge", 5, -2, 2)
+            self.book(names[x], "m1Pt", "Muon  Pt", 1000,0,1000)
+            self.book(names[x], "m1Eta", "Muon  eta", 100, -2.5, 2.5)
+            self.book(names[x], "m1Charge", "Muon Charge", 5, -2, 2)
+            self.book(names[x], "m2Pt", "Muon  Pt", 1000,0,1000)
+            self.book(names[x], "m2Eta", "Muon  eta", 100, -2.5, 2.5)
+            self.book(names[x], "m2Charge", "Muon Charge", 5, -2, 2)
+            self.book(names[x], "m1_m2_Mass", "m1_m2_Mass",1000,0,1000)
+            self.book(names[x], "type1_pfMetEt", "type1_pfMetEt",1000,0,1000)
 
 
-            self.book(names[x], "tPt", "Tau  Pt", 300,0,300)
+            self.book(names[x], "tPt", "Tau  Pt", 1000,0,1000)
             self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
             self.book(names[x], "abstEta", "abs Tau  eta", 100, 0, 2.5)
-            self.book2(names[x], "tEta_tPt", "tEta_tPt", 100,-2.5,2.5,300, 0,300)
-            self.book(names[x], "tDecayMode", "tDecayMode", 12,0,12)
+#            self.book2(names[x], "tEta_tPt", "tEta_tPt", 100,-2.5,2.5,300, 0,300)
+#            self.book(names[x], "tDecayMode", "tDecayMode", 12,0,12)
       #      self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
       #      self.book(names[x], "tCharge", "Tau  Charge", 5, -2, 2)
       #      self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
@@ -222,18 +225,20 @@ class AnalyzeLFVMuMuTau(MegaBase):
       #  histos[name+'/prescale'].Fill(row.doubleMuPrescale, weight)
 
       #  
-      #  histos[name+'/m1Pt'].Fill(row.m1Pt, weight)
-      #  histos[name+'/m1Eta'].Fill(row.m1Eta, weight)
-      #  histos[name+'/m1Charge'].Fill(row.m1Charge, weight)
-      #  histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
-      #  histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
-      #  histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
+        histos[name+'/m1Pt'].Fill(row.m1Pt, weight)
+        histos[name+'/m1Eta'].Fill(row.m1Eta, weight)
+        histos[name+'/m1Charge'].Fill(row.m1Charge, weight)
+        histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
+        histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
+        histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
         #histos[name+'/tPt'].Fill(row.tPt, weight)
         histos[name+'/tPt'].Fill(self.tau_Pt_C, weight)
         histos[name+'/tEta'].Fill(row.tEta, weight)
         histos[name+'/abstEta'].Fill(abs(row.tEta), weight)
-        histos[name+'/tEta_tPt'].Fill(abs(row.tEta),self.tau_Pt_C, weight)
-        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
+#        histos[name+'/tEta_tPt'].Fill(abs(row.tEta),self.tau_Pt_C, weight)
+#        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
+        histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
+        histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
       #  histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_type1,weight)
       #  histos[name+'/tCharge'].Fill(row.tCharge, weight)
       #  histos[name+'/tJetPt'].Fill(row.tJetPt, weight)
@@ -275,7 +280,6 @@ class AnalyzeLFVMuMuTau(MegaBase):
       #  histos[name+'/m2_t_DR'].Fill(row.m2_t_DR,weight)
       #  histos[name+'/m2_t_DPhi'].Fill(row.m2_t_DPhi,weight)
       #  histos[name+'/m2_t_SS'].Fill(row.m2_t_SS,weight)
-      #  histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
       #  #histos[name+'/m_t_ToMETDPhi_Ty1'].Fill(row.m_t_ToMETDPhi_Ty1,weight)
 
       #  histos[name+'/m1PixHits'].Fill(row.m1PixHits, weight)
@@ -484,21 +488,21 @@ class AnalyzeLFVMuMuTau(MegaBase):
               print "Error***********************Error***********"
            if self.ls_Wjets:    
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))    
+                 return  1.0/(eval("weightMuMuTauNew."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))    
               else:
-                 return 1.0/(eval("weightMuMuTau."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_ZTauTau:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTauNew."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightMuMuTau."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_DY:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTauNew."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightMuMuTau."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
         else:
-              return 1.0/(eval("weightMuMuTau."+self.weighttarget))
+              return 1.0/(eval("weightMuMuTauNew."+self.weighttarget))
 #    def obj2_id(self, row):
 #	return  row.tAgainstElectronLooseMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding and row.tPVDZ < 0.2 and row.tMuonIdIsoVtxOverlap == 0 and row.tElecOverlap == 0
     def obj2_id(self, row):
@@ -595,6 +599,12 @@ class AnalyzeLFVMuMuTau(MegaBase):
             if (self.is_data):
                if  row.bjetCISVVeto30Medium:
                    continue
+            if self.obj2_iso(row) and (not self.oppositesign(row)):
+                self.fill_histos(row,'preselectionSS',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionEBSS',False)
+                else:
+                    self.fill_histos(row,'preselectionEESS',False)
             if self.obj2_iso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselection',False)
                 if  self.tauinEB(row):
@@ -626,6 +636,12 @@ class AnalyzeLFVMuMuTau(MegaBase):
                          self.fill_histos(row,'preselection2Jet_VBFEB',False)
                       else:
                          self.fill_histos(row,'preselection2Jet_VBFEE',False)
+            if self.obj2_vlooseiso(row) and (not self.oppositesign(row)):
+                self.fill_histos(row,'preselectionVLooseIsoSS',False)
+                if  self.tauinEB(row):
+                    self.fill_histos(row,'preselectionVLooseIsoEBSS',False)
+                else:
+                    self.fill_histos(row,'preselectionVLooseIsoEESS',False)
                     
 
             if self.obj2_vlooseiso(row) and self.oppositesign(row):

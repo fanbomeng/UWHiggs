@@ -6,6 +6,7 @@
 #export datasrc=/hdfs/store/user/ndev
 #export datasrc=/hdfs/store/user/cepeda/
 export datasrc=/hdfs/store/user/ndev/
+#export datasrc=/hdfs/store/user/taroni/
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_V1_October10
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Nov3
 #export jobid=MiniAODSIMv2-Spring15-25ns_LFV_October13
@@ -25,6 +26,7 @@ export datasrc=/hdfs/store/user/ndev/
 #export jobid=LFVtrileptons_Dec7/
 #export jobid=LFVH_Dec21/
 #export jobid=LFV_feb18_mc/
+#export jobid=LFV_HighMass/
 export jobid=LFV_Mar15_mc/
 #export jobid=SMHTT_reminiaod_feb14/
 #export jobid=SMHTT_mc_jan17/
@@ -44,7 +46,7 @@ echo $afile
 ## Build the cython wrappers
 #rake "make_wrapper[$afile, mmm/final/Ntuple, MuMuMuTree]"
 #rake "make_wrapper[$afile, mmt/final/Ntuple, MuMuTauTree]"
-rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
+#rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
 #rake "make_wrapper[$afile, em/final/Ntuple, MuMuTauTree]"
 echo "come here 1111111111111111"
 ls *pyx | sed "s|pyx|so|" | xargs rake 
@@ -52,6 +54,7 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 #bash compileTree.txt
 
 #rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo]"
+#rake "meta:getinputs[$jobid, $datasrc,mmt/metaInfo, mmt/summedWeights]"
 #rake "meta:getinputs[$jobid, $datasrc,mmm/metaInfo, mmm/summedWeights]"
 rake "meta:getinputs[$jobid, $datasrc,mt/metaInfo, mt/summedWeights]"
 #rake "meta:getinputs[$jobid, $datasrc,et/metaInfo, et/summedWeights]"

@@ -192,7 +192,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
     def begin(self):
 
-        names=["preselection","preselectionLooseIso","preselectionVLooseIso","preselectionlargerange","preselectionLooseIsolargerange","preselectionVLooseIsolargerange","preselectionlargerange0p2iso","preselectionLooseIsolargerange0p2iso","preselectionVLooseIsolargerange0p2iso","preselection0p2iso","preselectionLooseIso0p2iso","preselectionVLooseIso0p2iso"]
+        names=["preselectionNextraIso","preselection","preselectionLooseIso","preselectionSS","preselectionLooseIsoSS","preselectionVLooseIso","preselectionlargerange","preselectionLooseIsolargerange","preselectionVLooseIsolargerange","preselectionlargerange0p3iso","preselectionLooseIsolargerange0p3iso","preselectionVLooseIsolargerange0p3iso","preselection0p3iso","preselectionLooseIso0p3iso","preselectionVLooseIso0p3iso"]
         namesize = len(names)
 	for x in range(0,namesize):
 
@@ -211,9 +211,12 @@ class AnalyzeLFVMuMuMu(MegaBase):
 #            self.book(names[x], "m2Pt", "Muon  Pt", 300,0,300)
 #            self.book(names[x], "m2Eta", "Muon  eta", 100, -2.5, 2.5)
 #            self.book(names[x], "m2Charge", "Muon Charge", 5, -2, 2)
-            self.book(names[x], "m3Pt", "Muon  Pt", 300,0,300)
+            self.book(names[x], "m3Pt", "Muon  Pt", 1000,0,1000)
             self.book(names[x], "m3Eta", "Muon  eta", 100, -2.5, 2.5)
             self.book(names[x], "m3Etaabs", "Muon  eta", 50,0, 2.5)
+            self.book(names[x], "m1RelPFIsoDBDefault04", "Muon1  Iso", 500,0,50)
+            self.book(names[x], "m2RelPFIsoDBDefault04", "Muon2  Iso", 500,0,50)
+            self.book(names[x], "m3RelPFIsoDBDefault04", "Muon3  Iso", 500,0,50)
 #            self.book(names[x], "m3Charge", "Muon Charge", 5, -2, 2)
 #
 #
@@ -240,7 +243,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
 #            self.book(names[x], "m2_m3_DPhi", "Muon + Muon3 DPhi", 100, 0, 4)
 #            self.book(names[x], "m2_m3_SS", "Muon + Muon3 SS", 5, -2, 2)
 #            self.book(names[x], "m2_m3_ToMETDPhi_Ty1", "Muon Tau DPhi to MET", 100, 0, 4)
-#            self.book(names[x], "m1_m2_Mass", "Dimuon Mass", 200, 0, 200)
+            self.book(names[x], "m1_m2_Mass", "Dimuon Mass", 200, 0, 200)
 #    
 #            # Vetoes
 #            self.book(names[x], 'muVetoPt5IsoIdVtx', 'Number of extra muons', 5, -0.5, 4.5)
@@ -324,9 +327,13 @@ class AnalyzeLFVMuMuMu(MegaBase):
   #      histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
   #      histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
   #      histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
+        histos[name+'/m1RelPFIsoDBDefault04'].Fill(row.m1RelPFIsoDBDefault04, weight)
+        histos[name+'/m2RelPFIsoDBDefault04'].Fill(row.m2RelPFIsoDBDefault04, weight)
+        histos[name+'/m3RelPFIsoDBDefault04'].Fill(row.m3RelPFIsoDBDefault04, weight)
         histos[name+'/m3Pt'].Fill(row.m3Pt, weight)
         histos[name+'/m3Eta'].Fill(row.m3Eta, weight)
         histos[name+'/m3Etaabs'].Fill(abs(row.m3Eta), weight)
+        histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
   #      histos[name+'/m3Charge'].Fill(row.m3Charge, weight)
 
 
@@ -345,7 +352,6 @@ class AnalyzeLFVMuMuMu(MegaBase):
   #      histos[name+'/m2_m3_DR'].Fill(row.m2_m3_DR,weight)
   #      histos[name+'/m2_m3_DPhi'].Fill(row.m2_m3_DPhi,weight)
   #      histos[name+'/m2_m3_SS'].Fill(row.m2_m3_SS,weight)
-  #      histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
   #      #histos[name+'/m_t_ToMETDPhi_Ty1'].Fill(row.m_t_ToMETDPhi_Ty1,weight)
 
   #      histos[name+'/m1PixHits'].Fill(row.m1PixHits, weight)
@@ -525,7 +531,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
          return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
 
     def obj1_isolarge(self,row):
-         return bool(row.m1RelPFIsoDBDefaultR04 <0.20 and row.m2RelPFIsoDBDefaultR04 <0.20)
+         return bool(row.m1RelPFIsoDBDefaultR04 <0.30 and row.m2RelPFIsoDBDefaultR04 <0.30)
     def obj2_iso(self,row):
          return bool(row.m3RelPFIsoDBDefaultR04 < 0.15)
 
@@ -549,6 +555,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
             if not self.presel(row): #only apply trigger selections for data
                 continue
+            self.fill_histos(row,'preselectionNextraIso',False)
 #            if not self.selectZtt(row):
 #                continue
 
@@ -590,13 +597,13 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
             if self.obj2_iso(row) and self.oppositesign(row):  
  
-              self.fill_histos(row,'preselectionlargerange0p2iso',False)
+              self.fill_histos(row,'preselectionlargerange0p3iso',False)
  
             if self.obj2_looseiso(row) and self.oppositesign(row):
-              self.fill_histos(row,'preselectionLooseIsolargerange0p2iso',False)
+              self.fill_histos(row,'preselectionLooseIsolargerange0p3iso',False)
 
             if self.obj2_vlooseiso(row) and self.oppositesign(row):
-              self.fill_histos(row,'preselectionVLooseIsolargerange0p2iso',False)
+              self.fill_histos(row,'preselectionVLooseIsolargerange0p3iso',False)
             
            
 
@@ -616,13 +623,13 @@ class AnalyzeLFVMuMuMu(MegaBase):
 
             if self.obj2_iso(row) and self.oppositesign(row):  
  
-              self.fill_histos(row,'preselection0p2iso',False)
+              self.fill_histos(row,'preselection0p3iso',False)
  
             if self.obj2_looseiso(row) and self.oppositesign(row):
-              self.fill_histos(row,'preselectionLooseIso0p2iso',False)
+              self.fill_histos(row,'preselectionLooseIso0p3iso',False)
 
             if self.obj2_vlooseiso(row) and self.oppositesign(row):
-              self.fill_histos(row,'preselectionVLooseIso0p2iso',False)
+              self.fill_histos(row,'preselectionVLooseIso0p3iso',False)
             
             if not self.obj1_iso(row):
                continue 
@@ -633,6 +640,13 @@ class AnalyzeLFVMuMuMu(MegaBase):
  
             if self.obj2_looseiso(row) and self.oppositesign(row):
               self.fill_histos(row,'preselectionLooseIso',False)
+            
+            if self.obj2_iso(row) and (not self.oppositesign(row)):  
+ 
+              self.fill_histos(row,'preselectionSS',False)
+ 
+            if self.obj2_looseiso(row) and (not self.oppositesign(row)):
+              self.fill_histos(row,'preselectionLooseIsoSS',False)
 
             if self.obj2_vlooseiso(row) and self.oppositesign(row):
               self.fill_histos(row,'preselectionVLooseIso',False)

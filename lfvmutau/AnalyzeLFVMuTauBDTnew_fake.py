@@ -309,7 +309,8 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
       #  self.filename
         weight =1.0# eval("weightNormal."+self.filename.replace("-","_"))
         if (not(self.is_data)):
-           weight = row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           #weight = row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
+           weight = row.GenWeight * self.correction(row)*self.WeightJetbin(row)#*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)
 #           weight =weight*row.GenWeight * self.correction(row)*bTagSF.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0) #apply gen and pu reweighting to MC
         if (fakeRate == True):
            weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
@@ -658,9 +659,9 @@ class AnalyzeLFVMuTauBDTnew_fake(MegaBase):
 
             if not self.obj2_Vlooseiso(row):
                 continue
-            if self.is_data:
-               if  row.bjetCISVVeto30Medium:
-                   continue
+#            if self.is_data:
+#               if  row.bjetCISVVeto30Medium:
+#                   continue
             normaldecayfanbo=0
             if ((int(round(row.tDecayMode)))==0) or ((int(round(row.tDecayMode)))==1) or ((int(round(row.tDecayMode)))==10):
                normaldecayfanbo=1
