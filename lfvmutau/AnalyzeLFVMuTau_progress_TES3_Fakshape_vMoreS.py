@@ -133,11 +133,13 @@ pu_distributionsdown = glob.glob(os.path.join(
 pu_correctordown = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributionsdown)
 
 muon_pog_TriggerIso24_2016B= MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
-muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+#muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium1D_2016ReReco()
 #muon_pog_PFTight_2016B = MuonPOGCorrections.make_muon_pog_PFMedium_2016BCD()
 #muon_pog_Tracking_2016B = MuonPOGCorrections.make_muon_pog_Tracking_2016BCD()
 #muon_pog_Tracking_2016B = MuonPOGCorrections.mu_trackingEta_2016()
-muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+#muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+muon_pog_TightIso_2016B = MuonPOGCorrections.make_muon_pog_TightIso1D_2016ReReco('Medium')
 
 
 class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
@@ -375,14 +377,17 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
          pu = pu_correctorup(row.nTruePU)
       elif self.DoPileup==2:
          pu = pu_correctordown(row.nTruePU)
-      m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.mEta))[0]
+      #m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.mEta))[0]
+      m1tracking =MuonPOGCorrections.mu_trackingEta_MORIOND2017(abs(row.mEta))[0]
       #print "the m1tracking %f"   %m1tracking
 #      print "Sysin value in the correction %f" %self.Sysin
       if (not self.Sysin) or (self.DoTES) or self.DoUES or self.DoJES or self.DoFakeshapeDM or self.DoMFT or self.DoUESsp:
-         m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
+         #m1id =muon_pog_PFTight_2016B(row.mPt,abs(row.mEta))
+         #m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
+         m1id =muon_pog_PFTight_2016B(row.mPt)
+         m1iso =muon_pog_TightIso_2016B(row.mPt)
          m_trgiso22=muon_pog_TriggerIso24_2016B(row.mPt,abs(row.mEta))
        
-         m1iso =muon_pog_TightIso_2016B(row.mPt,abs(row.mEta))
       elif self.Sysin and self.DoMES==1:
         # print 'at line 513 the MES comes in as 1'
             m1id =muon_pog_PFTight_2016B(row.mPt*1.002,abs(row.mEta))
@@ -441,12 +446,10 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
 #            print 'tau fake rate def ones %f'  %(fTauIso)
 
             if fakeset=="def":
-               if row.tPt<=80:
-                      fTauIso=0.210032
-               elif  row.tPt<=200:
-                      fTauIso=0.170658
+               if row.tPt<=200:
+                      fTauIso=0.215034-0.00047209*(self.tau_Pt_C-30)
                else:
-                      fTauIso=0.119021
+                      fTauIso=0.1372
                #if abs(row.tEta)<1.479:
                #   if  row.tDecayMode==0:
                #       fTauIso=0.218512-0.000337089*(self.tau_Pt_C-30)
@@ -596,18 +599,19 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
 	
     def getFakeRateFactormuon(self,row, fakeset):   #Ptbined
         if fakeset=="def":
-           if row.mPt<=30:
-              fTauIso=0.611
-           elif row.mPt<=40:
-              fTauIso=0.724
-           elif row.mPt<=50:
-              fTauIso=0.746
-           elif row.mPt<=60:
-              fTauIso=0.796
-           elif row.mPt<=80:
-              fTauIso=0.816
-           else:
-              fTauIso=0.950
+          # if row.mPt<=30:
+          #    fTauIso=0.611
+          # elif row.mPt<=40:
+          #    fTauIso=0.724
+          # elif row.mPt<=50:
+          #    fTauIso=0.746
+          # elif row.mPt<=60:
+          #    fTauIso=0.796
+          # elif row.mPt<=80:
+          #    fTauIso=0.816
+          # else:
+          #    fTauIso=0.950
+          fTauIso=0.780172+0.072857*row.mEta-0.147437*row.mEta*row.mEta+0.0576102*row.mEta*row.mEta*row.mEta
         if self.DoMES==1:
            if row.mPt*1.002<=30:
               fTauIso=0.611
@@ -753,9 +757,9 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
            histos[name+'/nvtx'].Fill(row.nvtx, weight)
            histos[name+'/weight'].Fill(weight)
            histos[name+'/GenWeight'].Fill(row.GenWeight)
-           histos[name+'/nTruePU'].Fill(row.nTruePU)
-           histos[name+'/numGenJets'].Fill(row.numGenJets)
-           histos[name+'/mPhi'].Fill(row.mPhi)
+           histos[name+'/nTruePU'].Fill(row.nTruePU,weight)
+           histos[name+'/numGenJets'].Fill(row.numGenJets,weight)
+           histos[name+'/mPhi'].Fill(row.mPhi,weight)
 #           histos[name+'/mMtToPfMet_type1'].Fill(row.mMtToPfMet_type1,weight)
            histos[name+'/counts'].Fill(1)
            histos[name+'/mEta'].Fill(row.mEta, weight)
@@ -1328,8 +1332,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_vMoreS(MegaBase):
                 continue
 #            if self.is_data: 
             self.Sysin=0
-  #          if not self.presel(row):
-  #                continue
+            if not self.presel(row):
+                  continue
 #            if not self.selectZmm(row):
 #                continue
             if not self.selectZtt(row):

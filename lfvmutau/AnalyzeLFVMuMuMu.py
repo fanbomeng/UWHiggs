@@ -15,7 +15,7 @@ import FinalStateAnalysis.TagAndProbe.MuonPOGCorrections as MuonPOGCorrections
 import FinalStateAnalysis.TagAndProbe.PileupWeight as PileupWeight
 import ROOT
 import math
-import weightMuMuTau 
+import weightMuMuTauNew 
 import bTagSFrereco
 from math import sqrt, pi
 fakeRate=False
@@ -109,7 +109,7 @@ muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('M
 muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
 muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso_2016ReReco('Medium')
 
-def mc_corrector_2016T(row):
+def mc_corrector_2016TT(row):
   pu = pu_corrector(row.nTruePU)
   m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
   m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
@@ -131,17 +131,46 @@ def mc_corrector_2016T(row):
   #print str(pu)
   return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
 
-def mc_corrector_2016L(row):
+
+
+def mc_corrector_2016LT(row):
+  pu = pu_corrector(row.nTruePU)
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m3Eta))[0]
+  m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
+  m1iso = muon_pog_LooseIso_2016(row.m1Pt,abs(row.m1Eta))
+  m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
+#  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+  m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
+  m2iso = muon_pog_LooseIso_2016(row.m2Pt,abs(row.m2Eta))
+#  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
+ # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
+  m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
+  m3iso = muon_pog_TightIso_2016(row.m3Pt,abs(row.m3Eta))
+#  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
+ # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
+
+  #print "pu"
+  #print str(pu)
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
+
+
+
+def mc_corrector_2016TL(row):
   pu = pu_corrector(row.nTruePU)
 
   m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
   m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
   m3tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m3Eta))[0]
   m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
+#  m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
   #m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
   m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
+  #m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
+#  m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
   m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
   #m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
  # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
@@ -153,8 +182,34 @@ def mc_corrector_2016L(row):
   #print "pu"
   #print str(pu)
   return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
-mc_correctorT = mc_corrector_2016T
-mc_correctorL = mc_corrector_2016L
+
+
+def mc_corrector_2016LL(row):
+  pu = pu_corrector(row.nTruePU)
+
+  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+  m3tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m3Eta))[0]
+  m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
+  m1iso = muon_pog_LooseIso_2016(row.m1Pt,abs(row.m1Eta))
+  m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
+  #m1tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m1Eta)[0]
+  m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
+  m2iso = muon_pog_LooseIso_2016(row.m2Pt,abs(row.m2Eta))
+  #m2tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m2Eta)[0]
+ # m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
+  m3id = muon_pog_PFTight_2016(row.m3Pt,abs(row.m3Eta))
+  m3iso = muon_pog_LooseIso_2016(row.m3Pt,abs(row.m3Eta))
+  #m3tracking =MuonPOGCorrections.mu_trackingEta_2016(row.m3Eta)[0]
+ # m3_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m3Pt,abs(row.m3Eta))
+
+  #print "pu"
+  #print str(pu)
+  return pu*m1id*m1iso*m1_trg*m2id*m2iso*m3id*m3iso*m1tracking*m2tracking*m3tracking
+mc_correctorTT = mc_corrector_2016TT
+mc_correctorLT = mc_corrector_2016LT
+mc_correctorTL = mc_corrector_2016TL
+mc_correctorLL = mc_corrector_2016LL
 
 class AnalyzeLFVMuMuMu(MegaBase):
     tree = 'mmm/final/Ntuple'
@@ -214,9 +269,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
             self.book(names[x], "m3Pt", "Muon  Pt", 1000,0,1000)
             self.book(names[x], "m3Eta", "Muon  eta", 100, -2.5, 2.5)
             self.book(names[x], "m3Etaabs", "Muon  eta", 50,0, 2.5)
-            self.book(names[x], "m1RelPFIsoDBDefault04", "Muon1  Iso", 500,0,50)
-            self.book(names[x], "m2RelPFIsoDBDefault04", "Muon2  Iso", 500,0,50)
-            self.book(names[x], "m3RelPFIsoDBDefault04", "Muon3  Iso", 500,0,50)
+            self.book(names[x], "m1RelPFIsoDBDefaultR04", "Muon1  Iso", 5000,0,50)
+            self.book(names[x], "m2RelPFIsoDBDefaultR04", "Muon2  Iso", 5000,0,50)
+            self.book(names[x], "m3RelPFIsoDBDefaultR04", "Muon3  Iso", 5000,0,50)
 #            self.book(names[x], "m3Charge", "Muon Charge", 5, -2, 2)
 #
 #
@@ -286,9 +341,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
             #self.book(names[x], "vbfNJetsPUTight", "g", 5, -0.5, 4.5)
 
     def correctionT(self,row):
-	return mc_correctorT(row)
+	return mc_correctorTT(row)
     def correctionL(self,row):
-	return mc_correctorL(row)
+	return mc_correctorTL(row)
 	
     def fakeRateMethod(self,row,isoName):
         return getFakeRateFactor(row,isoName)
@@ -327,9 +382,9 @@ class AnalyzeLFVMuMuMu(MegaBase):
   #      histos[name+'/m2Pt'].Fill(row.m2Pt, weight)
   #      histos[name+'/m2Eta'].Fill(row.m2Eta, weight)
   #      histos[name+'/m2Charge'].Fill(row.m2Charge, weight)
-        histos[name+'/m1RelPFIsoDBDefault04'].Fill(row.m1RelPFIsoDBDefault04, weight)
-        histos[name+'/m2RelPFIsoDBDefault04'].Fill(row.m2RelPFIsoDBDefault04, weight)
-        histos[name+'/m3RelPFIsoDBDefault04'].Fill(row.m3RelPFIsoDBDefault04, weight)
+        histos[name+'/m1RelPFIsoDBDefaultR04'].Fill(row.m1RelPFIsoDBDefaultR04, weight)
+        histos[name+'/m2RelPFIsoDBDefaultR04'].Fill(row.m2RelPFIsoDBDefaultR04, weight)
+        histos[name+'/m3RelPFIsoDBDefaultR04'].Fill(row.m3RelPFIsoDBDefaultR04, weight)
         histos[name+'/m3Pt'].Fill(row.m3Pt, weight)
         histos[name+'/m3Eta'].Fill(row.m3Eta, weight)
         histos[name+'/m3Etaabs'].Fill(abs(row.m3Eta), weight)
@@ -445,21 +500,21 @@ class AnalyzeLFVMuMuMu(MegaBase):
               print "Error***********************Error***********"
            if self.ls_Wjets:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTauNew."+"WJetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightMuMuTau."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"W"+str(int(row.numGenJets))+"JetsToLNu_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_ZTauTau:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTauNew."+"ZTauTauJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightMuMuTau."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"ZTauTau"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
            if self.ls_DY:
               if row.numGenJets == 0:
-                 return  1.0/(eval("weightMuMuTau."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return  1.0/(eval("weightMuMuTauNew."+"DYJetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
               else:
-                 return 1.0/(eval("weightMuMuTau."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
+                 return 1.0/(eval("weightMuMuTauNew."+"DY"+str(int(row.numGenJets))+"JetsToLL_M_50_TuneCUETP8M1_13TeV_madgraphMLM_pythia8"))
         else:
-              return 1.0/(eval("weightMuMuTau."+self.weighttarget))
+              return 1.0/(eval("weightMuMuTauNew."+self.weighttarget))
     #def obj1_id(self, row):
     #    return bool(row.mPFIDTight)  
 #    def obj1_id(self,row):

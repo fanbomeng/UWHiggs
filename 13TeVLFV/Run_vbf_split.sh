@@ -93,6 +93,57 @@ python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLF
 python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ type1_pfMetEt   preselection           0 none      tPt0   0
 
 
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ tPt   preselectionVLooseIso            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ m1_m2_Mass   preselectionVLooseIso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ tEta   preselectionVLooseIso           0 none      tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ tDecayMode   preselectionVLooseIso           0 none      tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1Pt   preselection            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselection            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselectionlargerange0p3iso            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselectionlargerange            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselection0p3iso            0 none    tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3RelPFIsoDBDefaultR04   preselectionNextraIso    0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1RelPFIsoDBDefaultR04   preselectionNextraIso    0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m2RelPFIsoDBDefaultR04   preselectionNextraIso    0 none    tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3RelPFIsoDBDefaultR04  preselectionlargerange0p3iso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1RelPFIsoDBDefaultR04  preselectionlargerange0p3iso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m2RelPFIsoDBDefaultR04  preselectionlargerange0p3iso     0 none    tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt        preselectionLooseIso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass  preselectionLooseIso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Eta       preselectionLooseIso     0 none    tPt0   0
+
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt  preselection     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass  preselection     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Eta  preselection     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Etaabs  preselection     0 none    tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselection     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselectionlargerange0p3iso            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselectionlargerange            0 none    tPt0   0
+Zython plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt   preselection0p3iso            0 none    tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselection     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionlargerange0p3iso  0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionlargerange            0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselection0p3iso            0 none    tPt0   0
+
+
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionLooseIsolargerange0p3iso  0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionLooseIsolargerange  0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionLooseIso0p3iso     0 none    tPt0   0
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m1_m2_Mass   preselectionLooseIso            0 none    tPt0   0
+
+python plot_13TeV_vbfbined_QCD_36_highmassMMT.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Etaabs   preselection            0 none    tPt0   0
+
+
 python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection0Jet   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection1Jet   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_G_H.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  preselection2Jet   0 none                    tPt30   0

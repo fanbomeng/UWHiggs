@@ -5,7 +5,7 @@ import sys
 import math
 import array
 import lfv_varsnew
-import XSec
+import XSecnew
 clearnoverflow=1
 moveoverflow=0
 def NoNegBins(histo):    #no negtive bin, if negtive then set Zero
@@ -71,7 +71,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
         metafile = lumidir + file_str+"_weight.log"
         f = open(metafile).read().splitlines()
         nevents = float((f[0]).split(': ',1)[-1])
-        xsec = eval("XSec."+file_str.replace("-","_"))
+        xsec = eval("XSecnew."+file_str.replace("-","_"))
         if clearnoverflow:
            histo.SetBinContent(histo.GetNbinsX()+1,0.0)
            histo.SetBinError(histo.GetNbinsX()+1,0.0)
@@ -112,7 +112,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
                 #metafile = lumidir + file_str+"_weight.log"
         	#f = open(metafile).read().splitlines()
                 #nevents = float((f[0]).split(': ',1)[-1])
-                #xsec = eval("XSec."+file_str.replace("-","_"))
+                #xsec = eval("XSecnew."+file_str.replace("-","_"))
 		#efflumi = nevents/xsec
 		#histo.Scale(lumi/efflumi) 
 		histo.Scale(lumi) 
@@ -245,6 +245,7 @@ fakeallplot=False
 #drawdata=False
 drawdata=True
 highMass=True
+#highMass=False
 #blinded = True #not blinded
 #QCDflag=True
 
@@ -271,7 +272,7 @@ if channeltmp=="gg":
 
 canvas = ROOT.TCanvas("canvas","canvas",800,800)
 canvas.cd()
-#canvas.SetLogy()
+canvas.SetLogy()
 if shape_norm == False:
         ynormlabel = " "
 else:
@@ -294,7 +295,7 @@ if ("collMass" in var or 'm_t_Mass' in var) and channel=='boost':
 	binwidth =10 
 #if "collMass" in var and "vbf" in channel:
 #	binwidth = 20
-if highMass:
+if highMass and 'collMass_type1' in var:
         binwidth =array.array('d',[0,10,20,30,40,50,60,70,80,90,100,110,110,120,130,140,150,160,170,180,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575,600,650,700,750,800,850,900,1000,1100,1200,1400])
 elif "BDT" in var :
         binwidth =array.array('d',[-0.5,-0.4,-0.3,-0.2,-0.1,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30])
@@ -352,7 +353,7 @@ p_lfv.SetFrameLineWidth(3)
 p_lfv.SetFrameBorderMode(0)
 p_lfv.SetFrameBorderSize(10)
 p_lfv.RedrawAxis()
-#p_lfv.SetLogy()
+p_lfv.SetLogy()
 p_lfv.Draw()
 p_ratio = ROOT.TPad("p_ratio","p_ratio",0,0,1,0.35);
 p_ratio.SetTopMargin(0.05);
@@ -380,7 +381,7 @@ p_lfv.cd()
 #p_ratio.SetGridy()
 #p_ratio.Draw()
 #p_lfv.cd()
-#p_lfv.SetLogy()
+p_lfv.SetLogy()
 lumidir = savedir+"weights/"
 lumiScale = float(argv[4]) #lumi to scale to
 lumi = lumiScale*1000
@@ -462,6 +463,13 @@ vbfhmutau130 = make_histo(savedir,"VBF_LFV_HToMuTau_M130_13TeV_powheg_pythia8",c
 gghmutau130 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M130_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 vbfhmutau150 = make_histo(savedir,"VBF_LFV_HToMuTau_M150_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 gghmutau150 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M150_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+#vbfhmutau200 = make_histo(savedir,"VBF_LFV_HToMuTau_M200_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+#gghmutau200 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M200_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+gghmutau300 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M300_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+gghmutau450 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M450_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+gghmutau600 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M600_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+gghmutau750 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M750_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
+gghmutau900 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M750_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 
 smhvbf = make_histo(savedir,"VBFHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 smhgg = make_histo(savedir,"GluGluHToTauTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -1195,7 +1203,7 @@ for i in range(data.GetNbinsX(),0,-1):
 		highDataBin = i
 		break
 #Set bin widths
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
    data=data.Rebin(len(binwidth)-1,'',binwidth)
 #   print binwidth
 else:
@@ -1224,12 +1232,14 @@ if (not fakeallplot) and fakeRate:
    wjetsMT.Scale(-1)
    #wjetsM.Scale(-1)
    wjetsM.Add(wjetsMT)
+   print 'the muons fakes contribtuion    %f'   %(wjetsM.Integral())
    do_binbybinQCD(wjetsM,lowDataBin,highDataBin)
+   print 'the overlap and tau fake contribution %f'   %(wjets.Integral())
    #wjets.Add(wjetsMT)
-   wjets.Add(wjetsM)
+   #wjets.Add(wjetsM)
   # wjets=wjetsM
   # wjets.Add(wjetsMT)
-   if ('BDT' in var) or highMass :
+   if ('BDT' in var) or (highMass and 'collMass_type1' in var) :
       wjets=wjets.Rebin(len(binwidth)-1,'',binwidth)
 #   print binwidth
    else:
@@ -1238,7 +1248,7 @@ if (not fakeallplot) and fakeRate:
    #wjetsMT.Rebin(binwidth)
 if (not fakeallplot) and (not fakeRate):
    wjets.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     zjets=zjets.Rebin(len(binwidth)-1,'',binwidth)
 else:
     zjets.Rebin(binwidth)
@@ -1246,15 +1256,15 @@ if DY_bin:
    zmmjets.Rebin(binwidth)
    zlljets.Rebin(binwidth)
 
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     ztautau=ztautau.Rebin(len(binwidth)-1,'',binwidth)
 else:
     ztautau.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     ttbar=ttbar.Rebin(len(binwidth)-1,'',binwidth)
 else:
     ttbar.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     diboson=diboson.Rebin(len(binwidth)-1,'',binwidth)
 else:
    diboson.Rebin(binwidth)
@@ -1270,41 +1280,55 @@ else:
 #    zz=zz.Rebin(len(binwidth)-1,'',binwidth)
 #else:
 #    zz.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     singlet=singlet.Rebin(len(binwidth)-1,'',binwidth)
 else:
     singlet.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     smhgg=smhgg.Rebin(len(binwidth)-1,'',binwidth)
 else:
     smhgg.Rebin(binwidth)
-if ('BDT' in var) or highMass:
+if ('BDT' in var) or (highMass and 'collMass_type1' in var):
     gghmutau125=gghmutau125.Rebin(len(binwidth)-1,'',binwidth)
     gghmutau120=gghmutau120.Rebin(len(binwidth)-1,'',binwidth)
     gghmutau130=gghmutau130.Rebin(len(binwidth)-1,'',binwidth)
     gghmutau150=gghmutau150.Rebin(len(binwidth)-1,'',binwidth)
+#    gghmutau200=gghmutau200.Rebin(len(binwidth)-1,'',binwidth)
+    gghmutau300=gghmutau300.Rebin(len(binwidth)-1,'',binwidth)
+    gghmutau450=gghmutau450.Rebin(len(binwidth)-1,'',binwidth)
+    gghmutau600=gghmutau600.Rebin(len(binwidth)-1,'',binwidth)
+    gghmutau750=gghmutau750.Rebin(len(binwidth)-1,'',binwidth)
+    gghmutau900=gghmutau900.Rebin(len(binwidth)-1,'',binwidth)
     WGstarNMM=WGstarNMM.Rebin(len(binwidth)-1,'',binwidth)
 else:
     gghmutau125.Rebin(binwidth)
     gghmutau120.Rebin(binwidth)
     gghmutau130.Rebin(binwidth)
     gghmutau150.Rebin(binwidth)
+    #gghmutau200.Rebin(binwidth)
+    gghmutau300.Rebin(binwidth)
+    gghmutau450.Rebin(binwidth)
+    gghmutau600.Rebin(binwidth)
+    gghmutau750.Rebin(binwidth)
+    gghmutau900.Rebin(binwidth)
     WGstarNMM.Rebin(binwidth)
-if 'BDT' in var or highMass:
+if 'BDT' in var or (highMass and 'collMass_type1' in var):
     smhvbf=smhvbf.Rebin(len(binwidth)-1,'',binwidth)
 else:
     smhvbf.Rebin(binwidth)
-if 'BDT' in var or highMass:
+if 'BDT' in var or (highMass and 'collMass_type1' in var):
     vbfhmutau125=vbfhmutau125.Rebin(len(binwidth)-1,'',binwidth)
     vbfhmutau120=vbfhmutau120.Rebin(len(binwidth)-1,'',binwidth)
     vbfhmutau130=vbfhmutau130.Rebin(len(binwidth)-1,'',binwidth)
     vbfhmutau150=vbfhmutau150.Rebin(len(binwidth)-1,'',binwidth)
+#    vbfhmutau200=vbfhmutau200.Rebin(len(binwidth)-1,'',binwidth)
     #print '********************%f'  %(vbfhmutau125.GetNbinsX())
 else:
     vbfhmutau125.Rebin(binwidth)
     vbfhmutau120.Rebin(binwidth)
     vbfhmutau130.Rebin(binwidth)
     vbfhmutau150.Rebin(binwidth)
+ #   vbfhmutau200.Rebin(binwidth)
 
 #options for name of outputfile
 #if 'UESZTT' in shiftnormal:
@@ -1367,6 +1391,18 @@ gghmutau130.SetLineColor(416-5)
 gghmutau130.SetLineWidth(3)
 gghmutau150.SetLineColor(600-5)
 gghmutau150.SetLineWidth(3)
+#gghmutau200.SetLineColor(616-7)
+#gghmutau200.SetLineWidth(3)
+gghmutau300.SetLineColor(432-5)
+gghmutau300.SetLineWidth(3)
+gghmutau450.SetLineColor(800-4)
+gghmutau450.SetLineWidth(3)
+gghmutau600.SetLineColor(860+6)
+gghmutau600.SetLineWidth(3)
+gghmutau750.SetLineColor(880-3)
+gghmutau750.SetLineWidth(3)
+gghmutau900.SetLineColor(900+6)
+gghmutau900.SetLineWidth(3)
 WGstarNMM.SetLineColor(632-6)
 WGstarNMM.SetLineWidth(1)
 WGstarNMM.SetFillColor(632-6)
@@ -1508,12 +1544,19 @@ do_binbybin(vbfhmutau130,"VBF_LFV_HToMuTau_M130_13TeV_powheg_pythia8",lowDataBin
 do_binbybin(gghmutau130,"GluGlu_LFV_HToMuTau_M130_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(vbfhmutau150,"VBF_LFV_HToMuTau_M150_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 do_binbybin(gghmutau150,"GluGlu_LFV_HToMuTau_M150_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+#do_binbybin(vbfhmutau200,"VBF_LFV_HToMuTau_M200_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+#do_binbybin(gghmutau200,"GluGlu_LFV_HToMuTau_M200_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+do_binbybin(gghmutau300,"GluGlu_LFV_HToMuTau_M300_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+do_binbybin(gghmutau450,"GluGlu_LFV_HToMuTau_M450_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+do_binbybin(gghmutau600,"GluGlu_LFV_HToMuTau_M600_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+do_binbybin(gghmutau750,"GluGlu_LFV_HToMuTau_M750_13TeV_powheg_pythia8",lowDataBin,highDataBin)
+do_binbybin(gghmutau900,"GluGlu_LFV_HToMuTau_M900_13TeV_powheg_pythia8",lowDataBin,highDataBin)
 BLAND=0
 #binLow = data.FindBin(100)
 #binHigh = data.FindBin(150)+1
 #if "preselection" not in channel:
 #if blinded==False and ("collMass" in var or "m_t_Mass" in var or 'type1_pfMetEt' in var or 'type1_pfMetEtNormal' in var):   #Fanbo
-    #for i in range(binLow,binHigh):
+   #for i in range(binLow,binHigh):
 #    for i in range(binLow,binHigh):
 #        data.SetBinContent(i,-100)
 #if blinded==False and ('BDT' in var):   #Fanbo
@@ -1609,15 +1652,34 @@ lfvh.Draw('hsames')
 lfvh120 = gghmutau120.Clone()
 lfvh120.Add(vbfhmutau120)
 lfvh120.Scale(0.05)
-lfvh120.Draw('hsames')
+#lfvh120.Draw('hsames')
 lfvh130 = gghmutau130.Clone()
 lfvh130.Add(vbfhmutau130)
 lfvh130.Scale(0.05)
-lfvh130.Draw('hsames')
+#lfvh130.Draw('hsames')
 lfvh150 = gghmutau150.Clone()
 lfvh150.Add(vbfhmutau150)
 lfvh150.Scale(0.05)
-lfvh150.Draw('hsames')
+#lfvh150.Draw('hsames')
+#lfvh200 = gghmutau200.Clone()
+#lfvh200.Add(vbfhmutau200)
+#lfvh200.Scale(0.05)
+#lfvh200.Draw('hsames')
+lfvh300 = gghmutau300.Clone()
+lfvh300.Scale(0.05)
+lfvh300.Draw('hsames')
+lfvh450 = gghmutau450.Clone()
+lfvh450.Scale(0.05)
+#lfvh450.Draw('hsames')
+lfvh600 = gghmutau600.Clone()
+lfvh600.Scale(0.05)
+lfvh600.Draw('hsames')
+lfvh750 = gghmutau750.Clone()
+lfvh750.Scale(0.05)
+#lfvh750.Draw('hsames')
+lfvh900 = gghmutau900.Clone()
+lfvh900.Scale(0.05)
+lfvh900.Draw('hsames')
 vbfhmutau125.Scale(0.2)
 gghmutau125.Scale(0.2)
 #vbfhmutau125.Draw("hsames")
@@ -1834,10 +1896,16 @@ if fakeRate ==True :
 if fakeRate ==False and wjets_fakes==False :
    legend.AddEntry(wjets,'Wjets','f')
 #legend.AddEntry(gghmutau125,'LFV GG Higgs (BR=20%)')
-legend.AddEntry(lfvh120,'H 120 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh120,'H 120 #rightarrow #mu#tau (B=5%)')
 legend.AddEntry(lfvh,'H 125 #rightarrow #mu#tau (B=5%)')
-legend.AddEntry(lfvh130,'H 130 #rightarrow #mu#tau (B=5%)')
-legend.AddEntry(lfvh150,'H 150 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh130,'H 130 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh150,'H 150 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh200,'H 200 #rightarrow #mu#tau (B=5%)')
+legend.AddEntry(lfvh300,'H 300 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh450,'H 450 #rightarrow #mu#tau (B=5%)')
+legend.AddEntry(lfvh600,'H 600 #rightarrow #mu#tau (B=5%)')
+#legend.AddEntry(lfvh750,'H 600 #rightarrow #mu#tau (B=5%)')
+legend.AddEntry(lfvh900,'H 600 #rightarrow #mu#tau (B=5%)')
 #legend.AddEntry(vbfhmutau125,'LFV VBF Higgs (BR=20%)')
 legend.SetNColumns(2)
 #fill output root file

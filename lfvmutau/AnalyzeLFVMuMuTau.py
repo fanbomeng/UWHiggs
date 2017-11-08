@@ -44,21 +44,31 @@ pu_corrector = PileupWeight.PileupWeight('MC_Moriond17', *pu_distributions)
 #print "the path *************"
 #print pu_distributions
 #muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFTight_2016BCD()
-muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+#muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium_2016ReReco()
+muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium1D_2016ReReco()
 #muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016BCD()
-muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso_2016ReReco('Medium')
+#muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso1D_2016ReReco('Medium')
+muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso1D_2016ReReco('Medium')
 #muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
 muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
-#  m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
-#  m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
-  m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
-  m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
+  #m1tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m1Eta))[0]
+  #m2tracking =MuonPOGCorrections.mu_trackingEta_2016(abs(row.m2Eta))[0]
+  m1tracking =MuonPOGCorrections.mu_trackingEta_MORIOND2017(abs(row.m1Eta))[0]
+  m2tracking =MuonPOGCorrections.mu_trackingEta_MORIOND2017(abs(row.m2Eta))[0]
+  #m1id = muon_pog_PFTight_2016(row.m1Pt,abs(row.m1Eta))
+  m1id = muon_pog_PFTight_2016(row.m1Pt)
+  #m1iso = muon_pog_TightIso_2016(row.m1Pt,abs(row.m1Eta))
+  #m1iso = muon_pog_TightIso_2016(row.m1Pt)
+  m1iso = muon_pog_LooseIso_2016(row.m1Pt)
   m1_trg = muon_pog_IsoMu24oIsoTkMu24_2016(row.m1Pt,abs(row.m1Eta))
-  m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
-  m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
+  #m2id = muon_pog_PFTight_2016(row.m2Pt,abs(row.m2Eta))
+  m2id = muon_pog_PFTight_2016(row.m2Pt)
+  #m2iso = muon_pog_TightIso_2016(row.m2Pt,abs(row.m2Eta))
+  #m2iso = muon_pog_TightIso_2016(row.m2Pt)
+  m2iso = muon_pog_LooseIso_2016(row.m2Pt)
 #  m2_trg = muon_pog_IsoMu22oIsoTkMu22_2016(row.m2Pt,abs(row.m2Eta))
 
   #print "pu"
@@ -123,7 +133,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
     def begin(self):
         #names=["preselectionSS", "preselectionDecay0","preselectionLooseIsoDecay0", "preselectionVLooseIsoDecay0","preselectionVTightIsoDecay0","preselectionMediumIsoDecay0", "preselection0JetDecay0", "preselection1JetDecay0", "preselection2JetDecay0","preselectionDecay1","preselectionLooseIsoDecay1", "preselectionVLooseIsoDecay1","preselectionVTightIsoDecay1","preselectionMediumIsoDecay1", "preselection0JetDecay1", "preselection1JetDecay1", "preselection2JetDecay1","preselectionDecay10","preselectionLooseIsoDecay10", "preselectionVLooseIsoDecay10","preselectionVTightIsoDecay10","preselectionMediumIsoDecay10", "preselection0JetDecay10", "preselection1JetDecay10", "preselection2JetDecay10"]
-        names=['preselection','preselectionEB','preselectionEE','preselectionSS','preselectionEBSS','preselectionEESS','preselectionVLooseIsoSS','preselectionVLooseIsoEBSS','preselectionVLooseIsoEESS','preselectionVLooseIso','preselectionVLooseIsoEB','preselectionVLooseIsoEE',"preselectionDecay0","preselectionVLooseIsoDecay0","preselectionDecay1","preselectionVLooseIsoDecay1","preselectionDecay10","preselectionVLooseIsoDecay10","preselectionDecay0EB","preselectionVLooseIsoDecay0EB","preselectionDecay1EB","preselectionVLooseIsoDecay1EB","preselectionDecay10EB","preselectionVLooseIsoDecay10EB","preselectionDecay0EE","preselectionVLooseIsoDecay0EE","preselectionDecay1EE","preselectionVLooseIsoDecay1EE","preselectionDecay10EE","preselectionVLooseIsoDecay10EE",'preselection2_jetVBF0p2','preselectionVLooseIso2_jetVBF0p2','preselection2_jetEB','preselection2_jetEE','preselectionVLooseIso2_jetEB','preselectionVLooseIso2_jetEE','preselection2_jetVBF','preselectionVLooseIso2_jetVBF','preselection0JetEB','preselection0JetEE','preselection0JetVLooseIsoEB','preselection0JetVLooseIsoEE','preselection1JetEB','preselection1JetEE','preselection1JetVLooseIsoEB','preselection1JetVLooseIsoEE','preselection2Jet_ggEB','preselection2Jet_ggEE','preselection2Jet_ggVLooseIsoEB','preselection2Jet_ggVLooseIsoEE','preselection2Jet_VBFEB','preselection2Jet_VBFEE','preselection2Jet_VBFVLooseIsoEB','preselection2Jet_VBFVLooseIsoEE']
+        names=['preselection','preselectionEB','preselectionEE','preselectionSS','preselectionEBSS','preselectionEESS','preselectionVLooseIsoSS','preselection0jet','preselection0jetVLooseIso','preselection1jet','preselection1jetVLooseIso','preselectionVLooseIsoEBSS','preselectionVLooseIsoEESS','preselectionVLooseIso','preselectionVLooseIsoEB','preselectionVLooseIsoEE',"preselectionDecay0","preselectionVLooseIsoDecay0","preselectionDecay1","preselectionVLooseIsoDecay1","preselectionDecay10","preselectionVLooseIsoDecay10","preselectionDecay0EB","preselectionVLooseIsoDecay0EB","preselectionDecay1EB","preselectionVLooseIsoDecay1EB","preselectionDecay10EB","preselectionVLooseIsoDecay10EB","preselectionDecay0EE","preselectionVLooseIsoDecay0EE","preselectionDecay1EE","preselectionVLooseIsoDecay1EE","preselectionDecay10EE","preselectionVLooseIsoDecay10EE",'preselection2_jetVBF0p2','preselectionVLooseIso2_jetVBF0p2','preselection2_jetEB','preselection2_jetEE','preselectionVLooseIso2_jetEB','preselectionVLooseIso2_jetEE','preselection2_jetVBF','preselectionVLooseIso2_jetVBF','preselection0JetEB','preselection0JetEE','preselection0JetVLooseIsoEB','preselection0JetVLooseIsoEE','preselection1JetEB','preselection1JetEE','preselection1JetVLooseIsoEB','preselection1JetVLooseIsoEE','preselection2Jet_ggEB','preselection2Jet_ggEE','preselection2Jet_ggVLooseIsoEB','preselection2Jet_ggVLooseIsoEE','preselection2Jet_VBFEB','preselection2Jet_VBFEE','preselection2Jet_VBFVLooseIsoEB','preselection2Jet_VBFVLooseIsoEE']
         namesize = len(names)
 	for x in range(0,namesize):
 
@@ -150,7 +160,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
             self.book(names[x], "tEta", "Tau  eta", 100, -2.5, 2.5)
             self.book(names[x], "abstEta", "abs Tau  eta", 100, 0, 2.5)
 #            self.book2(names[x], "tEta_tPt", "tEta_tPt", 100,-2.5,2.5,300, 0,300)
-#            self.book(names[x], "tDecayMode", "tDecayMode", 12,0,12)
+            self.book(names[x], "tDecayMode", "tDecayMode", 12,0,12)
       #      self.book(names[x], "tMtToPfMet_type1", "Tau MT (PF Ty1)", 200, 0, 200)
       #      self.book(names[x], "tCharge", "Tau  Charge", 5, -2, 2)
       #      self.book(names[x], "tJetPt", "Tau Jet Pt" , 500, 0 ,500)	    
@@ -236,7 +246,7 @@ class AnalyzeLFVMuMuTau(MegaBase):
         histos[name+'/tEta'].Fill(row.tEta, weight)
         histos[name+'/abstEta'].Fill(abs(row.tEta), weight)
 #        histos[name+'/tEta_tPt'].Fill(abs(row.tEta),self.tau_Pt_C, weight)
-#        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
+        histos[name+'/tDecayMode'].Fill(row.tDecayMode,weight)
         histos[name+'/m1_m2_Mass'].Fill(row.m1_m2_Mass,weight)
         histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
       #  histos[name+'/tMtToPfMet_type1'].Fill(row.tMtToPfMet_type1,weight)
@@ -518,7 +528,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
     def tauinEB(self,row):
         return bool(abs(row.tEta)<1.479)   
     def obj1_iso(self,row):
-         return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
+         #return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
+         return bool(row.m1RelPFIsoDBDefaultR04 <0.25 and row.m2RelPFIsoDBDefaultR04 <0.25)
 
     def obj2_iso(self,row):
          return bool(row.tByTightIsolationMVArun2v1DBoldDMwLT)
@@ -612,11 +623,13 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 else:
                     self.fill_histos(row,'preselectionEE',False)
                 if row.jetVeto30==0:
+                   self.fill_histos(row,'preselection0jet',False)
                    if self.tauinEB(row): 
                       self.fill_histos(row,'preselection0JetEB',False)
                    else:
                       self.fill_histos(row,'preselection0JetEE',False)
                 if row.jetVeto30==1:
+                   self.fill_histos(row,'preselection1jet',False)
                    if self.tauinEB(row): 
                       self.fill_histos(row,'preselection1JetEB',False)
                    else:
@@ -651,11 +664,13 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 else:
                     self.fill_histos(row,'preselectionVLooseIsoEE',False)
                 if row.jetVeto30==0:
+                   self.fill_histos(row,'preselection0jetVLooseIso',False)
                    if self.tauinEB(row): 
                       self.fill_histos(row,'preselection0JetVLooseIsoEB',False)
                    else:
                       self.fill_histos(row,'preselection0JetVLooseIsoEE',False)
                 if row.jetVeto30==1:
+                   self.fill_histos(row,'preselection1jetVLooseIso',False)
                    if self.tauinEB(row): 
                       self.fill_histos(row,'preselection1JetVLooseIsoEB',False)
                    else:

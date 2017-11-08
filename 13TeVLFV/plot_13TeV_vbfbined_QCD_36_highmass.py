@@ -5,7 +5,7 @@ import sys
 import math
 import array
 import lfv_vars
-import XSec
+import XSecnew
 clearnoverflow=1
 moveoverflow=0
 def NoNegBins(histo):    #no negtive bin, if negtive then set Zero
@@ -71,7 +71,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
         metafile = lumidir + file_str+"_weight.log"
         f = open(metafile).read().splitlines()
         nevents = float((f[0]).split(': ',1)[-1])
-        xsec = eval("XSec."+file_str.replace("-","_"))
+        xsec = eval("XSecnew."+file_str.replace("-","_"))
         if clearnoverflow:
            histo.SetBinContent(histo.GetNbinsX()+1,0.0)
            histo.SetBinError(histo.GetNbinsX()+1,0.0)

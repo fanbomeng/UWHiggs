@@ -4,8 +4,8 @@
 #python plot_singlevar_singlesample_VBF2.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/  mDPhiToPfMet_ggdeltaphi  preselection0Jet    0 none  mmetdeltaPhi     0
 #python plot_singlevar_singlesample_VBF2.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/  tDPhiToPfMet_ggdeltaphi  preselection0Jet    0 none  mmetdeltaPhi     0
 
-python plot_2016_FakeRate.py preselection preselectionLooseIso m3Eta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
-python plot_2016_FakeRate.py preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso m3Eta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 python plot_13TeV_vbfbined_QCD_MfakesSD.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Eta  preselection   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_MfakesSD.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Eta  preselectionLooseIso   0 none                    tPt30   0
 python plot_13TeV_vbfbined_QCD_MfakesSD.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Pt  preselection   0 none                    tPt30   0
@@ -24,9 +24,6 @@ python plot_13TeV_vbfbined_QCD_MfakesSD.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMu
 python plot_13TeV_vbfbined_QCD_MfakesSD.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ m1_m2_Mass  preselectionDecay10   0 none         tPt30   0
 
 
-python plot_2016_FakeRatenew.py preselection preselectionLooseIso m3Eta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
-python plot_2016_FakeRatenew.py preselection preselectionLooseIso m3Etaabs   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
-python plot_2016_FakeRatenew.py  preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 
 
 python plot_13TeV_vbfbined_QCD_fakeSD.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ m3Eta  preselection   0 none                    tPt30   0
@@ -42,12 +39,6 @@ python plot_13TeV_vbfbined_QCD_fakeSD.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ 
 
 
 
-python plot_2016_FakeRatenew.py preselectionDecay0  preselectionVLooseIsoDecay0  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
-python plot_2016_FakeRatenew.py preselectionDecay1  preselectionVLooseIsoDecay1  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
-python plot_2016_FakeRatenew.py preselectionDecay10  preselectionVLooseIsoDecay10  tEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
-python plot_2016_FakeRatenew.py preselectionDecay0  preselectionVLooseIsoDecay0  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
-python plot_2016_FakeRatenew.py preselectionDecay1  preselectionVLooseIsoDecay1  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
-python plot_2016_FakeRatenew.py preselectionDecay10  preselectionVLooseIsoDecay10  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 
 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
@@ -59,6 +50,11 @@ python plot_2016_FakeRatenewDiboson.py preselection preselectionLooseIso m3Etaab
 python plot_2016_FakeRatenewDiboson.py preselection preselectionVLooseIso  m3Etaabs   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 python plot_2016_FakeRatenewDiboson.py preselection preselectionVLooseIso  m3Pt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py  preselection preselectionLooseIso   m3Etaabs  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+
+
+python plot_2016_FakeRatenewDiboson.py  preselectionlargerange0p3iso  preselectionLooseIsolargerange0p3iso  m3Pt    LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
+python plot_2016_FakeRatenewDiboson.py  preselectionlargerange0p3iso  preselectionLooseIsolargerange0p3iso    m3Etaabs  LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuMu/ 
 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay0  preselectionVLooseIsoDecay0  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay1  preselectionVLooseIsoDecay1  abstEta   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
@@ -78,6 +74,9 @@ python plot_2016_FakeRatenewDiboson.py preselectionEE  preselectionVLooseIsoEE  
 python plot_2016_FakeRatenewDiboson.py preselection  preselectionVLooseIso  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 
 
+python plot_2016_FakeRatenewDiboson.py preselection0jet  preselection0jetVLooseIso  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselection1jet  preselection1jetVLooseIso  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
+python plot_2016_FakeRatenewDiboson.py preselection  preselectionVLooseIso  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay0EB  preselectionVLooseIsoDecay0EB  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 
 python plot_2016_FakeRatenewDiboson.py preselectionDecay1EB  preselectionVLooseIsoDecay1EB  tPt   LFV_MiniAODVtrial_sys/AnalyzeLFVMuMuTau/ 

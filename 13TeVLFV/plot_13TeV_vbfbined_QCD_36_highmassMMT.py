@@ -233,7 +233,7 @@ blinded = False #not blinded
 #fillEmptyBins = True #empty bins filled
 fakeRate = False #apply fake rate method
 #fakeRate = True #apply fake rate method
-#QCDflag=False
+QCDflag=False
 fillEmptyBins = True #empty bins filled
 shape_norm = False #normalize to 1 if True
 #wjets_fakes=True
@@ -244,9 +244,10 @@ DY_bin=False
 fakeallplot=False
 #drawdata=False
 drawdata=True
-highMass=True
+#highMass=True
+highMass=False
 #blinded = True #not blinded
-QCDflag=True
+#QCDflag=True
 
 #directory names in datacard file
 #if "preselection" in channel:
@@ -1601,7 +1602,7 @@ maxLFVStack = LFVStack.GetMaximum()
 maxData=data.GetMaximum()
 maxHist = max(maxLFVStack,maxData)
 
-LFVStack.SetMaximum(maxLFVStack*1.2)
+LFVStack.SetMaximum(maxData*1.2)
 LFVStack.SetMinimum(0.001)
 #LFVStack.SetLogy()
 LFVStack.Draw('hist')
