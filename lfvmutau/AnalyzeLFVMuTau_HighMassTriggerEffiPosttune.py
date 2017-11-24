@@ -154,8 +154,8 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         self.tree = MuTauTree.MuTauTree(tree)
         self.out = outfile
         self.histograms = {}
-        self.Sysin=0
-        self.light=1
+        self.Sysin=1
+        self.light=0
         self.light_v2=0
         self.DoPileup=0
         self.DoMES=0
@@ -192,13 +192,13 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                    names.append(i+j)
         if self.Sysin:
            sysneed_Fake=['TauFakeRate_p0_dm0_B_13TeVUp','TauFakeRate_p0_dm0_B_13TeVDown','TauFakeRate_p1_dm0_B_13TeVUp','TauFakeRate_p1_dm0_B_13TeVDown','TauFakeRate_p0_dm1_B_13TeVUp','TauFakeRate_p0_dm1_B_13TeVDown','TauFakeRate_p1_dm1_B_13TeVUp','TauFakeRate_p1_dm1_B_13TeVDown','TauFakeRate_p0_dm10_B_13TeVUp','TauFakeRate_p0_dm10_B_13TeVDown','TauFakeRate_p1_dm10_B_13TeVUp','TauFakeRate_p1_dm10_B_13TeVDown','TauFakeRate_p0_dm0_E_13TeVUp','TauFakeRate_p0_dm0_E_13TeVDown','TauFakeRate_p1_dm0_E_13TeVUp','TauFakeRate_p1_dm0_E_13TeVDown','TauFakeRate_p0_dm1_E_13TeVUp','TauFakeRate_p0_dm1_E_13TeVDown','TauFakeRate_p1_dm1_E_13TeVUp','TauFakeRate_p1_dm1_E_13TeVDown','TauFakeRate_p0_dm10_E_13TeVUp','TauFakeRate_p0_dm10_E_13TeVDown','TauFakeRate_p1_dm10_E_13TeVUp','TauFakeRate_p1_dm10_E_13TeVDown']
-           basechannels_Fake=['ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT','vbf_ggNotIso','vbf_ggNotIsoM','vbf_ggNotIsoMT','vbf_vbfNotIso','vbf_vbfNotIsoM','vbf_vbfNotIsoMT']
+           basechannels_Fake=['ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT']
            for i in sysneed_Fake:
                for j in basechannels_Fake:
                    names.append(j+i)                    
         if self.Sysin and (not self.is_data):
            sysneed=['MES_13TeVUp','MES_13TeVDown','scale_t_1prong_13TeVUp','scale_t_1prong_13TeVDown','scale_t_1prong1pizero_13TeVUp','scale_t_1prong1pizero_13TeVDown','scale_t_3prong_13TeVUp','scale_t_3prong_13TeVDown','scale_mfaketau_1prong1pizero_13TeVUp','scale_mfaketau_1prong1pizero_13TeVDown','Pileup_13TeVUp','Pileup_13TeVDown']
-           basechannels=['gg','boost','vbf_gg','vbf_vbf']
+           basechannels=['gg','boost']
            for i in sysneed:
                for j in basechannels:
                    names.append(j+i)                    
@@ -1259,11 +1259,11 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                  sysneedMFT=['scale_mfaketau_1prong1pizero_13TeVUp','scale_mfaketau_1prong1pizero_13TeVDown']
                  sysneedPileup=['Pileup_13TeVUp','Pileup_13TeVDown']
                  sysneedFAKES=['TauFakeRate_p0_dm0_B_13TeVUp','TauFakeRate_p0_dm0_B_13TeVDown','TauFakeRate_p1_dm0_B_13TeVUp','TauFakeRate_p1_dm0_B_13TeVDown','TauFakeRate_p0_dm1_B_13TeVUp','TauFakeRate_p0_dm1_B_13TeVDown','TauFakeRate_p1_dm1_B_13TeVUp','TauFakeRate_p1_dm1_B_13TeVDown','TauFakeRate_p0_dm10_B_13TeVUp','TauFakeRate_p0_dm10_B_13TeVDown','TauFakeRate_p1_dm10_B_13TeVUp','TauFakeRate_p1_dm10_B_13TeVDown','TauFakeRate_p0_dm0_E_13TeVUp','TauFakeRate_p0_dm0_E_13TeVDown','TauFakeRate_p1_dm0_E_13TeVUp','TauFakeRate_p1_dm0_E_13TeVDown','TauFakeRate_p0_dm1_E_13TeVUp','TauFakeRate_p0_dm1_E_13TeVDown','TauFakeRate_p1_dm1_E_13TeVUp','TauFakeRate_p1_dm1_E_13TeVDown','TauFakeRate_p0_dm10_E_13TeVUp','TauFakeRate_p0_dm10_E_13TeVDown','TauFakeRate_p1_dm10_E_13TeVUp','TauFakeRate_p1_dm10_E_13TeVDown']
-                 basechannels_Fake=['ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT','vbf_ggNotIso','vbf_ggNotIsoM','vbf_ggNotIsoMT','vbf_vbfNotIso','vbf_vbfNotIsoM','vbf_vbfNotIsoMT']
-                 basechannelsI=[(0,'gg'),(1,'boost'),(2,'vbf_gg'),(2,'vbf_vbf')]
-                 basechannelsII=[(0,'ggNotIso'),(1,'boostNotIso'),(2,'vbf_ggNotIso'),(2,'vbf_vbfNotIso')]
-                 basechannelsIII=[(0,'ggNotIsoM'),(1,'boostNotIsoM'),(2,'vbf_ggNotIsoM'),(2,'vbf_vbfNotIsoM')]
-                 basechannelsIIII=[(0,'ggNotIsoMT'),(1,'boostNotIsoMT'),(2,'vbf_ggNotIsoMT'),(2,'vbf_vbfNotIsoMT')]
+                 basechannels_Fake=['ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT']
+                 basechannelsI=[(0,'gg'),(1,'boost')]
+                 basechannelsII=[(0,'ggNotIso'),(1,'boostNotIso')]
+                 basechannelsIII=[(0,'ggNotIsoM'),(1,'boostNotIsoM')]
+                 basechannelsIIII=[(0,'ggNotIsoMT'),(1,'boostNotIsoMT')]
                  baseJESsys=["Jes_JetAbsoluteFlavMap_13TeVDown","Jes_JetAbsoluteFlavMap_13TeVUp","Jes_JetAbsoluteMPFBias_13TeVDown","Jes_JetAbsoluteMPFBias_13TeVUp","Jes_JetAbsoluteScale_13TeVDown","Jes_JetAbsoluteScale_13TeVUp","Jes_JetAbsoluteStat_13TeVDown","Jes_JetAbsoluteStat_13TeVUp","Jes_JetFlavorQCD_13TeVDown","Jes_JetFlavorQCD_13TeVUp","Jes_JetFragmentation_13TeVDown","Jes_JetFragmentation_13TeVUp","Jes_JetPileUpDataMC_13TeVDown","Jes_JetPileUpDataMC_13TeVUp","Jes_JetPileUpPtBB_13TeVDown","Jes_JetPileUpPtBB_13TeVUp","Jes_JetPileUpPtEC1_13TeVDown","Jes_JetPileUpPtEC1_13TeVUp","Jes_JetPileUpPtEC2_13TeVDown","Jes_JetPileUpPtEC2_13TeVUp","Jes_JetPileUpPtHF_13TeVDown","Jes_JetPileUpPtHF_13TeVUp","Jes_JetPileUpPtRef_13TeVDown","Jes_JetPileUpPtRef_13TeVUp","Jes_JetRelativeBal_13TeVDown","Jes_JetRelativeBal_13TeVUp","Jes_JetRelativeFSR_13TeVDown","Jes_JetRelativeFSR_13TeVUp","Jes_JetRelativeJEREC1_13TeVDown","Jes_JetRelativeJEREC1_13TeVUp","Jes_JetRelativeJEREC2_13TeVDown","Jes_JetRelativeJEREC2_13TeVUp","Jes_JetRelativeJERHF_13TeVDown","Jes_JetRelativeJERHF_13TeVUp","Jes_JetRelativePtBB_13TeVDown","Jes_JetRelativePtBB_13TeVUp","Jes_JetRelativePtEC1_13TeVDown","Jes_JetRelativePtEC1_13TeVUp","Jes_JetRelativePtEC2_13TeVDown","Jes_JetRelativePtEC2_13TeVUp","Jes_JetRelativePtHF_13TeVDown","Jes_JetRelativePtHF_13TeVUp","Jes_JetRelativeStatEC_13TeVDown","Jes_JetRelativeStatEC_13TeVUp","Jes_JetRelativeStatFSR_13TeVDown","Jes_JetRelativeStatFSR_13TeVUp","Jes_JetRelativeStatHF_13TeVDown","Jes_JetRelativeStatHF_13TeVUp","Jes_JetSinglePionECAL_13TeVDown","Jes_JetSinglePionECAL_13TeVUp","Jes_JetSinglePionHCAL_13TeVDown","Jes_JetSinglePionHCAL_13TeVUp","Jes_JetTimePtEta_13TeVDown","Jes_JetTimePtEta_13TeVUp"]
                  baseUESsp=['MET_chargedUes_13TeVUp','MET_chargedUes_13TeVDown','MET_ecalUes_13TeVUp','MET_ecalUes_13TeVDown','MET_hfUes_13TeVUp','MET_hfUes_13TeVDown','MET_hcalUes_13TeVUp','MET_hcalUes_13TeVDown']
 
@@ -1363,16 +1363,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                         for j in basechannelsI: 
                            if  eval(tmpname_3)==j[0]:
                                tmpname_2='self.'+j[1]+'(row)'
-                               if ('vbf_gg' in j[1]):
-                                   tmpname_4='row.vbfMass_'+tmpJesvar+tmpJesvarUD
-                                   if eval(tmpname_2) and eval(tmpname_4)<550:
-                                      self.fill_histos(row,j[1]+k,False)
-                               elif ('vbf_vbf' in j[1]):
-                                   tmpname_4='row.vbfMass_'+tmpJesvar+tmpJesvarUD
-                                   if eval(tmpname_2) and eval(tmpname_4)>=550:
-                                      self.fill_histos(row,j[1]+k,False)
-                               else:
-                                   if  eval(tmpname_2):
+                               if  eval(tmpname_2):
                                        self.fill_histos(row,j[1]+k,False)
                  for k in baseUESsp:
                      self.SetsysZero(row)
