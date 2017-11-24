@@ -5,7 +5,6 @@ Run LFV H->MuTau analysis in the mu+tau channel.
 Authors: Maria Cepeda, Aaron Levine, Evan K. Friis, UW, Fanbo Meng,ND
 
 '''
-#trial to remove bveto
 import MuTauTree
 from FinalStateAnalysis.PlotTools.MegaBase import MegaBase
 import glob
@@ -17,10 +16,8 @@ import ROOT
 import math
 import optimizer_new 
 import optimizer_new450 
-#import optimizerdetastudy
 from math import sqrt, pi
 import itertools
-#import bTagSF
 import bTagSFrereco
 from RecoilCorrector import RecoilCorrector
 import Systematics
@@ -53,7 +50,7 @@ def fullMT(mupt,taupt , muphi, tauphi, row, sys='none'):
         mety=met*math.sin(metphi)
         taux=taupt*math.cos(tauphi)
         tauy=taupt*math.sin(tauphi)
-	full_et=met+mupt+taupt # for muon and tau I am approximating pt~et (M<<P)
+	full_et=met+mupt+taupt 
 	full_x=metx+mux+taux
         full_y=mety+muy+tauy
 	full_mt_2 = full_et*full_et-full_x*full_x-full_y*full_y
@@ -78,15 +75,13 @@ def fullPT(mupt,taupt, muphi, tauphi, row, sys='none'):
         if (full_pt_2>0):
                 full_pt= math.sqrt(full_pt_2)
         return full_pt
-def transverseMass(p1,p2):    #one partical to Met possiblely
-    # pvect[Et,px,py]
+def transverseMass(p1,p2):    
     totalEt2 = (p1[0] + p2[0])*(p1[0] + p2[0])
     totalPt2 = (p1[1] + p2[1])**2+(p1[2]+p2[2])**2
     mt2 = totalEt2 - totalPt2
     return math.sqrt(abs(mt2))
   
-def transverseMass_v2(p1,p2):    #one partical to Met possiblely
-    # pvect[Et,px,py]
+def transverseMass_v2(p1,p2):    
     totalEt2 = p1.Et() + p2.Et()
     totalPt2 = (p1+ p2).Pt()
     mt2 = totalEt2*totalEt2 - totalPt2*totalPt2
@@ -131,7 +126,6 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
 
     def __init__(self, tree, outfile, **kwargs):
         super(AnalyzeLFVMuTau_HighMassTriggerEffiPosttune, self).__init__(tree, outfile, **kwargs)
-        # Use the cython wrapper
         target = os.path.basename(os.environ['megatarget'])
         self.target1 = os.path.basename(os.environ['megatarget'])
         self.ls_recoilC=((('HTo' in target) or ('Jets' in target)) and MetCorrection) 
@@ -176,6 +170,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         self.MET_tPtC=0
         self.collMass_type1_new=-10
         self.m_t_Mass_new=-10
+# Currently the DY weight for the consideration of different generator effect(if I remember correctly) is not used, but the root file is in the directory 
         #if self.ls_DY or self.ls_ZTauTau:
         #   self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016_BtoH.root')
         #   self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
@@ -230,7 +225,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
 			names.append(os.path.join("boostIsoSS450",region))	
         namesize = len(names)
 	for x in range(0,namesize):
-
+# some of the histogram is commented out but not removed, for the consideration of further use
 
             self.book(names[x], "mPt", "Muon  Pt", 1400,0,1400)
             self.book(names[x], "tPt", "Tau  Pt", 1400,0,1400)
@@ -394,6 +389,10 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                      else:
                          print "rare decay mode %f" %row.tDecayMode
                          fTauIso=0
+#this the how the fake shape used to applied in the analysis, each of the was give a number that stands for a meaning for later use
+#The number, take 20170111 as an example,   2017 just the year to distiguish from other numbers, the first 0 stands for decay mode, 
+#the first 1 stands for the first parameter(P0) in the fake rate ration which is the form as P0+P1(x-30), the second 1 stand for the 
+#parameter is shifted up, and the last 1 stand for this is in the EB region 
                elif self.DoFakeshapeDM==20170111:  # 0(DM)   1(first parameter) 1(up)  1(EB)
                       fTauIso=(0.218512+0.0086708)-0.000337089*(self.tau_Pt_C-30)
                elif self.DoFakeshapeDM==20170112:  # 0(DM)   1(first parameter) 1(up)  2(EE) 
@@ -475,7 +474,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
     def correction(self,row):
 	return self.mc_corrector_2016(row)
 	
-    def getFakeRateFactormuon(self,row, fakeset):   #Ptbined
+    def getFakeRateFactormuon(self,row, fakeset):   
         if fakeset=="def":
           fTauIso=0.780172+0.072857*row.mEta-0.147437*row.mEta*row.mEta+0.0576102*row.mEta*row.mEta*row.mEta
         if self.DoMES==1:
@@ -517,11 +516,13 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
     def fill_histosup(self, row,name='gg', fakeRate=False, fakeset="def"):
         histos = self.histograms
         histos['counts'].Fill(1,1)
+#this used to put in the Met Recoil correction, the python file I used to use is also in the repository, also Recoil correction as checked does not 
+#show an apparently effect
     def MetCorrectionSet(self,row):
            if self.ls_Wjets:
-              self.tmpMet=self.Metcorected.CorrectByMeanResolution(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),row.type1_pfMetEt*math.sin(row.type1_pfMetPhi),row.genpX,row.genpY,row.vispX,row.vispY,int(round(row.jetVeto30))+1)#,self.pfmetcorr_ex,self.pfmetcorr_ey)
+              self.tmpMet=self.Metcorected.CorrectByMeanResolution(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),row.type1_pfMetEt*math.sin(row.type1_pfMetPhi),row.genpX,row.genpY,row.vispX,row.vispY,int(round(row.jetVeto30))+1)
            else:
-              self.tmpMet=self.Metcorected.CorrectByMeanResolution(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),row.type1_pfMetEt*math.sin(row.type1_pfMetPhi),row.genpX,row.genpY,row.vispX,row.vispY,int(round(row.jetVeto30)))#,self.pfmetcorr_ex,self.pfmetcorr_ey)
+              self.tmpMet=self.Metcorected.CorrectByMeanResolution(row.type1_pfMetEt*math.cos(row.type1_pfMetPhi),row.type1_pfMetEt*math.sin(row.type1_pfMetPhi),row.genpX,row.genpY,row.vispX,row.vispY,int(round(row.jetVeto30)))
            MetRecoillorenz=ROOT.TLorentzVector()
            TauRecoillorenz=ROOT.TLorentzVector()
            MetPhi=math.atan2(self.tmpMet[1],self.tmpMet[0])
@@ -532,11 +533,11 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
            self.type1_pfMetEtC=math.sqrt(self.tmpMet[0]*self.tmpMet[0]+self.tmpMet[1]*self.tmpMet[1])
     def fill_histos(self, row,name='gg',fakeRate=False,faketype="taufake",fakeset="def"):
         histos = self.histograms
-        weight=1#bTagSF.bTagEventWeight(row.bjetCISVVeto20MediumZTT,row.jb1pt,row.jb1flavor,row.jb2pt,row.jb2flavor,1,btagSys,0)
+        weight=1
         if (not(self.is_data)):
 	   weight =row.GenWeight * self.correction(row)*bTagSFrereco.bTagEventWeight(row.bjetCISVVeto30Medium,row.jb1pt,row.jb1hadronflavor,row.jb2pt,row.jb2hadronflavor,1,btagSys,0)*self.WeightJetbin(row)
         if (fakeRate == True):
-          weight=weight*self.fakeRateMethod(row,fakeset,faketype) #apply fakerate method for given isolation definition
+          weight=weight*self.fakeRateMethod(row,fakeset,faketype) 
         if (self.is_ZTauTau or self.is_HToTauTau or self.is_HToMuTau or self.is_TauTau):
           if not (('notIso' in name) or ('NotIso' in name)): 
              weight=weight*0.95
@@ -606,6 +607,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
    	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(self.TauDphiToMet),weight)
            else:
    	      histos[name+'/tDPhiToPfMet_type1'].Fill(abs(row.tDPhiToPfMet_type1),weight)
+# This is the Tau energy scale correction reconmanded by the Tau POG, which based on decay mode
     def TauESC(self,row):
         if (not self.is_data) and (not self.ls_DY) and row.tZTTGenMatching==5:
            if  row.tDecayMode==0:
@@ -627,6 +629,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                return (tau_Pt_C,MET_tPtC)
         else:
            return (row.tPt,row.type1_pfMetEt)
+# This function is used to recalculate the useful variables, after the Tau energy scale correction  
     def VariableCalculateTaucorrection(self,row,tmp_tau_Pt_C,tmp_MET_tPtC):
            taulorenz=ROOT.TLorentzVector()
            muonlorenz=ROOT.TLorentzVector()             
@@ -638,11 +641,13 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
            tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
            mMtToPfMet_type1_new=transverseMass_v2(muonlorenz,metlorenz)
            return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,mMtToPfMet_type1_new)
+# This function  is to recalculate the varaiables in the shape systematics variation, take self.DoMES==1, which means we now running the muon energy scale
+# which will change the muon Pt, so after this change, MET will also need to change, also the related variable, like TMttoPfMet, collinearmass also need to 
+# be recalcualted
     def VariableCalculate(self,row,tau_Pt_C,MET_tPtC):
            taulorenz=ROOT.TLorentzVector()
            muonlorenz=ROOT.TLorentzVector()             
            metlorenz=ROOT.TLorentzVector() 
-           #print 'at line 871 the MES %f ' %self.DoMES
            if self.DoTES==1:
               tmpHulaTESUp=Systematics.TESup(tau_Pt_C,MET_tPtC,row.tPhi,row.type1_pfMetPhi)
               taulorenz.SetPtEtaPhiM(tmpHulaTESUp[0],row.tEta,row.tPhi,row.tMass) 
@@ -743,6 +748,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
               collMass_type1_new,m_t_Mass_new=self.collMass_type1_v2(row,muonlorenz,taulorenz,tmpHulaUESDown[1],tmpHulaUESDown[2])
               tMtToPfMet_type1_new=transverseMass_v2(taulorenz,metlorenz)
               return(collMass_type1_new,m_t_Mass_new,tMtToPfMet_type1_new,tmpHulaUESDown[0])
+# This function is also used in the JES shape systermatics variable calculation, the upward part of it is to recalculate the Jet energy scale systermatics after the Tau energy scale correction. We need to do it is because JES is calculated in the Ntuple steps, and TES correction required from Tau POG is a global correctoin which should be applied to all of the real Tau
     def VariableCalculateJES_UESsp(self,row,JESShiftedMet,JESShiftedPhi,tau_Pt_C):
            taulorenz=ROOT.TLorentzVector()
            muonlorenz=ROOT.TLorentzVector()             
@@ -784,6 +790,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         if (not self.is_ZMuMu and row.isZmumu):
             return False
         return True
+# This function is to deal with the recombine with the number of Jets in the sample of W+jets and DY+jets
     def WeightJetbin(self,row):
         weighttargettmp=self.weighttarget
         if self.ls_Jets:
@@ -1000,6 +1007,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
             if self.kinematics(row):
                self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.mMtToPfMet_type1_new=self.VariableCalculateTaucorrection(row,self.tau_Pt_C,self.MET_tPtC)
             self.Sysin=0
+# The muon fake and muon-fake over lap fake part is not removed, for possible later checks
             if (fakeset or wjets_fakes or tuning) and self.kinematics(row):
              if self.obj1_iso(row):
                if self.obj2_iso(row) and not self.oppositesign(row):
@@ -1034,7 +1042,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                                  self.fill_histos(row,'boostIsoSS'+massname,False)	
             if fakeset and self.kinematics(row):
              if self.obj1_iso(row):
-               if not self.obj2_iso(row) and not self.oppositesign(row) :#and self.obj2_iso_NT_VLoose(row):
+               if not self.obj2_iso(row) and not self.oppositesign(row) :
                       self.fill_histos(row,'notIsoSS',True)
                       if (not self.light):
                          if row.jetVeto30==0:
@@ -1243,6 +1251,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                      for massname in self.highMass:
                          if self.boost(row,massname):
                            self.fill_histos(row,'boostNotIsoM'+massname,True,faketype="muonfake")
+# starting from here, is to fill in the systermatic shape related histotrams
             self.Sysin=tmp_Sysin
             if self.Sysin:
                  sysneedI=['MES_13TeVUp','MES_13TeVDown']

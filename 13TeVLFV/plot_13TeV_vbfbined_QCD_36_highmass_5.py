@@ -34,7 +34,7 @@ def yieldHisto(histo,xmin,xmax):   # Find the bin number from the range of x axi
         signal = histo.Integral(binmin,binmax)
         return signal
 
-def do_binbybinQCD(histo,lowBound,highBound): #fill empty bins and negtive content bins to a scaled number, but detail ?
+def do_binbybinQCD(histo,lowBound,highBound): # This is first to used check QCDs events for data driven method, if there are empty bins, then set it to be zero
         if clearnoverflow: 
            histo.SetBinContent(histo.GetNbinsX()+1,0.0)
            histo.SetBinError(histo.GetNbinsX()+1,0.0)
@@ -65,6 +65,7 @@ def do_binbybinQCD(histo,lowBound,highBound): #fill empty bins and negtive conte
                            if histo.GetBinContent(i) < 0:
                                    histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
                                    histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
+#This is the function fill the normal Mc sample empty bins with the scale from the expectation
 def do_binbybin(histo,file_str,lowBound,highBound): 
         metafile = lumidir + file_str+"_weight.log"
         f = open(metafile).read().splitlines()
@@ -95,12 +96,10 @@ def do_binbybin(histo,file_str,lowBound,highBound):
                    if fillEmptyBins: #fill empty bins
                            if histo.GetBinContent(i) <= 0:
                                    histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
-                           #       histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                                    histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                    else:
                            if histo.GetBinContent(i) < 0:
                                    histo.SetBinContent(i,0.001/nevents*xsec*JSONlumi)
-                               #    histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
                                    histo.SetBinError(i,1.8/nevents*xsec*JSONlumi)
 def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #get histogram from file, properly weight histogram
         histoFile = ROOT.TFile(savedir+file_str+".root")
@@ -142,12 +141,14 @@ shiftnormal=shift
 opcut=argv[6]
 RUN_OPTIMIZATION=int(argv[7])
 Masspoint=str(argv[8])
+# This part refer to the fake channels. From the command used in the plotter, an channel will be given, in the form like gg200, while to get the fake channel used later for the fake background, this is the dictinary refer to it
 if RUN_OPTIMIZATION==1:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","preselection2Jet":"notIso2Jet","gg/"+opcut:"ggNotIso/"+opcut,"boost/"+opcut:"boostNotIso/"+opcut,"vbf/"+opcut:"vbfNotIso/"+opcut} #map of channels corresponding to selection used for data driven fakes (Region II)  tight tight Isolation with SS
 else:
    fakeChannels = {"preselection":"notIso","preselectionSS":"notIsoSS","IsoSS0Jet":"notIsoSS0Jet","IsoSS1Jet":"notIsoSS1Jet",'preslectionEnWjets':'notIsoEnWjets','preslectionEnWjets0Jet':'notIsoEnWjets0Jet','preslectionEnWjets1Jet':'notIsoEnWjets1Jet','preslectionEnZtt':'notIsoEnZtt','preslectionEnZtt0Jet':'notIsoEnZtt0Jet','preslectionEnZtt1Jet':'notIsoEnZtt1Jet','preslectionEnZmm':'notIsoEnZmm','preslectionEnZmm0Jet':'notIsoEnZmm0Jet','preslectionEnZmm1Jet':'notIsoEnZmm1Jet',"notIso":"notIso","notIsoSS":"notIsoSS","preselection0Jet":"notIso0Jet","preselection1Jet":"notIso1Jet","gg":"ggNotIso","gg125":"ggNotIso125","gg200":"ggNotIso200","gg300":"ggNotIso300","gg450":"ggNotIso450","gg600":"ggNotIso600","gg750":"ggNotIso750","gg900":"ggNotIso900","boost":"boostNotIso","boost125":"boostNotIso125","boost200":"boostNotIso200","boost300":"boostNotIso300","boost450":"boostNotIso450","boost600":"boostNotIso600","boost750":"boostNotIso750","boost900":"boostNotIso900","vbf":"vbfNotIso","vbf_gg":"vbf_ggNotIso","vbf_vbf":"vbf_vbfNotIso",'preslectionEnTTbar':'notIsoEnTTbar','preslectionEnTTbar0Jet':'notIsoEnTTbar0Jet','preslectionEnTTbar1Jet':'notIsoEnTTbar1Jet'}
 fakeMChannels = {"preselection":"notIsoM","preselectionSS":"notIsoSSM","notIso":"notIsoM","notIsoSS":"notIsoSSM","IsoSS0Jet":"notIsoSS0JetM","IsoSS1Jet":"notIsoSS1JetM",'preslectionEnWjets':'notIsoEnWjetsM','preslectionEnWjets0Jet':'notIsoEnWjets0JetM','preslectionEnWjets1Jet':'notIsoEnWjets1JetM','preslectionEnZtt':'notIsoEnZttM','preslectionEnZtt0Jet':'notIsoEnZtt0JetM','preslectionEnZtt1Jet':'notIsoEnZtt1JetM','preslectionEnZmm':'notIsoEnZmmM','preslectionEnZmm0Jet':'notIsoEnZmm0JetM','preslectionEnZmm1Jet':'notIsoEnZmm1JetM',"preselection0Jet":"notIso0JetM","preselection1Jet":"notIso1JetM","gg":"ggNotIsoM","gg125":"ggNotIsoM125","gg200":"ggNotIsoM200","gg300":"ggNotIsoM300","gg450":"ggNotIsoM450","gg600":"ggNotIsoM600","gg750":"ggNotIsoM750","gg900":"ggNotIsoM900","boost":"boostNotIsoM","boost125":"boostNotIsoM125","boost200":"boostNotIsoM200","boost300":"boostNotIsoM300","boost450":"boostNotIsoM450","boost600":"boostNotIsoM600","boost750":"boostNotIsoM750","boost900":"boostNotIsoM900","vbf":"vbfNotIsoM","vbf_gg":"vbf_ggNotIsoM","vbf_vbf":"vbf_vbfNotIsoM",'preslectionEnTTbar':'notIsoEnTTbarM','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetM','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetM'} 
 fakeMTChannels = {"preselection":"notIsoMT","preselectionSS":"notIsoSSMT","notIso":"notIsoMT","notIsoSS":"notIsoSSMT","IsoSS0Jet":"notIsoSS0JetMT","IsoSS1Jet":"notIsoSS1JetMT",'preslectionEnWjets':'notIsoEnWjetsMT','preslectionEnWjets0Jet':'notIsoEnWjets0JetMT','preslectionEnWjets1Jet':'notIsoEnWjets1JetMT','preslectionEnZtt':'notIsoEnZttMT','preslectionEnZtt0Jet':'notIsoEnZtt0JetMT','preslectionEnZtt1Jet':'notIsoEnZtt1JetMT','preslectionEnZmm':'notIsoEnZmmMT','preslectionEnZmm0Jet':'notIsoEnZmm0JetMT','preslectionEnZmm1Jet':'notIsoEnZmm1JetMT',"preselection0Jet":"notIso0JetMT","preselection1Jet":"notIso1JetMT","gg":"ggNotIsoMT","gg125":"ggNotIsoMT125","gg200":"ggNotIsoMT200","gg300":"ggNotIsoMT300","gg450":"ggNotIsoMT450","gg600":"ggNotIsoMT600","gg750":"ggNotIsoMT750","gg900":"ggNotIsoMT900","boost":"boostNotIsoMT","boost125":"boostNotIsoM125","boost200":"boostNotIsoMT200","boost300":"boostNotIsoMT300","boost450":"boostNotIsoMT450","boost600":"boostNotIsoMT600","boost750":"boostNotIsoMT750","boost900":"boostNotIsoMT900","vbf":"vbfNotIsoMT","vbf_gg":"vbf_ggNotIsoMT","vbf_vbf":"vbf_vbfNotIsoMT",'preslectionEnTTbar':'notIsoEnTTbarMT','preslectionEnTTbar0Jet':'notIsoEnTTbar0JetMT','preslectionEnTTbar1Jet':'notIsoEnTTbar1JetMT'} 
+# This is for the semi data driven method, to refer to the notIsoSS for the QCDs estimation, if give a normal channel like gg200
 if RUN_OPTIMIZATION==1: 
    tmpvariable=channel.split("/")[1]
    QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"gg200":"ggIsoSS200/"+tmpvariable,"boost200":"boostIsoSS200/"+tmpvariable,"gg450":"ggIsoSS450/"+tmpvariable,"boost450":"boostIsoSS450/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
@@ -212,7 +213,7 @@ if str(argv[8])=='None':
    MasspointNum=200
 else:
    MasspointNum=int(argv[8])
-# binning for collinear mass
+# This the a set of binning, vari in mass. The guide line for the choice of current one is to have relative finner bins around the pick of each mass point considered
 if highMass and 'collMass_type1' in var and 'boost' in channel:
    if MasspointNum==200:
         binwidth =array.array('d',[0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,230,250,270,300,330,360,390,425,460,500,540,580,630,690,750,810,900,1000,1200,1400])
@@ -239,6 +240,7 @@ elif highMass and 'collMass_type1' in var and 'gg' in channel:
         binwidth =array.array('d',[0,50,100,150,200,260,320,390,460,540,620,700,800,900,1200,1400])
    elif MasspointNum==900:
         binwidth =array.array('d',[0,60,130,215,325,460,630,800,1000,1200,1400])
+# this is ingeneral, if no bin above is spacified, then used this one, which actually is the 200GeV binning
 elif highMass and 'collMass_type1' in var:
         binwidth =array.array('d',[0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,230,250,270,300,330,360,390,425,460,500,540,580,630,690,750,810,900,1000,1200,1400])
 legend = eval(varParams[8])
@@ -282,7 +284,7 @@ lumi = lumiScale*1000
 if (lumiScale==0):
 	lumi = JSONlumi
 print lumi
-
+# Starting from here, is to access the histogram in each of the data files
 data2016B = make_histo(savedir,"data_SingleMuon_Run2016B", channel,var,lumidir,lumi,True,)
 data2016C = make_histo(savedir,"data_SingleMuon_Run2016C", channel,var,lumidir,lumi,True,)
 data2016D = make_histo(savedir,"data_SingleMuon_Run2016D", channel,var,lumidir,lumi,True,)
@@ -390,7 +392,7 @@ singlet.Add(St_t_top)
 singlet.Add(St_t_anti)
 
 
-
+# This part start to calculate the data diven QCDs 
 if (QCDflag == True):
   #the channel need to change here
   QCDChannel = QCDChannels[channel.split("/")[0]]
@@ -497,9 +499,8 @@ if (QCDflag == True):
   QCDs.Add(smhggQCDs)
   QCDs.Add(dibosonQCDs)
   QCDs.Add(singletQCDs)
-
+# This part starts to calcuate the full data driven Fake background estimation
 if (fakeRate == True):
-  # change back to normal channels whatever
   channel=channelNoral
   fakechannel = fakeChannels[channel]
   fakechannelNoral=fakechannel
@@ -833,6 +834,7 @@ if fakeRate:
    #wjetsM.Scale(-1)
    wjetsM.Add(wjetsMT)
    do_binbybinQCD(wjetsM,lowDataBin,highDataBin)
+# For now, the muon fakes is not consider, so the downward line is comment out for this reason
    #wjets.Add(wjetsM)
    if (highMass and 'collMass_type1' in var) :
       wjets=wjets.Rebin(len(binwidth)-1,'',binwidth)
