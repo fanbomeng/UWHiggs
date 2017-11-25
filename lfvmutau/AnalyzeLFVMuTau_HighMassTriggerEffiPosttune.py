@@ -176,7 +176,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         #   self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016_BtoH.root')
         #   self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
     def begin(self):
-
+# If need other binning or checking for the mass range, then put other mass pionts in self.highMass and in the selection function 878 and 907, put in the cut values need, by changing this two, the systermatics part also suppose to change and generate the correspondence shapes
         #self.highMass=['200','300','450','600','750','900']
         self.highMass=['200','450']
         if RUN_OPTIMIZATION_v2:
