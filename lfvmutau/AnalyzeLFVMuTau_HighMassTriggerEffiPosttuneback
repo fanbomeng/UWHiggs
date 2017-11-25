@@ -155,8 +155,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         self.out = outfile
         self.histograms = {}
         self.Sysin=1
-        self.tmp_Sysin=self.Sysin
-        self.light=1
+        self.light=0
         self.light_v2=0
         self.DoPileup=0
         self.DoMES=0
@@ -177,8 +176,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         #   self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
     def begin(self):
 
-        #self.highMass=['200','300','450','600','750','900']
-        self.highMass=['200','450']
+        self.highMass=['200','300','450','600','750','900']
         if RUN_OPTIMIZATION_v2:
            self.highMass=['200','450']
         self.highMassbase=['gg','boost','ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT']
@@ -197,25 +195,21 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
            basechannels_Fake=['ggNotIso','ggNotIsoM','ggNotIsoMT','boostNotIso','boostNotIsoM','boostNotIsoMT']
            for i in sysneed_Fake:
                for j in basechannels_Fake:
-                   for k in self.highMass:
-                       names.append(j+k+i)                    
+                   names.append(j+i)                    
         if self.Sysin and (not self.is_data):
            sysneed=['MES_13TeVUp','MES_13TeVDown','scale_t_1prong_13TeVUp','scale_t_1prong_13TeVDown','scale_t_1prong1pizero_13TeVUp','scale_t_1prong1pizero_13TeVDown','scale_t_3prong_13TeVUp','scale_t_3prong_13TeVDown','scale_mfaketau_1prong1pizero_13TeVUp','scale_mfaketau_1prong1pizero_13TeVDown','Pileup_13TeVUp','Pileup_13TeVDown']
            basechannels=['gg','boost']
            for i in sysneed:
                for j in basechannels:
-                   for k in self.highMass:
-                       names.append(j+k+i)                    
+                   names.append(j+i)                    
            JESsys=["Jes_JetAbsoluteFlavMap_13TeVDown","Jes_JetAbsoluteFlavMap_13TeVUp","Jes_JetAbsoluteMPFBias_13TeVDown","Jes_JetAbsoluteMPFBias_13TeVUp","Jes_JetAbsoluteScale_13TeVDown","Jes_JetAbsoluteScale_13TeVUp","Jes_JetAbsoluteStat_13TeVDown","Jes_JetAbsoluteStat_13TeVUp","Jes_JetFlavorQCD_13TeVDown","Jes_JetFlavorQCD_13TeVUp","Jes_JetFragmentation_13TeVDown","Jes_JetFragmentation_13TeVUp","Jes_JetPileUpDataMC_13TeVDown","Jes_JetPileUpDataMC_13TeVUp","Jes_JetPileUpPtBB_13TeVDown","Jes_JetPileUpPtBB_13TeVUp","Jes_JetPileUpPtEC1_13TeVDown","Jes_JetPileUpPtEC1_13TeVUp","Jes_JetPileUpPtEC2_13TeVDown","Jes_JetPileUpPtEC2_13TeVUp","Jes_JetPileUpPtHF_13TeVDown","Jes_JetPileUpPtHF_13TeVUp","Jes_JetPileUpPtRef_13TeVDown","Jes_JetPileUpPtRef_13TeVUp","Jes_JetRelativeBal_13TeVDown","Jes_JetRelativeBal_13TeVUp","Jes_JetRelativeFSR_13TeVDown","Jes_JetRelativeFSR_13TeVUp","Jes_JetRelativeJEREC1_13TeVDown","Jes_JetRelativeJEREC1_13TeVUp","Jes_JetRelativeJEREC2_13TeVDown","Jes_JetRelativeJEREC2_13TeVUp","Jes_JetRelativeJERHF_13TeVDown","Jes_JetRelativeJERHF_13TeVUp","Jes_JetRelativePtBB_13TeVDown","Jes_JetRelativePtBB_13TeVUp","Jes_JetRelativePtEC1_13TeVDown","Jes_JetRelativePtEC1_13TeVUp","Jes_JetRelativePtEC2_13TeVDown","Jes_JetRelativePtEC2_13TeVUp","Jes_JetRelativePtHF_13TeVDown","Jes_JetRelativePtHF_13TeVUp","Jes_JetRelativeStatEC_13TeVDown","Jes_JetRelativeStatEC_13TeVUp","Jes_JetRelativeStatFSR_13TeVDown","Jes_JetRelativeStatFSR_13TeVUp","Jes_JetRelativeStatHF_13TeVDown","Jes_JetRelativeStatHF_13TeVUp","Jes_JetSinglePionECAL_13TeVDown","Jes_JetSinglePionECAL_13TeVUp","Jes_JetSinglePionHCAL_13TeVDown","Jes_JetSinglePionHCAL_13TeVUp","Jes_JetTimePtEta_13TeVDown","Jes_JetTimePtEta_13TeVUp"]
            UESspsys=['MET_chargedUes_13TeVUp','MET_chargedUes_13TeVDown','MET_ecalUes_13TeVUp','MET_ecalUes_13TeVDown','MET_hfUes_13TeVUp','MET_hfUes_13TeVDown','MET_hcalUes_13TeVUp','MET_hcalUes_13TeVDown']
            for i in  JESsys:
                for j in basechannels:
-                   for k in self.highMass:
-                       names.append(j+k+i)
+                   names.append(j+i)
            for i in  UESspsys:
                for j in basechannels:
-                   for k in self.highMass:
-                       names.append(j+k+i)
+                   names.append(j+i)
         if RUN_OPTIMIZATION_v2:
 		for region in optimizer_new.regions['0']:
 			names.append(os.path.join("gg200",region))	
@@ -877,20 +871,11 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         return True
     def gg(self,row,MassPoint='def'):
         if not RUN_OPTIMIZATION_v2:
-           muontmpPt=row.mPt
-           tautmpPt=self.tau_Pt_C
-           if self.DoMES==1: muontmpPt=row.mPt*1.002
-           elif self.DoMES==2: muontmpPt=row.mPt*0.988
-           if self.DoTES==1: tautmpPt=self.tau_Pt_C*1.012
-           elif self.DoTES==2: tautmpPt=self.tau_Pt_C*0.988
-           if self.DoMFT==1: tautmpPt=self.tau_Pt_C*1.015
-           elif self.DoMFT==2: tautmpPt=self.tau_Pt_C*0.985
-        
            if  MassPoint=='200' or  MassPoint=='300':
-               if muontmpPt< 60 or tautmpPt<30 or self.tMtToPfMet_type1_new >105:   #was45     #newcuts 25 
+               if row.mPt < 60 or row.tPt<30 or row.tMtToPfMet_type1 >105:   #was45     #newcuts 25 
                 return False 
            else  :
-             if muontmpPt < 165 or tautmpPt<45  or self.tMtToPfMet_type1_new >200:   #was45     #newcuts 25 
+             if row.mPt < 165 or row.tPt<45  or row.tMtToPfMet_type1 >200:   #was45     #newcuts 25 
                 return False 
    #     elif  MassPoint=='600':
    #       if row.mPt < 155 or row.tPt<65  or row.tMtToPfMet_type1 >100:   #was45     #newcuts 25 
@@ -905,23 +890,20 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
         return True
 
     def boost(self,row,MassPoint='def'):
+      #  if row.mPt < 26:   #was45     #newcuts 25 
+      #       return False 
+  #      if (MassPoint=='125') or (MassPoint=='def'):
+  #        if row.mPt < 35 or row.tMtToPfMet_type1 >70 or row.tPt<35:   #was45     #newcuts 25 
+  #           return False 
         if not RUN_OPTIMIZATION_v2:
-           muontmpPt=row.mPt
-           tautmpPt=self.tau_Pt_C
-           if self.DoMES==1: muontmpPt=row.mPt*1.002
-           elif self.DoMES==2: muontmpPt=row.mPt*0.988
-           if self.DoTES==1: tautmpPt=self.tau_Pt_C*1.012
-           elif self.DoTES==2: tautmpPt=self.tau_Pt_C*0.988
-           if self.DoMFT==1: tautmpPt=self.tau_Pt_C*1.015
-           elif self.DoMFT==2: tautmpPt=self.tau_Pt_C*0.985
            if  MassPoint=='200' or MassPoint=='300':
-               if muontmpPt < 60 or tautmpPt<30 or self.tMtToPfMet_type1_new >120:   #was45     #newcuts 25 
+               if row.mPt < 60 or row.tPt<30 or row.tMtToPfMet_type1 >120:   #was45     #newcuts 25 
                    return False 
  #          elif  MassPoint=='300':
  #            if row.mPt < 75 or row.tPt<40  or row.tMtToPfMet_type1 >95:   #was45     #newcuts 25 
  #               return False 
            else :
-             if muontmpPt< 165 or tautmpPt<45 or self.tMtToPfMet_type1_new >230:   #was45     #newcuts 25 
+             if row.mPt < 165 or row.tPt<45 or row.tMtToPfMet_type1 >230:   #was45     #newcuts 25 
                   return False 
  #       elif  MassPoint=='600':
  #         if row.mPt < 145 or row.tPt<65 or row.tMtToPfMet_type1 >130:   #was45     #newcuts 25 
@@ -988,6 +970,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                 sel = False      # it will save them all.
             if sel==True:
                 continue
+            tmp_Sysin=self.Sysin
             self.Sysin=0
             if (not self.presel(row)) and self.is_data:
                   continue
@@ -1269,7 +1252,7 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                          if self.boost(row,massname):
                            self.fill_histos(row,'boostNotIsoM'+massname,True,faketype="muonfake")
 # starting from here, is to fill in the systermatic shape related histotrams
-            self.Sysin=self.tmp_Sysin
+            self.Sysin=tmp_Sysin
             if self.Sysin:
                  sysneedI=['MES_13TeVUp','MES_13TeVDown']
                  sysneedTES=['scale_t_1prong_13TeVUp','scale_t_1prong_13TeVDown','scale_t_1prong1pizero_13TeVUp','scale_t_1prong1pizero_13TeVDown','scale_t_3prong_13TeVUp','scale_t_3prong_13TeVDown']
@@ -1316,25 +1299,21 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                      if (not self.obj2_iso(row)) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row): 
                         for j in basechannelsII: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:       
-                                   tmpname_2='self.'+j[1].split('Not',1)[0]+'(row,'+Massname+')'
-                                   if eval(tmpname_2):
-                                        print 'enter~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-                                        self.fill_histos(row,j[1]+Massname+M,True)
+                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
+                               if eval(tmpname_2):
+                                    self.fill_histos(row,j[1]+M,True)
                      if self.obj2_iso(row) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
                         for j in basechannelsIII: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:       
-                                   tmpname_2='self.'+j[1].split('Not',1)[0]+'(row,'+Massname+')'
-                                   if eval(tmpname_2):
-                                        self.fill_histos(row,j[1]+Massname+M,True,faketype="muonfake")
+                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
+                               if eval(tmpname_2):
+                                    self.fill_histos(row,j[1]+M,True,faketype="muonfake")
                      if (not self.obj2_iso(row)) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
                         for j in basechannelsIIII: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:       
-                                   tmpname_2='self.'+j[1].split('Not',1)[0]+'(row,'+Massname+')'
-                                   if eval(tmpname_2):
-                                        self.fill_histos(row,j[1]+Massname+M,True,faketype="mtfake")
+                               tmpname_2='self.'+j[1].split('Not',1)[0]+'(row)'
+                               if eval(tmpname_2):
+                                    self.fill_histos(row,j[1]+M,True,faketype="mtfake")
      
             if self.Sysin and (not self.is_data):
 
@@ -1348,10 +1327,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                      if self.obj2_iso(row) and self.oppositesign(row) and self.obj1_iso(row) and self.kinematics(row):
                         for j in basechannelsI: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:       
-                                   tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                   if eval(tmpname_2):
-                                        self.fill_histos(row,j[1]+Massname+i,False)
+                               tmpname_2='self.'+j[1]+'(row)'
+                               if eval(tmpname_2):
+                                    self.fill_histos(row,j[1]+i,False)
                  for i in sysneedI:
                      self.SetsysZero(row)
                      if 'Up' in i:
@@ -1364,10 +1342,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                         self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.MorTPtshifted=self.VariableCalculate(row,self.tau_Pt_C,self.MET_tPtC)
                         for j in basechannelsI: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:       
-                                   tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                   if eval(tmpname_2):
-                                        self.fill_histos(row,j[1]+Massname+i,False)
+                               tmpname_2='self.'+j[1]+'(row)'
+                               if eval(tmpname_2):
+                                    self.fill_histos(row,j[1]+i,False)
                  for k in baseJESsys:
                      self.SetsysZero(row)
                      if 'Up' in k:
@@ -1385,10 +1362,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                         self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new=self.VariableCalculateJES_UESsp(row,eval(tmpname_5),eval(tmpname_6),self.tau_Pt_C)
                         for j in basechannelsI: 
                            if  eval(tmpname_3)==j[0]:
-                               for Massname in self.highMass:
-                                   tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                   if  eval(tmpname_2):
-                                           self.fill_histos(row,j[1]+Massname+k,False)
+                               tmpname_2='self.'+j[1]+'(row)'
+                               if  eval(tmpname_2):
+                                       self.fill_histos(row,j[1]+k,False)
                  for k in baseUESsp:
                      self.SetsysZero(row)
                      if 'Up' in k:
@@ -1407,10 +1383,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                         self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new=self.VariableCalculateJES_UESsp(row,eval(tmpname_5),eval(tmpname_6),self.tau_Pt_C)
                         for j in basechannelsI: 
                            if  row.jetVeto30==j[0]:
-                               for Massname in self.highMass:
-                                   tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                   if  eval(tmpname_2):
-                                       self.fill_histos(row,j[1]+Massname+k,False)
+                               tmpname_2='self.'+j[1]+'(row)'
+                               if  eval(tmpname_2):
+                                   self.fill_histos(row,j[1]+k,False)
                  if not self.ls_DY:
                     for L in sysneedTES:
                         self.SetsysZero(row)
@@ -1434,10 +1409,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                            self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.MorTPtshifted=self.VariableCalculate(row,self.tau_Pt_C,self.MET_tPtC)
                            for j in basechannelsI: 
                               if  row.jetVeto30==j[0]:
-                                  for Massname in self.highMass:
-                                      tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                      if eval(tmpname_2):
-                                           self.fill_histos(row,j[1]+Massname+L,False)
+                                  tmpname_2='self.'+j[1]+'(row)'
+                                  if eval(tmpname_2):
+                                       self.fill_histos(row,j[1]+L,False)
                  if self.ls_DY:
                     for L in sysneedMFT:
                         self.SetsysZero(row)
@@ -1453,10 +1427,9 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                            self.collMass_type1_new,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.MorTPtshifted=self.VariableCalculate(row,self.tau_Pt_C,self.MET_tPtC)
                            for j in basechannelsI: 
                               if  row.jetVeto30==j[0]:
-                                  for Massname in self.highMass:
-                                      tmpname_2='self.'+j[1]+'(row,'+Massname+')'
-                                      if eval(tmpname_2):
-                                           self.fill_histos(row,j[1]+Massname+L,False)
+                                  tmpname_2='self.'+j[1]+'(row)'
+                                  if eval(tmpname_2):
+                                       self.fill_histos(row,j[1]+L,False)
             self.SetsysZero(row)
             sel=True
 
