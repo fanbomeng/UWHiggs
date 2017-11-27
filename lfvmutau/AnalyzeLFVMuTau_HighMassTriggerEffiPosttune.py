@@ -1319,7 +1319,6 @@ class AnalyzeLFVMuTau_HighMassTriggerEffiPosttune(MegaBase):
                                for Massname in self.highMass:       
                                    tmpname_2='self.'+j[1].split('Not',1)[0]+'(row,'+Massname+')'
                                    if eval(tmpname_2):
-                                        print 'enter~~~~~~~~~~~~~~~~~~~~~~~~~~~'
                                         self.fill_histos(row,j[1]+Massname+M,True)
                      if self.obj2_iso(row) and self.oppositesign(row) and (not self.obj1_iso(row)) and self.kinematics(row): 
                         for j in basechannelsIII: 
