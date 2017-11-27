@@ -3,7 +3,7 @@ These are the Analyzers that the LFV group used for the HighMass Higgs LFV decay
 It looks a bit broken, sorry for this.
 
 The main analyzer is:  AnalyzeLFVMuTau_HighMassTriggerEffiPosttune.py,  which can produce the normal histogram, 
-also can be used for the tuning process. The systematics part needs to be update and adept to highmass analysis.
+also can be used for the tuning process. The systematics part is also adepted to highmass analysis.
 
 The use for AnalyzeLFVMuTau_HighMassTriggerEffiPosttune.py:
 1)
@@ -29,6 +29,9 @@ For running the analyzer, the highmass signal files current one is in /hdfs/stor
 jobid=LFV_HighMass. While all the other ones are in /hdfs/store/user/ndev/, with the jobid=LFV_Mar15_mc for MC
 and jobid=LFV_Mar15_data_v2 for data 
 
+5)
+The global variable self.light can control if running with more histograms, for example for the control regions, for semi data driven
+estimation of QCDs and so on
  
 For the Tau fake rate extraction, we use the analyzer AnalyzeLFVMuMuTau.py
 The data are in /hdfs/store/user/taroni/ with   jobid=LFV_reminiaod_feb21_data
