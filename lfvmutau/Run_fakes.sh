@@ -13,7 +13,8 @@ set -o errexit
 export systematic=none
 #export jobid=LFV_8013v1
 #export jobid=SMHTT_oct25
-export jobid=LFV_reminiaod_feb21_mc
+#export jobid=LFV_reminiaod_feb21_mc
+export jobid=LFV_reminiaod_feb21_data
 #export jobid=LFVdata_ExtraG_Hnew
 #export isRealData=true
 export isZTauTau=false
@@ -30,7 +31,9 @@ export isInclusive=false   #ZeroJet
 #export fakeset=true   #ZeroJet
 export isRealData=true
 #rake analyzeSpring2016WjetsandDataprogress
-rake AnalyzeLFVMuMuTau_highmass 
+#rake AnalyzeLFVMuMuTau_highmass 
+rake AnalyzeLFVEETau_highmass 
+#rake AnalyzeLFVEE_highmass 
 #rake analyzeSpring2016fakeSDM36 
 #rake analyzeSpring2016fakeSDM
 ###rake AnalyzeLFVMuTau_progressbeforMtcorrection

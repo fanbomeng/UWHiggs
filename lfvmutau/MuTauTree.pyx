@@ -1030,6 +1030,9 @@ cdef class MuTauTree:
     cdef TBranch* mMatchesMu23Ele12Path_branch
     cdef float mMatchesMu23Ele12Path_value
 
+    cdef TBranch* mMatchesMu50Path_branch
+    cdef float mMatchesMu50Path_value
+
     cdef TBranch* mMatchesMu8Ele23DZPath_branch
     cdef float mMatchesMu8Ele23DZPath_value
 
@@ -1062,6 +1065,9 @@ cdef class MuTauTree:
 
     cdef TBranch* mMatchesSingleMu_leg2_noiso_branch
     cdef float mMatchesSingleMu_leg2_noiso_value
+
+    cdef TBranch* mMatchesTkMu50Path_branch
+    cdef float mMatchesTkMu50Path_value
 
     cdef TBranch* mMatchesTripleMu_branch
     cdef float mMatchesTripleMu_value
@@ -1804,6 +1810,15 @@ cdef class MuTauTree:
     cdef TBranch* singleMu23SingleE8Prescale_branch
     cdef float singleMu23SingleE8Prescale_value
 
+    cdef TBranch* singleMu50Group_branch
+    cdef float singleMu50Group_value
+
+    cdef TBranch* singleMu50Pass_branch
+    cdef float singleMu50Pass_value
+
+    cdef TBranch* singleMu50Prescale_branch
+    cdef float singleMu50Prescale_value
+
     cdef TBranch* singleMu8SingleE23DZGroup_branch
     cdef float singleMu8SingleE23DZGroup_value
 
@@ -1884,6 +1899,15 @@ cdef class MuTauTree:
 
     cdef TBranch* singleTau140Trk50Prescale_branch
     cdef float singleTau140Trk50Prescale_value
+
+    cdef TBranch* singleTkMu50Group_branch
+    cdef float singleTkMu50Group_value
+
+    cdef TBranch* singleTkMu50Pass_branch
+    cdef float singleTkMu50Pass_value
+
+    cdef TBranch* singleTkMu50Prescale_branch
+    cdef float singleTkMu50Prescale_value
 
     cdef TBranch* tAbsEta_branch
     cdef float tAbsEta_value
@@ -6319,6 +6343,15 @@ cdef class MuTauTree:
         else:
             self.mMatchesMu23Ele12Path_branch.SetAddress(<void*>&self.mMatchesMu23Ele12Path_value)
 
+        #print "making mMatchesMu50Path"
+        self.mMatchesMu50Path_branch = the_tree.GetBranch("mMatchesMu50Path")
+        #if not self.mMatchesMu50Path_branch and "mMatchesMu50Path" not in self.complained:
+        if not self.mMatchesMu50Path_branch and "mMatchesMu50Path":
+            warnings.warn( "MuTauTree: Expected branch mMatchesMu50Path does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesMu50Path")
+        else:
+            self.mMatchesMu50Path_branch.SetAddress(<void*>&self.mMatchesMu50Path_value)
+
         #print "making mMatchesMu8Ele23DZPath"
         self.mMatchesMu8Ele23DZPath_branch = the_tree.GetBranch("mMatchesMu8Ele23DZPath")
         #if not self.mMatchesMu8Ele23DZPath_branch and "mMatchesMu8Ele23DZPath" not in self.complained:
@@ -6417,6 +6450,15 @@ cdef class MuTauTree:
             #self.complained.add("mMatchesSingleMu_leg2_noiso")
         else:
             self.mMatchesSingleMu_leg2_noiso_branch.SetAddress(<void*>&self.mMatchesSingleMu_leg2_noiso_value)
+
+        #print "making mMatchesTkMu50Path"
+        self.mMatchesTkMu50Path_branch = the_tree.GetBranch("mMatchesTkMu50Path")
+        #if not self.mMatchesTkMu50Path_branch and "mMatchesTkMu50Path" not in self.complained:
+        if not self.mMatchesTkMu50Path_branch and "mMatchesTkMu50Path":
+            warnings.warn( "MuTauTree: Expected branch mMatchesTkMu50Path does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("mMatchesTkMu50Path")
+        else:
+            self.mMatchesTkMu50Path_branch.SetAddress(<void*>&self.mMatchesTkMu50Path_value)
 
         #print "making mMatchesTripleMu"
         self.mMatchesTripleMu_branch = the_tree.GetBranch("mMatchesTripleMu")
@@ -8641,6 +8683,33 @@ cdef class MuTauTree:
         else:
             self.singleMu23SingleE8Prescale_branch.SetAddress(<void*>&self.singleMu23SingleE8Prescale_value)
 
+        #print "making singleMu50Group"
+        self.singleMu50Group_branch = the_tree.GetBranch("singleMu50Group")
+        #if not self.singleMu50Group_branch and "singleMu50Group" not in self.complained:
+        if not self.singleMu50Group_branch and "singleMu50Group":
+            warnings.warn( "MuTauTree: Expected branch singleMu50Group does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleMu50Group")
+        else:
+            self.singleMu50Group_branch.SetAddress(<void*>&self.singleMu50Group_value)
+
+        #print "making singleMu50Pass"
+        self.singleMu50Pass_branch = the_tree.GetBranch("singleMu50Pass")
+        #if not self.singleMu50Pass_branch and "singleMu50Pass" not in self.complained:
+        if not self.singleMu50Pass_branch and "singleMu50Pass":
+            warnings.warn( "MuTauTree: Expected branch singleMu50Pass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleMu50Pass")
+        else:
+            self.singleMu50Pass_branch.SetAddress(<void*>&self.singleMu50Pass_value)
+
+        #print "making singleMu50Prescale"
+        self.singleMu50Prescale_branch = the_tree.GetBranch("singleMu50Prescale")
+        #if not self.singleMu50Prescale_branch and "singleMu50Prescale" not in self.complained:
+        if not self.singleMu50Prescale_branch and "singleMu50Prescale":
+            warnings.warn( "MuTauTree: Expected branch singleMu50Prescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleMu50Prescale")
+        else:
+            self.singleMu50Prescale_branch.SetAddress(<void*>&self.singleMu50Prescale_value)
+
         #print "making singleMu8SingleE23DZGroup"
         self.singleMu8SingleE23DZGroup_branch = the_tree.GetBranch("singleMu8SingleE23DZGroup")
         #if not self.singleMu8SingleE23DZGroup_branch and "singleMu8SingleE23DZGroup" not in self.complained:
@@ -8883,6 +8952,33 @@ cdef class MuTauTree:
             #self.complained.add("singleTau140Trk50Prescale")
         else:
             self.singleTau140Trk50Prescale_branch.SetAddress(<void*>&self.singleTau140Trk50Prescale_value)
+
+        #print "making singleTkMu50Group"
+        self.singleTkMu50Group_branch = the_tree.GetBranch("singleTkMu50Group")
+        #if not self.singleTkMu50Group_branch and "singleTkMu50Group" not in self.complained:
+        if not self.singleTkMu50Group_branch and "singleTkMu50Group":
+            warnings.warn( "MuTauTree: Expected branch singleTkMu50Group does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTkMu50Group")
+        else:
+            self.singleTkMu50Group_branch.SetAddress(<void*>&self.singleTkMu50Group_value)
+
+        #print "making singleTkMu50Pass"
+        self.singleTkMu50Pass_branch = the_tree.GetBranch("singleTkMu50Pass")
+        #if not self.singleTkMu50Pass_branch and "singleTkMu50Pass" not in self.complained:
+        if not self.singleTkMu50Pass_branch and "singleTkMu50Pass":
+            warnings.warn( "MuTauTree: Expected branch singleTkMu50Pass does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTkMu50Pass")
+        else:
+            self.singleTkMu50Pass_branch.SetAddress(<void*>&self.singleTkMu50Pass_value)
+
+        #print "making singleTkMu50Prescale"
+        self.singleTkMu50Prescale_branch = the_tree.GetBranch("singleTkMu50Prescale")
+        #if not self.singleTkMu50Prescale_branch and "singleTkMu50Prescale" not in self.complained:
+        if not self.singleTkMu50Prescale_branch and "singleTkMu50Prescale":
+            warnings.warn( "MuTauTree: Expected branch singleTkMu50Prescale does not exist!"                " It will crash if you try and use it!",Warning)
+            #self.complained.add("singleTkMu50Prescale")
+        else:
+            self.singleTkMu50Prescale_branch.SetAddress(<void*>&self.singleTkMu50Prescale_value)
 
         #print "making tAbsEta"
         self.tAbsEta_branch = the_tree.GetBranch("tAbsEta")
@@ -14962,6 +15058,11 @@ cdef class MuTauTree:
             self.mMatchesMu23Ele12Path_branch.GetEntry(self.localentry, 0)
             return self.mMatchesMu23Ele12Path_value
 
+    property mMatchesMu50Path:
+        def __get__(self):
+            self.mMatchesMu50Path_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesMu50Path_value
+
     property mMatchesMu8Ele23DZPath:
         def __get__(self):
             self.mMatchesMu8Ele23DZPath_branch.GetEntry(self.localentry, 0)
@@ -15016,6 +15117,11 @@ cdef class MuTauTree:
         def __get__(self):
             self.mMatchesSingleMu_leg2_noiso_branch.GetEntry(self.localentry, 0)
             return self.mMatchesSingleMu_leg2_noiso_value
+
+    property mMatchesTkMu50Path:
+        def __get__(self):
+            self.mMatchesTkMu50Path_branch.GetEntry(self.localentry, 0)
+            return self.mMatchesTkMu50Path_value
 
     property mMatchesTripleMu:
         def __get__(self):
@@ -16252,6 +16358,21 @@ cdef class MuTauTree:
             self.singleMu23SingleE8Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleMu23SingleE8Prescale_value
 
+    property singleMu50Group:
+        def __get__(self):
+            self.singleMu50Group_branch.GetEntry(self.localentry, 0)
+            return self.singleMu50Group_value
+
+    property singleMu50Pass:
+        def __get__(self):
+            self.singleMu50Pass_branch.GetEntry(self.localentry, 0)
+            return self.singleMu50Pass_value
+
+    property singleMu50Prescale:
+        def __get__(self):
+            self.singleMu50Prescale_branch.GetEntry(self.localentry, 0)
+            return self.singleMu50Prescale_value
+
     property singleMu8SingleE23DZGroup:
         def __get__(self):
             self.singleMu8SingleE23DZGroup_branch.GetEntry(self.localentry, 0)
@@ -16386,6 +16507,21 @@ cdef class MuTauTree:
         def __get__(self):
             self.singleTau140Trk50Prescale_branch.GetEntry(self.localentry, 0)
             return self.singleTau140Trk50Prescale_value
+
+    property singleTkMu50Group:
+        def __get__(self):
+            self.singleTkMu50Group_branch.GetEntry(self.localentry, 0)
+            return self.singleTkMu50Group_value
+
+    property singleTkMu50Pass:
+        def __get__(self):
+            self.singleTkMu50Pass_branch.GetEntry(self.localentry, 0)
+            return self.singleTkMu50Pass_value
+
+    property singleTkMu50Prescale:
+        def __get__(self):
+            self.singleTkMu50Prescale_branch.GetEntry(self.localentry, 0)
+            return self.singleTkMu50Prescale_value
 
     property tAbsEta:
         def __get__(self):

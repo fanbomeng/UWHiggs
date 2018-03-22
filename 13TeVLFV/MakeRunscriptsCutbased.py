@@ -1,7 +1,12 @@
 
-base=['gg','boost','vbf_gg','vbf_vbf']
-
-sysneed=['none','TauFakeRate_p0_dm0_B_13TeVUp','TauFakeRate_p0_dm0_B_13TeVDown','TauFakeRate_p1_dm0_B_13TeVUp','TauFakeRate_p1_dm0_B_13TeVDown','TauFakeRate_p0_dm1_B_13TeVUp','TauFakeRate_p0_dm1_B_13TeVDown','TauFakeRate_p1_dm1_B_13TeVUp','TauFakeRate_p1_dm1_B_13TeVDown','TauFakeRate_p0_dm10_B_13TeVUp','TauFakeRate_p0_dm10_B_13TeVDown','TauFakeRate_p1_dm10_B_13TeVUp','TauFakeRate_p1_dm10_B_13TeVDown','TauFakeRate_p0_dm0_E_13TeVUp','TauFakeRate_p0_dm0_E_13TeVDown','TauFakeRate_p1_dm0_E_13TeVUp','TauFakeRate_p1_dm0_E_13TeVDown','TauFakeRate_p0_dm1_E_13TeVUp','TauFakeRate_p0_dm1_E_13TeVDown','TauFakeRate_p1_dm1_E_13TeVUp','TauFakeRate_p1_dm1_E_13TeVDown','TauFakeRate_p0_dm10_E_13TeVUp','TauFakeRate_p0_dm10_E_13TeVDown','TauFakeRate_p1_dm10_E_13TeVUp','TauFakeRate_p1_dm10_E_13TeVDown']
+#base=['gg','boost','vbf_gg','vbf_vbf']
+base=['gg','boost']
+masspointbaseI=['200','300']
+masspointbaseII=['450','600','750','900']
+massbinI=['200']
+massbinII=['450']
+sysneed=['none','TauFakeRate_p0_dm0_L_13TeVUp','TauFakeRate_p0_dm0_L_13TeVDown','TauFakeRate_p1_dm0_L_13TeVUp','TauFakeRate_p1_dm0_L_13TeVDown','TauFakeRate_p0_dm1_L_13TeVUp','TauFakeRate_p0_dm1_L_13TeVDown','TauFakeRate_p1_dm1_L_13TeVUp','TauFakeRate_p1_dm1_L_13TeVDown','TauFakeRate_p0_dm10_L_13TeVUp','TauFakeRate_p0_dm10_L_13TeVDown','TauFakeRate_p0_dm0_H_13TeVUp','TauFakeRate_p0_dm0_H_13TeVDown','TauFakeRate_p0_dm1_H_13TeVUp','TauFakeRate_p0_dm1_H_13TeVDown','TauFakeRate_p0_dm10_H_13TeVUp','TauFakeRate_p0_dm10_H_13TeVDown']
+#sysneed=['none','TauFakeRate_p0_dm0_B_13TeVUp','TauFakeRate_p0_dm0_B_13TeVDown','TauFakeRate_p1_dm0_B_13TeVUp','TauFakeRate_p1_dm0_B_13TeVDown','TauFakeRate_p0_dm1_B_13TeVUp','TauFakeRate_p0_dm1_B_13TeVDown','TauFakeRate_p1_dm1_B_13TeVUp','TauFakeRate_p1_dm1_B_13TeVDown','TauFakeRate_p0_dm10_B_13TeVUp','TauFakeRate_p0_dm10_B_13TeVDown','TauFakeRate_p1_dm10_B_13TeVUp','TauFakeRate_p1_dm10_B_13TeVDown','TauFakeRate_p0_dm0_E_13TeVUp','TauFakeRate_p0_dm0_E_13TeVDown','TauFakeRate_p1_dm0_E_13TeVUp','TauFakeRate_p1_dm0_E_13TeVDown','TauFakeRate_p0_dm1_E_13TeVUp','TauFakeRate_p0_dm1_E_13TeVDown','TauFakeRate_p1_dm1_E_13TeVUp','TauFakeRate_p1_dm1_E_13TeVDown','TauFakeRate_p0_dm10_E_13TeVUp','TauFakeRate_p0_dm10_E_13TeVDown','TauFakeRate_p1_dm10_E_13TeVUp','TauFakeRate_p1_dm10_E_13TeVDown']
 
 sysneed_I=['MES_13TeVUp','MES_13TeVDown','scale_t_1prong_13TeVUp','scale_t_1prong_13TeVDown','scale_t_1prong1pizero_13TeVUp','scale_t_1prong1pizero_13TeVDown','scale_t_3prong_13TeVUp','scale_t_3prong_13TeVDown','scale_mfaketau_1prong1pizero_13TeVUp','scale_mfaketau_1prong1pizero_13TeVDown','Pileup_13TeVUp','Pileup_13TeVDown']
 
@@ -10,18 +15,38 @@ sysneed_II=["Jes_JetAbsoluteFlavMap_13TeVDown","Jes_JetAbsoluteFlavMap_13TeVUp",
 sysneed_III=['MET_chargedUes_13TeVUp','MET_chargedUes_13TeVDown','MET_ecalUes_13TeVUp','MET_ecalUes_13TeVDown','MET_hfUes_13TeVUp','MET_hfUes_13TeVDown','MET_hcalUes_13TeVUp','MET_hcalUes_13TeVDown']
 
 tmptotal_1=sysneed+sysneed_I+sysneed_III
+#tmptotal_1=sysneed+sysneed_I+sysneed_III
 
 f = open('Run_Cutbased_rename.sh', 'w')
 for i in tmptotal_1:
     for j in base:
-        f.write('python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+ '    0  '+i+'    tPt0   0'  '\n')
-
+        for k in masspointbaseI:
+                f.write('python plot_13TeV_vbfbined_QCD_36_highmass_5new.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+'200'+ '    0  '+i+'    tPt0   0 ' +k + '\n')
+        for l in masspointbaseII:
+                f.write('python plot_13TeV_vbfbined_QCD_36_highmass_5new.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+'450'+ '    0  '+i+'    tPt0   0 ' +l + '\n')
+f.write("""python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg450   0 none    tPt30   0  900 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost450   0 none    tPt30   0  900 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg450   0 none    tPt30   0  750 \n  
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost450   0 none    tPt30   0  750 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg450   0 none    tPt30   0  600 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost450   0 none    tPt30   0  600 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg450   0 none    tPt30   0  450 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost450   0 none    tPt30   0  450 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg200   0 none    tPt30   0  200 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost200   0 none    tPt30   0  200 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1     gg200   0 none    tPt30   0  300 \n 
+python plot_13TeV_vbfbined_QCD_36_highmass_5new.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1  boost200   0 none    tPt30   0  300 \n""")
 f.close()
 
 g = open('Run_Cutbased_rename_2.sh', 'w')
 tmptotal_2=sysneed_II
+
+
 for i in tmptotal_2:
     for j in base:
-        g.write('python plot_13TeV_vbfbined_QCD_36_v3.py LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+ '    0  '+i+'    tPt0   0'  '\n')
+        for k in masspointbaseI:
+                g.write('python plot_13TeV_vbfbined_QCD_36_highmass_5new.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+'200'+ '    0  '+i+'    tPt0   0 ' +l+  '\n')
+        for l in masspointbaseII:
+                g.write('python plot_13TeV_vbfbined_QCD_36_highmass_5new.py  LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/ collMass_type1 '+j+'450'+ '    0  '+i+'    tPt0   0 ' +l+  '\n')
 
 g.close()

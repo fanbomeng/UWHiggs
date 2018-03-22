@@ -34,7 +34,9 @@ channelLoose=argv[2]
 var=argv[3]
 savedir = argv[4]
 #JSONlumi=36805.4 
-JSONlumi=35839.977 
+##EElumi
+#JSONlumi=37330.888
+JSONlumi= 35839.977 
 #JSONlumi=20076.26  
 #JSONlumi=36161.136  
 canvas = ROOT.TCanvas("asdf", "adsf", 800, 800)
@@ -173,7 +175,9 @@ xBins = array.array('d',[26,30,40,60,100,200])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,90,100,110,130,150])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,90,100,110,130,150])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,130,200,400])  # from the plots Tau
-xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,80,150,400])  # from the plots Tau
+#xBins1 = array.array('d',[30,35,40,50,60,70,90,120,150,200,260])  # from the plots Tau
+#xBins1 = array.array('d',[30,35,40,45,50,55,60,70,80,90,110,140,200,260])  # from the plots Tau
+xBins1 = array.array('d',[30,35,40,45,50,55,60,70,80,90,100,120,140,160,180,200,300,600])  # array.array('d',[30,35,40,45,50,55,60,70,80,95,105,140,200,260])  # from the plots Tau
 if 'EE' in channelTight:
   xBins1 = array.array('d',[30,35,40,50,60,70,150]) 
 if 'VBF' in channelTight:
@@ -291,8 +295,8 @@ if 'm3Pt' in var:
 if 'tPt' in var:
    #fakeRate1.GetXaxis().SetRangeUser(30,600)
    #fakeRateData1.GetXaxis().SetRangeUser(30,600)
-   fakeRate1.GetXaxis().SetRangeUser(30,400)
-   fakeRateData1.GetXaxis().SetRangeUser(30,400)
+   fakeRate1.GetXaxis().SetRangeUser(30,260)
+   fakeRateData1.GetXaxis().SetRangeUser(30,260)
    if 'VBF' in channelTight:
       fakeRate1.GetXaxis().SetRangeUser(30,150)
       fakeRateData1.GetXaxis().SetRangeUser(30,150)
@@ -400,8 +404,8 @@ if ("tPt" in var):
 #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",40,200)
   #fakeFit = ROOT.TF1("adsf","pol1",30,200)
   if not 'VBF' in channelTight:
-     fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,200)
-     fakeFit1 = ROOT.TF1("adsf","[0]",200,400)
+     fakeFit = ROOT.TF1("adsf","[0]+[1]*(x-30)",30,95)
+     fakeFit1 = ROOT.TF1("adsf","[0]",105,260)
 #     fakeFit = ROOT.TF1("adsf","[0]",30,80)
 #     fakeFit1 = ROOT.TF1("adsf","[0]",80,200)
 #     fakeFit2 = ROOT.TF1("adsf","[0]",200,350)
@@ -410,16 +414,17 @@ if ("tPt" in var):
 #  fakeFit = ROOT.TF1("adsf","[0]",30,55)
 #  fakeFit1 = ROOT.TF1("adsf","[0]",55,200)
   #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
-     fakeRateData1.Fit(fakeFit,"R")
-     fakeRateData1.Fit(fakeFit1,"R")
+#     fakeRateData1.Fit(fakeFit,"R")
+#     fakeRateData1.Fit(fakeFit1,"R")
 #     fakeRateData1.Fit(fakeFit1,"R")
 #     fakeRateData1.Fit(fakeFit2,"R")
 #     fakeRateData1.Fit(fakeFit3,"R")
  # fakeRateData1.Fit(fakeFit1,"R")
  # fakeRateData.Draw("sames")
   #if not 'VBF' in channelTight:
-     fakeFit.Draw("sames")
-     fakeFit1.Draw("sames")
+#     fakeFit.Draw("sames")
+ #    print 'draw ???????????????????'
+#     fakeFit1.Draw("sames")
 #     fakeFit2.Draw("sames")
 #     fakeFit3.Draw("sames")
 canvas.SaveAs(savedir+"/"+channelTight+"_"+channelLoose+"_"+var+"_fakeRate.pdf")

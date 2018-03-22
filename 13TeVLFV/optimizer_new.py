@@ -9,10 +9,10 @@ RUN_OPTIMIZATION = True
 
 _0jets = {
   # 'tPt'  : range(30,50,10)+[45,50],
-   'tPt'  : [30,35,40,45],
+   'tPt'  : [30],
   # 'tPt'  : [50],
   # 'mPt'  :[25,30,35]+ range(40,60,10)+[55],
-   'mPt'  :[55,60,65,70,75,80,85,90,95],
+   'mPt'  :[60,65,70,75],
   # 'mPt'  : [50,55],
   # 'deltaPhi' : [2.95,2.9,2.85,2.8,2.7],
    #'DeltaPhi' : [2.80,2.70,2.6,2.5,2.4],
@@ -25,15 +25,15 @@ _0jets = {
    #'deltaPhi' : [3.00,2.8,2.7,2.6,2.5,2.4,2.2,2.0],
   # 'deltaPhi' : [2.1,2.5],
   # 'tMtToPfMet_type1' :[80,35,70]+ range(40,70,10),#was [20,50,10]+[35]
-   'tMtToPfMet_type1' :[60,70,80,90,100,110],#was [20,50,10]+[35]
+   'tMtToPfMet_type1' :[105],#was [20,50,10]+[35]
   # 'tMtToPfMet_type1' :[70,75],#was [20,50,10]+[35]
 }
 _0jets_default = {
    'tPt' : 30,     #was 35
-   'mPt' : 26,     #was 45
+   'mPt' : 53,     #was 45
 #   'DeltaPhi': 0,    #was 2.7
 #   'tmetdeltaPhi' :3.0,  #was 50
-   'tMtToPfMet_type1' :1000,  #was 50
+   'tMtToPfMet_type1' :105,  #was 50
   # 'mmetdeltaPhi' :0.0,  #was 50
 }
 #_0jet_region_templates = ['tPt%i', 'mPt%i', 'DeltaPhi%.2f','tmetdeltaPhi%.2f', 'tMtToPfMet_type1%i'] #'tPt%i_mPt%i_deltaPhi%.2f_tMtToPfMet_type1%i'
@@ -67,25 +67,25 @@ def _get_0jet_regions(tPt, mPt, tMtToPfMet_type1):
 _1jets = {
    # 'tPt'  :[30,50,55]+ range(35,55,10),
    # 'tPt'  :[30]+ range(35,55,10)+[50,55],
-    'tPt'  :[30,35,40,45],
+    'tPt'  :[30],
   #  'tPt'  : [50],
     #'mPt'  :[25,45,50,55]+ range(30,50,10),
    # 'mPt'  :[25,30,40,45,50,55],
-    'mPt'  :[55,60,65,70,75,80,85,90,95],
+    'mPt'  :[60,65,70,75],
 #    'DeltaPhi' : [3.0], 
 #    'tmetdeltaPhi' : [3.2],
   #  'mPt'  : [33],
   #  'tMtToPfMet_type1' :[80,45,50,55,60,70]+ range(30,50,10),
 #    'tMtToPfMet_type1' :[80,70,60,55,50,45,40,30],
-    'tMtToPfMet_type1' :[60,70,80,90,100],
+    'tMtToPfMet_type1' :[120],
  #   'tMtToPfMet_type1' : [45,50,55],
 }
 _1jets_default = {
     'tPt' :30,#was  40 
-    'mPt' : 26,#was 35
+    'mPt' : 53,#was 35
 #    'DeltaPhi': 0.0,  
 #    'tmetdeltaPhi' :3.0, 
-    'tMtToPfMet_type1' :1000,#was 35
+    'tMtToPfMet_type1' :120,#was 35
 }
 
 #_1jet_region_templates = ['tPt%i', 'mPt%i','DeltaPhi%.2f','tmetdeltaPhi%.2f', 'tMtToPfMet_type1%i']#'tPt%i_mPt%i_tMtToPfMet_type1%i'

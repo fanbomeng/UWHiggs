@@ -12,7 +12,7 @@ _0jets = {
    'tPt'  : [30],
   # 'tPt'  : [50],
   # 'mPt'  :[25,30,35]+ range(40,60,10)+[55],
-   'mPt'  :[60],
+   'mPt'  :[60,65,70,75],
   # 'mPt'  : [50,55],
   # 'deltaPhi' : [2.95,2.9,2.85,2.8,2.7],
    #'DeltaPhi' : [2.80,2.70,2.6,2.5,2.4],
@@ -30,7 +30,7 @@ _0jets = {
 }
 _0jets_default = {
    'tPt' : 30,     #was 35
-   'mPt' : 60,     #was 45
+   'mPt' : 53,     #was 45
 #   'DeltaPhi': 0,    #was 2.7
 #   'tmetdeltaPhi' :3.0,  #was 50
    'tMtToPfMet_type1' :105,  #was 50
@@ -71,7 +71,7 @@ _1jets = {
   #  'tPt'  : [50],
     #'mPt'  :[25,45,50,55]+ range(30,50,10),
    # 'mPt'  :[25,30,40,45,50,55],
-    'mPt'  :[60],
+    'mPt'  :[60,65,70,75],
 #    'DeltaPhi' : [3.0], 
 #    'tmetdeltaPhi' : [3.2],
   #  'mPt'  : [33],
@@ -82,7 +82,7 @@ _1jets = {
 }
 _1jets_default = {
     'tPt' :30,#was  40 
-    'mPt' : 60,#was 35
+    'mPt' : 53,#was 35
 #    'DeltaPhi': 0.0,  
 #    'tmetdeltaPhi' :3.0, 
     'tMtToPfMet_type1' :120,#was 35

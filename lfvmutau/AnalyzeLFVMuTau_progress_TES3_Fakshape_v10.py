@@ -1244,7 +1244,7 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10(MegaBase):
     def obj1_idICHEP(self,row):
    
         goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
-        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.49 and ((goodglob and row.mSegmentCompatibility > 0.303) or  row.mSegmentCompatibility> 0.451);
     	return isICHEPMedium
     def obj1_id(self,row):
         return row.mIsGlobal and row.mIsPFMuon and (row.mNormTrkChi2<10) and (row.mMuonHits > 0) and (row.mMatchedStations > 1) and (row.mPVDXY < 0.2) and (row.mPVDZ < 0.5) and (row.mPixHits > 0) and (row.mTkLayersWithMeasurement > 5)
@@ -1252,7 +1252,8 @@ class AnalyzeLFVMuTau_progress_TES3_Fakshape_v10(MegaBase):
     def obj1_idM(self,row):
    
         goodglob=row.mIsGlobal and row.mNormalizedChi2 < 3 and row.mChi2LocalPosition < 12 and row.mTrkKink < 20
-        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.8 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+        #isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.8 and row.mSegmentCompatibility >  (0.303 if goodglob else 0.451);
+        isICHEPMedium = row.mPFIDLoose and row.mValidFraction> 0.8 and ((goodglob and row.mSegmentCompatibility >  0.303) or row.mSegmentCompatibility >  0.451);
     	return isICHEPMedium
     def obj2_id(self, row):
 	#return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding

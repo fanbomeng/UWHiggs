@@ -247,8 +247,8 @@ fakeallplot=False
 #drawdata=False
 drawdata=True
 highMass=True
-#Setlog=False
-Setlog=True
+Setlog=False
+#Setlog=True
 #highMass=False
 #blinded = True #not blinded
 #QCDflag=True
@@ -1637,7 +1637,7 @@ LFVStack.GetStack().Last().GetXaxis().SetLabelSize(0.)
 maxLFVStack = LFVStack.GetMaximum()
 maxData=data.GetMaximum()
 maxHist = max(maxLFVStack,maxData)
-if not ('Phi' in var or 'Eta' in var):
+if not ('Phi' in var or 'Eta' in var) and Setlog:
    LFVStack.SetMaximum(maxData*2000)
 #else:
 #   LFVStack.SetMaximum(maxData*1.2)
@@ -1689,22 +1689,22 @@ lfvh900.Draw('hsames')
 #vbfhmutau125.Scale(0.2)
 #gghmutau125.Scale(0.2)
 #vbfhmutau125.Draw("hsames")
-if blinded==False and (not "preselectionSS" in channel) : 
-   for ibin in range(1,wjets.GetNbinsX()):
-       binContent = (LFVStack.GetStack().Last()).GetBinContent(ibin)
-#       Lfvh = lfvh.Clone()
-       Lfvh = lfvh200.Clone()
-       Lfvh.Add(lfvh)
-       Lfvh.Add(lfvh300)
-       Lfvh.Add(lfvh450)
-       Lfvh.Add(lfvh600)
-       Lfvh.Add(lfvh750)
-       Lfvh.Add(lfvh900)
-#       Lfvh.Scale(0.2)
-       if binContent!=0:
-    #print Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))
-         if Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.09)**2))>=0.5:
-            data.SetBinContent(ibin,-1000000000)
+#if blinded==False and (not "preselectionSS" in channel) : 
+#   for ibin in range(1,wjets.GetNbinsX()):
+#       binContent = (LFVStack.GetStack().Last()).GetBinContent(ibin)
+##       Lfvh = lfvh.Clone()
+#       Lfvh = lfvh200.Clone()
+#       Lfvh.Add(lfvh)
+#       Lfvh.Add(lfvh300)
+#       Lfvh.Add(lfvh450)
+#       Lfvh.Add(lfvh600)
+#       Lfvh.Add(lfvh750)
+#       Lfvh.Add(lfvh900)
+##       Lfvh.Scale(0.2)
+#       if binContent!=0:
+#    #print Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))
+#         if Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.09)**2))>=0.5:
+#            data.SetBinContent(ibin,-1000000000)
 #
 lfvh.Scale(0.2)
 lfvh200.Scale(0.2)
