@@ -186,7 +186,7 @@ if RUN_OPTIMIZATION==1:
    tmpvariable=channel.split("/")[1]
    QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
 else:
-   QCDChannels={'preselection':'preselectionSS','preselectionVLooseIso':'preselectionVLooseIsoSS',"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS",'IsoSS0Jet':'IsoSS0Jet'}
+   QCDChannels={'preselection':'preselectionSS','preselectionEB':'preselectionEBSS','preselectionEE':'preselectionEESS','preselectionLooseIso':'preselectionLooseIsoSS','preselectionLooseIsoEB':'preselectionLooseIsoEBSS','preselectionLooseIsoEE':'preselectionLooseIsoEESS','preselectionV05Iso':'preselectionV05IsoSS','preselectionV05IsoEB':'preselectionV05IsoEBSS','preselectionV05IsoEE':'preselectionV05IsoEESS',"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS",'IsoSS0Jet':'IsoSS0Jet'}
 WmunufakeChannels={"preselection0Jet":"Wmunu_preselection0Jet","preselection1Jet":"Wmunu_preselection1Jet","preselection2Jet":"Wmunu_preselection2Jet","gg":"Wmunu_gg","boost":"Wmunu_boost","vbf_gg":"Wmunu_vbf_gg","vbf_vbf":"Wmunu_vbf_vbf"}
 WtaunufakeChannels={"preselection0Jet":"Wtaunu_preselection0Jet","preselection1Jet":"Wtaunu_preselection1Jet","preselection2Jet":"Wtaunu_preselection2Jet","gg":"Wtaunu_gg","boost":"Wtaunu_boost","vbf_gg":"Wtaunu_vbf_gg","vbf_vbf":"Wtaunu_vbf_vbf"}
 W2jetsfakeChannels={"preselection0Jet":"W2jets_preselection0Jet","preselection1Jet":"W2jets_preselection1Jet","preselection2Jet":"W2jets_preselection2Jet","gg":"W2jets_gg","boost":"W2jets_boost","vbf_gg":"W2jets_vbf_gg","vbf_vbf":"W2jets_vbf_vbf"}
@@ -260,8 +260,24 @@ highMass=False
 #if "gg" in channel:
 #	rootdir = "mutau_gg"
 channeltmp=channel.split("/")[0]
-if channeltmp=="vbf":
-	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
+if channeltmp=="preselection":
+	rootdir = "TightIso"
+if channeltmp=="preselectionEB":
+	rootdir = "TightIsoEB"
+if channeltmp=="preselectionEE":
+	rootdir = "TightIsoEE"
+if channeltmp=="preselectionLooseIso":
+	rootdir = "LooseIso"
+if channeltmp=="preselectionLooseIsoEB":
+	rootdir = "LooseIsoEB"
+if channeltmp=="preselectionLooseIsoEE":
+	rootdir = "LooseIsoEE"
+if channeltmp=="preselectionV05Iso":
+	rootdir = "VLooseIso"
+if channeltmp=="preselectionV05IsoEB":
+	rootdir = "VLooseIsoEB"
+if channeltmp=="preselectionV05IsoEE":
+	rootdir = "VLooseIsoEE"
 if channeltmp=="vbf_gg":
 	rootdir = "mutauh_2Jet_gg"
 if channeltmp=="vbf_vbf":
@@ -405,16 +421,16 @@ data2016B.Add(data2016F)
 data2016B.Add(data2016G)
 data2016B.Add(data2016H)
 data=data2016B.Clone()
-#lowDataBin =1 
-#highDataBin = data.GetNbinsX()#-1
-#for i in range(1,data.GetNbinsX()+1):
-#	if (data.GetBinContent(i) > 0):
-#		lowDataBin = i
-#		break
-#for i in range(data.GetNbinsX(),0,-1):
-#	if (data.GetBinContent(i) > 0):
-#		highDataBin = i
-#		break
+lowDataBin =1 
+highDataBin = data.GetNbinsX()#-1
+for i in range(1,data.GetNbinsX()+1):
+	if (data.GetBinContent(i) > 0):
+		lowDataBin = i
+		break
+for i in range(data.GetNbinsX(),0,-1):
+	if (data.GetBinContent(i) > 0):
+		highDataBin = i
+		break
 channelNoral=channel
 if ('13TeV' in shift) and not ('none' in shift) and not ('TauFakeRate' in shift):
    channelSys=channel+shift
@@ -456,6 +472,7 @@ ztautau.Add(ztautau2Jets)
 ztautau.Add(ztautau3Jets)
 ztautau.Add(ztautau4Jets)
 ztautau.Add(ztautaulow)
+do_binbybinQCD(ztautau,lowDataBin,highDataBin)
 #vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 #gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 #vbfhmutau120 = make_histo(savedir,"VBF_LFV_HToMuTau_M120_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -1343,7 +1360,7 @@ outfile.cd(rootdir+"/")
 if blinded == False:
 	#if not ("Jet" in savedir or "UES" in savedir or "TES" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
 	if not ("Jet" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift or "Fakes" in shift or "Fakes" in shift or "MES" in shift):
-        	data.Write("data_obs")
+        	data.Write("data_obs"+'_'+var)
 
 if ("collMass" in var or "m_t_Mass" in var or 'type1_pfMetEtNormal' in var or 'type1_pfMetEt' in var):
   #binLow = data.FindBin(100)
@@ -1359,7 +1376,7 @@ if blinded == True:
         #if not ("Jet" in shift or "MES" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift  or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift or 'Pileup' in shift):
         #        data.Write("data_obs")
         if 'none' in shift:
-                data.Write("data_obs")
+                data.Write("data_obs"+'_'+var)
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,
 #              kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
@@ -1839,19 +1856,19 @@ if fakeRate == True:
         if fakeallplot:
            wjets.Add(wjetsM)
 #           wjets.Add(wjetsMT)
-           wjets.Write("wjets"+shiftStr)
+           wjets.Write("wjets"+'_'+var+shiftStr)
         else:
         #   wjets.Add(wjetsM)
-           wjets.Write("Fakes"+shiftStr)
+           wjets.Write("Fakes"+'_'+var+shiftStr)
 else:
   print "******************************   qcd???????????"
   if QCDflag==True:
      wjets.Add(QCDs)
 #     do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-     wjets.Write("wjets"+shiftStr)
+     wjets.Write("wjets"+'_'+var+shiftStr)
   else:
-     wjets.Write("Fakes"+shiftStr)
-zjets.Write("Zothers"+shiftStr)
+     wjets.Write("Fakes"+'_'+var+shiftStr)
+zjets.Write("Zothers"+'_'+var+shiftStr)
 
 p_ratio.cd()
 ROOT.gROOT.LoadMacro("tdrstyle.C")
@@ -1932,18 +1949,18 @@ BLAND=0
 #     wjets.Write("wjets"+shiftStr)
 #  else:
 #     wjets.Write("wjets"+shiftStr)
-#ztautau.Write("ZTauTau"+shiftStr)
-ttbar.Write("TT"+shiftStr)
+ztautau.Write("ZTauTau"+'_'+var+shiftStr)
+ttbar.Write("TT"+'_'+var+shiftStr)
 #vbfhmutau125.Scale(0.05)
 #gghmutau125.Scale(0.05)
 #vbfhmutau125.Write("LFVVBF125"+shiftStr)
 #gghmutau125.Write("LFVGG125"+shiftStr)
-smhvbf.Write("qqH_htt"+shiftStr)
-smhgg.Write("ggH_htt"+shiftStr)
-WGstarNMM.Write("WG"+shiftStr)
+smhvbf.Write("qqH_htt"+'_'+var+shiftStr)
+smhgg.Write("ggH_htt"+'_'+var+shiftStr)
+WGstarNMM.Write("WG"+'_'+var+shiftStr)
 print "Single Top Yield: " + str(singlet.Integral())
-diboson.Write("Diboson"+shiftStr)
-singlet.Write("T"+shiftStr)
+diboson.Write("Diboson"+'_'+var+shiftStr)
+singlet.Write("T"+'_'+var+shiftStr)
 full_bckg = wjets.Clone()
 full_bckg.Add(zjets)
 #full_bckg.Add(ztautau)

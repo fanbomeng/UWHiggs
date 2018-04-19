@@ -73,7 +73,7 @@ mmtLooseww.Add(mmtLoosewz2l2q)
 mmtLooseww.Add(mmtLoosezz4l)
 mmtLooseww.Add(mmtLoosezz2l2q)
 print "the number of Loose Dibson %f"   %(mmtLooseww.Integral())
-do_binbybinQCD(mmtLooseww)
+#do_binbybinQCD(mmtLooseww)
 #print "after binbybin the number of Loose Dibson %f"   %(mmtLooseww.Integral())
 mmtLooseww.Scale(-1)
 
@@ -91,6 +91,7 @@ mmtTight2 = make_histo(savedir,"DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-
 mmtTight3 = make_histo(savedir,"DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channelTight,var)
 mmtTight4 = make_histo(savedir,"DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channelTight,var)
 mmtTight = make_histo(savedir,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channelTight,var)
+do_binbybinQCD(mmtTight)
 #mmtTightww = make_histo(savedir,"WWTo2L2Nu_13TeV-powheg",channelTight,var)
 #mmtTightwz = make_histo(savedir,"WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8",channelTight,var)
 #mmtTightzz = make_histo(savedir,"ZZTo4L_13TeV_powheg_pythia8",channelTight,var)
@@ -118,7 +119,7 @@ mmtTightww.Add(mmtTightwz1l3nu)
 mmtTightww.Add(mmtTightwz2l2q)
 mmtTightww.Add(mmtTightzz4l)
 mmtTightww.Add(mmtTightzz2l2q)
-do_binbybinQCD(mmtTightww)
+#do_binbybinQCD(mmtTightww)
 #mmtTightww.Add(mmtTightwz)
 #mmtTightww.Add(mmtTightzz)
 print "the number of Tight Dibson %f"   %(mmtTightww.Integral())
@@ -128,7 +129,7 @@ mmtTight.Add(mmtTight1)
 mmtTight.Add(mmtTight2)
 mmtTight.Add(mmtTight3)
 mmtTight.Add(mmtTight4)
-do_binbybinQCD(mmtTight)
+#do_binbybinQCD(mmtTight)
 dataLoose = make_histo(savedir,"data_SingleMuon_Run2016B",channelLoose,var,True)
 dataLooseC = make_histo(savedir,"data_SingleMuon_Run2016C",channelLoose,var,True)
 dataLooseD = make_histo(savedir,"data_SingleMuon_Run2016D",channelLoose,var,True)
@@ -143,7 +144,6 @@ dataLoose.Add(dataLooseF)
 dataLoose.Add(dataLooseG)
 dataLoose.Add(dataLooseH)
 dataLoose.Add(mmtLooseww)
-do_binbybinQCD(dataLoose)
 print "the number of Loose  data %f"   %(dataLoose.Integral())
 dataTight = make_histo(savedir,"data_SingleMuon_Run2016B",channelTight,var,True)
 dataTightC = make_histo(savedir,"data_SingleMuon_Run2016C",channelTight,var,True)
@@ -159,7 +159,7 @@ dataTight.Add(dataTightF)
 dataTight.Add(dataTightG)
 dataTight.Add(dataTightH)
 dataTight.Add(mmtTightww)
-do_binbybinQCD(dataTight)
+#do_binbybinQCD(dataTight)
 print "the number of Tight data %f"   %(dataTight.Integral())
 
 #xBins = array.array('d',[30,50,65,85,100,200])
@@ -168,7 +168,8 @@ print "the number of Tight data %f"   %(dataTight.Integral())
 #xBins = array.array('d',[35,45,55,75,100,200])
 #xBins = array.array('d',[26,30,40,55,75,200])
 #xBins = array.array('d',[26,30,40,50,80,300])  # from the plots Tau
-xBins = array.array('d',[26,30,40,60,100,200])  # from the plots Tau
+xBins = array.array('d',[26,30,40,50,60,80,100,200])  # from the plots Tau
+#xBins = array.array('d',[20,40,60,80,100,200])  # from the plots Tau
 #xBins1 = array.array('d',[30,40,60,80,100,120,140,160,180,200,300])  # from the plots Tau
 #xBins1 = array.array('d',[30,34,38,42,46,50,54,60,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,140])  # from the plots Tau
@@ -178,8 +179,10 @@ xBins = array.array('d',[26,30,40,60,100,200])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,50,60,70,90,120,150,200,260])  # from the plots Tau
 #xBins1 = array.array('d',[30,35,40,45,50,55,60,70,80,90,110,140,200,260])  # from the plots Tau
 xBins1 = array.array('d',[30,35,40,45,50,55,60,70,80,90,100,120,140,160,180,200,300,600])  # array.array('d',[30,35,40,45,50,55,60,70,80,95,105,140,200,260])  # from the plots Tau
-if 'EE' in channelTight:
-  xBins1 = array.array('d',[30,35,40,50,60,70,150]) 
+#if 'm3Pt' in var:
+#   xBins = array.array('d',[50,65,80,120,300])  # array.array('d',[30,35,40,45,50,55,60,70,80,95,105,140,200,260])  # from the plots Tau
+if 'm3Etaabs' in var:
+  xBins = array.array('d',[0,1.48,2.4]) 
 if 'VBF' in channelTight:
    xBins1=array.array('d',[30,40,60,90,200])
   #xBins1 = array.array('d',[30,35,40,50,60,70,150]) 
@@ -209,7 +212,8 @@ if("tPt" in var):
         dataTightRebinned = ROOT.gDirectory.Get("dataTightRebinned")
         dataLoose = dataLooseRebinned.Clone()
         dataTight = dataTightRebinned.Clone()
-if("m3Pt" in var):
+#if("m3Pt" in var) or ('m3Etaabs' in var):
+if("m3Pt" in var) or ('ePt' in var) or ('m3Etaabs' in var):
         mmtLoose.Rebin(len(xBins)-1,"mmtLooseRebinned",xBins)
         mmtTight.Rebin(len(xBins)-1,"mmtTightRebinned",xBins)
         mmtLooseRebinned = ROOT.gDirectory.Get("mmtLooseRebinned")
@@ -223,24 +227,26 @@ if("m3Pt" in var):
         dataLoose = dataLooseRebinned.Clone()
         dataTight = dataTightRebinned.Clone()
 #if ("tEta" in var):
-if ("Eta" in var):
-     if (("tEta" in var) or ('m3Etaabs' in var)):
-        mmtLoose.Rebin(10)
-        mmtTight.Rebin(10)
-        dataLoose.Rebin(10)
-        dataTight.Rebin(10)
-        #mmtLoose.Rebin(5)
-        #mmtTight.Rebin(5)
-        #dataLoose.Rebin(5)
-        #dataTight.Rebin(5)
-     else:
-        mmtLoose.Rebin(20)
-        mmtTight.Rebin(20)
-        dataLoose.Rebin(20)
-        dataTight.Rebin(20)
+#if ("Eta" in var):
+#     if (("tEta" in var) or ('m3Etaabs' in var)):
+#        mmtLoose.Rebin(10)
+#        mmtTight.Rebin(10)
+#        dataLoose.Rebin(10)
+#        dataTight.Rebin(10)
+#        #mmtLoose.Rebin(5)
+#        #mmtTight.Rebin(5)
+#        #dataLoose.Rebin(5)
+#        #dataTight.Rebin(5)
+#     else:
+#        mmtLoose.Rebin(20)
+#        mmtTight.Rebin(20)
+#        dataLoose.Rebin(20)
+#        dataTight.Rebin(20)
 
 #fakeRate = mmtTight.Clone()
 #if ("m1_m2" not in var):
+do_binbybinQCD(dataLoose)
+do_binbybinQCD(dataTight)
 fakeRate=ROOT.TEfficiency(mmtTight,mmtLoose);
 #	fakeRate.Divide(mmtLoose)
 fakeRate.SetMarkerStyle(20)
@@ -288,15 +294,20 @@ if 'm3Etaabs' in var:
    fakeRate1.GetXaxis().SetRangeUser(0,2.4)
    fakeRateData1.GetXaxis().SetRangeUser(0,2.4)
 if 'm3Pt' in var:
-   #fakeRate1.GetXaxis().SetRangeUser(26,300)
-   #fakeRateData1.GetXaxis().SetRangeUser(26,300)
-   fakeRate1.GetXaxis().SetRangeUser(26,300)
-   fakeRateData1.GetXaxis().SetRangeUser(26,300)
+   fakeRate1.GetXaxis().SetRangeUser(26,200)
+   fakeRateData1.GetXaxis().SetRangeUser(26,200)
+#   fakeRate1.GetXaxis().SetRangeUser(50,300)
+#   fakeRateData1.GetXaxis().SetRangeUser(50,300)
 if 'tPt' in var:
    #fakeRate1.GetXaxis().SetRangeUser(30,600)
    #fakeRateData1.GetXaxis().SetRangeUser(30,600)
    fakeRate1.GetXaxis().SetRangeUser(30,260)
    fakeRateData1.GetXaxis().SetRangeUser(30,260)
+if 'ePt' in var:
+   #fakeRate1.GetXaxis().SetRangeUser(30,600)
+   #fakeRateData1.GetXaxis().SetRangeUser(30,600)
+   fakeRate1.GetXaxis().SetRangeUser(20,200)
+   fakeRateData1.GetXaxis().SetRangeUser(20,200)
    if 'VBF' in channelTight:
       fakeRate1.GetXaxis().SetRangeUser(30,150)
       fakeRateData1.GetXaxis().SetRangeUser(30,150)
@@ -346,6 +357,9 @@ elif ("Pt" in var):
  if ("tPt" in var):
      fakeRate1.GetXaxis().SetTitle("p_{T} [GeV]")
      fakeRate1.GetYaxis().SetTitle('#tau fakerate') 
+ if ("ePt" in var):
+     fakeRate1.GetXaxis().SetTitle("p_{T} [GeV]")
+     fakeRate1.GetYaxis().SetTitle('e fakerate') 
 if ("DecayMode" in var):
   fakeRate.GetXaxis().SetTitle("#tau Decay Mode")
   print "decay mode 0: " + str(fakeRateData.GetBinContent(1))
@@ -372,15 +386,15 @@ if ("Eta" in var):
  #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
         fakeRateData1.Fit(fakeFit,"R")
         fakeFit.Draw("same")
-    if ("m3" in var):
+    #if ("m3" in var):
        #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",-2.5,2.5)
         #fakeFit = ROOT.TF1("adsf","[0]",0,2.5)
         #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",0,2.5)
-        fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x",0,2.5)
+    #    fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x",0,2.5)
         #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",0,2.5)
  #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x",-2.5,2.5)
-        fakeRateData1.Fit(fakeFit,"R")
-        fakeFit.Draw("sames")
+    #    fakeRateData1.Fit(fakeFit,"R")
+        #fakeFit.Draw("sames")
 
 if ("m3Pt" in var):
 #fakeFit = ROOT.TF1("adsf","[0]+[1]*x+[2]*x*x+[3]*x*x*x+[4]*x*x*x*x",40,200)

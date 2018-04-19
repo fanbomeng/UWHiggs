@@ -160,8 +160,8 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
         self.histograms = {}
         self.Sysin=0
         self.tmp_Sysin=self.Sysin
-        self.light=0
-        self.light_v2=0
+        self.light=1
+        self.light_v2=1
         self.DoPileup=0
         self.DoMES=0
         self.DoTES=0
@@ -193,7 +193,7 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
                for j in self.highMass:
                    names.append(i+j)
         else:
-           names=["preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preselection0Jet","notIso0Jet","notIsoM0Jet","notIsoMT0Jet","preselection1Jet","notIso1Jet","notIsoM1Jet","notIsoMT1Jet","boostIsoSS200","boostIsoSS450","ggIsoSS200","ggIsoSS450"]
+           names=["preselection","notIso","notIsoM","notIsoMT","preselectionSS","notIsoSS","notIsoSSM","notIsoSSMT","preselection0Jet","notIso0Jet","notIsoM0Jet","notIsoMT0Jet","preselection1Jet","notIso1Jet","notIsoM1Jet","notIsoMT1Jet","boostIsoSS200","boostIsoSS450","ggIsoSS200","ggIsoSS450"]
            for i in self.highMassbase:
                for j in self.highMass:
                    names.append(i+j)
@@ -533,7 +533,18 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
 	
     def getFakeRateFactormuon(self,row, fakeset):   
         if fakeset=="def":
-          fTauIso=0.780172+0.072857*row.mEta-0.147437*row.mEta*row.mEta+0.0576102*row.mEta*row.mEta*row.mEta
+           if abs(row.mEta)<=1.479:
+              fTauIso=0.758906745111
+           else:
+              fTauIso=0.877792507538
+        #   elif abs(row.mEta)<=1.5:
+        #      fTauIso=0.899527447788
+        #   elif abs(row.mEta)<=2.0:
+        #      fTauIso=0.94910428602
+        #   else:
+        #      fTauIso=0.957347213291
+          #fTauIso=0.780172+0.072857*row.mEta-0.147437*row.mEta*row.mEta+0.0576102*row.mEta*row.mEta*row.mEta
+          #fTauIso=0.780172+0.072857*row.mEta-0.147437*row.mEta*row.mEta+0.0576102*row.mEta*row.mEta*row.mEta
         if self.DoMES==1:
            if row.mPt*1.002<=30:
               fTauIso=0.611
@@ -621,7 +632,7 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
            else:
               histos[name+'/tMtToPfMet_type1'].Fill(self.tMtToPfMet_type1_new,weight)
               histos[name+'/mMtToPfMet_type1'].Fill(self.mMtToPfMet_type1_new,weight)
-              histos[name+'/mMtToPfMet_type1_tMtToPfMet_type1'].Fill(self.mMtToPfMet_type1_new,self.tMtToPfMet_type1_new,weight)
+              #histos[name+'/mMtToPfMet_type1_tMtToPfMet_type1'].Fill(self.mMtToPfMet_type1_new,self.tMtToPfMet_type1_new,weight)
         #      histos[name+'/type1_pfMetEt'].Fill(row.type1_pfMetEt,weight)
            if self.ls_recoilC and MetCorrection: 
               histos[name+'/collMass_type1'].Fill(self.collMass_type1MetC,weight)
@@ -883,7 +894,7 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
         else:
               return 1.0/(eval("weightNormalNewtrigger."+self.weighttarget))
     def WjetsEnrich(self,row):
-        if (self.tMtToPfMet_type1_new>100 and self.mMtToPfMet_type1_new<110):
+        if (self.tMtToPfMet_type1_new>50 and self.mMtToPfMet_type1_new<120 and self.tMtToPfMet_type1_new<90 and self.mMtToPfMet_type1_new>50):
         #if (self.mMtToPfMet_type1_new>80):
 #        if (self.mMtToPfMet_type1_new>200):
 #        if (self.tMtToPfMet_type1_new>60 and self.MET_tPtC>90):
@@ -893,12 +904,14 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
  #              return True
         return False
     def WjetsEnrich2(self,row):
-        if (self.tMtToPfMet_type1_new>100):
+        if (self.tMtToPfMet_type1_new>50 and self.mMtToPfMet_type1_new<110 and self.tMtToPfMet_type1_new<100 and self.mMtToPfMet_type1_new>50):
+        #if (self.tMtToPfMet_type1_new>100):
                return True
         return False
     def WjetsEnrich3(self,row):
         #if self.tMtToPfMet_type1_new>60 and self.mMtToPfMet_type1_new>80:
-        if (self.tMtToPfMet_type1_new>200):
+        if (self.tMtToPfMet_type1_new>50 and self.mMtToPfMet_type1_new<110  and self.mMtToPfMet_type1_new>50):
+        #if (self.tMtToPfMet_type1_new>200):
                return True
         return False
     def ZttEnrich(self,row,m_t_Mass_new,tMtToPfMet_type1_new,mMtToPfMet_type1_new):
@@ -1187,9 +1200,9 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
 
             if self.obj2_iso(row) and self.oppositesign(row) and self.kinematics(row):  
              if self.obj1_iso(row):
+                 self.fill_histos(row,'preselection')
                  if not self.light:
                     if  fakeset:
-                       self.fill_histos(row,'preselection')
                     #   if abs(row.tGenMotherPdgId)!=15 and abs(row.tGenMotherPdgId)!=999.000:
                     #      print "tGenMother PDG iD %f" %row.tGenMotherPdgId
                        if self.WjetsEnrich(row):
@@ -1252,9 +1265,9 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
                             self.fill_histos(row,'boost'+massname,False)	
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row) and self.kinematics(row):
               if self.obj1_iso(row):
+                 self.fill_histos(row,'notIso',True)
                  if (not self.light):
                     if  fakeset:
-                       self.fill_histos(row,'notIso',True)
                        if self.WjetsEnrich(row):
                           self.fill_histos(row,'notIsoEnWjets',True)
                        if self.WjetsEnrich2(row):
@@ -1298,9 +1311,9 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
                            self.fill_histos(row,'boostNotIso'+massname,True)
             if self.obj2_iso_NT_VLoose(row) and self.oppositesign(row) and self.kinematics(row):
               if not self.obj1_iso(row):
+                 self.fill_histos(row,'notIsoMT',True,faketype="mtfake")
                  if not self.light:
                     if fakeset:
-                       self.fill_histos(row,'notIsoMT',True,faketype="mtfake")
                        if self.WjetsEnrich(row):
                           self.fill_histos(row,'notIsoEnWjetsMT',True,faketype="mtfake")
                        if self.ZttEnrich(row,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.mMtToPfMet_type1_new):
@@ -1340,9 +1353,9 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
                            self.fill_histos(row,'boostNotIsoMT'+massname,True,faketype="mtfake")
             if self.obj2_iso(row) and self.oppositesign(row) and self.kinematics(row):
               if not self.obj1_iso(row):
+                 self.fill_histos(row,'notIsoM',True,faketype="muonfake")
                  if not self.light:
                     if fakeset:
-                       self.fill_histos(row,'notIsoM',True,faketype="muonfake")
                        if self.WjetsEnrich(row):
                           self.fill_histos(row,'notIsoEnWjetsM',True,faketype="muonfake")
                        if self.ZttEnrich(row,self.m_t_Mass_new,self.tMtToPfMet_type1_new,self.mMtToPfMet_type1_new):

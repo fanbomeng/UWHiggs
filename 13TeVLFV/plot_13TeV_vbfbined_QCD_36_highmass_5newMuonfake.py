@@ -833,13 +833,13 @@ if fakeRate:
    wjetsMT.Scale(-1)
    #wjetsM.Scale(-1)
    wjetsM.Add(wjetsMT)
-   do_binbybinQCD(wjetsM,lowDataBin,highDataBin)
 # For now, the muon fakes is not consider, so the downward line is comment out for this reason
    #wjets.Add(wjetsM)
-   print "the number of fake muons %f and number of other fakes %f " %(wjetsM.Integral(),wjets.Integral())
    if (highMass and 'collMass_type1' in var) :
       wjets=wjets.Rebin(len(binwidth)-1,'',binwidth)
       wjetsM=wjetsM.Rebin(len(binwidth)-1,'',binwidth)
+      do_binbybinQCD(wjetsM,lowDataBin,highDataBin)
+      print "the number of fake muons %f and number of other fakes %f and the ratio  %f" %(wjetsM.Integral(),wjets.Integral(),wjetsM.Integral()/(wjetsM.Integral()+wjets.Integral()))
    else:
       wjets.Rebin(binwidth)
 if (not fakeRate):

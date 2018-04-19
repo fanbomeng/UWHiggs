@@ -3,10 +3,10 @@
 # Get the data
 #export datasrc=/hdfs/store/user/fmeng/
 #export hdfs=/hdfs/store/user/caillol/
-export datasrc=/hdfs/store/user/ndev/
+#export datasrc=/hdfs/store/user/ndev/
 #export datasrc=/hdfs/store/user/cepeda/
 #export datasrc=/hdfs/store/user/ndev/
-#export datasrc=/hdfs/store/user/taroni/
+export datasrc=/hdfs/store/user/taroni/
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_V1_October10
 #export jobid=MiniAODSIM-Spring15-25ns_LFV_MiniAODV2_Nov3
 #export jobid=MiniAODSIMv2-Spring15-25ns_LFV_October13
@@ -29,7 +29,7 @@ export datasrc=/hdfs/store/user/ndev/
 #export jobid=LFV_HighMass/
 export jobid=LFV_Feb5_2018_datasamples/
 #export jobid=LFV_Mar15_mc/
-#export jobid=LFV_reminiaod_feb21_mc/
+export jobid=LFV_reminiaod_feb21_mc/
 #export jobid=LFV_reminiaod_feb21_data/
 #export jobid=SMHTT_reminiaod_feb14/
 #export jobid=SMHTT_mc_jan17/
@@ -47,6 +47,8 @@ export afile=`find $datasrc/$jobid | grep root | head -n 1`
 echo $afile
 ## Build the cython wrappers
 #rake "make_wrapper[$afile, mmm/final/Ntuple, MuMuMuTree]"
+#rake "make_wrapper[$afile, emm/final/Ntuple, EMuMuTree]"
+rake "make_wrapper[$afile, eee/final/Ntuple, EEETree]"
 #rake "make_wrapper[$afile, mmt/final/Ntuple, MuMuTauTree]"
 #rake "make_wrapper[$afile, eet/final/Ntuple, EETauTree]"
 #rake "make_wrapper[$afile, mt/final/Ntuple, MuTauTree]"
@@ -65,6 +67,6 @@ ls *pyx | sed "s|pyx|so|" | xargs rake
 #echo "come here 22222222222222"
 #rake "meta:getmeta[inputs/$jobid, eet/metaInfo, 13,eet/summedWeights]"
 #rake "meta:getmeta[inputs/$jobid, mmt/metaInfo, 13,mmt/summedWeights]"
-rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
+#rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"
 #########rake "meta:getmeta[inputs/$jobid, mmt/metaInfo, 13,mmt/summedWeights]"
 #rake "meta:getmeta[inputs/$jobid, mt/metaInfo, 13,mt/summedWeights]"echo "come here 33333333333333"

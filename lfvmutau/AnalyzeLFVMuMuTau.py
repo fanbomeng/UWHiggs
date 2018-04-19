@@ -50,7 +50,8 @@ muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium1D_2016ReReco()
 #muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso1D_2016ReReco('Medium')
 muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso1D_2016ReReco('Medium')
 #muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
-muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+#muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReRecoeffi()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
@@ -560,10 +561,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
             if sel==True:
                 continue
 
-            #if self.is_data and not self.presel(row): #only apply trigger selections for data   
-            #    continue
-            if not self.presel(row): #only apply trigger selections for data   
+            if self.is_data and not self.presel(row): #only apply trigger selections for data   
                 continue
+            #if not self.presel(row): #only apply trigger selections for data   
+            #    continue
             if not self.selectZtt(row):
                 continue
             if not self.obj2_id (row):

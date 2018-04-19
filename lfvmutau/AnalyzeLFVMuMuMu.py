@@ -482,7 +482,7 @@ class AnalyzeLFVMuMuMu(MegaBase):
             return False
         if abs(row.m2Eta) >= 2.4:
             return False
-        if row.m3Pt<26:
+        if row.m3Pt<53:
             return False
         if abs(row.m3Eta)>=2.4:
             return False

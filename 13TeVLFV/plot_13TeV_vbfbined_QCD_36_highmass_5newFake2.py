@@ -149,7 +149,8 @@ DrawselectionLevel_2bin=False
 #JSONlumi = 35861.6952851 #newest
 Ifrebin=True
 #Ifrebin=False
-
+Ifsetnorm=True
+Ifsetnorm=False
 
 JSONlumi = 35858.4537506 #newest 50 trigger
 ROOT.gROOT.LoadMacro("tdrstyle.C")
@@ -838,6 +839,10 @@ wjetsC.Add(w1jetsC)
 wjetsC.Add(w2jetsC)
 wjetsC.Add(w3jetsC)
 wjetsC.Add(w4jetsC)
+
+
+
+
 lowDataBin =1 
 highDataBin = data.GetNbinsX()#-1
 for i in range(1,data.GetNbinsX()+1):
@@ -1129,6 +1134,16 @@ smh.SetLineWidth(1)
 smh.SetLineColor(1)
 smh.SetMarkerSize(0)
 smh.SetFillColor(880+1)
+
+if Ifsetnorm:
+  scale1 =1/(wjetsC.Integral())
+  scale2 =1/(wjets.Integral())
+  norm1=wjetsC.GetEntries()
+  norm2=wjets.GetEntries()
+
+  wjetsC.Scale(scale1)
+  wjets.Scale(scale2)
+
 LFVStack = ROOT.THStack("stack","")
 LFVStack.Add(wjets)
 #if (QCDflag == True):

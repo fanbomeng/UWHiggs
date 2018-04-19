@@ -6,8 +6,9 @@ samplelist=['DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8','DY2JetsTo
 #lumi=12890.00
 #lumi=20076.26
 lumi=1
+#lumidir="LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/"+"weights/"
 lumidir="LFV_MiniAODVtrial_sys/AnalyzeLFVMuTau/"+"weights/"
-fh = open('weightNormalNewtrigger.py','a')
+fh = open('weightNormalMuTauCheck.py','a')
 for sample in samplelist:
        if ('data' not in sample): #calculate effective luminosity
            metafile = lumidir + sample+"_weight.log"

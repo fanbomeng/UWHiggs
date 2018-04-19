@@ -187,7 +187,7 @@ if RUN_OPTIMIZATION==1:
    tmpvariable=channel.split("/")[1]
    QCDChannels={"preselection0Jet":"IsoSS0Jet/","preselectionSS":"notIsoSS/","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS/"+tmpvariable,"boost":"boostIsoSS/"+tmpvariable,"vbf":"vbfIsoSS/"+tmpvariable,"vbf_gg":"vbf_ggIsoSS/"+tmpvariable,"vbf_vbf":"vbf_vbfIsoSS/"+tmpvariable}
 else:
-   QCDChannels={'preselection':'preselectionSS','preselectionVLooseIso':'preselectionVLooseIsoSS',"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS",'IsoSS0Jet':'IsoSS0Jet'}
+   QCDChannels={'preselection':'preselectionSS','preselectionEB':'preselectionEBSS','preselectionEE':'preselectionEESS','preselectionLooseIso':'preselectionLooseIsoSS','preselectionLooseIsoEB':'preselectionLooseIsoEBSS','preselectionLooseIsoEE':'preselectionLooseIsoEESS','preselectionV05Iso':'preselectionV05IsoSS','preselectionV05IsoEB':'preselectionV05IsoEBSS','preselectionV05IsoEE':'preselectionV05IsoEESS',"preselection0Jet":"IsoSS0Jet","preselectionSS":"notIsoSS","preselection1Jet":"IsoSS1Jet","preselection2Jet":"IsoSS2Jet","gg":"ggIsoSS","boost":"boostIsoSS","vbf":"vbfIsoSS","vbf_gg":"vbf_ggIsoSS","vbf_vbf":"vbf_vbfIsoSS",'IsoSS0Jet':'IsoSS0Jet'}
 WmunufakeChannels={"preselection0Jet":"Wmunu_preselection0Jet","preselection1Jet":"Wmunu_preselection1Jet","preselection2Jet":"Wmunu_preselection2Jet","gg":"Wmunu_gg","boost":"Wmunu_boost","vbf_gg":"Wmunu_vbf_gg","vbf_vbf":"Wmunu_vbf_vbf"}
 WtaunufakeChannels={"preselection0Jet":"Wtaunu_preselection0Jet","preselection1Jet":"Wtaunu_preselection1Jet","preselection2Jet":"Wtaunu_preselection2Jet","gg":"Wtaunu_gg","boost":"Wtaunu_boost","vbf_gg":"Wtaunu_vbf_gg","vbf_vbf":"Wtaunu_vbf_vbf"}
 W2jetsfakeChannels={"preselection0Jet":"W2jets_preselection0Jet","preselection1Jet":"W2jets_preselection1Jet","preselection2Jet":"W2jets_preselection2Jet","gg":"W2jets_gg","boost":"W2jets_boost","vbf_gg":"W2jets_vbf_gg","vbf_vbf":"W2jets_vbf_vbf"}
@@ -261,8 +261,24 @@ highMass=False
 #if "gg" in channel:
 #	rootdir = "mutau_gg"
 channeltmp=channel.split("/")[0]
-if channeltmp=="vbf":
-	rootdir = "LFV_MuTau_2Jet_1_13TeVMuTau"
+if channeltmp=="preselection":
+	rootdir = "TightIso"
+if channeltmp=="preselectionEB":
+	rootdir = "TightIsoEB"
+if channeltmp=="preselectionEE":
+	rootdir = "TightIsoEE"
+if channeltmp=="preselectionLooseIso":
+	rootdir = "LooseIso"
+if channeltmp=="preselectionLooseIsoEB":
+	rootdir = "LooseIsoEB"
+if channeltmp=="preselectionLooseIsoEE":
+	rootdir = "LooseIsoEE"
+if channeltmp=="preselectionV05Iso":
+	rootdir = "VLooseIso"
+if channeltmp=="preselectionV05IsoEB":
+	rootdir = "VLooseIsoEB"
+if channeltmp=="preselectionV05IsoEE":
+	rootdir = "VLooseIsoEE"
 if channeltmp=="vbf_gg":
 	rootdir = "mutauh_2Jet_gg"
 if channeltmp=="vbf_vbf":
@@ -446,17 +462,18 @@ if 'scale_mfaketau' in shift:
     channel=channelNoral
 if 'scale_t' in shift:
   channel=channelSys
-#ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautaulow = make_histo(savedir,"ZTauTauJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautau1Jets = make_histo(savedir,"ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautau2Jets = make_histo(savedir,"ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautau3Jets = make_histo(savedir,"ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautau4Jets = make_histo(savedir,"ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
-#ztautau.Add(ztautau1Jets)
-#ztautau.Add(ztautau2Jets)
-#ztautau.Add(ztautau3Jets)
-#ztautau.Add(ztautau4Jets)
-#ztautau.Add(ztautaulow)
+ztautau = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautaulow = make_histo(savedir,"ZTauTauJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautau1Jets = make_histo(savedir,"ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautau2Jets = make_histo(savedir,"ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautau3Jets = make_histo(savedir,"ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautau4Jets = make_histo(savedir,"ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",channel,var,lumidir,lumi)
+ztautau.Add(ztautau1Jets)
+ztautau.Add(ztautau2Jets)
+ztautau.Add(ztautau3Jets)
+ztautau.Add(ztautau4Jets)
+ztautau.Add(ztautaulow)
+#do_binbybinQCD(ztautau,lowDataBin,highDataBin)
 #vbfhmutau125 = make_histo(savedir,"VBF_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 #gghmutau125 = make_histo(savedir,"GluGlu_LFV_HToMuTau_M125_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
 #vbfhmutau120 = make_histo(savedir,"VBF_LFV_HToMuTau_M120_13TeV_powheg_pythia8",channel,var,lumidir,lumi)
@@ -626,26 +643,26 @@ if (QCDflag == True):
   zjetsQCDs.Add(zjetsQCDslow)
  # do_binbybinQCD(zjetsQCDs,lowDataBin,highDataBin)
   zjetsQCDs.Scale(-1)
-#  ztautauQCDs = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-#  ztautauQCDslow = make_histo(savedir,"ZTauTauJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-# # do_binbybinQCD(ztautauQCDs,lowDataBin,highDataBin)
-#  ztautau1QCDs = make_histo(savedir,"ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-# # do_binbybinQCD(ztautau1QCDs,lowDataBin,highDataBin)
-#  ztautau2QCDs = make_histo(savedir,"ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-# # do_binbybinQCD(ztautau2QCDs,lowDataBin,highDataBin)
-#  ztautau3QCDs = make_histo(savedir,"ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-# # do_binbybinQCD(ztautau3QCDs,lowDataBin,highDataBin)
-#  ztautau4QCDs = make_histo(savedir,"ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
-##  do_binbybinQCD(ztautau4QCDs,lowDataBin,highDataBin)
-#  ztautauQCDs.Add(ztautau1QCDs)
-#  ztautauQCDs.Add(ztautau2QCDs)
-#  ztautauQCDs.Add(ztautau3QCDs)
-#  ztautauQCDs.Add(ztautau4QCDs)
-#  ztautauQCDs.Add(ztautauQCDslow)
-# # do_binbybinQCD(ztautauQCDs,lowDataBin,highDataBin)
-#  ztautauQCDs.Scale(-1)
-  #ttbarQCDs = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",QCDChannel,var,lumidir,lumi)
-  #ttbarQCDs = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",QCDChannel,var,lumidir,lumi)
+  ztautauQCDs = make_histo(savedir,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+  ztautauQCDslow = make_histo(savedir,"ZTauTauJetsToLL_M-10to50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+ # do_binbybinQCD(ztautauQCDs,lowDataBin,highDataBin)
+  ztautau1QCDs = make_histo(savedir,"ZTauTau1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+ # do_binbybinQCD(ztautau1QCDs,lowDataBin,highDataBin)
+  ztautau2QCDs = make_histo(savedir,"ZTauTau2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+ # do_binbybinQCD(ztautau2QCDs,lowDataBin,highDataBin)
+  ztautau3QCDs = make_histo(savedir,"ZTauTau3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+ # do_binbybinQCD(ztautau3QCDs,lowDataBin,highDataBin)
+  ztautau4QCDs = make_histo(savedir,"ZTauTau4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",QCDChannel,var,lumidir,lumi)
+#  do_binbybinQCD(ztautau4QCDs,lowDataBin,highDataBin)
+  ztautauQCDs.Add(ztautau1QCDs)
+  ztautauQCDs.Add(ztautau2QCDs)
+  ztautauQCDs.Add(ztautau3QCDs)
+  ztautauQCDs.Add(ztautau4QCDs)
+  ztautauQCDs.Add(ztautauQCDslow)
+ # do_binbybinQCD(ztautauQCDs,lowDataBin,highDataBin)
+  ztautauQCDs.Scale(-1)
+ #ttbarQCDs = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8-evtgen",QCDChannel,var,lumidir,lumi)
+ #ttbarQCDs = make_histo(savedir,"TT_TuneCUETP8M1_13TeV-powheg-pythia8",QCDChannel,var,lumidir,lumi)
   ttbarQCDs = make_histo(savedir,"TT_TuneCUETP8M2T4_13TeV-powheg-pythia8",QCDChannel,var,lumidir,lumi)
 #  do_binbybinQCD(ttbarQCDs,lowDataBin,highDataBin)
   ttbarQCDs.Scale(-1)
@@ -709,7 +726,7 @@ if (QCDflag == True):
 #  do_binbybinQCD(dibosonQCDs,lowDataBin,highDataBin)
   dibosonQCDs.Scale(-1)
   QCDs.Add(ttbarQCDs) #avoid double counting
-#  QCDs.Add(ztautauQCDs) #avoid double counting
+  QCDs.Add(ztautauQCDs) #avoid double counting
   QCDs.Add(zjetsQCDs) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   QCDs.Add(wjetsQCDs) #avoid double counting  say besides the fakes from DY, and ztautau,ttbar, then the remainning is wjets
   #QCDs.Add(vbfhmutau125QCDs)
@@ -1260,10 +1277,10 @@ if DY_bin:
    zmmjets.Rebin(binwidth)
    zlljets.Rebin(binwidth)
 
-#if ('BDT' in var) or highMass:
-#    ztautau=ztautau.Rebin(len(binwidth)-1,'',binwidth)
-#else:
-#    ztautau.Rebin(binwidth)
+if ('BDT' in var) or highMass:
+    ztautau=ztautau.Rebin(len(binwidth)-1,'',binwidth)
+else:
+    ztautau.Rebin(binwidth)
 if ('BDT' in var) or highMass:
     ttbar=ttbar.Rebin(len(binwidth)-1,'',binwidth)
 else:
@@ -1346,7 +1363,7 @@ outfile.cd(rootdir+"/")
 if blinded == False:
 	#if not ("Jet" in savedir or "UES" in savedir or "TES" in savedir or "Fakes" in savedir or "Fakes" in shiftStr):
 	if not ("Jet" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift or "Fakes" in shift or "Fakes" in shift or "MES" in shift):
-        	data.Write("data_obs")
+        	data.Write("data_obs"+'_'+var)
 
 if ("collMass" in var or "m_t_Mass" in var or 'type1_pfMetEtNormal' in var or 'type1_pfMetEt' in var):
   #binLow = data.FindBin(100)
@@ -1362,7 +1379,7 @@ if blinded == True:
         #if not ("Jet" in shift or "MES" in shift or "UES" in shift or "TES" in shift or 'MFT' in shift  or "Fakes" in shift or ("preselection" in shift and "Jet" in shift) or "Fakes" in shift or 'Pileup' in shift):
         #        data.Write("data_obs")
         if 'none' in shift:
-                data.Write("data_obs")
+                data.Write("data_obs"+'_'+var)
 #enum EColor { kWhite =0,   kBlack =1,   kGray=920,
 #              kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432,
 #              kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
@@ -1441,10 +1458,10 @@ if DY_bin:
    do_binbybinQCD(zlljets,lowDataBin,highDataBin)
 #ztautau.SetFillColor(ROOT.EColor.kOrange-4)
 #ztautau.SetLineColor(ROOT.EColor.kOrange+4)
-##ztautau.SetFillColor(800-4)
-##ztautau.SetLineColor(1)
-##ztautau.SetLineWidth(1)
-##ztautau.SetMarkerSize(0)
+ztautau.SetFillColor(800-4)
+ztautau.SetLineColor(1)
+ztautau.SetLineWidth(1)
+ztautau.SetMarkerSize(0)
 #zjets.SetFillColor(ROOT.EColor.kAzure+3)
 #zjets.SetLineColor(ROOT.EColor.kAzure+3)
 #zjets should be kAzure+4?
@@ -1503,7 +1520,7 @@ else:
 #print "smhgg Bin content=%f; Bin error=%f" %(smhgg.GetBinContent(4),smhgg.GetBinError(4))
 #print "smhvbf Bin content=%f; Bin error=%f" %(smhvbf.GetBinContent(4),smhvbf.GetBinError(4))
 #print "SingleT Bin content=%f; Bin error=%f" %(singlet.GetBinContent(4),singlet.GetBinError(4))
-##do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
+do_binbybin(ztautau,"ZTauTauJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
 do_binbybin(zjets,"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
 #do_binbybin(diboson,"WW_TuneCUETP8M1_13TeV-pythia8",lowDataBin,highDataBin)
 do_binbybin(diboson,"VVTo2L2Nu_13TeV_amcatnloFXFX_madspin_pythia8",lowDataBin,highDataBin)
@@ -1572,7 +1589,7 @@ if not  DY_bin:
 else:
    LFVStack.Add(zlljets)
    LFVStack.Add(zmmjets)
-#LFVStack.Add(ztautau)
+LFVStack.Add(ztautau)
 binContent_2 = (LFVStack.GetStack().Last())
 LFVStack.GetStack().Last().GetXaxis().SetLabelSize(0.)
 #print 'total background nubmers are %f' %(binContent_2.Integral())
@@ -1580,27 +1597,6 @@ if blinded==False and (not "preselectionSS" in channel) :
    for ibin in range(1,wjets.GetNbinsX()):
        binContent = (LFVStack.GetStack().Last()).GetBinContent(ibin)
 #       Lfvh = vbfhmutau125.Clone()
-#       Lfvh.Add(gghmutau125)
-       #Lfvh.Scale(0.01)
-#       if binContent!=0:
-     #print Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))
-#         if Lfvh.GetBinContent(ibin)/(math.sqrt(binContent+(binContent*0.5)**2))>=1.1:
-#            data.SetBinContent(ibin,-100)
-#if (QCDflag == True):
-#   backgroundIntegral =QCDs.GetBinContent(7)+ wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
-#else:
-#   backgroundIntegral = wjets.GetBinContent(7) + zjets.GetBinContent(7) + ztautau.GetBinContent(7) + ttbar.GetBinContent(7) + diboson.GetBinContent(7)
-#if ("vbf" in channel):
-#  signalIntegral = vbfhmutau125.GetBinContent(7)
-#else:
-#  signalIntegral = gghmutau125.GetBinContent(7)
-#print str(signalIntegral) + "   "+ str(backgroundIntegral)
-#print "Signal/sqrt(Background+Signal)!!!"
-#print str(signalIntegral/(backgroundIntegral+signalIntegral))
-
-#print "fw!!: " + str((yieldHisto(data2015B,50,200)-yieldHisto(diboson,50,200)-yieldHisto(zjets,50,200)-yieldHisto(ttbar,50,200)-yieldHisto(singlet,50,200)-yieldHisto(qcd,50,200))/(yieldHisto(wjets,50,200)))
-
-#print channel + " data - MC: (low Mt) " + str(yieldHisto(data2015B,0,50)-yieldHisto(diboson,0,50)-yieldHisto(zjets,0,50)-yieldHisto(ttbar,0,50)-yieldHisto(singlet,0,50)-yieldHisto(wjets,0,50))
 
 maxLFVStack = LFVStack.GetMaximum()
 maxData=data.GetMaximum()
@@ -1821,7 +1817,7 @@ legend.AddEntry(data, 'Observed','elp')
 legend.AddEntry(systErrors,'Bkcg Uncertainty','f')
 legend.AddEntry(smh, 'SM Higgs','f')
 #legend.AddEntry(ztautau,'Z->#tau#tau (embedded)','f')
-#legend.AddEntry(ztautau,'Z->#tau#tau ','f')
+legend.AddEntry(ztautau,'Z->#tau#tau ','f')
 legend.AddEntry(WGstarNMM,'WG','f')
 if not  DY_bin:
    legend.AddEntry(zjets,'Z->l^{+}l^{-}','f')
@@ -1861,19 +1857,19 @@ if fakeRate == True:
         if fakeallplot:
            wjets.Add(wjetsM)
 #           wjets.Add(wjetsMT)
-           wjets.Write("wjets"+shiftStr)
+           wjets.Write("wjets"+'_'+var+shiftStr)
         else:
         #   wjets.Add(wjetsM)
-           wjets.Write("Fakes"+shiftStr)
+           wjets.Write("Fakes"+'_'+var+shiftStr)
 else:
   print "******************************   qcd???????????"
   if QCDflag==True:
      wjets.Add(QCDs)
 #     do_binbybin(wjets,"WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",lowDataBin,highDataBin)
-     wjets.Write("wjets"+shiftStr)
+     wjets.Write("wjets"+'_'+var+shiftStr)
   else:
-     wjets.Write("Fakes"+shiftStr)
-zjets.Write("Zothers"+shiftStr)
+     wjets.Write("Fakes"+'_'+var+shiftStr)
+zjets.Write("Zothers"+'_'+var+shiftStr)
 
 p_ratio.cd()
 ROOT.gROOT.LoadMacro("tdrstyle.C")
@@ -1954,18 +1950,18 @@ BLAND=0
 #     wjets.Write("wjets"+shiftStr)
 #  else:
 #     wjets.Write("wjets"+shiftStr)
-#ztautau.Write("ZTauTau"+shiftStr)
-ttbar.Write("TT"+shiftStr)
+ztautau.Write("ZTauTau"+'_'+var+shiftStr)
+ttbar.Write("TT"+'_'+var+shiftStr)
 #vbfhmutau125.Scale(0.05)
 #gghmutau125.Scale(0.05)
 #vbfhmutau125.Write("LFVVBF125"+shiftStr)
 #gghmutau125.Write("LFVGG125"+shiftStr)
-smhvbf.Write("qqH_htt"+shiftStr)
-smhgg.Write("ggH_htt"+shiftStr)
-WGstarNMM.Write("WG"+shiftStr)
+smhvbf.Write("qqH_htt"+'_'+var+shiftStr)
+smhgg.Write("ggH_htt"+'_'+var+shiftStr)
+WGstarNMM.Write("WG"+'_'+var+shiftStr)
 print "Single Top Yield: " + str(singlet.Integral())
-diboson.Write("Diboson"+shiftStr)
-singlet.Write("T"+shiftStr)
+diboson.Write("Diboson"+'_'+var+shiftStr)
+singlet.Write("T"+'_'+var+shiftStr)
 full_bckg = wjets.Clone()
 full_bckg.Add(zjets)
 #full_bckg.Add(ztautau)
