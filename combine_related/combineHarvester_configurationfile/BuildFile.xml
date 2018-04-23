@@ -1,0 +1,69 @@
+<bin file="LFV.cpp" name="LFV"></bin>
+<bin file="LFVVBFHighMass200tune.cpp" name="LFVVBFHighMass200tune"></bin>
+<bin file="LFVVBFHighMass450tune.cpp" name="LFVVBFHighMass450tune"></bin>
+<bin file="LFVVBFHighMass200.cpp" name="LFVVBFHighMass200"></bin>
+<bin file="LFVVBFHighMass200new.cpp" name="LFVVBFHighMass200new"></bin>
+<bin file="LFVVBFHighMass300new.cpp" name="LFVVBFHighMass300new"></bin>
+<bin file="LFVVBFHighMass450new.cpp" name="LFVVBFHighMass450new"></bin>
+<bin file="LFVVBFHighMass600new.cpp" name="LFVVBFHighMass600new"></bin>
+<bin file="LFVVBFHighMass750new.cpp" name="LFVVBFHighMass750new"></bin>
+<bin file="LFVVBFHighMass900new.cpp" name="LFVVBFHighMass900new"></bin>
+<bin file="LFVVBFHighMass300.cpp" name="LFVVBFHighMass300"></bin>
+<bin file="LFVVBFHighMass450.cpp" name="LFVVBFHighMass450"></bin>
+<bin file="LFVVBFHighMass600.cpp" name="LFVVBFHighMass600"></bin>
+<bin file="LFVVBFHighMass750.cpp" name="LFVVBFHighMass750"></bin>
+<bin file="LFVVBFHighMass900.cpp" name="LFVVBFHighMass900"></bin>
+<bin file="LFVVBFbin.cpp" name="LFVVBF"></bin>
+<bin file="LFVVBFbin27.cpp" name="LFVVBF27"></bin>
+<bin file="LFVVBFbin27UES.cpp" name="LFVVBF27UES"></bin>
+<bin file="LFVVBFbin27UESsp.cpp" name="LFVVBF27UESsp"></bin>
+<bin file="LFVVBFSN.cpp" name="LFVVBFSN"></bin>
+<bin file="LFVVBFFinal.cpp" name="LFVVBFFinal"></bin>
+<bin file="LFVVBFFinalNOSM.cpp" name="LFVVBFFinalNOSM"></bin>
+<bin file="LFVVBFdb.cpp" name="LFVVBFdb"></bin>
+<bin file="LFVVBFbinold.cpp" name="LFVVBFold"></bin>
+<bin file="LFVVBFbinwjet.cpp" name="LFVVBFwjet"></bin>
+<bin file="LFVTable.cpp" name="LFVTable"></bin>
+<bin file="LFVYields.cpp" name="LFVYields"></bin>
+<bin file="LFVSimple.cpp" name="LFVSimple"></bin>
+
+
+<bin file="Example1.cpp" name="Example1"></bin>
+<bin file="Example2.cpp" name="Example2"></bin>
+<bin file="GamGamExample.cpp" name="GamGamExample"></bin>
+<bin file="HhhExample.cpp" name="HhhExample"></bin>
+<bin file="AZhExample.cpp" name="AZhExample"></bin>
+<bin file="ImpactsTable.cpp" name="ImpactsTable"></bin>
+<bin file="LimitCompare.cpp" name="LimitCompare"></bin>
+<bin file="MSSMExample.cpp" name="MSSMExample"></bin>
+<bin file="MSSMUpdate.cpp" name="MSSMUpdate"></bin>
+<bin file="MSSMYieldTable.cpp" name="MSSMYieldTable"></bin>
+<bin file="MSSMtauptYieldTable.cpp" name="MSSMtauptYieldTable"></bin>
+<bin file="NuisanceSummary.cpp" name="NuisanceSummary"></bin>
+<bin file="Plot1DScan.cpp" name="Plot1DScan"></bin>
+<bin file="PlotMassScan.cpp" name="PlotMassScan"></bin>
+<bin file="PlotTest.cpp" name="PlotTest"></bin>
+<bin file="PostFitPlot2.cpp" name="PostFitPlot2"></bin>
+<bin file="PostFitShapes.cpp" name="PostFitShapes"></bin>
+<bin file="PrePost.cpp" name="PrePost"></bin>
+<bin file="PrintPulls.cpp" name="PrintPulls"></bin>
+<bin file="RoundTrip.cpp" name="RoundTrip"></bin>
+<bin file="SBWeighted.cpp" name="SBWeighted"></bin>
+<bin file="SMLegacyExample.cpp" name="SMLegacyExample"></bin>
+<bin file="SOBPlot.cpp" name="SOBPlot"></bin>
+<bin file="YieldTable.cpp" name="YieldTable"></bin>
+<bin file="hzz4l.cpp" name="hzz4l"></bin>
+<use name="root"/>
+<use name="rootmath"/>
+<use name="roofit"/>
+<use name="roostats"/>
+<use name="histfactory"/>
+<use name="libxml2"/>
+<use name="vdt"/>
+<use name="python"/>
+<use name="boost_program_options"/>
+<use name="boost_filesystem"/>
+<use name="boost_python"/>
+<use name="boost_regex"/>
+<use name="rootpy"/>
+<use name="CombineHarvester/CombineTools"/>

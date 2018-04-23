@@ -9,10 +9,10 @@ RUN_OPTIMIZATION = True
 
 _0jets = {
   # 'tPt'  : range(30,50,10)+[45,50],
-   'tPt'  : [30,35,40,45,50,55],
+   'tPt'  : [30],
   # 'tPt'  : [50],
   # 'mPt'  :[25,30,35]+ range(40,60,10)+[55],
-   'mPt'  :[145,150,155,160,165,170,175,180,190],
+   'mPt'  :[150,155,160,165,170,175],
   # 'mPt'  : [50,55],
   # 'deltaPhi' : [2.95,2.9,2.85,2.8,2.7],
    #'DeltaPhi' : [2.80,2.70,2.6,2.5,2.4],
@@ -25,12 +25,12 @@ _0jets = {
    #'deltaPhi' : [3.00,2.8,2.7,2.6,2.5,2.4,2.2,2.0],
   # 'deltaPhi' : [2.1,2.5],
   # 'tMtToPfMet_type1' :[80,35,70]+ range(40,70,10),#was [20,50,10]+[35]
-   'tMtToPfMet_type1' :[140,145,150,155,160,170,180,190,195,200,205,210,220,230,240,250,260,270,280],
+   'tMtToPfMet_type1' :[200],
   # 'tMtToPfMet_type1' :[70,75],#was [20,50,10]+[35]
 }
 _0jets_default = {
    'tPt' : 45,     #was 35
-   'mPt' : 165,     #was 45
+   'mPt' : 53,     #was 45
 #   'DeltaPhi': 0,    #was 2.7
 #   'tmetdeltaPhi' :3.0,  #was 50
    'tMtToPfMet_type1' :200,  #was 50
@@ -67,11 +67,11 @@ def _get_0jet_regions(tPt, mPt, tMtToPfMet_type1):
 _1jets = {
    # 'tPt'  :[30,50,55]+ range(35,55,10),
    # 'tPt'  :[30]+ range(35,55,10)+[50,55],
-    'tPt'  :[30,35,40,45,50,55,60],
+    'tPt'  :[45],
   #  'tPt'  : [50],
     #'mPt'  :[25,45,50,55]+ range(30,50,10),
    # 'mPt'  :[25,30,40,45,50,55],
-    'mPt'  :[150,155,160,165,170,175,180,185,190],
+    'mPt'  :[150,155,160,165,170,175],
 #    'DeltaPhi' : [3.0], 
 #    'tmetdeltaPhi' : [3.2],
   #  'mPt'  : [33],
@@ -82,7 +82,7 @@ _1jets = {
 }
 _1jets_default = {
     'tPt' :45,#was  40 
-    'mPt' : 165,#was 35
+    'mPt' : 53,#was 35
 #    'DeltaPhi': 0.0,  
 #    'tmetdeltaPhi' :3.0, 
     'tMtToPfMet_type1' :230,#was 35

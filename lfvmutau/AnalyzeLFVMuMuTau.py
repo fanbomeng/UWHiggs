@@ -50,7 +50,8 @@ muon_pog_PFTight_2016 = MuonPOGCorrections.make_muon_pog_PFMedium1D_2016ReReco()
 #muon_pog_TightIso_2016 = MuonPOGCorrections.make_muon_pog_TightIso1D_2016ReReco('Medium')
 muon_pog_LooseIso_2016 = MuonPOGCorrections.make_muon_pog_LooseIso1D_2016ReReco('Medium')
 #muon_pog_IsoMu22oIsoTkMu22_2016 = MuonPOGCorrections.make_muon_pog_IsoMu22oIsoTkMu22_2016BCD()
-muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+#muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReReco()
+muon_pog_IsoMu24oIsoTkMu24_2016 = MuonPOGCorrections.make_muon_pog_IsoMu24oIsoTkMu24_2016ReRecoeffi()
 
 def mc_corrector_2016(row):
   pu = pu_corrector(row.nTruePU)
@@ -126,9 +127,9 @@ class AnalyzeLFVMuMuTau(MegaBase):
         self.is_HToTauTau= ('HToTauTau' in target)
         self.is_HToMuTau= ('HToMuTau' in target)
         self.is_mc = not (self.is_data or self.is_embedded)
-  #      if self.ls_DY or self.ls_ZTauTau:
-  #         self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016.root')
-  #         self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
+        if self.ls_DY or self.ls_ZTauTau:
+           self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016_BtoH.root')
+           self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
 
 
     def begin(self):
@@ -219,12 +220,14 @@ class AnalyzeLFVMuMuTau(MegaBase):
            if 'Loose' in name:
               weight=weight*0.99
            else:
+########!!!!!!!!!!!!!HERE  update the efficiency!!!!!!!!!!!
+              #weight=weight*0.95
               weight=weight*0.95
-        if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
-           weight=weight*getGenMfakeTSF(abs(row.tEta))
-      #  if self.ls_DY or self.ls_ZTauTau:
-      #     wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
-      #     weight=weight*wtzpt
+#        if (self.is_DY and row.isZmumu  and row.tZTTGenMatching<5):
+#           weight=weight*getGenMfakeTSF(abs(row.tEta))
+        if self.ls_DY or self.ls_ZTauTau:
+           wtzpt=self.Z_reweight_H.GetBinContent(self.Z_reweight_H.GetXaxis().FindBin(row.genM),self.Z_reweight_H.GetYaxis().FindBin(row.genpT))
+           weight=weight*wtzpt
 
 
       #  histos[name+'/weight'].Fill(weight)
@@ -461,9 +464,9 @@ class AnalyzeLFVMuMuTau(MegaBase):
     def obj1_idM(self,row):
 
         goodglob1=row.m1IsGlobal and row.m1NormalizedChi2 < 3 and row.m1Chi2LocalPosition < 12 and row.m1TrkKink < 20
-        isICHEPMedium1 = row.m1PFIDLoose and row.m1ValidFraction> 0.8 and row.m1SegmentCompatibility >  (0.303 if goodglob1 else 0.451);
+        isICHEPMedium1 = row.m1PFIDLoose and row.m1ValidFraction> 0.8 and ((goodglob1 and row.m1SegmentCompatibility >  0.303) or row.m1SegmentCompatibility>0.451);
         goodglob2=row.m2IsGlobal and row.m2NormalizedChi2 < 3 and row.m2Chi2LocalPosition < 12 and row.m2TrkKink < 20
-        isICHEPMedium2 = row.m2PFIDLoose and row.m2ValidFraction> 0.8 and row.m2SegmentCompatibility >  (0.303 if goodglob2 else 0.451);
+        isICHEPMedium2 = row.m2PFIDLoose and row.m2ValidFraction> 0.8 and (( goodglob2 and row.m2SegmentCompatibility >0.303) or row.m2SegmentCompatibility >0.451);
         return isICHEPMedium1 and isICHEPMedium2 
 
     def obj1_id(self,row):
@@ -498,18 +501,27 @@ class AnalyzeLFVMuMuTau(MegaBase):
         else:
               return 1.0/(eval("weightMuMuTauNew."+self.weighttarget))
     def obj2_id(self, row):
+        #return  row.tAgainstElectronMediumMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
         return  row.tAgainstElectronVLooseMVA6 and row.tAgainstMuonTight3 and row.tDecayModeFinding
 
+#    def vetos(self,row):
+#		return  ((row.eVetoZTTp001dxyzR0 == 0) and (row.dimuonVeto==1) and (row.muVetoZTTp001dxyzR0 < 3) and (row.tauVetoPt20Loose3HitsVtx<1) )
     def vetos(self,row):
                 return  (bool (row.muVetoPt5IsoIdVtx<1) and bool (row.eVetoMVAIso<1) and bool (row.tauVetoPt20Loose3HitsVtx<1) )
+    #def obj1_iso(self, row):
+    #    return bool(row.mRelPFIsoDBDefault <0.12)
     def tauinEB(self,row):
         return bool(abs(row.tEta)<1.479)   
     def obj1_iso(self,row):
-         return bool(row.m1RelPFIsoDBDefaultR04 <0.25 and row.m2RelPFIsoDBDefaultR04 <0.25)
-
+         return bool(row.m1RelPFIsoDBDefaultR04 <0.15 and row.m2RelPFIsoDBDefaultR04 <0.15)
+         #return bool(row.m1RelPFIsoDBDefaultR04 <0.25 and row.m2RelPFIsoDBDefaultR04 <0.25)
+##!!!!!!!!!!!!!!!!  ^ ^   HERE CHANGE TO VERY TIGHT FOR A TRIAL
     def obj2_iso(self,row):
          return bool(row.tByTightIsolationMVArun2v1DBoldDMwLT)
+  #       return bool(row.tByVTightIsolationMVArun2v1DBoldDMwLT)
 
+    #def obj2_iso(self, row):
+    #    return  row.tByTightCombinedIsolationDeltaBetaCorr3Hits
 
     def obj2_mediso(self, row):
 	 return bool(row.tByMediumIsolationMVArun2v1DBoldDMwLT)
@@ -519,9 +531,10 @@ class AnalyzeLFVMuMuTau(MegaBase):
 
     def obj2_looseiso(self,row):
          return bool(row.tByLooseIsolationMVArun2v1DBoldDMwLT)
-
+######!!!!!!!!!!!!  change to losse for a trial!!!!!!!!!!!
     def obj2_vlooseiso(self,row):
-         return bool(row.tByVLooseIsolationMVArun2v1DBoldDMwLT)
+         #return bool(row.tByVLooseIsolationMVArun2v1DBoldDMwLT)
+         return bool(row.tByLooseIsolationMVArun2v1DBoldDMwLT)
 
     def obj1_antiiso(self, row):
         return bool(row.m1RelPFIsoDBDefault >0.2 and row.m2RelPFIsoDBDefault >0.2) 
@@ -548,19 +561,33 @@ class AnalyzeLFVMuMuTau(MegaBase):
             if sel==True:
                 continue
 
-            if not self.presel(row): #only apply trigger selections for data   
+            if self.is_data and not self.presel(row): #only apply trigger selections for data   
                 continue
+            #if not self.presel(row): #only apply trigger selections for data   
+            #    continue
+######if Z->Tautau need to be plotter separately, then use this function 
+            #if not self.selectZtt(row):
+            #    continue
             if not self.obj2_id (row):
                 continue
             self.tau_Pt_C,self.Met_C_new=self.TauESC(row)
             if not self.kinematics(row): 
                 continue
+#            print "the new TauPt values*****************%f" %self.tau_Pt_C
+#            if  row.bjetCISVVeto30Medium:
+#                   continue 
             if not self.obj1_iso(row):
                 continue
+    #        if not self.obj1_idICHEP(row):
+    #            continue
             if self.is_dataG_H or (not self.is_data):
+#               print self.target1 
+#               print "the bool valueGH %d" %(self.is_dataG_H or (not self.is_data))
                if not self.obj1_idM(row):
                    continue
             else:
+#               print self.target1 
+#               print "the bool value %d" %(self.is_dataG_H or (not self.is_data))
                if not self.obj1_idICHEP(row):
                    continue
             if not self.vetos (row):
@@ -595,21 +622,21 @@ class AnalyzeLFVMuMuTau(MegaBase):
                       self.fill_histos(row,'preselection1JetEB',False)
                    else:
                       self.fill_histos(row,'preselection1JetEE',False)
-                if row.jetVeto30==2:
-                   if self.tauinEB(row):
-                      self.fill_histos(row,'preselection2_jetEB',False)
-                   else:
-                      self.fill_histos(row,'preselection2_jetEE',False)
-                   if row.vbfMass <550:
-                      if self.tauinEB(row): 
-                         self.fill_histos(row,'preselection2Jet_ggEB',False)
-                      else:
-                         self.fill_histos(row,'preselection2Jet_ggEE',False)
-                   else:
-                      if self.tauinEB(row): 
-                         self.fill_histos(row,'preselection2Jet_VBFEB',False)
-                      else:
-                         self.fill_histos(row,'preselection2Jet_VBFEE',False)
+         #       if row.jetVeto30==2:
+         #          if self.tauinEB(row):
+         #             self.fill_histos(row,'preselection2_jetEB',False)
+         #          else:
+         #             self.fill_histos(row,'preselection2_jetEE',False)
+         #          if row.vbfMass <550:
+         #             if self.tauinEB(row): 
+         #                self.fill_histos(row,'preselection2Jet_ggEB',False)
+         #             else:
+         #                self.fill_histos(row,'preselection2Jet_ggEE',False)
+         #          else:
+         #             if self.tauinEB(row): 
+         #                self.fill_histos(row,'preselection2Jet_VBFEB',False)
+         #             else:
+         #                self.fill_histos(row,'preselection2Jet_VBFEE',False)
             if self.obj2_vlooseiso(row) and (not self.oppositesign(row)):
                 self.fill_histos(row,'preselectionVLooseIsoSS',False)
                 if  self.tauinEB(row):
@@ -636,21 +663,21 @@ class AnalyzeLFVMuMuTau(MegaBase):
                       self.fill_histos(row,'preselection1JetVLooseIsoEB',False)
                    else:
                       self.fill_histos(row,'preselection1JetVLooseIsoEE',False)
-                if row.jetVeto30==2:
-                   if self.tauinEB(row): 
-                         self.fill_histos(row,'preselectionVLooseIso2_jetEB',False)
-                   else:
-                         self.fill_histos(row,'preselectionVLooseIso2_jetEE',False)
-                   if row.vbfMass <550:
-                      if self.tauinEB(row): 
-                         self.fill_histos(row,'preselection2Jet_ggVLooseIsoEB',False)
-                      else:
-                         self.fill_histos(row,'preselection2Jet_ggVLooseIsoEE',False)
-                   else:
-                      if self.tauinEB(row): 
-                         self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEB',False)
-                      else:
-                         self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEE',False)
+         #       if row.jetVeto30==2:
+         #          if self.tauinEB(row): 
+         #                self.fill_histos(row,'preselectionVLooseIso2_jetEB',False)
+         #          else:
+         #                self.fill_histos(row,'preselectionVLooseIso2_jetEE',False)
+         #          if row.vbfMass <550:
+         #             if self.tauinEB(row): 
+         #                self.fill_histos(row,'preselection2Jet_ggVLooseIsoEB',False)
+         #             else:
+         #                self.fill_histos(row,'preselection2Jet_ggVLooseIsoEE',False)
+         #          else:
+         #             if self.tauinEB(row): 
+         #                self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEB',False)
+         #             else:
+         #                self.fill_histos(row,'preselection2Jet_VBFVLooseIsoEE',False)
 
 
             if self.DecayMode0(row):           
@@ -661,6 +688,18 @@ class AnalyzeLFVMuMuTau(MegaBase):
                     self.fill_histos(row,'preselectionDecay0EB',False)
                 else:
                     self.fill_histos(row,'preselectionDecay0EE',False)
+              #  if row.jetVeto30==0:
+              #    self.fill_histos(row,'preselection0JetDecay0',False)
+              #  if row.jetVeto30==1:
+              #    self.fill_histos(row,'preselection1JetDecay0',False)
+              #  if row.jetVeto30==2:
+              #    self.fill_histos(row,'preselection2JetDecay0',False)
+ 
+            #  if self.obj2_looseiso(row) and self.oppositesign(row):
+            #    self.fill_histos(row,'preselectionLooseIsoDecay0',False)
+        
+            #  if self.obj2_mediso(row) and self.oppositesign(row):
+            #    self.fill_histos(row,'preselectionMediumIsoDecay0',False)
  
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay0',False)
@@ -669,6 +708,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 else:
                     self.fill_histos(row,'preselectionVLooseIsoDecay0EE',False)
  
+            #  if self.obj2_vtightiso(row) and self.oppositesign(row):
+            #    self.fill_histos(row,'preselectionVTightIsoDecay0',False)
 
             if self.DecayMode1(row):
               if self.obj2_iso(row) and self.oppositesign(row):
@@ -678,6 +719,18 @@ class AnalyzeLFVMuMuTau(MegaBase):
                     self.fill_histos(row,'preselectionDecay1EB',False)
                 else:
                     self.fill_histos(row,'preselectionDecay1EE',False)
+             #   if row.jetVeto30==0:
+             #     self.fill_histos(row,'preselection0JetDecay1',False)
+             #   if row.jetVeto30==1:
+             #     self.fill_histos(row,'preselection1JetDecay1',False)
+             #   if row.jetVeto30==2:
+             #     self.fill_histos(row,'preselection2JetDecay1',False)
+
+           #   if self.obj2_looseiso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionLooseIsoDecay1',False)
+  
+           #   if self.obj2_mediso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionMediumIsoDecay1',False)
 
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay1',False)
@@ -686,6 +739,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 else:
                     self.fill_histos(row,'preselectionVLooseIsoDecay1EE',False)
 
+           #   if self.obj2_vtightiso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionVTightIsoDecay1',False)
 
             if self.DecayMode10(row):
               if self.obj2_iso(row) and self.oppositesign(row):
@@ -695,6 +750,18 @@ class AnalyzeLFVMuMuTau(MegaBase):
                     self.fill_histos(row,'preselectionDecay10EB',False)
                 else:
                     self.fill_histos(row,'preselectionDecay10EE',False)
+            #    if row.jetVeto30==0:
+            #      self.fill_histos(row,'preselection0JetDecay10',False)
+            #    if row.jetVeto30==1:
+            #      self.fill_histos(row,'preselection1JetDecay10',False)
+            #    if row.jetVeto30==2:
+            #      self.fill_histos(row,'preselection2JetDecay10',False)
+
+           #   if self.obj2_looseiso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionLooseIsoDecay10',False)
+  
+           #   if self.obj2_mediso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionMediumIsoDecay10',False)
 
               if self.obj2_vlooseiso(row) and self.oppositesign(row):
                 self.fill_histos(row,'preselectionVLooseIsoDecay10',False)
@@ -703,6 +770,8 @@ class AnalyzeLFVMuMuTau(MegaBase):
                 else:
                     self.fill_histos(row,'preselectionVLooseIsoDecay10EE',False)
 
+           #   if self.obj2_vtightiso(row) and self.oppositesign(row):
+           #     self.fill_histos(row,'preselectionVTightIsoDecay10',False)
 
 
 

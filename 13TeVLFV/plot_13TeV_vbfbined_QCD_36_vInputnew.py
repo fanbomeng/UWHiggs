@@ -5,7 +5,7 @@ import sys
 import math
 import array
 import lfv_varsnew
-import XSecnew
+import XSec
 clearnoverflow=1
 moveoverflow=0
 def NoNegBins(histo):    #no negtive bin, if negtive then set Zero
@@ -71,7 +71,7 @@ def do_binbybin(histo,file_str,lowBound,highBound): #fill empty bins and negtive
         metafile = lumidir + file_str+"_weight.log"
         f = open(metafile).read().splitlines()
         nevents = float((f[0]).split(': ',1)[-1])
-        xsec = eval("XSecnew."+file_str.replace("-","_"))
+        xsec = eval("XSec."+file_str.replace("-","_"))
         if clearnoverflow:
            histo.SetBinContent(histo.GetNbinsX()+1,0.0)
            histo.SetBinError(histo.GetNbinsX()+1,0.0)
@@ -112,7 +112,7 @@ def make_histo(savedir,file_str, channel,var,lumidir,lumi,isData=False,):     #g
                 #metafile = lumidir + file_str+"_weight.log"
         	#f = open(metafile).read().splitlines()
                 #nevents = float((f[0]).split(': ',1)[-1])
-                #xsec = eval("XSecnew."+file_str.replace("-","_"))
+                #xsec = eval("XSec."+file_str.replace("-","_"))
 		#efflumi = nevents/xsec
 		#histo.Scale(lumi/efflumi) 
 		histo.Scale(lumi) 
@@ -256,7 +256,8 @@ fakeallplot=False
 drawdata=True
 #blinded = True #not blinded
 #QCDflag=True
-
+Highmass=True
+#Highmass=False
 #directory names in datacard file
 #if "preselection" in channel:
 #	rootdir="mutau_preselection"
@@ -294,6 +295,7 @@ canvas.SetFrameLineStyle(0)
 canvas.SetFrameLineWidth(3)
 canvas.SetFrameBorderMode(0)
 canvas.SetFrameBorderSize(10)
+canvas.SetLogy()
 #canvas.SetLogy()
 if shape_norm == False:
         ynormlabel = " "
@@ -350,9 +352,9 @@ elif ("collMass" in var or 'm_t_Mass' or 'type1_pfMetEt' in var) and "preselecti
 #        binwidth =array.array('d',[-0.5,-0.4,-0.3,-0.2,-0.1,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30])
 #elif "BDT" in var and ("preslection" in channel) :
 #        binwidth =array.array('d',[-0.5,-0.4,-0.3,-0.2,-0.1,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30])
-elif "BDT" in var :
-        binwidth =array.array('d',[-0.5,-0.4,-0.3,-0.2,-0.1,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30])
-
+elif "BDT" in var or Highmass :
+#        binwidth =array.array('d',[-0.5,-0.4,-0.3,-0.2,-0.1,-0.05,0.00,0.05,0.10,0.15,0.20,0.25,0.30])
+         binwidth =array.array('d',[0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,230,250,270,300,330,360,390,425,460,500,540,580,630,690,750,810,900,1000,1200,1400])
 legend = eval(varParams[8])
 isGeV = varParams[5]
 xRange = varParams[6]
@@ -1179,7 +1181,7 @@ for i in range(data.GetNbinsX(),0,-1):
 		highDataBin = i
 		break
 #Set bin widths
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
    data=data.Rebin(len(binwidth)-1,'',binwidth)
 #   print binwidth
 else:
@@ -1219,7 +1221,7 @@ if (not fakeallplot) and fakeRate:
    print 'all fakes %f' %wjets.Integral()
   # wjets=wjetsM
   # wjets.Add(wjetsMT)
-   if 'BDT' in var:
+   if 'BDT' in var or Highmass:
       wjets=wjets.Rebin(len(binwidth)-1,'',binwidth)
 #   print binwidth
    else:
@@ -1228,7 +1230,7 @@ if (not fakeallplot) and fakeRate:
    #wjetsMT.Rebin(binwidth)
 if (not fakeallplot) and (not fakeRate):
    wjets.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     zjets=zjets.Rebin(len(binwidth)-1,'',binwidth)
 else:
     zjets.Rebin(binwidth)
@@ -1236,15 +1238,15 @@ if DY_bin:
    zmmjets.Rebin(binwidth)
    zlljets.Rebin(binwidth)
 
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     ztautau=ztautau.Rebin(len(binwidth)-1,'',binwidth)
 else:
     ztautau.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     ttbar=ttbar.Rebin(len(binwidth)-1,'',binwidth)
 else:
     ttbar.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     diboson=diboson.Rebin(len(binwidth)-1,'',binwidth)
 else:
    diboson.Rebin(binwidth)
@@ -1260,23 +1262,23 @@ else:
 #    zz=zz.Rebin(len(binwidth)-1,'',binwidth)
 #else:
 #    zz.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     singlet=singlet.Rebin(len(binwidth)-1,'',binwidth)
 else:
     singlet.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     smhgg=smhgg.Rebin(len(binwidth)-1,'',binwidth)
 else:
     smhgg.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     gghmutau125=gghmutau125.Rebin(len(binwidth)-1,'',binwidth)
 else:
     gghmutau125.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     smhvbf=smhvbf.Rebin(len(binwidth)-1,'',binwidth)
 else:
     smhvbf.Rebin(binwidth)
-if 'BDT' in var:
+if 'BDT' in var or Highmass:
     vbfhmutau125=vbfhmutau125.Rebin(len(binwidth)-1,'',binwidth)
     #print '********************%f'  %(vbfhmutau125.GetNbinsX())
 else:
@@ -1652,9 +1654,9 @@ LFVStack.GetXaxis().SetTitle(xlabel)
 #        if data.GetBinContent(ibin):
 #           print 'bin content %f and bin center %f' %(data.GetBinContent(ibin),data.GetBinCenter(ibin))
 xbinLength = wjets.GetBinWidth(1)
-if isGeV and ("collMass_type1" in var or 'm_t_Mass' in var):
-   widthOfBin = binwidth*xbinLength
-print 'the bin width is ~~~~~~~~~~~~~~~`%f' %binwidth
+#if isGeV and ("collMass_type1" in var or 'm_t_Mass' in var):
+#   widthOfBin = binwidth*xbinLength
+#print 'the bin width is ~~~~~~~~~~~~~~~`%f' %binwidth
 size = wjets.GetNbinsX()
 #build tgraph of systematic bands
 xUncert = array.array('f',[])

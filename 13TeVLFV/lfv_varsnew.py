@@ -2,6 +2,9 @@
 ## order of parameters: xlabel, binwidth, legend, blindlow, blindhigh, include "GeV" on plot, xRangeMax, preselection binwidth
 higgsMass = ("Exact M(#mu#tau_{h}) (GeV)",50,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,145,True,300,50, "ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 collMass_type1 = ("Collinear Mass [GeV]",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,1400,5, "ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
+tGenPdgId = ("tGenPdgId ",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,50,1, "ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
+abstGenPdgId = ("tGenPdgId ",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,50,1, "ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
+abstJetPartonFlavour = ("abs(tJetPartonFlavour)",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,30,1, "ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
 collMass_type1MetC = ("M(#mu#tau_{h})_{col} [GeV])",20,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,150,True,300,20, "ROOT.TLegend(0.65,0.60,0.93,0.98,' ','brNDC')")
 
 collMass_jes_plus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
@@ -11,18 +14,27 @@ collMass_jes_minus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0
 collMass_type1_ues_plus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
 
 collMass_type1_ues_minus = ("M_{#mu#tau} coll [GeV]",50,"ROOT.TLegend(0.55,0.45,0.85,0.97,' ','brNDC')",100,200,True,500,20, "ROOT.TLegend(0.55,0.3,0.8,0.95,' ','brNDC')")
+ePt = ("e p_{T} (GeV)",2,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,400,1,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
+e3Pt = ("e p_{T} (GeV)",2,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,400,20,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
 mPt = ("#mu p_{T} (GeV)",2,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,400,5,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
 m3Pt = ("#mu P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,10,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 mPtavColMass = ("#mu P_{T} / ColMass",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 m1Pt = ("#mu1 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 m2Pt = ("#mu2 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
-tPt = ("#tau_{h} p_{T} (GeV)",2,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,700,5,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
+
+e1Pt = ("#e1 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+e2Pt = ("#e2 P_{T} [GeV]",5,"ROOT.TLegend(0.6,0.55,0.81,0.99,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
+
+
+tPt = ("#tau_{h} p_{T} (GeV)",2,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,500,5,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
 tPtavColMass = ("#tau P_{T} / ColMass",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
 tJetPt = ("Tau Jet P_{T}" , 10,"ROOT.TLegend(0.55,0.45,0.8,0.85,' ','brNDC')",0,0,True,0,10,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 
 mEta = ("#eta_{#mu}",10,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
+eEta = ("#eta_{e}",10,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0,1,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
+e3Eta = ("#eta_{e}",10,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 #m3Eta = ("Muon #eta",20,"ROOT.TLegend(0.13,0.6,0.33,0.9,' ','brNDC')",0,0,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 m3Eta = ("Muon #eta",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
 m3Etaabs = ("Muon |#eta|",10,"ROOT.TLegend(0.55,0.50,0.85,0.87,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
@@ -31,15 +43,15 @@ m_t_DEta = ("#left|#Delta#eta(#mu,#tau)#right|",10,"ROOT.TLegend(0.55,0.50,0.85,
 tEta = ("#eta_{#tau}",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 tPhi = ("Tau #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 mPhi = ("Muon #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
+ePhi = ("e #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,1,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
+e3Phi = ("e #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,10,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 type1_pfMetPhi = ("Met #phi",10,"ROOT.TLegend(0.7,0.65,0.9,0.88,' ','brNDC')",-1,1,False,0,5,"ROOT.TLegend(0.65,0.65,0.95,0.95,' ','brNDC')")
 
+e1_e2_Mass= ("Exact M(e,e) (GeV)",50,"ROOT.TLegend(0.23,0.60,0.53,0.97,' ','brNDC')",100,145,True,150,5, "ROOT.TLegend(0.32,0.25,0.67,0.75,' ','brNDC')")
 #m1_m2_Mass= ("Exact M(#mu#mu) (GeV)",50,"ROOT.TLegend(0.63,0.60,0.93,0.97,' ','brNDC')",100,145,True,300,2, "ROOT.TLegend(0.52,0.45,0.87,0.95,' ','brNDC')")
-m1_m2_Mass= ("Exact M(#mu#mu) (GeV)",50,"ROOT.TLegend(0.23,0.60,0.53,0.97,' ','brNDC')",100,145,True,150,5, "ROOT.TLegend(0.32,0.25,0.67,0.75,' ','brNDC')")
-mMtToPfMet_Ty1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')")
+m1_m2_Mass= ("Exact M(#mu#mu) (GeV)",50,"ROOT.TLegend(0.23,0.60,0.53,0.97,' ','brNDC')",100,145,True,150,1, "ROOT.TLegend(0.32,0.25,0.67,0.75,' ','brNDC')")
 
-mMtToPfMet_type1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.55,0.6,0.93,0.93,' ','brNDC')")
-
-tMtToPfMet_Ty1 = ("#tau,MET M_{T} Ty1 [GeV]",2,"ROOT.TLegend(0.58,0.55,0.87,0.95,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.58,0.55,0.8,0.95,' ','brNDC')")
+mMtToPfMet_type1 = ("#mu,MET M_{T} [GeV]",5,"ROOT.TLegend(0.6,0.6,0.8,0.8,' ','brNDC')",0,0,True,1000,10,"ROOT.TLegend(0.55,0.6,0.93,0.93,' ','brNDC')")
 
 #tMtToPfMet_type1 = ("#tau,MET M_{T} Ty1 [GeV]",2,"ROOT.TLegend(0.58,0.55,0.87,0.95,' ','brNDC')",0,0,True,0,5,"ROOT.TLegend(0.58,0.55,0.8,0.95,' ','brNDC')")
 tMtToPfMet_type1 = ("m_{T}(#tau,MET)",2,"ROOT.TLegend(0.58,0.55,0.87,0.95,' ','brNDC')",0,0,True,500,10,"ROOT.TLegend(0.56, 0.5, 0.93, 0.85,' ','brNDC')")
@@ -56,6 +68,7 @@ vbfDeta = ("#Delta#eta_{jj}",10,"ROOT.TLegend(0.55,0.2,0.9,0.9,' ','brNDC')",0,0
 mDPhiToPfMet_type1 = ("#Delta#phi_{m_met}",10,"ROOT.TLegend(0.75,0.2,1.1,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
 #tDPhiToPfMet_type1 = ("#Delta#phi_{t_met}",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.5,0.4,0.75,0.9,' ','brNDC')")
 tDPhiToPfMet_type1 = ("#left|#Delta#phi(#tau_{h},MET)#right|",10,"ROOT.TLegend(0.25,0.25,0.6,0.95,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.37,0.55,0.72,0.90,' ','brNDC')")
+mMtToPfMet_type1_tMtToPfMet_type1 = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 mDPhiToPfMet_tDPhiToPfMet = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 mDPhiToPfMet_ggdeltaphi = ("mDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
 tDPhiToPfMet_ggdeltaphi = ("tDPhiToPfMet",10,"ROOT.TLegend(0.35,0.2,0.7,0.9,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.7,0.8,0.95,1.1,' ','brNDC')")
@@ -101,7 +114,7 @@ fullMT_type1 = ("Full M_{T} [GeV]",40,"ROOT.TLegend(0.45,0.3,0.9,0.8,' ','brNDC'
 
 fullPT_type1 = ("Full P_{T} [GeV]",20,"ROOT.TLegend(0.45,0.6,0.8,0.8,' ','brNDC')",0,0,True,0,10,"ROOT.TLegend(0.45,0.6,0.8,0.8,' ','brNDC')")
 
-jetVeto30 = ("Number of P_{T} > 30 GeV Jets",1,"ROOT.TLegend(0.55,0.6,0.87,0.8,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.55,0.5,0.95,0.95,' ','brNDC')")
+jetVeto30 = ("Number of P_{T} > 30 GeV Jets",1,"ROOT.TLegend(0.55,0.6,0.87,0.8,' ','brNDC')",0,0,False,0,1,"ROOT.TLegend(0.55,0.5,0.95,0.95,' ','brNDC')")
 
 jetVeto30Eta3 = ("Number of P_{T} > 30 GeV Jets, |#eta|<3",1,"ROOT.TLegend(0.45,0.4,0.87,0.8,' ','brNDC')",0,0,False,0,10,"ROOT.TLegend(0.45,0.4,0.87,0.8,' ','brNDC')")
 
