@@ -175,10 +175,10 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
         self.MET_tPtC=0
         self.collMass_type1_new=-10
         self.m_t_Mass_new=-10
-# Currently the DY weight for the consideration of different generator effect(if I remember correctly) is not used, but the root file is in the directory 
-        #if self.ls_DY or self.ls_ZTauTau:
-        self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016_BtoH.root')
-        self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
+# the DY weight for the consideration of different generator effect(if I remember correctly)  
+        if self.ls_DY or self.ls_ZTauTau:
+           self.Z_reweight = ROOT.TFile.Open('zpt_weights_2016_BtoH.root')
+           self.Z_reweight_H=self.Z_reweight.Get('zptmass_histo')
     def begin(self):
 # If need other binning or checking for the mass range, then put other mass pionts in self.highMass and in the selection function 878 and 907, put in the cut values need, by changing this two, the systermatics part also suppose to change and generate the correspondence shapes
         #self.highMass=['200','300','450','600','750','900']
@@ -457,9 +457,8 @@ class AnalyzeLFVMuTau_HighMassnewtest(MegaBase):
                             fTauIso=0.083955
 
 #this the how the fake shape used to applied in the analysis, each of the was give a number that stands for a meaning for later use
-#The number, take 20170111 as an example,   2017 just the year to distiguish from other numbers, the first 0 stands for decay mode, 
-#the first 1 stands for the first parameter(P0) in the fake rate ration which is the form as P0+P1(x-30), the second 1 stand for the 
-#parameter is shifted up, and the last 1 stand for this is in the EB region 
+#The number, take 201701111 as an example,   2017 just the year to distiguish from other numbers, the first two digits 01  stands for decay mode, 
+#the second 1 stands for the first parameter(P0) in the fake rate ration which is the form as P0+P1(x-30), the 3rd 1 stand for the if the parameter is up or down  and the last 1 stand for this is in which pt range
                elif self.DoFakeshapeDM==201701111:  # 0&1(DM)   1(first parameter) 1(up) range1 
                       fTauIso=(0.238265+0.00375437)-0.000874124*(self.tau_Pt_C-30)
                elif self.DoFakeshapeDM==201701121:  # 0&1(DM)   1(first parameter) 1(down) range1 
